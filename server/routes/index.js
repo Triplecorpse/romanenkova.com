@@ -12,8 +12,12 @@ router.post('/login', (req, res) => {
         });
 });
 router.get('/logout', (req, res) => {});
+router.get('/health', (req, res) => {
+    res.json({h: new Date().toISOString()})
+});
 
-router.get('/', function (req, res) {
+
+router.get('/', (req, res) => {
     fileService.readFile('./front/dist/index.html')
         .then(data => {
             res.send(data);

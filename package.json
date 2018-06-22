@@ -4,7 +4,7 @@
   "description": "Personal site",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test/index.spec.js",
     "start": "node server/app.js"
   },
   "repository": {
@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/Triplecorpse/romanenkova#readme",
   "devDependencies": {
+    "chai": "^4.1.2",
     "log": "^1.4.0",
-    "mongoose": "^5.1.5"
+    "mongoose": "^5.1.5",
+    "supertest": "^3.1.0"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
