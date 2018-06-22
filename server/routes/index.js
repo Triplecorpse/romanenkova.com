@@ -8,7 +8,10 @@ router.use('/api', require('./api'));
 router.post('/login', (req, res) => {
     authService.getToken()
         .then(data => {
-            res.send(data);
+            res.json({token: data, success: true});
+        })
+        .catch(err => {
+            res.status(401).send(err);
         });
 });
 router.get('/logout', (req, res) => {});
