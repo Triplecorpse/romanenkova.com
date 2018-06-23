@@ -2,11 +2,14 @@ const router = require('express').Router();
 const fileService = require('../services/file-service');
 const log = require('./../services/log-service');
 const authService = require('./../services/auth-service');
+const bodyParser = require('body-parser');
+router.use(bodyParser.json());
+
 
 router.use('/api', require('./api'));
 
 router.post('/login', (req, res) => {
-    authService.getToken()
+    authService.getToken(req.body)
         .then(data => {
             res.json({token: data, success: true});
         })
@@ -14,7 +17,7 @@ router.post('/login', (req, res) => {
             res.status(401).send(err);
         });
 });
-router.get('/logout', (req, res) => {});
+
 router.get('/health', (req, res) => {
     res.json({h: new Date().toISOString()})
 });
