@@ -1,18 +1,14 @@
-const mongoose = require('mongoose');
 const Article = require('../../models/article');
 const ArticleLanguageContainer = require('../../models/article-language-container');
-
-function createLanguageContainer(header, langOptions) {
-    return new ArticleLanguageContainer({header, ...langOptions}).save();
-}
+const log = require('./../log-service');
 
 function read(id, all = false) {
     const options = {};
     let method = 'find';
 
     if (id) {
-        options.url = id;
-        method = 'findOne'
+        options._id = id;
+        method = 'findById'
     }
 
     if (!all) {
@@ -23,11 +19,15 @@ function read(id, all = false) {
     return Article[method](options);
 }
 
-function create(body, languageContainerName, isNewContainer) {
+function create(body, languageContainerId) {
     const validationStatus = validator(body);
 
     if (!validationStatus.succcess) {
         return Promise.reject(validationStatus);
+    }
+
+    if (!languageContainerId) {
+        return Promise.reject(new Error('Single article should be in language container'));
     }
 
     const now = new Date();
@@ -41,16 +41,18 @@ function create(body, languageContainerName, isNewContainer) {
     };
     const article = new Article(articleObj);
 
-    return article.save()
+    return ArticleLanguageContainer.findOne(languageContainerId)
+        .then(container => {
+            if (container[body.language]) {
+                throw new Error(`Language ${body.language} for container named ${container.name} is already filled`);
+            }
+
+            return article.save();
+        })
         .then(article => {
             const optObj = {};
             optObj[article.language] = article._id;
-
-            if (isNewContainer) {
-                createLanguageContainer(languageContainerName, optObj);
-            } else {
-                ArticleLanguageContainer.updateOne({header: languageContainerName}, optObj);
-            }
+            ArticleLanguageContainer.updateOne({_id: languageContainerId}, optObj).then();
 
             return article;
         });

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const model = {
-    header: String,
+    name: String,
     ru: String,
     en: String,
     ua: String
