@@ -1,4 +1,5 @@
 module.exports = {
     port: 3000,
-    db: 'mongodb://localhost/test'
+    dbt: 'mongodb://localhost/rom_test',
+    dbp: 'mongodb://localhost/rom_prod'
 };
