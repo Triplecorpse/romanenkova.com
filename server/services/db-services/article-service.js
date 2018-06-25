@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 const Article = require('../../models/article');
+const ArticleLanguageContainer = require('../../models/article-language-container');
+
+function createLanguageContainer(header, langOptions) {
+    return new ArticleLanguageContainer({header, ...langOptions}).save();
+}
 
 function read(id, all = false) {
     const options = {};
@@ -18,7 +23,7 @@ function read(id, all = false) {
     return Article[method](options);
 }
 
-function create(body) {
+function create(body, languageContainerName, isNewContainer) {
     const validationStatus = validator(body);
 
     if (!validationStatus.succcess) {
@@ -36,7 +41,19 @@ function create(body) {
     };
     const article = new Article(articleObj);
 
-    return article.save();
+    return article.save()
+        .then(article => {
+            const optObj = {};
+            optObj[article.language] = article._id;
+
+            if (isNewContainer) {
+                createLanguageContainer(languageContainerName, optObj);
+            } else {
+                ArticleLanguageContainer.updateOne({header: languageContainerName}, optObj);
+            }
+
+            return article;
+        });
 }
 
 function update(id, body) {

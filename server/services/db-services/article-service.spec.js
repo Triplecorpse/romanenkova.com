@@ -1,6 +1,7 @@
 const articleService = require('./article-service');
 const authService = require('../auth-service');
 const expect = require('chai').expect;
+const fail = require('chai').fail;
 const mongoose = require('mongoose');
 const config = require('../../config');
 
@@ -26,7 +27,7 @@ describe('Article Service', function () {
             })
     });
 
-    it('should create a new article', done => {
+    it('should create a new article and article language container', done => {
         const articleStub = {
             header: 'Test Article Header',
             body: 'Test Article Body',
@@ -36,7 +37,7 @@ describe('Article Service', function () {
 
         articleService.create(articleStub)
             .then(article => {
-                expect(article).to.deep.include(articleStub);
+                expect(article[language]).to.deep.include(articleStub);
                 articleId = article.id;
                 console.log('articleId', articleId);
                 done();
@@ -56,7 +57,8 @@ describe('Article Service', function () {
             .then(article => {
                 done(article);
             })
-            .catch(() => {
+            .catch(err => {
+                expect(err.message).to.equal('Header, body, logo and language are required for article');
                 done()
             })
     });
@@ -151,5 +153,24 @@ describe('Article Service', function () {
                 expect(err.message).to.equal(`No article was deleted. Maybe, an article with id 5b310825adeaa01810b2f34a was not found`);
                 done()
             })
+    });
+
+    it('should delete an existing article with correspondent article language container', done => {
+        articleService.remove(articleId)
+            .then(article => {
+                expect(article).to.deep.include({n: 1});
+                done();
+            })
+            .catch(err => {
+                done(err)
+            })
+    });
+
+    it('should read all articles', done => {
+        done(1);
+    });
+
+    it('should read articles that are not deleted and are published', done => {
+        done(1);
     });
 });
