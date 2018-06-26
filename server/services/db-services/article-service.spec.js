@@ -1,10 +1,8 @@
 const articleService = require('./article-service');
 const articleLanguageContainerService = require('./article-language-container-service');
 const expect = require('chai').expect;
-const fail = require('chai').fail;
 const mongoose = require('mongoose');
 const config = require('../../config');
-const log = require('./../log-service');
 
 describe('Article Service', function () {
     let articleId;
