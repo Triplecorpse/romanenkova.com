@@ -204,6 +204,23 @@ describe('Article Service', function () {
     });
 
     it('should read articles that are not deleted and are published', done => {
+        Promise.all(
+            articleLanguageContainerService.create('1'),
+            articleLanguageContainerService.create('2'),
+            articleLanguageContainerService.create('3')
+        )
+            .then(values => {
+                values.forEach((value, index) => {
+                    articleService.create({
+                        header: '',
+                        body: '',
+                        logo: '',
+                        language: 'ru',
+                        isDeleted: index === 0,
+                        isPublished: index !== 1
+                    }, value._id);
+                })
+            });
         articleService.read()
             .then(articles => {
                 let err;
@@ -223,7 +240,7 @@ describe('Article Service', function () {
     it('should delete an existing article', done => {
         articleService.remove(articleId)
             .then(article => {
-                expect(article).to.deep.include({n: 1});
+                expect(article.n).to.equal(1);
                 done();
             })
             .catch(err => {
