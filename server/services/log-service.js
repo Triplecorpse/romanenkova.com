@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Log = require('log');
-const log = new Log('info', fs.createWriteStream('my.log'));
+const log = new Log('info', fs.createWriteStream('./my.log'));
 const newLog = {
     info(...args) {
         beforeEach(...args);
