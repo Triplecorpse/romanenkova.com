@@ -1,5 +1,5 @@
 const articleService = require('./article-service');
-const articleLanguageContainerService = require('./article-language-container-service');
+const articleLanguageContainerService = require('./language-container-service');
 const expect = require('chai').expect;
 const mongoose = require('mongoose');
 const config = require('../../config');

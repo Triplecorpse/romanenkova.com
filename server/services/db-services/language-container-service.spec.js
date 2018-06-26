@@ -1,9 +1,9 @@
-const articleLanguageService = require('./article-language-container-service');
+const articleLanguageService = require('./language-container-service');
 const expect = require('chai').expect;
 const mongoose = require('mongoose');
 const config = require('../../config');
 
-describe('Article Language Container Service', function () {
+describe('Article Language Container Service', () => {
     let languageContainerId;
 
     before(done => {
