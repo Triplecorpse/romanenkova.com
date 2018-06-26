@@ -3,6 +3,7 @@ const articleLanguageContainerService = require('./article-language-container-se
 const expect = require('chai').expect;
 const mongoose = require('mongoose');
 const config = require('../../config');
+const log = require('./../log-service');
 
 describe('Article Service', function () {
     let articleId;
@@ -246,14 +247,14 @@ describe('Article Service', function () {
     describe('DELETE', () => {
         it('should delete an existing article', done => {
             articleService.remove(articleId)
-                .then(article => {
-                    expect(article.n).to.equal(1);
+                .then(result => {
+                    expect(result.n).to.equal(1);
                     done();
                 })
                 .catch(err => {
                     done(err)
                 })
-        });
+        }).timeout(3000);
 
         it('should reject deleting an article with an id that doen\'t exist', done => {
             articleService.remove('5b310825adeaa01810b2f34a')

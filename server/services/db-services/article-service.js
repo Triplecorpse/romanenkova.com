@@ -44,7 +44,7 @@ function create(body, languageContainerId) {
     return ArticleLanguageContainer.findOne(languageContainerId)
         .then(container => {
             if (container[body.language]) {
-                throw new Error(`Language ${body.language} for container named ${container.name} is already filled`);
+                return Promise.reject(new Error(`Language ${body.language} for container named ${container.name} is already filled`));
             }
 
             return article.save();
@@ -96,8 +96,9 @@ function remove(id) {
     return Article.deleteOne({_id: id})
         .then(result => {
             if (!result.n) {
-                throw new Error(`No article was deleted. Maybe, an article with id ${id} was not found`);
+                return Promise.reject(new Error(`No article was deleted. Maybe, an article with id ${id} was not found`));
             }
+
             return result;
         });
 }
