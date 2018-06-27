@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
-const fileService = require('./file-service');
+const fileService = require('../file-service');
 
 function getToken(data) {
     if (!data || !data.login || !data.password) {

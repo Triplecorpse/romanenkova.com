@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const fileService = require('../services/file-service');
 const log = require('./../services/log-service');
-const authService = require('./../services/auth-service');
+const authService = require('../services/security-services/auth-service');
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 
