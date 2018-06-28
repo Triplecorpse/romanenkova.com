@@ -1,5 +1,8 @@
 # Irina Romanenkova's site
 
+## init
+`set PORT={number}`
+
 ## API doc
 1. Article
 

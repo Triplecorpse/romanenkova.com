@@ -1,6 +1,10 @@
 import express from 'express';
 const router = express.Router();
 
-router.use('/article', require('./article'));
+import article from './article';
+import page from './page';
 
-module.exports = router;
+router.use('/article', article);
+router.use('/page', page);
+
+export default router;

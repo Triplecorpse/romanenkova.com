@@ -1,13 +1,15 @@
 import express from 'express';
 const router = express.Router();
 
+import api from './api/index';
+
 import {readFile} from '../services/file-service';
 import log from './../services/log-service';
 import {getToken} from '../services/security-services/auth-service';
 import bodyParser from 'body-parser';
 router.use(bodyParser.json());
 
-router.use('/api', require('./api'));
+router.use('/api', api);
 
 router.post('/login', (req, res) => {
     getToken(req.body)
@@ -15,7 +17,7 @@ router.post('/login', (req, res) => {
             res.json({token: data, success: true});
         })
         .catch(err => {
-            res.status(401).send(err);
+            res.status(401).send({success: false, message: 'Invalid credentials'});
         });
 });
 
