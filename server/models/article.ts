@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import * as mongoose from 'mongoose';
 const schema = new mongoose.Schema({
     logo: String,
     header: String,
@@ -12,4 +12,4 @@ const schema = new mongoose.Schema({
     url: String
 });
 
-module.exports = mongoose.model('Article', schema);
+export const model = mongoose.model('Article', schema);

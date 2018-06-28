@@ -1,15 +1,16 @@
-const router = require('express').Router();
-const fileService = require('../services/file-service');
-const log = require('./../services/log-service');
-const authService = require('../services/security-services/auth-service');
-const bodyParser = require('body-parser');
-router.use(bodyParser.json());
+import express from 'express';
+const router = express.Router();
 
+import {readFile} from '../services/file-service';
+import log from './../services/log-service';
+import {getToken} from '../services/security-services/auth-service';
+import bodyParser from 'body-parser';
+router.use(bodyParser.json());
 
 router.use('/api', require('./api'));
 
 router.post('/login', (req, res) => {
-    authService.getToken(req.body)
+    getToken(req.body)
         .then(data => {
             res.json({token: data, success: true});
         })
@@ -18,13 +19,8 @@ router.post('/login', (req, res) => {
         });
 });
 
-router.get('/health', (req, res) => {
-    res.json({h: new Date().toISOString()})
-});
-
-
 router.get('/', (req, res) => {
-    fileService.readFile('./front/dist/index.html')
+    readFile('./front/dist/index.html')
         .then(data => {
             res.send(data);
         })

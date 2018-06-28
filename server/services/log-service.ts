@@ -1,23 +1,21 @@
-const fs = require('fs');
+import fs from 'fs';
 const Log = require('log');
 const log = new Log('info', fs.createWriteStream('./my.log'));
-const newLog = {
-    info(...args) {
+export default {
+    info(...args: Array<any>) {
         beforeEach(...args);
         log.info(...args);
     },
-    error(...args) {
+    error(...args: Array<any>) {
         beforeEach(...args);
         log.error(...args);
     },
-    warning(...args) {
+    warning(...args: Array<any>) {
         beforeEach(...args);
         log.warning(...args);
     }
 };
 
-function beforeEach(...args) {
+function beforeEach(...args: Array<any>) {
     console.log(...args);
 }
-
-module.exports = newLog;
