@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha test/index.spec.js",
-    "start": "ts-node server/app"
+    "start": "ts-node server/app",
+    "initpages": "ts-node test/initialize-pages"
   },
   "repository": {
     "type": "git",
