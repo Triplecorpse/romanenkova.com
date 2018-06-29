@@ -1,13 +1,20 @@
-import mongoose from 'mongoose';
-export interface iPage {
-    header: string;
-    body?: string;
-    entityId: string;
-    language: 'ru' | 'en' | 'ua';
+import mongoose, {HookNextFunction} from 'mongoose';
+import {iMongooseSchema} from "./iMongooseSchema";
+
+export interface iNav extends iMongooseSchema {
+    name: string;
+    href: string;
 }
+
+export interface iPage extends iMongooseSchema {
+    header?: string;
+    body?: string | Array<iNav>;
+    entityId?: string;
+}
+
 const schema = new mongoose.Schema({
-    header: {type: String, required: true},
-    body: String,
+    header: {type: String, required: false},
+    body: {type: String, required: false},
     language: {type: String, required: true, maxlength: 2},
     entityId: {type: String, required: true, lowercase: true},
 }, {strict: false});

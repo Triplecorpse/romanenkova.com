@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha test/index.spec.js",
     "start": "ts-node server/app",
-    "initpages": "ts-node test/initialize-pages"
+    "dbinit": "ts-node test/initialize-pages"
   },
   "repository": {
     "type": "git",

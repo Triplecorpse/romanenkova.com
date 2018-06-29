@@ -1,20 +1,6 @@
 import * as mongoose from 'mongoose';
-import {iMongooseSchema} from "./iMongooseSchema";
-
-export interface iArticle extends iMongooseSchema {
-    logo: string;
-    header: string;
-    isPublished: boolean;
-    createdAt: Date;
-    updatedAt: Date,
-    deletedAt: Date,
-    isDeleted: boolean,
-    url: string,
-    articleId: string
-}
-
 const schema = new mongoose.Schema({
-    logo: {type: String, required: true},
+    picture: {type: String, required: true},
     header: {type: String, required: true},
     body: {type: String, required: true},
     isPublished: {type: Boolean, require: true},

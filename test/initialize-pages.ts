@@ -2,6 +2,7 @@ import {iPage, model as Page} from "../server/models/page";
 import log from "../server/services/log-service";
 import {config} from "../server/config";
 import mongoose, {DocumentQuery} from "mongoose";
+import {Cursor} from "mongodb";
 
 const pagesToPush: Array<iPage> = [];
 
@@ -9,9 +10,51 @@ mongoose.connect(config.dbp)
     .then((): DocumentQuery<any, any> => {
         log.warning('RUN OF PAGES CREATE');
 
+        return Page.find({entityId: 'nav'});
+    })
+    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
+        log.warning('RUN OF NAVIGATION CREATE', pages.length);
+
+        if (!pages.length) {
+            pagesToPush.push({
+                body: `[
+                    {name: 'Online psychology', href: '/'},
+                    {name: 'About me', href: '/about'},
+                    {name: 'Services', href: '/services'},
+                    {name: 'Diplomas', href: '/diplomas'},
+                    {name: 'Articles', href: '/articles'},
+                    {name: 'Contacts', href: '#'}
+                ]`,
+                language: 'en',
+                entityId: 'nav'
+            }, {
+                body: `[
+                    {name: 'Онлайн психология', href: '/'},
+                    {name: 'Обо мне', href: '/about'},
+                    {name: 'Услуги', href: '/services'},
+                    {name: 'Дипломы', href: '/diplomas'},
+                    {name: 'Статьи', href: '/articles'},
+                    {name: 'Контакты', href: '#'}
+                ]`,
+                language: 'ru',
+                entityId: 'nav'
+            }, {
+                body: `[
+                    {name: 'Онлайн психологія', href: '/'},
+                    {name: 'Про мене', href: '/about'},
+                    {name: 'Послуги', href: '/services'},
+                    {name: 'Дипломи', href: '/diplomas'},
+                    {name: 'Статті', href: '/articles'},
+                    {name: 'Контакти', href: '#'},
+                ]`,
+                language: 'ua',
+                entityId: 'nav'
+            });
+        }
+
         return Page.find({entityId: 'main'});
     })
-    .then((pages: Array<any>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF MAIN CREATE', pages.length);
 
         if (!pages.length) {
@@ -32,7 +75,7 @@ mongoose.connect(config.dbp)
 
         return Page.find({entityId: 'about'});
     })
-    .then((pages: Array<any>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF ABOUT CREATE', pages.length);
 
         if (!pages.length) {
@@ -56,7 +99,7 @@ mongoose.connect(config.dbp)
 
         return Page.find({entityId: 'service'});
     })
-    .then((pages: Array<any>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF SERVICE CREATE', pages.length);
 
         if (!pages.length) {
@@ -77,7 +120,7 @@ mongoose.connect(config.dbp)
 
         return Page.find({entityId: 'diploma'});
     })
-    .then((pages: Array<any>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF DIPLOMA CREATE', pages.length);
 
         if (!pages.length) {
@@ -98,7 +141,7 @@ mongoose.connect(config.dbp)
 
         return Page.find({entityId: 'article'});
     })
-    .then((pages: Array<any>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF ARTICLE CREATE', pages.length);
 
         if (!pages.length) {
@@ -119,28 +162,31 @@ mongoose.connect(config.dbp)
 
         return Page.find({entityId: 'contacts'});
     })
-    .then((pages: Array<any>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF CONTACTS CREATE', pages.length);
 
         if (!pages.length) {
             pagesToPush.push({
                 entityId: 'contacts',
                 header: 'Contacts',
+                body: '',
                 language: 'en'
             }, {
                 entityId: 'contacts',
                 header: 'Контакты',
+                body: '',
                 language: 'ru'
             }, {
                 entityId: 'contacts',
                 header: 'Контакти',
+                body: '',
                 language: 'ua'
             });
         }
 
         return Page.find()
     })
-    .then((data: Array<any>): Promise<mongoose.Document[] | never> => {
+    .then((data: Array<Cursor<iPage>>): Promise<mongoose.Document[] | never> => {
         if (data && data.length && pagesToPush.length) {
             log.error('Some data found in pages, for security reasons delete it by hand. No overwrite will be performed');
             return Promise.reject();
