@@ -26,7 +26,6 @@ export function read(entityId: string, language: string): Promise<iPage> {
 export function update(entityId: string, language: string, page: iPage): Promise<iPage> {
     return Page.updateOne({entityId, language}, page)
         .then((result: UpdateWriteOpResult) => {
-            console.log(result);
             return read(entityId, language);
         });
 }

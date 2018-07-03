@@ -18,34 +18,34 @@ mongoose.connect(config.dbp)
         if (!pages.length) {
             pagesToPush.push({
                 body: `[
-                    {name: 'Online psychology', href: '/'},
-                    {name: 'About me', href: '/about'},
-                    {name: 'Services', href: '/services'},
-                    {name: 'Diplomas', href: '/diplomas'},
-                    {name: 'Articles', href: '/articles'},
-                    {name: 'Contacts', href: '#'}
+                    {name: "Online psychology", anchor: "main"},
+                    {name: "About me", anchor: "about"},
+                    {name: "Services", anchor: "services"},
+                    {name: "Diplomas", anchor: "diplomas"},
+                    {name: "Articles", anchor: "articles"},
+                    {name: "Contacts", anchor: "contacts"}
                 ]`,
                 language: 'en',
                 entityId: 'nav'
             }, {
                 body: `[
-                    {name: 'Онлайн психология', href: '/'},
-                    {name: 'Обо мне', href: '/about'},
-                    {name: 'Услуги', href: '/services'},
-                    {name: 'Дипломы', href: '/diplomas'},
-                    {name: 'Статьи', href: '/articles'},
-                    {name: 'Контакты', href: '#'}
+                    {name: "Онлайн психология", anchor: "main"},
+                    {name: "Обо мне", anchor: "about"},
+                    {name: "Услуги", anchor: "services"},
+                    {name: "Дипломы", anchor: "diplomas"},
+                    {name: "Статьи", anchor: "articles"},
+                    {name: "Контакты", anchor: contacts"}
                 ]`,
                 language: 'ru',
                 entityId: 'nav'
             }, {
                 body: `[
-                    {name: 'Онлайн психологія', href: '/'},
-                    {name: 'Про мене', href: '/about'},
-                    {name: 'Послуги', href: '/services'},
-                    {name: 'Дипломи', href: '/diplomas'},
-                    {name: 'Статті', href: '/articles'},
-                    {name: 'Контакти', href: '#'},
+                    {name: "Онлайн психологія", anchor: "main"},
+                    {name: "Про мене", anchor: "about"},
+                    {name: "Послуги", anchor: "services"},
+                    {name: "Дипломи", anchor: "diplomas"},
+                    {name: "Статті", anchor: "articles"},
+                    {name: "Контакти", anchor: "contacts"},
                 ]`,
                 language: 'ua',
                 entityId: 'nav'
@@ -169,17 +169,17 @@ mongoose.connect(config.dbp)
             pagesToPush.push({
                 entityId: 'contacts',
                 header: 'Contacts',
-                body: '',
+                body: '[{name: "Skype", account: "ira"}, {name: "Phone", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]',
                 language: 'en'
             }, {
                 entityId: 'contacts',
                 header: 'Контакты',
-                body: '',
+                body: '[{name: "Skype", account: "ira"}, {name: "Телефон", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]',
                 language: 'ru'
             }, {
                 entityId: 'contacts',
                 header: 'Контакти',
-                body: '',
+                body: '[{name: "Skype", account: "ira"}, {name: "Телефон", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]',
                 language: 'ua'
             });
         }
