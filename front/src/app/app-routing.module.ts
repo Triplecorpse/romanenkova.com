@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'index',
+  { path: '',
     loadChildren: './pages/index/index.module#IndexModule'
   },
   {
@@ -25,8 +25,8 @@ const routes: Routes = [
     path: 'article/:id',
     loadChildren: './pages/article/article.module#ArticleModule'
   },
-  { path: '', redirectTo: '/main', pathMatch: 'full' },
-  { path: '**', redirectTo: '/main', pathMatch: 'full' }
+  { path: '', redirectTo: '/', pathMatch: 'full' },
+  { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
 @NgModule({

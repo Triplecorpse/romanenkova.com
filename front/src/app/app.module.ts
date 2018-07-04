@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ContactsComponent } from './conponents/contacts/contacts.component';
-import { HeaderComponent } from './conponents/header/header.component';
-import { FooterComponent } from './conponents/footer/footer.component';
-import { AttendButtonComponent } from './conponents/attend-button/attend-button.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AttendButtonComponent } from './components/attend-button/attend-button.component';
 
 @NgModule({
   declarations: [

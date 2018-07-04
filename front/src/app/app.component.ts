@@ -8,11 +8,17 @@ import {filter} from 'rxjs/internal/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public src: string;
+
   constructor(private router: Router) {
     this.router.events
       .pipe(filter((e: RouterEvent) => e instanceof NavigationEnd))
-      .subscribe((e: RouterEvent): void => {
-        console.log(e);
+      .subscribe((e: NavigationEnd): void => {
+        if (e.urlAfterRedirects === '/') {
+          this.src = 'assets/header-main.png';
+        } else {
+          this.src = 'assets/header-common.png';
+        }
       });
   }
   title = 'app';
