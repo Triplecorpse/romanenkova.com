@@ -46,7 +46,13 @@ router
 
         read(id, language)
             .then((data: iPage) => {
-                res.json({header: data.header, body: data.body});
+                let returnBody;
+                if (id === 'nav') {
+                    returnBody = JSON.parse(data.body as string);
+                } else {
+                    returnBody = {header: data.header, body: data.body};
+                }
+                res.json(returnBody);
             })
             .catch((err: Error) => {
                 res.status(500).json({m: err.message});

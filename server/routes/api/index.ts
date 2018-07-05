@@ -9,6 +9,8 @@ import log from './../../services/log-service'
 router.use('*', (req: Request, res: Response, next: NextFunction) => {
     log.info('Request registered from', req.hostname, req.method, req.baseUrl);
     if (req.hostname.includes('romanenkova.com') || req.hostname.includes('localhost')) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         next();
     } else {
         res.status(403).json({m: 'Request are allowed from domain romanenkova.com only'});

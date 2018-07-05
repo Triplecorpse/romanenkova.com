@@ -15,42 +15,40 @@ mongoose.connect(config.dbp)
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF NAVIGATION CREATE', pages.length);
 
-        if (!pages.length) {
-            pagesToPush.push({
-                body: `[
+        pagesToPush.push({
+            body: JSON.stringify([
                     {name: "Online psychology", anchor: "main"},
                     {name: "About me", anchor: "about"},
                     {name: "Services", anchor: "services"},
                     {name: "Diplomas", anchor: "diplomas"},
                     {name: "Articles", anchor: "articles"},
                     {name: "Contacts", anchor: "contacts"}
-                ]`,
-                language: 'en',
-                entityId: 'nav'
-            }, {
-                body: `[
+                ]),
+            language: 'en',
+            entityId: 'nav'
+        }, {
+            body: JSON.stringify([
                     {name: "Онлайн психология", anchor: "main"},
                     {name: "Обо мне", anchor: "about"},
                     {name: "Услуги", anchor: "services"},
                     {name: "Дипломы", anchor: "diplomas"},
                     {name: "Статьи", anchor: "articles"},
-                    {name: "Контакты", anchor: contacts"}
-                ]`,
-                language: 'ru',
-                entityId: 'nav'
-            }, {
-                body: `[
+                    {name: "Контакты", anchor: "contacts"}
+                ]),
+            language: 'ru',
+            entityId: 'nav'
+        }, {
+            body: JSON.stringify([
                     {name: "Онлайн психологія", anchor: "main"},
                     {name: "Про мене", anchor: "about"},
                     {name: "Послуги", anchor: "services"},
                     {name: "Дипломи", anchor: "diplomas"},
                     {name: "Статті", anchor: "articles"},
                     {name: "Контакти", anchor: "contacts"},
-                ]`,
-                language: 'ua',
-                entityId: 'nav'
-            });
-        }
+                ]),
+            language: 'ua',
+            entityId: 'nav'
+        });
 
         return Page.find({entityId: 'main'});
     })
