@@ -8,7 +8,7 @@ export interface iNav extends iMongooseSchema {
 
 export interface iPage extends iMongooseSchema {
     header?: string;
-    body?: string | Array<iNav>;
+    body?: string;
     entityId?: string;
 }
 
