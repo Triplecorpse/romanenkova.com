@@ -23,7 +23,7 @@ router.post('/login', (req: Request, res: Response) => {
         });
 });
 
-router.get('/', (req, res) => {
+router.get('/', (req: Request, res: Response) => {
     readFile('./front/dist/index.html')
         .then(data => {
             res.send(data);
