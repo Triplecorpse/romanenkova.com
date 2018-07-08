@@ -46,7 +46,7 @@ mongoose.connect(config.dbp)
                     {name: "Статті", anchor: "articles"},
                     {name: "Контакти", anchor: "contacts"},
                 ]),
-            language: 'ua',
+            language: 'uk',
             entityId: 'nav'
         });
 
@@ -67,7 +67,7 @@ mongoose.connect(config.dbp)
             }, {
                 entityId: 'main',
                 header: 'Онлайн консультації психолога',
-                language: 'ua'
+                language: 'uk'
             });
         }
 
@@ -91,7 +91,7 @@ mongoose.connect(config.dbp)
                 entityId: 'about',
                 header: 'Про мене',
                 body: 'Буде заповнено',
-                language: 'ua'
+                language: 'uk'
             });
         }
 
@@ -112,7 +112,7 @@ mongoose.connect(config.dbp)
             }, {
                 entityId: 'service',
                 header: 'Послуги',
-                language: 'ua'
+                language: 'uk'
             });
         }
 
@@ -133,7 +133,7 @@ mongoose.connect(config.dbp)
             }, {
                 entityId: 'diploma',
                 header: 'Дипломи',
-                language: 'ua'
+                language: 'uk'
             });
         }
 
@@ -154,7 +154,7 @@ mongoose.connect(config.dbp)
             }, {
                 entityId: 'article',
                 header: 'Статті',
-                language: 'ua'
+                language: 'uk'
             });
         }
 
@@ -178,7 +178,7 @@ mongoose.connect(config.dbp)
                 entityId: 'contacts',
                 header: 'Контакти',
                 body: '[{name: "Skype", account: "ira"}, {name: "Телефон", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]',
-                language: 'ua'
+                language: 'uk'
             });
         }
 

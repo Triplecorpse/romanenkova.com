@@ -1,5 +1,5 @@
 export interface iMongooseSchema {
     _id?: string;
     __v?: string;
-    language?: 'en' | 'ru' | 'ua';
+    language?: 'en' | 'ru' | 'uk';
 }

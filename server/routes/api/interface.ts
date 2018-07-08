@@ -40,8 +40,8 @@ router
         const language = req.query.lang;
         const id = req.query.id;
 
-        if (!language || !id || (language !== 'en' || language !== 'ru' || language !== 'uk')) {
-            return res.status(400).json({m: 'Required parameters are missing.'});
+        if (!language || !id || (language !== 'en' && language !== 'ru' && language !== 'uk')) {
+            return res.status(400).json({m: 'Required parameters are missing.', language, id});
         }
 
         read(id, language)
