@@ -33,7 +33,7 @@ router.use('/article', article);
 router.use('/interface', getInterface);
 
 router.get('/language', (req: IRequest, res: Response) => {
-    res.send(req.language);
+    res.json({lang: req.language});
 });
 
 export default router;
