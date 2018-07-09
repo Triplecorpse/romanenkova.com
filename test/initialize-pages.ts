@@ -5,6 +5,7 @@ import mongoose, {DocumentQuery} from "mongoose";
 import {Cursor} from "mongodb";
 
 const pagesToPush: Array<iPage> = [];
+let skipped: number = 0;
 
 mongoose.connect(config.dbp)
     .then((): DocumentQuery<any, any> => {
@@ -13,7 +14,7 @@ mongoose.connect(config.dbp)
         return Page.find({entityId: 'nav'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
-        log.warning('RUN OF NAVIGATION CREATE', pages.length);
+        log.warning('RUN OF NAVIGATION CREATE');
 
         pagesToPush.push({
             body: JSON.stringify([
@@ -53,7 +54,7 @@ mongoose.connect(config.dbp)
         return Page.find({entityId: 'main'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
-        log.warning('RUN OF MAIN CREATE', pages.length);
+        log.warning('RUN OF MAIN CREATE');
 
         if (!pages.length) {
             pagesToPush.push({
@@ -69,12 +70,14 @@ mongoose.connect(config.dbp)
                 header: 'Онлайн консультації психолога',
                 language: 'uk'
             });
+        } else {
+            skipped += 3;
         }
 
         return Page.find({entityId: 'about'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
-        log.warning('RUN OF ABOUT CREATE', pages.length);
+        log.warning('RUN OF ABOUT CREATE');
 
         if (!pages.length) {
             pagesToPush.push({
@@ -93,12 +96,14 @@ mongoose.connect(config.dbp)
                 body: 'Буде заповнено',
                 language: 'uk'
             });
+        } else {
+            skipped += 3;
         }
 
         return Page.find({entityId: 'service'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
-        log.warning('RUN OF SERVICE CREATE', pages.length);
+        log.warning('RUN OF SERVICE CREATE');
 
         if (!pages.length) {
             pagesToPush.push({
@@ -114,12 +119,14 @@ mongoose.connect(config.dbp)
                 header: 'Послуги',
                 language: 'uk'
             });
+        } else {
+            skipped += 3;
         }
 
         return Page.find({entityId: 'diploma'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
-        log.warning('RUN OF DIPLOMA CREATE', pages.length);
+        log.warning('RUN OF DIPLOMA CREATE');
 
         if (!pages.length) {
             pagesToPush.push({
@@ -135,12 +142,14 @@ mongoose.connect(config.dbp)
                 header: 'Дипломи',
                 language: 'uk'
             });
+        } else {
+            skipped += 3;
         }
 
         return Page.find({entityId: 'article'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
-        log.warning('RUN OF ARTICLE CREATE', pages.length);
+        log.warning('RUN OF ARTICLE CREATE');
 
         if (!pages.length) {
             pagesToPush.push({
@@ -156,12 +165,14 @@ mongoose.connect(config.dbp)
                 header: 'Статті',
                 language: 'uk'
             });
+        } else {
+            skipped += 3;
         }
 
         return Page.find({entityId: 'contacts'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
-        log.warning('RUN OF CONTACTS CREATE', pages.length);
+        log.warning('RUN OF CONTACTS CREATE');
 
         if (!pages.length) {
             pagesToPush.push({
@@ -180,12 +191,14 @@ mongoose.connect(config.dbp)
                 body: '[{name: "Skype", account: "ira"}, {name: "Телефон", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]',
                 language: 'uk'
             });
+        } else {
+            skipped += 3;
         }
 
         return Page.find()
     })
     .then((data: Array<Cursor<iPage>>): Promise<mongoose.Document[] | never> => {
-        if (data && data.length && pagesToPush.length) {
+        if (data && data.length && !pagesToPush.length) {
             log.error('Some data found in pages, for security reasons delete it by hand. No overwrite will be performed');
             return Promise.reject();
         }
@@ -193,7 +206,11 @@ mongoose.connect(config.dbp)
         return Page.insertMany(pagesToPush);
     })
     .then((data: Array<any>): Promise<void> => {
-        log.info('PAGES THAT WERE SAVED', data);
+        log.info(`CREATED:`);
+        log.info(`  ${data.length} DOCUMENTS`);
+
+        log.info(`SKIPPED:`);
+        log.info(`  ${skipped} DOCUMENTS`);
 
         return mongoose.disconnect();
     });
