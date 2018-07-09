@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha test/index.spec.js",
+    "prestart": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod && start mongo",
     "start": "ts-node server/app",
     "dbinit": "ts-node test/initialize-pages"
   },
