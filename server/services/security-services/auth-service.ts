@@ -1,4 +1,5 @@
-import jwt, {JsonWebTokenError} from 'jsonwebtoken';
+import jwt = require('jsonwebtoken');
+import {JsonWebTokenError} from 'jsonwebtoken';
 import {readFile} from '../file-service';
 
 export function getToken(data: {login: string; password: string}): Promise<string> {

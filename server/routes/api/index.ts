@@ -1,4 +1,4 @@
-import express from 'express';
+import express = require('express');
 const router = express.Router();
 
 import article from './article';
@@ -10,7 +10,7 @@ const parseAcceptLanguage = require('parse-accept-language');
 
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     log.info('Request registered from', req.hostname, req.method, req.baseUrl);
-    if (req.hostname.includes('romanenkova.com') || req.hostname.includes('localhost')) {
+    if (/romanenkova.com | localhost/i.test(req.hostname)) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 

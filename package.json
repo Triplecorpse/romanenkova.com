@@ -7,6 +7,8 @@
     "test": "mocha test/index.spec.js",
     "prestart": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod",
     "start": "ts-node server/app",
+    "start:js": "node server/app",
+    "build": "ts-node server/app -T --cache-directory=serv-dist",
     "predbinit": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod",
     "dbinit": "ts-node test/initialize-pages",
     "dbdrop": "ts-node test/drop-pages",
@@ -26,17 +28,18 @@
     "@types/express": "^4.16.0",
     "@types/jsonwebtoken": "^7.2.7",
     "@types/mongoose": "^5.0.18",
+    "@types/core-js": "^2.5.0",
+    "@types/node": "^10.3.6",
     "chai": "^4.1.2",
     "log": "^1.4.0",
     "supertest": "^3.1.0",
     "ts-node": "^7.0.0"
   },
   "dependencies": {
-    "mongoose": "^5.1.5",
-    "@types/node": "^10.3.6",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.1.5",
     "parse-accept-language": "^1.0.2",
     "typescript": "^2.9.2"
   }

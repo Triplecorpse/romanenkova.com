@@ -1,4 +1,4 @@
-import mongoose, {HookNextFunction} from 'mongoose';
+import mongoose = require('mongoose');
 import {iMongooseSchema} from "./iMongooseSchema";
 
 export interface iNav extends iMongooseSchema {
