@@ -7,7 +7,7 @@
     "test": "mocha test/index.spec.js",
     "prestart:ts": "npm run connect",
     "start:ts": "ts-node server/app",
-    "start": "node server/app",
+    "start": "ts-node server/app.ts",
     "build": "tsc",
     "connect": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod",
     "dbinit": "ts-node test/initialize-pages",
