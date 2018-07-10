@@ -20,7 +20,7 @@ router.post('/login', (req: Request, res: Response) => {
         });
 });
 
-router.get('/', (req: Request, res: Response) => {
+router.get(/^\/(en|ru|uk)?(\/|$)/gmi, (req: Request, res: Response) => {
     readFile('./front/index.html')
         .then(data => {
             res.send(data);
