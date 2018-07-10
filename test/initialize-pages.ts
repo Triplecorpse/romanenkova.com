@@ -7,7 +7,7 @@ import {Cursor} from "mongodb";
 const pagesToPush: Array<iPage> = [];
 let skipped: number = 0;
 
-mongoose.connect(config.dbp)
+mongoose.connect(process.env.MONGODB_URI || config.dbp)
     .then((): DocumentQuery<any, any> => {
         log.warning('RUN OF PAGES CREATE');
 
