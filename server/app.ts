@@ -5,7 +5,7 @@ import mongoose = require('mongoose');
 
 const port: string | number = process.env.PORT || config.port;
 
-mongoose.connect(process.env.MONGODB_URI || config.dbp);
+// mongoose.connect(process.env.MONGODB_URI || config.dbp);
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
