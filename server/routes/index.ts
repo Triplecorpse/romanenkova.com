@@ -30,4 +30,8 @@ router.get(/^\/(en|ru|uk)?(\/|$)/gmi, (req: Request, res: Response) => {
         })
 });
 
+router.get('*', (req: Request, res: Response) => {
+    res.status(404).send('<h1>Page 404 should come here</h1>')
+});
+
 export default router;
