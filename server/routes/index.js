@@ -21,7 +21,7 @@ router.post('/login', (req, res) => {
     });
 });
 router.get('/', (req, res) => {
-    file_service_1.readFile('./front/dist/index.html')
+    file_service_1.readFile('./front/index.html')
         .then(data => {
         res.send(data);
     })
