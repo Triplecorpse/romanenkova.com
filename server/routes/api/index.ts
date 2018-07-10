@@ -10,7 +10,7 @@ const parseAcceptLanguage = require('parse-accept-language');
 
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     log.info('Request registered from', req.hostname, req.method, req.baseUrl);
-    if (/romanenkova.com | localhost | romanenkova.herokuapp.com/i.test(req.hostname)) {
+    if (/romanenkova.com|localhost|romanenkova.herokuapp.com/i.test(req.hostname)) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
