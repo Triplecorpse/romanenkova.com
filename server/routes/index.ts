@@ -6,9 +6,11 @@ import log from './../services/log-service';
 import {getToken} from '../services/security-services/auth-service';
 import bodyParser = require('body-parser');
 import {Request, Response} from "express-serve-static-core";
+import {app} from "../server";
 
 router.use(bodyParser.json());
 router.use('/api', api);
+router.use(express.static('./front'));
 
 router.post('/login', (req: Request, res: Response) => {
     getToken(req.body)
