@@ -11,7 +11,7 @@ const log_service_1 = __importDefault(require("./../../services/log-service"));
 const parseAcceptLanguage = require('parse-accept-language');
 router.use('*', (req, res, next) => {
     log_service_1.default.info('Request registered from', req.hostname, req.method, req.baseUrl);
-    if (/romanenkova.com | localhost/i.test(req.hostname)) {
+    if (/romanenkova.com|localhost|romanenkova.herokuapp.com/i.test(req.hostname)) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         const pal = parseAcceptLanguage(req);

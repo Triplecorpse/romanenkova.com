@@ -9,7 +9,7 @@ const config_1 = require("../server/config");
 const mongoose_1 = __importDefault(require("mongoose"));
 const pagesToPush = [];
 let skipped = 0;
-mongoose_1.default.connect(config_1.config.dbp)
+mongoose_1.default.connect(process.env.MONGODB_URI || config_1.config.dbp)
     .then(() => {
     log_service_1.default.warning('RUN OF PAGES DELETE');
     return page_1.model.find()

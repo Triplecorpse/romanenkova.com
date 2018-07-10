@@ -5,11 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha test/index.spec.js",
-    "prestart:ts": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod",
+    "prestart:ts": "npm run connect",
     "start:ts": "ts-node server/app",
     "start": "node server/app",
     "build": "tsc",
-    "predbinit": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod",
+    "connect": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod",
     "dbinit": "ts-node test/initialize-pages",
     "dbdrop": "ts-node test/drop-pages",
     "dbconsole": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongo"
