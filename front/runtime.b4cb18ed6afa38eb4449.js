@@ -61,7 +61,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"about-about-module":"about-about-module","pages-_page404-page404-module":"pages-_page404-page404-module"}[chunkId]||chunkId) + "." + {"about-about-module":"a5a86c8daa5bf4805e0f","pages-_page404-page404-module":"1faf66fe775ba8d9d643"}[chunkId] + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"about-about-module":"about-about-module","article-article-module":"article-article-module","articles-articles-module":"articles-articles-module","diplomas-diplomas-module":"diplomas-diplomas-module","pages-_page404-page404-module":"pages-_page404-page404-module","services-services-module":"services-services-module"}[chunkId]||chunkId) + "." + {"about-about-module":"3731407282ba8c0c91b8","article-article-module":"9a524ede54df16b46207","articles-articles-module":"b4e48318418462dcfa37","diplomas-diplomas-module":"320b34276d9b75864ecc","pages-_page404-page404-module":"1faf66fe775ba8d9d643","services-services-module":"ba3206a538784f24a309"}[chunkId] + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -200,4 +200,4 @@
 /******/ })
 /************************************************************************/
 /******/ ([]);
-//# sourceMappingURL=runtime.bbf24e4c27c0cd644f7d.js.map
+//# sourceMappingURL=runtime.b4cb18ed6afa38eb4449.js.map

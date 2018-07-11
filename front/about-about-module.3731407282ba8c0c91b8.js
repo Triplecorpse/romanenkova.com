@@ -32,7 +32,10 @@ var AboutModule = /** @class */ (function () {
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild([
-                    { path: '', component: _components_about_about_component__WEBPACK_IMPORTED_MODULE_3__["AboutComponent"] }
+                    {
+                        path: '',
+                        component: _components_about_about_component__WEBPACK_IMPORTED_MODULE_3__["AboutComponent"]
+                    }
                 ])
             ],
             declarations: [_components_about_about_component__WEBPACK_IMPORTED_MODULE_3__["AboutComponent"]]
@@ -109,4 +112,4 @@ var AboutComponent = /** @class */ (function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=about-about-module.a5a86c8daa5bf4805e0f.js.map
+//# sourceMappingURL=about-about-module.3731407282ba8c0c91b8.js.map
