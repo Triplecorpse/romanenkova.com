@@ -18,35 +18,38 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
 
         pagesToPush.push({
             body: JSON.stringify([
-                    {name: "Online psychology", anchor: "main"},
-                    {name: "About me", anchor: "about"},
-                    {name: "Services", anchor: "services"},
-                    {name: "Diplomas", anchor: "diplomas"},
-                    {name: "Articles", anchor: "articles"},
-                    {name: "Contacts", anchor: "contacts"}
-                ]),
+                {name: "Online psychology", anchor: "main"},
+                {name: "About me", anchor: "about"},
+                {name: "Services", anchor: "services"},
+                {name: "Diplomas", anchor: "diplomas"},
+                {name: "Articles", anchor: "articles"},
+                {name: "Contacts", anchor: "contacts"},
+                {name: "Make an appointment", anchor: "appointment"}
+            ]),
             language: 'en',
             entityId: 'nav'
         }, {
             body: JSON.stringify([
-                    {name: "Онлайн психология", anchor: "main"},
-                    {name: "Обо мне", anchor: "about"},
-                    {name: "Услуги", anchor: "services"},
-                    {name: "Дипломы", anchor: "diplomas"},
-                    {name: "Статьи", anchor: "articles"},
-                    {name: "Контакты", anchor: "contacts"}
-                ]),
+                {name: "Онлайн психология", anchor: "main"},
+                {name: "Обо мне", anchor: "about"},
+                {name: "Услуги", anchor: "services"},
+                {name: "Дипломы", anchor: "diplomas"},
+                {name: "Статьи", anchor: "articles"},
+                {name: "Контакты", anchor: "contacts"},
+                {name: "Записаться на приём", anchor: "appointment"}
+            ]),
             language: 'ru',
             entityId: 'nav'
         }, {
             body: JSON.stringify([
-                    {name: "Онлайн психологія", anchor: "main"},
-                    {name: "Про мене", anchor: "about"},
-                    {name: "Послуги", anchor: "services"},
-                    {name: "Дипломи", anchor: "diplomas"},
-                    {name: "Статті", anchor: "articles"},
-                    {name: "Контакти", anchor: "contacts"},
-                ]),
+                {name: "Онлайн психологія", anchor: "main"},
+                {name: "Про мене", anchor: "about"},
+                {name: "Послуги", anchor: "services"},
+                {name: "Дипломи", anchor: "diplomas"},
+                {name: "Статті", anchor: "articles"},
+                {name: "Контакти", anchor: "contacts"},
+                {name: "Записатися на прийом", anchor: "appointment"}
+            ]),
             language: 'uk',
             entityId: 'nav'
         });
@@ -105,7 +108,7 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF SERVICE CREATE');
 
-        if (!pages.length) {
+        // if (!pages.length) {
             pagesToPush.push({
                 entityId: 'service',
                 header: 'Service',
@@ -119,16 +122,16 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
                 header: 'Послуги',
                 language: 'uk'
             });
-        } else {
-            skipped += 3;
-        }
+        // } else {
+        //     skipped += 3;
+        // }
 
         return Page.find({entityId: 'diploma'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF DIPLOMA CREATE');
 
-        if (!pages.length) {
+        // if (!pages.length) {
             pagesToPush.push({
                 entityId: 'diploma',
                 header: 'Diplomas',
@@ -142,16 +145,16 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
                 header: 'Дипломи',
                 language: 'uk'
             });
-        } else {
-            skipped += 3;
-        }
+        // } else {
+        //     skipped += 3;
+        // }
 
         return Page.find({entityId: 'article'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF ARTICLE CREATE');
 
-        if (!pages.length) {
+        // if (!pages.length) {
             pagesToPush.push({
                 entityId: 'article',
                 header: 'Articles',
@@ -165,9 +168,9 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
                 header: 'Статті',
                 language: 'uk'
             });
-        } else {
-            skipped += 3;
-        }
+        // } else {
+        //     skipped += 3;
+        // }
 
         return Page.find({entityId: 'contacts'});
     })
