@@ -19,36 +19,36 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
         pagesToPush.push({
             body: JSON.stringify([
                 {name: "Online psychology", anchor: "main"},
+                {name: "Make an appointment", anchor: "appointment"},
                 {name: "About me", anchor: "about"},
                 {name: "Services", anchor: "services"},
                 {name: "Diplomas", anchor: "diplomas"},
                 {name: "Articles", anchor: "articles"},
-                {name: "Contacts", anchor: "contacts"},
-                {name: "Make an appointment", anchor: "appointment"}
+                {name: "Contacts", anchor: "contacts"}
             ]),
             language: 'en',
             entityId: 'nav'
         }, {
             body: JSON.stringify([
                 {name: "Онлайн психология", anchor: "main"},
+                {name: "Записаться на приём", anchor: "appointment"},
                 {name: "Обо мне", anchor: "about"},
                 {name: "Услуги", anchor: "services"},
                 {name: "Дипломы", anchor: "diplomas"},
                 {name: "Статьи", anchor: "articles"},
-                {name: "Контакты", anchor: "contacts"},
-                {name: "Записаться на приём", anchor: "appointment"}
+                {name: "Контакты", anchor: "contacts"}
             ]),
             language: 'ru',
             entityId: 'nav'
         }, {
             body: JSON.stringify([
                 {name: "Онлайн психологія", anchor: "main"},
+                {name: "Записатися на прийом", anchor: "appointment"},
                 {name: "Про мене", anchor: "about"},
                 {name: "Послуги", anchor: "services"},
                 {name: "Дипломи", anchor: "diplomas"},
                 {name: "Статті", anchor: "articles"},
-                {name: "Контакти", anchor: "contacts"},
-                {name: "Записатися на прийом", anchor: "appointment"}
+                {name: "Контакти", anchor: "contacts"}
             ]),
             language: 'uk',
             entityId: 'nav'
