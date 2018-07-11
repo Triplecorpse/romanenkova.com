@@ -9,6 +9,12 @@ let skipped: number = 0;
 
 mongoose.connect(process.env.MONGODB_URI || config.dbp)
     .then((): DocumentQuery<any, any> => {
+        log.warning('REMOVING OLD PAGES');
+
+        return Page.deleteMany({entityId: /nav|main|service|diploma|article/});
+    })
+    .then((removed: any): DocumentQuery<any, any> => {
+        log.warning('REMOVED', JSON.stringify(removed));
         log.warning('RUN OF PAGES CREATE');
 
         return Page.find({entityId: 'nav'});
@@ -59,7 +65,7 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF MAIN CREATE');
 
-        if (!pages.length) {
+        // if (!pages.length) {
             pagesToPush.push({
                 entityId: 'main',
                 header: 'Online consult',
@@ -73,9 +79,9 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
                 header: 'Онлайн консультації психолога',
                 language: 'uk'
             });
-        } else {
-            skipped += 3;
-        }
+        // } else {
+        //     skipped += 3;
+        // }
 
         return Page.find({entityId: 'about'});
     })
