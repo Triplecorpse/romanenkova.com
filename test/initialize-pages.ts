@@ -187,17 +187,17 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
             pagesToPush.push({
                 entityId: 'contacts',
                 header: 'Contacts',
-                body: '[{name: "Skype", account: "ira"}, {name: "Phone", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]',
+                body: JSON.stringify([{name: "Skype", account: "ira"}, {name: "Phone", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]),
                 language: 'en'
             }, {
                 entityId: 'contacts',
                 header: 'Контакты',
-                body: '[{name: "Skype", account: "ira"}, {name: "Телефон", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]',
+                body: JSON.stringify([{name: "Skype", account: "ira"}, {name: "Телефон", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]),
                 language: 'ru'
             }, {
                 entityId: 'contacts',
                 header: 'Контакти',
-                body: '[{name: "Skype", account: "ira"}, {name: "Телефон", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]',
+                body: JSON.stringify([{name: "Skype", account: "ira"}, {name: "Телефон", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]),
                 language: 'uk'
             });
         } else {
