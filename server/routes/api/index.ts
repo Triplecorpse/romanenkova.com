@@ -1,4 +1,5 @@
 import express = require('express');
+
 const router = express.Router();
 
 import article from './article';
@@ -6,6 +7,7 @@ import getInterface from './interface';
 import {NextFunction, Request, Response} from "express-serve-static-core";
 import log from './../../services/log-service'
 import IRequest from "../../interfaces/iRequest";
+
 const parseAcceptLanguage = require('parse-accept-language');
 
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
@@ -17,15 +19,14 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
         const pal = parseAcceptLanguage(req);
         const acceptables: Array<string> = ['uk', 'ru', 'en'];
 
-        console.log(JSON.stringify(pal));
 
         const languageObj = pal.find((lang: any) =>
             acceptables.find((acceptable: string) =>
-                lang.value === acceptable
+                lang.value === acceptable || lang.language === acceptable
             )
         );
 
-        req.language = languageObj.value;
+        req.language = languageObj ? languageObj.value : 'en';
         next();
     } else {
         res.status(403).json({m: 'Request are allowed from domain romanenkova.com only'});
