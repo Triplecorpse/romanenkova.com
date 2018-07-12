@@ -47,7 +47,7 @@ router
         read(id, language)
             .then((data: iPage) => {
                 let returnBody;
-                if (id === 'nav') {
+                if (id === 'nav' || id === 'contacts') {
                     returnBody = JSON.parse(data.body as string);
                 } else {
                     returnBody = {header: data.header, body: data.body};
