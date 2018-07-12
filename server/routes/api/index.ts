@@ -19,15 +19,13 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
         const parsed = parseAcceptLanguage(req);
         const acceptables: Array<string> = ['uk', 'ru', 'en'];
 
-        console.log(JSON.stringify(parsed));
-
         const languageObj = parsed.find((lang: any) =>
             acceptables.find((acceptable: string) =>
-                (lang.value === acceptable) || (lang.language === acceptable)
+                lang.language === acceptable
             )
         );
 
-        req.language = languageObj ? languageObj.value : 'en';
+        req.language = languageObj ? languageObj.language : 'en';
         next();
     } else {
         res.status(403).json({m: 'Request are allowed from domain romanenkova.com only'});
