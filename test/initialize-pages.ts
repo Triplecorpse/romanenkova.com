@@ -66,19 +66,19 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
         log.warning('RUN OF MAIN CREATE');
 
         // if (!pages.length) {
-            pagesToPush.push({
-                entityId: 'main',
-                header: 'Online consult',
-                language: 'en'
-            }, {
-                entityId: 'main',
-                header: 'Онлайн консультации психолога',
-                language: 'ru'
-            }, {
-                entityId: 'main',
-                header: 'Онлайн консультації психолога',
-                language: 'uk'
-            });
+        pagesToPush.push({
+            entityId: 'main',
+            header: 'Online consult',
+            language: 'en'
+        }, {
+            entityId: 'main',
+            header: 'Онлайн консультации психолога',
+            language: 'ru'
+        }, {
+            entityId: 'main',
+            header: 'Онлайн консультації психолога',
+            language: 'uk'
+        });
         // } else {
         //     skipped += 3;
         // }
@@ -115,19 +115,19 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
         log.warning('RUN OF SERVICE CREATE');
 
         // if (!pages.length) {
-            pagesToPush.push({
-                entityId: 'service',
-                header: 'Service',
-                language: 'en'
-            }, {
-                entityId: 'service',
-                header: 'Услуги',
-                language: 'ru'
-            }, {
-                entityId: 'service',
-                header: 'Послуги',
-                language: 'uk'
-            });
+        pagesToPush.push({
+            entityId: 'service',
+            header: 'Service',
+            language: 'en'
+        }, {
+            entityId: 'service',
+            header: 'Услуги',
+            language: 'ru'
+        }, {
+            entityId: 'service',
+            header: 'Послуги',
+            language: 'uk'
+        });
         // } else {
         //     skipped += 3;
         // }
@@ -138,19 +138,19 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
         log.warning('RUN OF DIPLOMA CREATE');
 
         // if (!pages.length) {
-            pagesToPush.push({
-                entityId: 'diploma',
-                header: 'Diplomas',
-                language: 'en'
-            }, {
-                entityId: 'diploma',
-                header: 'Дипломы',
-                language: 'ru'
-            }, {
-                entityId: 'diploma',
-                header: 'Дипломи',
-                language: 'uk'
-            });
+        pagesToPush.push({
+            entityId: 'diploma',
+            header: 'Diplomas',
+            language: 'en'
+        }, {
+            entityId: 'diploma',
+            header: 'Дипломы',
+            language: 'ru'
+        }, {
+            entityId: 'diploma',
+            header: 'Дипломи',
+            language: 'uk'
+        });
         // } else {
         //     skipped += 3;
         // }
@@ -161,19 +161,19 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
         log.warning('RUN OF ARTICLE CREATE');
 
         // if (!pages.length) {
-            pagesToPush.push({
-                entityId: 'article',
-                header: 'Articles',
-                language: 'en'
-            }, {
-                entityId: 'article',
-                header: 'Статьи',
-                language: 'ru'
-            }, {
-                entityId: 'article',
-                header: 'Статті',
-                language: 'uk'
-            });
+        pagesToPush.push({
+            entityId: 'article',
+            header: 'Articles',
+            language: 'en'
+        }, {
+            entityId: 'article',
+            header: 'Статьи',
+            language: 'ru'
+        }, {
+            entityId: 'article',
+            header: 'Статті',
+            language: 'uk'
+        });
         // } else {
         //     skipped += 3;
         // }
@@ -187,17 +187,32 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
             pagesToPush.push({
                 entityId: 'contacts',
                 header: 'Contacts',
-                body: JSON.stringify([{name: "Skype", account: "ira"}, {name: "Phone", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]),
+                body: JSON.stringify(
+                    [
+                        {name: "Skype", account: "ira"},
+                        {name: "Phone", account: "+380000000000"},
+                        {name: "E-mail", account: "info@romanenkova.com"}
+                    ]),
                 language: 'en'
             }, {
                 entityId: 'contacts',
                 header: 'Контакты',
-                body: JSON.stringify([{name: "Skype", account: "ira"}, {name: "Телефон", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]),
+                body: JSON.stringify(
+                    [
+                        {name: "Skype", account: "ira"},
+                        {name: "Телефон", account: "+380000000000"},
+                        {name: "E-mail", account: "info@romanenkova.com"}
+                    ]),
                 language: 'ru'
             }, {
                 entityId: 'contacts',
                 header: 'Контакти',
-                body: JSON.stringify([{name: "Skype", account: "ira"}, {name: "Телефон", account: "+380000000000"}, {name: "E-mail", account: "info@romanenkova.com"}]),
+                body: JSON.stringify(
+                    [
+                        {name: "Skype", account: "ira"},
+                        {name: "Телефон", account: "+380000000000"},
+                        {name: "E-mail", account: "info@romanenkova.com"}
+                    ]),
                 language: 'uk'
             });
         } else {
