@@ -16,13 +16,14 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
-        const pal = parseAcceptLanguage(req);
+        const parsed = parseAcceptLanguage(req);
         const acceptables: Array<string> = ['uk', 'ru', 'en'];
 
+        console.log(parsed);
 
-        const languageObj = pal.find((lang: any) =>
+        const languageObj = parsed.find((lang: any) =>
             acceptables.find((acceptable: string) =>
-                lang.value === acceptable || lang.language === acceptable
+                (lang.value === acceptable) || (lang.language === acceptable)
             )
         );
 
