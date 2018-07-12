@@ -19,7 +19,7 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
         const parsed = parseAcceptLanguage(req);
         const acceptables: Array<string> = ['uk', 'ru', 'en'];
 
-        console.log(parsed);
+        console.log(JSON.stringify(parsed));
 
         const languageObj = parsed.find((lang: any) =>
             acceptables.find((acceptable: string) =>
