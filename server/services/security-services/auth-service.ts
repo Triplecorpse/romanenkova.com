@@ -7,6 +7,11 @@ export function getToken(data: {login: string; password: string}): Promise<strin
         return Promise.reject({message: 'data should have properties login and password'});
     }
 
+    // todo: read from database
+    if (data.login !== 'admin' || data.login !== 'admin') {
+        return Promise.reject(new Error('Invalid credentials'));
+    }
+
     return new Promise((resolve, reject) => {
         readFile('./server/auth/jwtRS256.key')
             .then((file: string) => {
@@ -19,6 +24,10 @@ export function getToken(data: {login: string; password: string}): Promise<strin
 }
 
 export function validate(token: string): Promise<object | string> {
+    if (!token) {
+        return Promise.reject(new Error('Token is missing'))
+    }
+
     return new Promise((resolve, reject) => {
         readFile('./server/auth/jwtRS256.key.pub')
             .then((file: string) => {

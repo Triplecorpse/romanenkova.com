@@ -4,8 +4,6 @@ const router = express.Router();
 import api from './api/index';
 import {readFile} from '../services/file-service';
 import log from './../services/log-service';
-import {getToken} from '../services/security-services/auth-service';
-import bodyParser = require('body-parser');
 import {Request, Response} from "express-serve-static-core";
 import IRequest from "../interfaces/iRequest";
 import {NextFunction} from "express";
@@ -44,19 +42,8 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
         })
 });
 
-router.use(bodyParser.json());
 router.use(express.static('./front'));
 router.use('/api', api);
-
-router.post('/login', (req: Request, res: Response) => {
-    getToken(req.body)
-        .then(data => {
-            res.json({token: data, success: true});
-        })
-        .catch(err => {
-            res.status(401).send({success: false, message: 'Invalid credentials'});
-        });
-});
 
 // todo: decide either to do page 404 or redirect to /:lang
 router.get('*', (req: Request, res: Response) => {
