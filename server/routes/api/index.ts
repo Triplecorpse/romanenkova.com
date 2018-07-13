@@ -32,7 +32,7 @@ router.get('/language', (req: IRequest, res: Response) => {
 router.post('/login', (req: Request, res: Response) => {
     getToken(req.body)
         .then((data: string) => {
-            res.json({token: data, success: true});
+            res.json({success: true, message: data});
         })
         .catch((err: Error) => {
             res.status(401).send({success: false, message: err.message});
@@ -42,7 +42,7 @@ router.post('/login', (req: Request, res: Response) => {
 router.post('/uservalid', (req: Request, res: Response) => {
     validate(req.body.token)
         .then((data: string | object) => {
-            res.json({success: true});
+            res.json({success: true, message: ''});
         })
         .catch((err: Error) => {
             res.status(401).send({success: false, message: err.message});
