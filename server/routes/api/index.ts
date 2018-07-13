@@ -4,11 +4,9 @@ const router = express.Router();
 
 import article from './article';
 import getInterface from './interface';
-import {NextFunction, Request, Response} from "express-serve-static-core";
+import {NextFunction, Response} from "express-serve-static-core";
 import log from './../../services/log-service'
 import IRequest from "../../interfaces/iRequest";
-
-const parseAcceptLanguage = require('parse-accept-language');
 
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     log.info('Request registered from', req.hostname, req.method, req.baseUrl);
@@ -16,16 +14,6 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 
-        const parsed = parseAcceptLanguage(req);
-        const acceptables: Array<string> = ['uk', 'ru', 'en'];
-
-        const languageObj = parsed.find((lang: any) =>
-            acceptables.find((acceptable: string) =>
-                lang.language === acceptable
-            )
-        );
-
-        req.language = languageObj ? languageObj.language : 'en';
         next();
     } else {
         res.status(403).json({m: 'Request are allowed from domain romanenkova.com only'});
