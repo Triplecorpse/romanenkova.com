@@ -49,6 +49,8 @@ router
                 let returnBody;
                 if (id === 'nav') {
                     returnBody = JSON.parse(data.body as string);
+                } else if (id === 'contacts') {
+                    returnBody = {header: data.header, body: JSON.parse(data.body as string)};
                 } else {
                     returnBody = {header: data.header, body: data.body};
                 }
