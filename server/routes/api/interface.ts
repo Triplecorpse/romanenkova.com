@@ -8,6 +8,8 @@ import {iPage} from "../../models/page";
 import {Request, Response} from "express-serve-static-core";
 import {validate} from "../../services/security-services/auth-service";
 
+import log from './../../services/log-service';
+
 router
     .route('/:id?')
     .put((req: Request, res: Response) => {
@@ -40,21 +42,26 @@ router
         const language = req.query.lang;
         const id = req.query.id;
 
-        if (!language || !id || (language !== 'en' && language !== 'ru' && language !== 'uk')) {
+        if (!language || !id) {
             return res.status(400).json({m: 'Required parameters are missing.', language, id});
         }
 
         read(id, language)
-            .then((data: iPage) => {
-                let returnBody;
-                if (id === 'nav') {
-                    returnBody = JSON.parse(data.body as string);
-                } else if (id === 'contacts') {
-                    returnBody = {header: data.header, body: JSON.parse(data.body as string)};
-                } else {
-                    returnBody = {header: data.header, body: data.body};
+            .then((pages: Array<iPage>) => {
+                const readyPages = pages.map((page: iPage) => {
+                    try {
+                        page.body = JSON.parse(page.body as string);
+                    } catch (e) {
+                    }
+
+                    return page;
+                });
+
+                if (readyPages.length === 1) {
+                    return res.json(readyPages[0]);
                 }
-                res.json(returnBody);
+
+                res.json(readyPages);
             })
             .catch((err: Error) => {
                 res.status(500).json({m: err.message});
