@@ -90,7 +90,7 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
         if (!pages.length) {
             pagesToPush.push({
                 entityId: 'about',
-                header: 'About',
+                header: 'About me',
                 pageData: 'To be filled',
                 language: 'en'
             }, {
