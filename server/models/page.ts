@@ -40,12 +40,9 @@ function setBody(body: string | Array<iNav> | Array<iContact>): string {
 
 function getBody(body: string): string {
     try {
-        console.log(body);
         return JSON.parse(body);
     } catch(e) {
     }
-
-    console.log(typeof body);
 
     return body;
 }
@@ -57,11 +54,5 @@ const schema = new mongoose.Schema({
     entityId: {type: String, required: true, lowercase: true, validate: validateId},
 }, {strict: false});
 
-schema.pre('validate', function(this: any, next: HookNextFunction): void {
-    if (typeof this.pageData === 'object') {
-        this.pageData = JSON.stringify(this.pageData);
-    }
-    next();
-});
 
 export const model = mongoose.model('Page', schema);
