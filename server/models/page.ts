@@ -16,7 +16,7 @@ interface iContact {
 export interface iPage extends iMongooseSchema {
     header: string;
     pageData?: string | Array<iNav> | Array<iContact>;
-    entityId: 'nav' | 'contacts' | 'about' | 'diploma' | 'service' | 'article' | 'main';
+    entityId: 'nav' | 'contacts' | 'about' | 'diploma' | 'service' | 'article' | 'main' | 'review';
 }
 
 function validateLanguage(lang: string): boolean {

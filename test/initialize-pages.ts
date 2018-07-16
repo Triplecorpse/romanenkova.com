@@ -146,6 +146,25 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
             language: 'uk'
         });
 
+        return Page.find({entityId: 'review'});
+    })
+    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
+        log.warning('RUN OF REVIEW CREATE');
+
+        pagesToPush.push({
+            entityId: 'review',
+            header: 'Reviews',
+            language: 'en'
+        }, {
+            entityId: 'review',
+            header: 'Reviews',
+            language: 'ru'
+        }, {
+            entityId: 'review',
+            header: 'Reviews',
+            language: 'uk'
+        });
+
         return Page.find({entityId: 'article'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
