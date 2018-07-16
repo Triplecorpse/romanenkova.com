@@ -23,6 +23,15 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     req.language = languageObj ? languageObj.language : 'en';
     next();
 });
+router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunction) => {
+    readFile('./admin/index.html')
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        })
+});
 router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
     const allowedLangs = ['en', 'ru', 'uk'];
 
@@ -43,6 +52,7 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
 });
 
 router.use(express.static('./front'));
+router.use(express.static('./admin'));
 router.use('/api', api);
 
 // todo: decide either to do page 404 or redirect to /:lang
