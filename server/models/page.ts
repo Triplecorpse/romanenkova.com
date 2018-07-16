@@ -26,7 +26,7 @@ function validateLanguage(lang: string): boolean {
 }
 
 function validateId(id: string): boolean {
-    const ids = ['nav', 'contacts', 'about', 'diploma', 'service', 'article', 'main'];
+    const ids = ['nav', 'contacts', 'about', 'diploma', 'service', 'article', 'main', 'review'];
 
     return ids.indexOf(id) > -1;
 }
