@@ -170,38 +170,38 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF CONTACTS CREATE');
 
-        // if (!pages.length) {
+        if (!pages.length) {
             pagesToPush.push({
                 entityId: 'contacts',
                 header: 'Contacts',
                 pageData: [
-                    {name: "Skype", account: "ira"},
-                    {name: "Phone", account: "+380000000000"},
-                    {name: "E-mail", account: "info@romanenkova.com"}
+                    {name: "Skype", account: "ira", linkto: 'skype:'},
+                    {name: "Phone", account: "+380000000000", linkto: 'callto:'},
+                    {name: "E-mail", account: "info@romanenkova.com", linkto: 'mailto:'}
                 ],
                 language: 'en'
             }, {
                 entityId: 'contacts',
                 header: 'Контакты',
                 pageData: [
-                    {name: "Skype", account: "ira"},
-                    {name: "Телефон", account: "+380000000000"},
-                    {name: "E-mail", account: "info@romanenkova.com"}
+                    {name: "Skype", account: "ira", linkto: 'skype:'},
+                    {name: "Телефон", account: "+380000000000", linkto: 'callto:'},
+                    {name: "E-mail", account: "info@romanenkova.com", linkto: 'mailto:'}
                 ],
                 language: 'ru'
             }, {
                 entityId: 'contacts',
                 header: 'Контакти',
                 pageData: [
-                    {name: "Skype", account: "ira"},
-                    {name: "Телефон", account: "+380000000000"},
-                    {name: "E-mail", account: "info@romanenkova.com"}
+                    {name: "Skype", account: "ira", linkto: 'skype:'},
+                    {name: "Телефон", account: "+380000000000", linkto: 'callto:'},
+                    {name: "E-mail", account: "info@romanenkova.com", linkto: 'mailto:'}
                 ],
                 language: 'uk'
             });
-        // } else {
-        //     skipped += 3;
-        // }
+        } else {
+            skipped += 3;
+        }
 
         return Page.find()
     })
