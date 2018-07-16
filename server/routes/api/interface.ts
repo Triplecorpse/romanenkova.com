@@ -18,21 +18,18 @@ router
                 const language = req.query.lang;
                 const id = req.query.id;
 
-                console.log(data);
-
                 if (!language || !id) {
                     return res.status(400).json({m: 'Required parameters are missing.'});
                 }
 
-                return update(id, language,{header: req.body.header, body: req.body.body});
+                return update(id, language,{header: req.body.header, pageData: req.body.body, language, entityId: id});
             })
             .catch((err: Error) => {
                 res.status(401).json({m: err.message});
                 throw err;
             })
             .then((data: iPage) => {
-                console.log(data);
-                res.json({header: data.header, body: data.body});
+                res.json({header: data.header, pageData: data.pageData});
             })
             .catch((err: Error) => {
                 res.status(500).json({m: err.message});
@@ -48,20 +45,11 @@ router
 
         read(id, language)
             .then((pages: Array<iPage>) => {
-                const readyPages = pages.map((page: iPage) => {
-                    try {
-                        page.body = JSON.parse(page.body as string);
-                    } catch (e) {
-                    }
-
-                    return page;
-                });
-
-                if (readyPages.length === 1) {
-                    return res.json(readyPages[0]);
+                if (pages.length === 1) {
+                    return res.json(pages[0]);
                 }
 
-                res.json(readyPages);
+                res.json(pages);
             })
             .catch((err: Error) => {
                 res.status(500).json({m: err.message});

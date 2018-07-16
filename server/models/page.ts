@@ -1,22 +1,67 @@
 import mongoose = require('mongoose');
 import {iMongooseSchema} from "./iMongooseSchema";
+import {DocumentQuery, HookNextFunction, Model, Query, Schema} from "mongoose";
 
-export interface iNav extends iMongooseSchema {
+export interface iNav {
     name: string;
     anchor: string;
 }
 
+interface iContact {
+    name: string;
+    account: string;
+}
+
 export interface iPage extends iMongooseSchema {
-    header?: string;
-    body?: string;
-    entityId?: string;
+    header: string;
+    pageData?: string | Array<iNav> | Array<iContact>;
+    entityId: 'nav' | 'contacts' | 'about' | 'diploma' | 'service' | 'article' | 'main';
+}
+
+function validateLanguage(lang: string): boolean {
+    const langs = ['en', 'ru', 'uk'];
+
+    return langs.indexOf(lang) > -1;
+}
+
+function validateId(id: string): boolean {
+    const ids = ['nav', 'contacts', 'about', 'diploma', 'service', 'article', 'main'];
+
+    return ids.indexOf(id) > -1;
+}
+
+function setBody(body: string | Array<iNav> | Array<iContact>): string {
+    if (typeof body === 'object') {
+        return JSON.stringify(body);
+    }
+
+    return body;
+}
+
+function getBody(body: string): string {
+    try {
+        console.log(body);
+        return JSON.parse(body);
+    } catch(e) {
+    }
+
+    console.log(typeof body);
+
+    return body;
 }
 
 const schema = new mongoose.Schema({
-    header: {type: String, required: false},
-    body: {type: String, required: false, strict: false},
-    language: {type: String, required: true, maxlength: 2},
-    entityId: {type: String, required: true, lowercase: true},
+    header: {type: String, required: true},
+    pageData: {type: String, required: false, set: setBody, get: getBody},
+    language: {type: String, required: true, validate: validateLanguage},
+    entityId: {type: String, required: true, lowercase: true, validate: validateId},
 }, {strict: false});
+
+schema.pre('validate', function(this: any, next: HookNextFunction): void {
+    if (typeof this.pageData === 'object') {
+        this.pageData = JSON.stringify(this.pageData);
+    }
+    next();
+});
 
 export const model = mongoose.model('Page', schema);

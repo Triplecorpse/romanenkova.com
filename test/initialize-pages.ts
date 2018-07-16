@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
         log.warning('RUN OF NAVIGATION CREATE');
 
         pagesToPush.push({
-            body: JSON.stringify([
+            pageData: [
                 {name: "Online psychology", anchor: "main"},
                 {name: "Make an appointment", anchor: "appointment"},
                 {name: "About me", anchor: "about"},
@@ -31,11 +31,12 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
                 {name: "Diplomas", anchor: "diplomas"},
                 {name: "Articles", anchor: "articles"},
                 {name: "Contacts", anchor: "contacts"}
-            ]),
+            ],
             language: 'en',
-            entityId: 'nav'
+            entityId: 'nav',
+            header: 'Main menu'
         }, {
-            body: JSON.stringify([
+            pageData: [
                 {name: "Онлайн психология", anchor: "main"},
                 {name: "Записаться на приём", anchor: "appointment"},
                 {name: "Обо мне", anchor: "about"},
@@ -43,11 +44,12 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
                 {name: "Дипломы", anchor: "diplomas"},
                 {name: "Статьи", anchor: "articles"},
                 {name: "Контакты", anchor: "contacts"}
-            ]),
+            ],
             language: 'ru',
-            entityId: 'nav'
+            entityId: 'nav',
+            header: 'Главное меню'
         }, {
-            body: JSON.stringify([
+            pageData: [
                 {name: "Онлайн психологія", anchor: "main"},
                 {name: "Записатися на прийом", anchor: "appointment"},
                 {name: "Про мене", anchor: "about"},
@@ -55,9 +57,10 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
                 {name: "Дипломи", anchor: "diplomas"},
                 {name: "Статті", anchor: "articles"},
                 {name: "Контакти", anchor: "contacts"}
-            ]),
+            ],
             language: 'uk',
-            entityId: 'nav'
+            entityId: 'nav',
+            header: 'Головне меню'
         });
 
         return Page.find({entityId: 'main'});
@@ -65,7 +68,6 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF MAIN CREATE');
 
-        // if (!pages.length) {
         pagesToPush.push({
             entityId: 'main',
             header: 'Online consult',
@@ -79,9 +81,6 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
             header: 'Онлайн консультації психолога',
             language: 'uk'
         });
-        // } else {
-        //     skipped += 3;
-        // }
 
         return Page.find({entityId: 'about'});
     })
@@ -92,17 +91,17 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
             pagesToPush.push({
                 entityId: 'about',
                 header: 'About',
-                body: 'To be filled',
+                pageData: 'To be filled',
                 language: 'en'
             }, {
                 entityId: 'about',
                 header: 'Обо мне',
-                body: 'Будет заполнено',
+                pageData: 'Будет заполнено',
                 language: 'ru'
             }, {
                 entityId: 'about',
                 header: 'Про мене',
-                body: 'Буде заповнено',
+                pageData: 'Буде заповнено',
                 language: 'uk'
             });
         } else {
@@ -114,7 +113,6 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF SERVICE CREATE');
 
-        // if (!pages.length) {
         pagesToPush.push({
             entityId: 'service',
             header: 'Service',
@@ -128,16 +126,12 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
             header: 'Послуги',
             language: 'uk'
         });
-        // } else {
-        //     skipped += 3;
-        // }
 
         return Page.find({entityId: 'diploma'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF DIPLOMA CREATE');
 
-        // if (!pages.length) {
         pagesToPush.push({
             entityId: 'diploma',
             header: 'Diplomas',
@@ -151,16 +145,12 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
             header: 'Дипломи',
             language: 'uk'
         });
-        // } else {
-        //     skipped += 3;
-        // }
 
         return Page.find({entityId: 'article'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF ARTICLE CREATE');
 
-        // if (!pages.length) {
         pagesToPush.push({
             entityId: 'article',
             header: 'Articles',
@@ -174,50 +164,44 @@ mongoose.connect(process.env.MONGODB_URI || config.dbp)
             header: 'Статті',
             language: 'uk'
         });
-        // } else {
-        //     skipped += 3;
-        // }
 
         return Page.find({entityId: 'contacts'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF CONTACTS CREATE');
 
-        if (!pages.length) {
+        // if (!pages.length) {
             pagesToPush.push({
                 entityId: 'contacts',
                 header: 'Contacts',
-                body: JSON.stringify(
-                    [
-                        {name: "Skype", account: "ira"},
-                        {name: "Phone", account: "+380000000000"},
-                        {name: "E-mail", account: "info@romanenkova.com"}
-                    ]),
+                pageData: [
+                    {name: "Skype", account: "ira"},
+                    {name: "Phone", account: "+380000000000"},
+                    {name: "E-mail", account: "info@romanenkova.com"}
+                ],
                 language: 'en'
             }, {
                 entityId: 'contacts',
                 header: 'Контакты',
-                body: JSON.stringify(
-                    [
-                        {name: "Skype", account: "ira"},
-                        {name: "Телефон", account: "+380000000000"},
-                        {name: "E-mail", account: "info@romanenkova.com"}
-                    ]),
+                pageData: [
+                    {name: "Skype", account: "ira"},
+                    {name: "Телефон", account: "+380000000000"},
+                    {name: "E-mail", account: "info@romanenkova.com"}
+                ],
                 language: 'ru'
             }, {
                 entityId: 'contacts',
                 header: 'Контакти',
-                body: JSON.stringify(
-                    [
-                        {name: "Skype", account: "ira"},
-                        {name: "Телефон", account: "+380000000000"},
-                        {name: "E-mail", account: "info@romanenkova.com"}
-                    ]),
+                pageData: [
+                    {name: "Skype", account: "ira"},
+                    {name: "Телефон", account: "+380000000000"},
+                    {name: "E-mail", account: "info@romanenkova.com"}
+                ],
                 language: 'uk'
             });
-        } else {
-            skipped += 3;
-        }
+        // } else {
+        //     skipped += 3;
+        // }
 
         return Page.find()
     })

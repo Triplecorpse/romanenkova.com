@@ -1,6 +1,6 @@
 import express = require('express');
-
 const router = express.Router();
+
 import api from './api/index';
 import {readFile} from '../services/file-service';
 import log from './../services/log-service';
