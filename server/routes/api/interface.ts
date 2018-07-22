@@ -9,6 +9,7 @@ import {Request, Response} from "express-serve-static-core";
 import {validate} from "../../services/security-services/auth-service";
 
 import log from './../../services/log-service';
+import {stripHtml} from "../../services/security-services/strip-html";
 
 router
     .route('/:id?')
@@ -22,11 +23,19 @@ router
                     return res.status(400).json({m: 'Required parameters are missing.'});
                 }
 
-                return update(id, language,{header: req.body.header, pageData: req.body.body, language, entityId: id});
+                return Promise.all([
+                    stripHtml(req.body.body), stripHtml(req.body.header)
+                ]);
             })
             .catch((err: Error) => {
                 res.status(401).json({m: err.message});
                 throw err;
+            })
+            .then((data: Array<string>) => {
+                const language = req.query.lang;
+                const id = req.query.id;
+
+                return update(id, language,{header: data[1], pageData: data[0], language, entityId: id});
             })
             .then((data: iPage) => {
                 res.json({header: data.header, pageData: data.pageData});
