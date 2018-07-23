@@ -10,6 +10,9 @@ import {validate} from "../../services/security-services/auth-service";
 
 import log from './../../services/log-service';
 import {stripHtml} from "../../services/security-services/strip-html";
+import storj from '../../services/file-storage/file-storage-service';
+
+console.log(storj);
 
 router
     .route('/:id?')
