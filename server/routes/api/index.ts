@@ -10,6 +10,8 @@ import IRequest from "../../interfaces/iRequest";
 import {getToken, validate} from "../../services/security-services/auth-service";
 import bodyParser = require("body-parser");
 
+const multer  = require('multer');
+
 router.use(bodyParser.json());
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     log.info('Request registered from', req.hostname, req.method, req.baseUrl);
@@ -24,6 +26,22 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
 });
 router.use('/article', article);
 router.use('/interface', getInterface);
+
+const storage = multer.diskStorage({
+    // destination
+    destination: function (req: any, file: any, cb: any) {
+        cb(null, './uploads/')
+    },
+    filename: function (req: any, file: any, cb: any) {
+        cb(null, file.originalname);
+    }
+});
+const upload = multer({ storage: storage });
+
+router.post('/upload', upload.array("uploads[]", 12), (req: IRequest, res: Response, next: NextFunction) => {
+    console.log('files', req.files);
+    res.send(req.files);
+});
 
 router.get('/language', (req: IRequest, res: Response) => {
     res.json({lang: req.language});

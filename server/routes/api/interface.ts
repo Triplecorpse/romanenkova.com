@@ -10,9 +10,6 @@ import {validate} from "../../services/security-services/auth-service";
 
 import log from './../../services/log-service';
 import {stripHtml} from "../../services/security-services/strip-html";
-import storj from '../../services/file-storage/file-storage-service';
-
-console.log(storj);
 
 router
     .route('/:id?')
@@ -26,9 +23,7 @@ router
                     return res.status(400).json({m: 'Required parameters are missing.'});
                 }
 
-                return Promise.all([
-                    stripHtml(req.body.body), stripHtml(req.body.header)
-                ]);
+                return Promise.all([stripHtml(req.body.body), stripHtml(req.body.header)]);
             })
             .catch((err: Error) => {
                 res.status(401).json({m: err.message});
