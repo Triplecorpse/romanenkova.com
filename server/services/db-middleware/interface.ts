@@ -11,7 +11,8 @@ export function read(entityId: string | Array<string>, language: string | Array<
                     header: page.header,
                     entityId: page.entityId,
                     pageData: pageBody,
-                    language: pageLanguage
+                    language: pageLanguage,
+                    images: page.images
                 }
             })
         );
