@@ -11,6 +11,7 @@ import IRequest from "../../interfaces/iRequest";
 import {getToken, validate} from "../../services/security-services/auth-service";
 import bodyParser = require("body-parser");
 import {IMulterFile} from "../../interfaces/iMulterFile";
+import {ICloudinaryResponse} from "../../interfaces/iCloudinaryResponse";
 
 const multer = require('multer');
 
@@ -40,20 +41,16 @@ const storage = multer.diskStorage({
 });
 const upload = multer({storage: storage});
 
-router.post('/upload', upload.array("uploads[]", 12), (req: IRequest, res: Response, next: NextFunction) => {
-    const cloudinaryQ = req.files.map((file: IMulterFile) => {
-        return fileStorage.upload(file.path);
-    });
-
-    console.log(process.env.CLOUDINARY_URL);
+router.post('/upload', upload.array("uploads[]"), (req: IRequest, res: Response, next: NextFunction) => {
+    const cloudinaryQ: Array<Promise<ICloudinaryResponse>> =
+        req.files.map((file: IMulterFile): Promise<ICloudinaryResponse> => fileStorage.upload(file.path));
 
     Promise.all(cloudinaryQ)
-        .then(data => {
-            console.log(data);
-            res.send(data);
+        .then((data: Array<ICloudinaryResponse>) => {
+            res.send(data.map((s: ICloudinaryResponse): string => s.url));
         })
-        .catch(err => {
-            console.log(err);
+        .catch((err: any) => {
+            res.status(500).send(err);
         });
 });
 

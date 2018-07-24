@@ -17,6 +17,7 @@ export interface iPage extends iMongooseSchema {
     header: string;
     pageData?: string | Array<iNav> | Array<iContact>;
     entityId: 'nav' | 'contacts' | 'about' | 'diploma' | 'service' | 'article' | 'main' | 'review';
+    images: string[]
 }
 
 function validateLanguage(lang: string): boolean {
@@ -51,6 +52,7 @@ function getBody(body: string): string {
 const schema = new mongoose.Schema({
     header: {type: String, required: true},
     pageData: {type: String, required: false, set: setBody, get: getBody},
+    images: {type: [String], required: false},
     language: {type: String, required: true, validate: validateLanguage},
     entityId: {type: String, required: true, lowercase: true, validate: validateId},
 }, {strict: false});
