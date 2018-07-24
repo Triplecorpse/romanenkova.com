@@ -5,12 +5,14 @@ const router = express.Router();
 import article from './article';
 import getInterface from './interface';
 import {NextFunction, Request, Response} from "express-serve-static-core";
-import log from './../../services/log-service'
+import log from './../../services/log-service';
+import * as fileStorage from './../../services/file-storage/file-storage-service';
 import IRequest from "../../interfaces/iRequest";
 import {getToken, validate} from "../../services/security-services/auth-service";
 import bodyParser = require("body-parser");
+import {IMulterFile} from "../../interfaces/iMulterFile";
 
-const multer  = require('multer');
+const multer = require('multer');
 
 router.use(bodyParser.json());
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
@@ -36,11 +38,23 @@ const storage = multer.diskStorage({
         cb(null, file.originalname);
     }
 });
-const upload = multer({ storage: storage });
+const upload = multer({storage: storage});
 
 router.post('/upload', upload.array("uploads[]", 12), (req: IRequest, res: Response, next: NextFunction) => {
-    console.log('files', req.files);
-    res.send(req.files);
+    const cloudinaryQ = req.files.map((file: IMulterFile) => {
+        return fileStorage.upload(file.path);
+    });
+
+    console.log(process.env.CLOUDINARY_URL);
+
+    Promise.all(cloudinaryQ)
+        .then(data => {
+            console.log(data);
+            res.send(data);
+        })
+        .catch(err => {
+            console.log(err);
+        });
 });
 
 router.get('/language', (req: IRequest, res: Response) => {

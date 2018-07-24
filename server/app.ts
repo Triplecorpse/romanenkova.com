@@ -5,6 +5,8 @@ import mongoose = require('mongoose');
 
 const port: string | number = process.env.PORT || config.port;
 
+process.env.CLOUDINARY_URL = process.env.CLOUDINARY_URL || 'cloudinary://331499759818678:UMECpOqXlpP7M11sBHjbaOPc0YQ@hladvnf07';
+
 mongoose.connect(process.env.MONGODB_URI || config.dbp);
 
 app.listen(port, () => {

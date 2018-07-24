@@ -1,5 +1,16 @@
+import {ICloudinaryResponse} from "../../interfaces/iCloudinaryResponse";
+
 const cloudinary = require('cloudinary');
 
-cloudinary.uploader.upload("my_picture.jpg", (result: any) => { console.log(result) });
+export function upload(name: string): Promise<ICloudinaryResponse> {
+    return new Promise<ICloudinaryResponse>((resolve, reject) => {
+        cloudinary.v2.uploader.upload(name, (error: any, result: ICloudinaryResponse) => {
+            if (error) {
+                reject(error);
+                return;
+            }
 
-
+            resolve(result);
+        });
+    });
+}
