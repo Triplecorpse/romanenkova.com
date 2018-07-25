@@ -41,7 +41,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({storage: storage});
 
-router.post('/upload', upload.array("uploads[]"), (req: IRequest, res: Response, next: NextFunction) => {
+router.post('/upload', upload.array("upload"), (req: IRequest, res: Response, next: NextFunction) => {
     const cloudinaryQ: Array<Promise<ICloudinaryResponse>> =
         req.files.map((file: IMulterFile): Promise<ICloudinaryResponse> => fileStorage.upload(file.path));
 

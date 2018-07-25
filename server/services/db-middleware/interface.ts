@@ -19,22 +19,24 @@ export function read(entityId: string | Array<string>, language: string | Array<
         );
 }
 
-export function updatePageSubmitObj(page: IPageSubmit): Promise<Array<iPage>> {
+export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<iPage>> {
     const pagesQ: Array<Promise<iPage>> = [];
     const availableLanguages: Array<string> = ['en', 'ru', 'uk'];
-    const pages: IPageLanguageContainer = page.page;
+    const pages: IPageLanguageContainer = pageObj.page;
     let i: 'en' | 'ru' | 'uk';
 
     for (i in pages) {
         if (pages.hasOwnProperty(i) && availableLanguages.indexOf(i) > -1) {
-            pagesQ.push(update(page.id, i, (pages[i] as iPage)));
+            const page = pages[i] as iPage;
+            page.images = pageObj.media;
+            pagesQ.push(updateSinglePage(pageObj.id, i, page));
         }
     }
 
     return Promise.all(pagesQ);
 }
 
-export function update(entityId: string, language: string, page: iPage): Promise<iPage> {
+export function updateSinglePage(entityId: string, language: string, page: iPage): Promise<iPage> {
     return Page.updateOne({entityId, language}, page)
         .then(() => {
             return read(entityId, language);

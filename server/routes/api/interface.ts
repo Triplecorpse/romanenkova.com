@@ -2,14 +2,14 @@ import express = require('express');
 
 const router = express.Router();
 
-import {read, update, updatePageSubmitObj} from '../../services/db-middleware/interface';
+import {read, updatePageSubmitObj} from '../../services/db-middleware/interface';
 import {iPage} from "../../models/page";
 
 import {Request, Response} from "express-serve-static-core";
 import {validate} from "../../services/security-services/auth-service";
 
 import log from './../../services/log-service';
-import {stripString as stripHtml, removeTagsFromObject} from "../../services/security-services/strip-html";
+import {removeTagsFromObject} from "../../services/security-services/strip-html";
 import {IPageSubmit} from "../../interfaces/iPageSubmit";
 
 router
