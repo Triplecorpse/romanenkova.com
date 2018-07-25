@@ -1,6 +1,7 @@
 import mongoose = require('mongoose');
 import {iMongooseSchema} from "./iMongooseSchema";
 import {DocumentQuery, HookNextFunction, Model, Query, Schema} from "mongoose";
+import {tPageId} from "../interfaces/tPageId";
 
 export interface iNav {
     name: string;
@@ -16,7 +17,7 @@ interface iContact {
 export interface iPage extends iMongooseSchema {
     header: string;
     pageData?: string | Array<iNav> | Array<iContact>;
-    entityId: 'nav' | 'contacts' | 'about' | 'diploma' | 'service' | 'article' | 'main' | 'review';
+    entityId: tPageId;
     images?: string[]
 }
 

@@ -2,41 +2,38 @@ import express = require('express');
 
 const router = express.Router();
 
-import {read, update} from '../../services/db-middleware/interface';
+import {read, update, updatePageSubmitObj} from '../../services/db-middleware/interface';
 import {iPage} from "../../models/page";
 
 import {Request, Response} from "express-serve-static-core";
 import {validate} from "../../services/security-services/auth-service";
 
 import log from './../../services/log-service';
-import {stripHtml} from "../../services/security-services/strip-html";
+import {stripString as stripHtml, removeTagsFromObject} from "../../services/security-services/strip-html";
+import {IPageSubmit} from "../../interfaces/iPageSubmit";
 
 router
     .route('/:id?')
     .put((req: Request, res: Response) => {
         validate(req.body.token)
-            .then((data: any): any => {
-                const language = req.query.lang;
-                const id = req.query.id;
+            .then((): Promise<IPageSubmit> => {
+                const page = req.body as IPageSubmit;
 
-                if (!language || !id) {
-                    return res.status(400).json({m: 'Required parameters are missing.'});
-                }
+                page.media = page.media || [];
 
-                return Promise.all([stripHtml(req.body.body), stripHtml(req.body.header)]);
+                return removeTagsFromObject(page);
             })
             .catch((err: Error) => {
+                log.info('Seems auth validation failed');
+
                 res.status(401).json({m: err.message});
                 throw err;
             })
-            .then((data: Array<string>) => {
-                const language = req.query.lang;
-                const id = req.query.id;
-
-                return update(id, language,{header: data[1], pageData: data[0], language, entityId: id});
+            .then((data: IPageSubmit) => {
+                return updatePageSubmitObj(data);
             })
-            .then((data: iPage) => {
-                res.json({header: data.header, pageData: data.pageData});
+            .then((data: Array<iPage>) => {
+                res.json(data);
             })
             .catch((err: Error) => {
                 res.status(500).json({m: err.message});
