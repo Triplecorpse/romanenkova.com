@@ -47,7 +47,7 @@ router.post('/upload', upload.array("uploads[]"), (req: IRequest, res: Response,
 
     Promise.all(cloudinaryQ)
         .then((data: Array<ICloudinaryResponse>) => {
-            res.send(data.map((s: ICloudinaryResponse): string => s.url));
+            res.send(data.map((s: ICloudinaryResponse): {url: string} => ({url: s.url})));
         })
         .catch((err: any) => {
             res.status(500).send(err);

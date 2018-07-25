@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import {iPage, model as Page} from "../server/models/page";
 import log from "../server/services/log-service";
 import mongoose, {DocumentQuery} from "mongoose";
@@ -5,6 +7,8 @@ import {Cursor} from "mongodb";
 
 const pagesToPush: Array<iPage> = [];
 let skipped: number = 0;
+
+console.log('process.env.MONGODB_URI', process.env.MONGODB_URI);
 
 mongoose.connect(process.env.MONGODB_URI as string)
     .then((): DocumentQuery<any, any> => {
@@ -91,17 +95,20 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 entityId: 'about',
                 header: 'About me',
                 pageData: 'To be filled',
-                language: 'en'
+                language: 'en',
+                images: []
             }, {
                 entityId: 'about',
                 header: 'Обо мне',
                 pageData: 'Будет заполнено',
-                language: 'ru'
+                language: 'ru',
+                images: []
             }, {
                 entityId: 'about',
                 header: 'Про мене',
                 pageData: 'Буде заповнено',
-                language: 'uk'
+                language: 'uk',
+                images: []
             });
         } else {
             skipped += 3;

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import {iPage, model as Page} from "../server/models/page";
 import log from "../server/services/log-service";
 import mongoose, {DocumentQuery} from "mongoose";
