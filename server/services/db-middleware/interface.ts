@@ -22,9 +22,6 @@ export function read(entityId: string | Array<string>, language: string | Array<
 export function updatePageSubmitObj(page: IPageSubmit): Promise<Array<iPage>> {
     const pagesQ: Array<Promise<iPage>> = [];
     const availableLanguages: Array<string> = ['en', 'ru', 'uk'];
-    const languages: Array<string> = Object.keys(page.page);
-    const languagesToUpdate = availableLanguages.filter(value => -1 !== languages.indexOf(value));
-
     const pages: IPageLanguageContainer = page.page;
     let i: 'en' | 'ru' | 'uk';
 
