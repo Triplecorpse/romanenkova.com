@@ -96,19 +96,19 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 header: 'About me',
                 pageData: 'To be filled',
                 language: 'en',
-                images: ['i']
+                images: []
             }, {
                 entityId: 'about',
                 header: 'Обо мне',
                 pageData: 'Будет заполнено',
                 language: 'ru',
-                images: ['i']
+                images: []
             }, {
                 entityId: 'about',
                 header: 'Про мене',
                 pageData: 'Буде заповнено',
                 language: 'uk',
-                images: ['i']
+                images: []
             });
         } else {
             skipped += 3;
