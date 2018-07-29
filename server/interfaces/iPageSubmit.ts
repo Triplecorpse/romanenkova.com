@@ -1,5 +1,5 @@
 import {iPage} from "../models/page";
-import {tPageId} from "./tPageId";
+import {TPageId, TStatus} from "../types/types";
 
 export interface IPageLanguageContainer {
     en?: iPage;
@@ -7,8 +7,13 @@ export interface IPageLanguageContainer {
     uk?: iPage;
 }
 
+export interface IPageImage {
+    src: string;
+    status: TStatus;
+}
+
 export interface IPageSubmit {
-    id: tPageId;
+    id: TPageId;
     page: IPageLanguageContainer;
-    media?: Array<string>;
+    media?: Array<IPageImage>;
 }
