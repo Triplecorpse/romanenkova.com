@@ -10,7 +10,7 @@ export interface iNav {
 interface iContact {
     name: string;
     account: string;
-    linkto?: 'mailto:' | 'skype:' | 'callto:'
+    linkto?: 'mailto:' | 'skype:' | 'tel:'
 }
 
 export interface iPage extends iMongooseSchema {

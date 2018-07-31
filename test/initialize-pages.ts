@@ -201,7 +201,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 header: 'Contacts',
                 pageData: [
                     {name: "Skype", account: "ira", linkto: 'skype:'},
-                    {name: "Phone", account: "+380000000000", linkto: 'callto:'},
+                    {name: "Phone", account: "+380000000000", linkto: 'tel:'},
                     {name: "E-mail", account: "info@romanenkova.com", linkto: 'mailto:'}
                 ],
                 language: 'en'
@@ -210,8 +210,8 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 header: 'Контакты',
                 pageData: [
                     {name: "Skype", account: "ira", linkto: 'skype:'},
-                    {name: "Телефон", account: "+380000000000", linkto: 'callto:'},
-                    {name: "E-mail", account: "info@romanenkova.com", linkto: 'mailto:'}
+                    {name: "Телефон", account: "+380000000000", linkto: 'tel:'},
+                    {name: "E-mail", account: "infoAromanenkova.com", linkto: 'mailto:'}
                 ],
                 language: 'ru'
             }, {
@@ -219,7 +219,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 header: 'Контакти',
                 pageData: [
                     {name: "Skype", account: "ira", linkto: 'skype:'},
-                    {name: "Телефон", account: "+380000000000", linkto: 'callto:'},
+                    {name: "Телефон", account: "+380000000000", linkto: 'tel:'},
                     {name: "E-mail", account: "info@romanenkova.com", linkto: 'mailto:'}
                 ],
                 language: 'uk'
