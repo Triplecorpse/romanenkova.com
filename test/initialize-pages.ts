@@ -73,7 +73,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         pagesToPush.push({
             entityId: 'main',
-            header: 'Online consult',
+            header: 'Online psychologist consult',
             language: 'en'
         }, {
             entityId: 'main',
