@@ -805,7 +805,7 @@ __webpack_require__.r(__webpack_exports__);
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
  */ 
-var styles = [""];
+var styles = [".content[_ngcontent-%COMP%] {\n  width: 80%;\n  margin: 0 auto 250px; }"];
 
 
 
@@ -1158,4 +1158,4 @@ module.exports = __webpack_require__(/*! C:\Users\eldar\WebstormProjects\romanen
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.84ca42926b5ebb5ece4a.js.map
+//# sourceMappingURL=main.da7554e21534dc33dc30.js.map
