@@ -27,8 +27,9 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         pagesToPush.push({
             pageData: [
-                {name: "Online psychology", anchor: "main"},
+                {name: ["Online", "psychology"], anchor: "main"},
                 {name: "Make an appointment", anchor: "appointment"},
+                {name: ["Irina", "Romanenkova"], anchor: "name"},
                 {name: "About me", anchor: "about"},
                 {name: "Services", anchor: "services"},
                 {name: "Diplomas", anchor: "diplomas"},
@@ -40,8 +41,9 @@ mongoose.connect(process.env.MONGODB_URI as string)
             header: 'Main menu'
         }, {
             pageData: [
-                {name: "Онлайн психология", anchor: "main"},
+                {name: ["Онлайн", "психология"], anchor: "main"},
                 {name: "Записаться на приём", anchor: "appointment"},
+                {name: ["Ирина", "Романенкова"], anchor: "name"},
                 {name: "Обо мне", anchor: "about"},
                 {name: "Услуги", anchor: "services"},
                 {name: "Дипломы", anchor: "diplomas"},
@@ -53,8 +55,9 @@ mongoose.connect(process.env.MONGODB_URI as string)
             header: 'Главное меню'
         }, {
             pageData: [
-                {name: "Онлайн психологія", anchor: "main"},
+                {name: ["Онлайн", "психологія"], anchor: "main"},
                 {name: "Записатися на прийом", anchor: "appointment"},
+                {name: ["Ірина", "Романенкова"], anchor: "name"},
                 {name: "Про мене", anchor: "about"},
                 {name: "Послуги", anchor: "services"},
                 {name: "Дипломи", anchor: "diplomas"},
@@ -62,6 +65,20 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 {name: "Контакти", anchor: "contacts"}
             ],
             language: 'uk',
+            entityId: 'nav',
+            header: 'Головне меню'
+        }, {
+            pageData: [
+                {name: ["en ligne", "Psychologie"], anchor: "main"},
+                {name: "Prendre rendez-vous", anchor: "appointment"},
+                {name: ["Irina", "Romanenkova"], anchor: "name"},
+                {name: "Sur moi", anchor: "about"},
+                {name: "Services", anchor: "services"},
+                {name: "Diplômes", anchor: "diplomas"},
+                {name: "Articles", anchor: "articles"},
+                {name: "Contacts", anchor: "contacts"}
+            ],
+            language: 'fr',
             entityId: 'nav',
             header: 'Головне меню'
         });
@@ -73,7 +90,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         pagesToPush.push({
             entityId: 'main',
-            header: 'Online psychologist consult',
+            header: 'Online consult of psychologist',
             language: 'en'
         }, {
             entityId: 'main',
@@ -83,6 +100,10 @@ mongoose.connect(process.env.MONGODB_URI as string)
             entityId: 'main',
             header: 'Онлайн консультації психолога',
             language: 'uk'
+        }, {
+            entityId: 'main',
+            header: 'Psychologue en ligne',
+            language: 'fr'
         });
 
         return Page.find({entityId: 'about'});
@@ -90,29 +111,28 @@ mongoose.connect(process.env.MONGODB_URI as string)
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF ABOUT CREATE');
 
-        if (!pages.length) {
-            pagesToPush.push({
-                entityId: 'about',
-                header: 'About me',
-                pageData: 'To be filled',
-                language: 'en',
-                images: []
-            }, {
-                entityId: 'about',
-                header: 'Обо мне',
-                pageData: 'Будет заполнено',
-                language: 'ru',
-                images: []
-            }, {
-                entityId: 'about',
-                header: 'Про мене',
-                pageData: 'Буде заповнено',
-                language: 'uk',
-                images: []
-            });
-        } else {
-            skipped += 3;
-        }
+        pagesToPush.push({
+            entityId: 'about',
+            header: 'About me',
+            language: 'en',
+            images: []
+        }, {
+            entityId: 'about',
+            header: 'Обо мне',
+            language: 'ru',
+            images: []
+        }, {
+            entityId: 'about',
+            header: 'Про мене',
+            language: 'uk',
+            images: []
+        }, {
+            entityId: 'about',
+            header: 'Sur moi',
+            pageData: 'Fr',
+            language: 'fr',
+            images: []
+        });
 
         return Page.find({entityId: 'service'});
     })
@@ -121,7 +141,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         pagesToPush.push({
             entityId: 'service',
-            header: 'Service',
+            header: 'Services',
             language: 'en'
         }, {
             entityId: 'service',
@@ -131,6 +151,10 @@ mongoose.connect(process.env.MONGODB_URI as string)
             entityId: 'service',
             header: 'Послуги',
             language: 'uk'
+        }, {
+            entityId: 'service',
+            header: 'Services',
+            language: 'fr'
         });
 
         return Page.find({entityId: 'diploma'});
@@ -150,6 +174,10 @@ mongoose.connect(process.env.MONGODB_URI as string)
             entityId: 'diploma',
             header: 'Дипломи',
             language: 'uk'
+        }, {
+            entityId: 'diploma',
+            header: 'Diplômes',
+            language: 'fr'
         });
 
         return Page.find({entityId: 'review'});
@@ -169,6 +197,10 @@ mongoose.connect(process.env.MONGODB_URI as string)
             entityId: 'review',
             header: 'Reviews',
             language: 'uk'
+        }, {
+            entityId: 'review',
+            header: 'Avis',
+            language: 'fr'
         });
 
         return Page.find({entityId: 'article'});
@@ -188,6 +220,10 @@ mongoose.connect(process.env.MONGODB_URI as string)
             entityId: 'article',
             header: 'Статті',
             language: 'uk'
+        }, {
+            entityId: 'article',
+            header: 'Articles',
+            language: 'fr'
         });
 
         return Page.find({entityId: 'contacts'});
@@ -195,38 +231,48 @@ mongoose.connect(process.env.MONGODB_URI as string)
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF CONTACTS CREATE');
 
-        if (!pages.length) {
-            pagesToPush.push({
-                entityId: 'contacts',
-                header: 'Contacts',
-                pageData: [
-                    {name: "Skype", account: "ira", linkto: 'skype:'},
-                    {name: "Phone", account: "+380000000000", linkto: 'tel:'},
-                    {name: "E-mail", account: "info@romanenkova.com", linkto: 'mailto:'}
-                ],
-                language: 'en'
-            }, {
-                entityId: 'contacts',
-                header: 'Контакты',
-                pageData: [
-                    {name: "Skype", account: "ira", linkto: 'skype:'},
-                    {name: "Телефон", account: "+380000000000", linkto: 'tel:'},
-                    {name: "E-mail", account: "infoAromanenkova.com", linkto: 'mailto:'}
-                ],
-                language: 'ru'
-            }, {
-                entityId: 'contacts',
-                header: 'Контакти',
-                pageData: [
-                    {name: "Skype", account: "ira", linkto: 'skype:'},
-                    {name: "Телефон", account: "+380000000000", linkto: 'tel:'},
-                    {name: "E-mail", account: "info@romanenkova.com", linkto: 'mailto:'}
-                ],
-                language: 'uk'
-            });
-        } else {
-            skipped += 3;
-        }
+        pagesToPush.push({
+            entityId: 'contacts',
+            header: 'Contacts',
+            pageData: [
+                {name: "Skype", account: "ira", linkto: 'skype:ira?chat', type: 'skype'},
+                {name: "Phone", account: "+380000000000", linkto: 'tel:+380000000000', type: 'phone'},
+                {
+                    name: "E-mail",
+                    account: "infoAromanenkova.com",
+                    linkto: 'mailto:infoAromanenkova.com',
+                    type: 'email'
+                }
+            ],
+            language: 'en'
+        }, {
+            entityId: 'contacts',
+            header: 'Контакты',
+            pageData: [
+                {name: "Skype", account: "ira", linkto: 'skype:ira?chat', type: 'skype'},
+                {name: "Телефон", account: "+380000000000", linkto: 'tel:+380000000000', type: 'phone'},
+                {name: "E-mail", account: "infoAromanenkova.com", linkto: 'mailto:infoAromanenkova.com', type: 'email'}
+            ],
+            language: 'ru'
+        }, {
+            entityId: 'contacts',
+            header: 'Контакти',
+            pageData: [
+                {name: "Skype", account: "ira", linkto: 'skype:ira?chat', type: 'skype'},
+                {name: "Телефон", account: "+380000000000", linkto: 'tel:+380000000000', type: 'phone'},
+                {name: "E-mail", account: "infoAromanenkova.com", linkto: 'mailto:infoAromanenkova.com', type: 'email'}
+            ],
+            language: 'uk'
+        }, {
+            entityId: 'contacts',
+            header: 'Contacts',
+            pageData: [
+                {name: "Skype", account: "ira", linkto: 'skype:ira?chat', type: 'skype'},
+                {name: "Téléphone", account: "+380000000000", linkto: 'tel:+380000000000', type: 'phone'},
+                {name: "E-mail", account: "infoAromanenkova.com", linkto: 'mailto:infoAromanenkova.com', type: 'email'}
+            ],
+            language: 'fr'
+        });
 
         return Page.find()
     })

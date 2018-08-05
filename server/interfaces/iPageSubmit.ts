@@ -5,6 +5,7 @@ export interface IPageLanguageContainer {
     en?: iPage;
     ru?: iPage;
     uk?: iPage;
+    fr?: iPage;
 }
 
 export interface IPageImage {

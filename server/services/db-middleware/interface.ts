@@ -2,6 +2,7 @@ import log from './../log-service';
 import {iPage, model as Page} from '../../models/page';
 import {IPageImage, IPageLanguageContainer, IPageSubmit} from "../../interfaces/iPageSubmit";
 import {TLanguage} from "../../types/types";
+import {languages} from "../../const/const";
 
 const cloudinary = require('cloudinary');
 
@@ -24,7 +25,7 @@ export function read(entityId: string | Array<string>, language: string | Array<
 
 export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<iPage>> {
     const pagesQ: Array<Promise<iPage>> = [];
-    const availableLanguages: Array<TLanguage> = ['en', 'ru', 'uk'];
+    const availableLanguages: Array<TLanguage> = languages;
     const pages: IPageLanguageContainer = pageObj.page;
     const pageMedia: Array<IPageImage> = pageObj.media || [];
     const mediaToAdd: Array<string> = pageMedia

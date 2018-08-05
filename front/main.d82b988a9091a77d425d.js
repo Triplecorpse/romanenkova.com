@@ -283,11 +283,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var rxjs_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/index */ "./node_modules/rxjs/index.js");
 /* harmony import */ var rxjs_index__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(rxjs_index__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/internal/operators */ "./node_modules/rxjs/internal/operators/index.js");
-/* harmony import */ var rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 
 
 
@@ -303,24 +300,30 @@ var LanguageGuardService = /** @class */ (function () {
     LanguageGuardService.prototype.canActivate = function (route, state) {
         var _this = this;
         var storedLang = localStorage.getItem('lang');
-        if (route.params.lang === 'en' || route.params.lang === 'ru' || route.params.lang === 'uk') {
-            localStorage.setItem('lang', route.params.lang);
-            return Object(rxjs_index__WEBPACK_IMPORTED_MODULE_2__["of"])(true);
-        }
-        if (route.params.lang === '404') {
-            return Object(rxjs_index__WEBPACK_IMPORTED_MODULE_2__["of"])(false);
-        }
-        if (storedLang) {
-            this.route.navigate([storedLang]);
-            return Object(rxjs_index__WEBPACK_IMPORTED_MODULE_2__["of"])(false);
-        }
-        return this.httpClient.get(_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].api + 'language')
-            .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (lang) {
-            localStorage.setItem('lang', lang.lang);
-            _this.route.navigate([lang.lang]);
-        }), Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function () { return false; }));
+        var resolver = new rxjs_index__WEBPACK_IMPORTED_MODULE_2__["ReplaySubject"]();
+        var lang;
+        var availableLangs;
+        this.httpClient.get(_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].api + 'language')
+            .subscribe(function (data) {
+            lang = data.lang;
+            availableLangs = data.availableLangs.map(function (lang) { return lang.code; });
+            _this.langItems = data.availableLangs;
+            if (availableLangs.includes(route.params.lang)) {
+                localStorage.setItem('lang', route.params.lang);
+                resolver.next(true);
+                resolver.complete();
+                return;
+            }
+            if (storedLang) {
+                _this.route.navigate([storedLang]);
+            }
+            localStorage.setItem('lang', lang);
+            resolver.next(false);
+            resolver.complete();
+        });
+        return resolver.asObservable();
     };
-    LanguageGuardService.ngInjectableDef = _angular_core__WEBPACK_IMPORTED_MODULE_5__["defineInjectable"]({ factory: function LanguageGuardService_Factory() { return new LanguageGuardService(_angular_core__WEBPACK_IMPORTED_MODULE_5__["inject"](_angular_router__WEBPACK_IMPORTED_MODULE_0__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_5__["inject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"])); }, token: LanguageGuardService, providedIn: "root" });
+    LanguageGuardService.ngInjectableDef = _angular_core__WEBPACK_IMPORTED_MODULE_4__["defineInjectable"]({ factory: function LanguageGuardService_Factory() { return new LanguageGuardService(_angular_core__WEBPACK_IMPORTED_MODULE_4__["inject"](_angular_router__WEBPACK_IMPORTED_MODULE_0__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_4__["inject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"])); }, token: LanguageGuardService, providedIn: "root" });
     return LanguageGuardService;
 }());
 
@@ -609,12 +612,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _attend_button_attend_button_component_ngfactory__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../attend-button/attend-button.component.ngfactory */ "./src/app/pages/_index/components/attend-button/attend-button.component.ngfactory.js");
 /* harmony import */ var _attend_button_attend_button_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../attend-button/attend-button.component */ "./src/app/pages/_index/components/attend-button/attend-button.component.ts");
 /* harmony import */ var _header_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./header.component */ "./src/app/pages/_index/components/header/header.component.ts");
+/* harmony import */ var _language_guard_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../language-guard.service */ "./src/app/language-guard.service.ts");
 /**
  * @fileoverview This file was generated by the Angular template compiler. Do not edit.
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
  */ 
+
 
 
 
@@ -649,7 +654,7 @@ function View_HeaderComponent_0(_l) { return _angular_core__WEBPACK_IMPORTED_MOD
 function View_HeaderComponent_Host_0(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 1, "app-header", [], null, [["window", "scroll"]], function (_v, en, $event) { var ad = true; if (("window:scroll" === en)) {
         var pd_0 = (_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 1).listenter() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, View_HeaderComponent_0, RenderType_HeaderComponent)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](1, 114688, null, 0, _header_component__WEBPACK_IMPORTED_MODULE_7__["HeaderComponent"], [_angular_common__WEBPACK_IMPORTED_MODULE_3__["DOCUMENT"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+    } return ad; }, View_HeaderComponent_0, RenderType_HeaderComponent)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](1, 114688, null, 0, _header_component__WEBPACK_IMPORTED_MODULE_7__["HeaderComponent"], [_angular_common__WEBPACK_IMPORTED_MODULE_3__["DOCUMENT"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _language_guard_service__WEBPACK_IMPORTED_MODULE_8__["LanguageGuardService"]], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 var HeaderComponentNgFactory = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵccf"]("app-header", _header_component__WEBPACK_IMPORTED_MODULE_7__["HeaderComponent"], View_HeaderComponent_Host_0, { src: "src", header: "header", attend: "attend", title: "title", nav: "nav" }, {}, []);
 
 
@@ -692,29 +697,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/internal/operators */ "./node_modules/rxjs/internal/operators/index.js");
 /* harmony import */ var rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _language_guard_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../language-guard.service */ "./src/app/language-guard.service.ts");
+
 
 
 
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent(document, route, router) {
+    function HeaderComponent(document, route, router, languageGuardService) {
         var _this = this;
         this.document = document;
         this.route = route;
         this.router = router;
+        this.languageGuardService = languageGuardService;
         this.isFixed = false;
         this.isOpen = false;
-        this.languages = [
-            { code: 'en', name: 'Eng' },
-            { code: 'ru', name: 'Рус' },
-            { code: 'uk', name: 'Укр' }
-        ];
         router.events
             .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_2__["filter"])(function (e) { return e instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"]; }))
             .subscribe(function (e) {
             _this.languages.forEach(function (lang) {
-                lang.href = _this.router.url.replace(/^\/(en|ru|uk)?(\/|$)/gmi, "/" + lang.code + "/");
+                lang.href = _this.router.url.replace(/^\/(en|ru|uk|fr)?(\/|$)/gmi, "/" + lang.code + "/");
+                lang.name = lang.name.substr(0, 3);
             });
         });
+        this.languages = languageGuardService.langItems;
     }
     HeaderComponent.prototype.listenter = function (e) {
         var scrollTop = this.document.documentElement.scrollTop;
@@ -757,9 +762,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../header/header.component */ "./src/app/pages/_index/components/header/header.component.ts");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _footer_footer_component_ngfactory__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../footer/footer.component.ngfactory */ "./src/app/pages/_index/components/footer/footer.component.ngfactory.js");
-/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../footer/footer.component */ "./src/app/pages/_index/components/footer/footer.component.ts");
-/* harmony import */ var _index_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./index.component */ "./src/app/pages/_index/components/index/index.component.ts");
+/* harmony import */ var _language_guard_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../language-guard.service */ "./src/app/language-guard.service.ts");
+/* harmony import */ var _footer_footer_component_ngfactory__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../footer/footer.component.ngfactory */ "./src/app/pages/_index/components/footer/footer.component.ngfactory.js");
+/* harmony import */ var _footer_footer_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../footer/footer.component */ "./src/app/pages/_index/components/footer/footer.component.ts");
+/* harmony import */ var _index_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./index.component */ "./src/app/pages/_index/components/index/index.component.ts");
 /**
  * @fileoverview This file was generated by the Angular template compiler. Do not edit.
  *
@@ -775,15 +781,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var styles_IndexComponent = [_index_component_scss_shim_ngstyle__WEBPACK_IMPORTED_MODULE_0__["styles"]];
 var RenderType_IndexComponent = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵcrt"]({ encapsulation: 0, styles: styles_IndexComponent, data: {} });
 
 function View_IndexComponent_0(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 9, "div", [["class", "container"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](1, 0, null, null, 2, "header", [["class", "header"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](2, 0, null, null, 1, "app-header", [], null, [["window", "scroll"]], function (_v, en, $event) { var ad = true; if (("window:scroll" === en)) {
         var pd_0 = (_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v, 3).listenter() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, _header_header_component_ngfactory__WEBPACK_IMPORTED_MODULE_2__["View_HeaderComponent_0"], _header_header_component_ngfactory__WEBPACK_IMPORTED_MODULE_2__["RenderType_HeaderComponent"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](3, 114688, null, 0, _header_header_component__WEBPACK_IMPORTED_MODULE_3__["HeaderComponent"], [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]], { src: [0, "src"], header: [1, "header"], attend: [2, "attend"], title: [3, "title"], nav: [4, "nav"] }, null), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](4, 0, null, null, 2, "main", [["class", "content"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](5, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](6, 212992, null, 0, _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterOutlet"], [_angular_router__WEBPACK_IMPORTED_MODULE_5__["ChildrenOutletContexts"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ComponentFactoryResolver"], [8, null], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]], null, null), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](7, 0, null, null, 2, "footer", [["class", "footer"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](8, 0, null, null, 1, "app-footer", [], null, null, null, _footer_footer_component_ngfactory__WEBPACK_IMPORTED_MODULE_6__["View_FooterComponent_0"], _footer_footer_component_ngfactory__WEBPACK_IMPORTED_MODULE_6__["RenderType_FooterComponent"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](9, 114688, null, 0, _footer_footer_component__WEBPACK_IMPORTED_MODULE_7__["FooterComponent"], [], { data: [0, "data"], attend: [1, "attend"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.src; var currVal_1 = _co.header; var currVal_2 = _co.attend; var currVal_3 = _co.title; var currVal_4 = _co.nav; _ck(_v, 3, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4); _ck(_v, 6, 0); var currVal_5 = _co.footer; var currVal_6 = _co.attend; _ck(_v, 9, 0, currVal_5, currVal_6); }, null); }
-function View_IndexComponent_Host_0(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 1, "app-index", [], null, null, null, View_IndexComponent_0, RenderType_IndexComponent)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](1, 114688, null, 0, _index_component__WEBPACK_IMPORTED_MODULE_8__["IndexComponent"], [_angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
-var IndexComponentNgFactory = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵccf"]("app-index", _index_component__WEBPACK_IMPORTED_MODULE_8__["IndexComponent"], View_IndexComponent_Host_0, {}, {}, []);
+    } return ad; }, _header_header_component_ngfactory__WEBPACK_IMPORTED_MODULE_2__["View_HeaderComponent_0"], _header_header_component_ngfactory__WEBPACK_IMPORTED_MODULE_2__["RenderType_HeaderComponent"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](3, 114688, null, 0, _header_header_component__WEBPACK_IMPORTED_MODULE_3__["HeaderComponent"], [_angular_common__WEBPACK_IMPORTED_MODULE_4__["DOCUMENT"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], _language_guard_service__WEBPACK_IMPORTED_MODULE_6__["LanguageGuardService"]], { src: [0, "src"], header: [1, "header"], attend: [2, "attend"], title: [3, "title"], nav: [4, "nav"] }, null), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](4, 0, null, null, 2, "main", [["class", "content"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](5, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](6, 212992, null, 0, _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterOutlet"], [_angular_router__WEBPACK_IMPORTED_MODULE_5__["ChildrenOutletContexts"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ComponentFactoryResolver"], [8, null], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]], null, null), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](7, 0, null, null, 2, "footer", [["class", "footer"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](8, 0, null, null, 1, "app-footer", [], null, null, null, _footer_footer_component_ngfactory__WEBPACK_IMPORTED_MODULE_7__["View_FooterComponent_0"], _footer_footer_component_ngfactory__WEBPACK_IMPORTED_MODULE_7__["RenderType_FooterComponent"])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](9, 114688, null, 0, _footer_footer_component__WEBPACK_IMPORTED_MODULE_8__["FooterComponent"], [], { data: [0, "data"], attend: [1, "attend"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.src; var currVal_1 = _co.header; var currVal_2 = _co.attend; var currVal_3 = _co.title; var currVal_4 = _co.nav; _ck(_v, 3, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4); _ck(_v, 6, 0); var currVal_5 = _co.footer; var currVal_6 = _co.attend; _ck(_v, 9, 0, currVal_5, currVal_6); }, null); }
+function View_IndexComponent_Host_0(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 1, "app-index", [], null, null, null, View_IndexComponent_0, RenderType_IndexComponent)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](1, 114688, null, 0, _index_component__WEBPACK_IMPORTED_MODULE_9__["IndexComponent"], [_angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+var IndexComponentNgFactory = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵccf"]("app-index", _index_component__WEBPACK_IMPORTED_MODULE_9__["IndexComponent"], View_IndexComponent_Host_0, {}, {}, []);
 
 
 
@@ -1006,12 +1013,13 @@ var ResolveIndexService = /** @class */ (function () {
         var _this = this;
         return this.httpClient.get(_environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].api + 'interface', { params: { lang: route.params.lang, id: ['contacts', 'nav'] } })
             .pipe(Object(rxjs_internal_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (data) {
+            console.log(data);
             var contacts = data.find(function (page) { return page.entityId === 'contacts'; });
             var header = data.find(function (page) { return page.entityId === 'nav'; });
-            var rawTitle = header.pageData[0].name;
-            var title = rawTitle.split(' ');
+            var title = header.pageData[0].name;
             var buttonText = header.pageData[1].name;
-            var navigation = header.pageData.slice(2, 7);
+            var name = header.pageData[2].name;
+            var navigation = header.pageData.slice(3, 8);
             navigation.forEach(function (navItem) {
                 var anchor = navItem.anchor;
                 var navUrlItem = _this.navigationUrls.find(function (navUrl) { return navUrl.anchor === anchor; });
@@ -1021,7 +1029,8 @@ var ResolveIndexService = /** @class */ (function () {
                 title: title,
                 buttonText: buttonText,
                 navigation: navigation,
-                contacts: contacts
+                contacts: contacts,
+                name: name
             };
         }));
     };
@@ -1158,4 +1167,4 @@ module.exports = __webpack_require__(/*! C:\Users\eldar\WebstormProjects\romanen
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.da7554e21534dc33dc30.js.map
+//# sourceMappingURL=main.d82b988a9091a77d425d.js.map

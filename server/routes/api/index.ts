@@ -12,6 +12,7 @@ import {getToken, validate} from "../../services/security-services/auth-service"
 import bodyParser = require("body-parser");
 import {IMulterFile} from "../../interfaces/iMulterFile";
 import {ICloudinaryResponse} from "../../interfaces/iCloudinaryResponse";
+import {languageObjs} from "../../const/const";
 
 const multer = require('multer');
 
@@ -55,7 +56,7 @@ router.post('/upload', upload.array("upload"), (req: IRequest, res: Response, ne
 });
 
 router.get('/language', (req: IRequest, res: Response) => {
-    res.json({lang: req.language});
+    res.json({lang: req.language, availableLangs: languageObjs, locale: 'n/a'});
 });
 
 router.post('/login', (req: Request, res: Response) => {
