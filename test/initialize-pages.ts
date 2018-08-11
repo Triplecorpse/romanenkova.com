@@ -115,21 +115,24 @@ mongoose.connect(process.env.MONGODB_URI as string)
             entityId: 'about',
             header: 'About me',
             language: 'en',
+            pageData: '',
             images: []
         }, {
             entityId: 'about',
             header: 'Обо мне',
             language: 'ru',
+            pageData: '',
             images: []
         }, {
             entityId: 'about',
             header: 'Про мене',
             language: 'uk',
+            pageData: '',
             images: []
         }, {
             entityId: 'about',
             header: 'Sur moi',
-            pageData: 'Fr',
+            pageData: '',
             language: 'fr',
             images: []
         });
