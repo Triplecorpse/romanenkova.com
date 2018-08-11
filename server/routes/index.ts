@@ -33,7 +33,7 @@ router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunc
         })
 });
 router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
-    const allowedLangs = ['en', 'ru', 'uk'];
+    const allowedLangs = ['en', 'ru', 'uk', 'fr'];
 
     if (req.params.lang && allowedLangs.indexOf(req.params.lang) === -1) {
         return next();
