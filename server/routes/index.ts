@@ -1,4 +1,5 @@
 import express = require('express');
+
 const router = express.Router();
 
 import api from './api/index';
@@ -7,12 +8,14 @@ import log from './../services/log-service';
 import {Request, Response} from "express-serve-static-core";
 import IRequest from "../interfaces/iRequest";
 import {NextFunction} from "express";
+import {languages} from "../const/const";
+import {iPage, model as Page} from "../models/page";
 
 const parseAcceptLanguage = require('parse-accept-language');
 
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     const parsed = parseAcceptLanguage(req);
-    const acceptables: Array<string> = ['uk', 'ru', 'en'];
+    const acceptables: Array<string> = languages;
 
     const languageObj = parsed.find((lang: any) =>
         acceptables.find((acceptable: string) =>
@@ -33,17 +36,22 @@ router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunc
         })
 });
 router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
-    const allowedLangs = ['en', 'ru', 'uk', 'fr'];
+    let name: string;
 
-    if (req.params.lang && allowedLangs.indexOf(req.params.lang) === -1) {
+    if (req.params.lang && languages.indexOf(req.params.lang) === -1) {
         return next();
     }
 
     // todo: make checks for params
     const decidedLang = req.params.lang || req.language;
-    readFile('./front/index.html')
+
+    Page.find({entityId: 'nav', language: decidedLang})
+        .then((page: any) => {
+            name = page.pageData.find((pageEntity: any) => pageEntity.anchor === 'name').name.join(' ');
+            return readFile('./front/index.html')
+        })
         .then(data => {
-            data = data.replace('@lang', decidedLang);
+            data = data.replace('@lang', decidedLang).replace('@name', name);
             res.send(data);
         })
         .catch(err => {
