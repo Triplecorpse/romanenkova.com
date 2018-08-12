@@ -48,7 +48,8 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
     Page.find({entityId: 'nav', language: decidedLang})
         .then((page: any) => {
             name = page.pageData.find((pageEntity: any) => pageEntity.anchor === 'name').name.join(' ');
-            return readFile('./front/index.html')
+            res.json({...page, name});
+            return readFile('./front/index.html');
         })
         .then(data => {
             data = data.replace('@lang', decidedLang).replace('@name', name);
