@@ -45,12 +45,13 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
     // todo: make checks for params
     const decidedLang = req.params.lang || req.language;
 
-    Page.find({entityId: 'nav', language: decidedLang})
-        .then((page: any) => {
-            name = page.pageData.find((pageEntity: any) => pageEntity.anchor === 'name').name.join(' ');
-            res.json({...page, name});
-            return readFile('./front/index.html');
-        })
+    // Page.find({entityId: 'nav', language: decidedLang})
+    //     .then((page: any) => {
+    //         name = page.pageData.find((pageEntity: any) => pageEntity.anchor === 'name').name.join(' ');
+    //         res.json({...page, name});
+    //         return readFile('./front/index.html');
+    //     })
+    readFile('./front/index.html')
         .then(data => {
             data = data.replace('@lang', decidedLang).replace('@name', name);
             res.send(data);
