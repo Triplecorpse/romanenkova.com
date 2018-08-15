@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\nhtml, body {\n  min-height: 100vh;\n  margin: 0;\n  padding: 0; }\n"
 
 /***/ }),
 
@@ -539,10 +539,10 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/larisa/WebstormProjects/romanenkova-admin/src/styles.scss */"./src/styles.scss");
+module.exports = __webpack_require__(/*! C:\Users\eldar\WebstormProjects\romanenkova-admin\src\styles.scss */"./src/styles.scss");
 
 
 /***/ })
 
 },[[2,"runtime"]]]);
-//# sourceMappingURL=styles.a690b43123b0ab7b6942.js.map
+//# sourceMappingURL=styles.f53b8383d5f2bdbbfe35.js.map
