@@ -27,6 +27,10 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     next();
 });
 router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunction) => {
+    if (req.path.includes('assets')) {
+        next();
+    }
+
     readFile('./admin/index.html')
         .then(data => {
             res.send(data);
