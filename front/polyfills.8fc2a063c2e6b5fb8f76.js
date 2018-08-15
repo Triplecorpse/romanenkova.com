@@ -9522,7 +9522,7 @@ window.__Zone_enable_cross_context_check = true;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/larisa/WebstormProjects/romanenkova-front/src/polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! C:\Users\eldar\WebstormProjects\romanenkova-front\src\polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })
