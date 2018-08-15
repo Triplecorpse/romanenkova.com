@@ -67,6 +67,7 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
 
 router.use(express.static('./front'));
 router.use(express.static('./admin'));
+router.use('/admin/', express.static('./admin'));
 router.use('/api', api);
 
 // todo: decide either to do page 404 or redirect to /:lang
