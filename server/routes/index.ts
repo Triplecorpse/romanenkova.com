@@ -28,7 +28,7 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
 });
 router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunction) => {
     if (req.path.includes('assets')) {
-        next();
+        return next();
     }
 
     readFile('./admin/index.html')
@@ -67,7 +67,7 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
 
 router.use(express.static('./front'));
 router.use(express.static('./admin'));
-router.use('/admin/', express.static('./admin'));
+router.use('/admin', express.static('admin'));
 router.use('/api', api);
 
 // todo: decide either to do page 404 or redirect to /:lang
