@@ -10,6 +10,8 @@ import IRequest from "../interfaces/iRequest";
 import {NextFunction} from "express";
 import {languages} from "../const/const";
 import {iPage, model as Page} from "../models/page";
+import {read as readInterface, updatePageSubmitObj} from '../services/db-middleware/interface';
+
 
 const parseAcceptLanguage = require('parse-accept-language');
 
@@ -48,14 +50,15 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
 
     // todo: make checks for params
     const decidedLang = req.params.lang || req.language;
+    console.log('lang', decidedLang);
 
-    // Page.find({entityId: 'nav', language: decidedLang})
-    //     .then((page: any) => {
-    //         name = page.pageData.find((pageEntity: any) => pageEntity.anchor === 'name').name.join(' ');
-    //         res.json({...page, name});
-    //         return readFile('./front/index.html');
-    //     })
-    readFile('./front/index.html')
+
+    readInterface('nav', decidedLang)
+        .then((page: Array<iPage>) => {
+            const pageData = page[0].pageData;
+            name = pageData.find((pageEntity: any) => pageEntity.anchor === 'name').name.join(' ');
+            return readFile('./front/index.html');
+        })
         .then(data => {
             data = data.replace('@lang', decidedLang).replace('@name', name);
             res.send(data);

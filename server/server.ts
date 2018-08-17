@@ -5,6 +5,5 @@ import routes from './routes';
 export const app = express();
 
 app.use('/', routes);
-app.use(express.static('./front'));
 app.use(bodyParser.json({type: 'application/json'}));
 

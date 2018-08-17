@@ -485,7 +485,7 @@ __webpack_require__.r(__webpack_exports__);
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
  */ 
-var styles = [".contacts[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 100%;\n  margin: auto; }\n  .contacts-header[_ngcontent-%COMP%] {\n    text-align: center;\n    margin-bottom: 25px; }\n  .contacts[_ngcontent-%COMP%]:before {\n    content: '';\n    display: block;\n    background-image: url(/assets/contacts.svg);\n    height: 46px;\n    width: 46px;\n    margin: 0 auto 25px; }\n  .contact[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-bottom: 25px; }\n  .attend-button[_ngcontent-%COMP%] {\n  -ms-grid-row-align: center;\n      align-self: center; }"];
+var styles = [".contacts[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 100%;\n  margin: auto; }\n  .contacts-header[_ngcontent-%COMP%] {\n    text-align: center;\n    margin-bottom: 25px; }\n  .contacts[_ngcontent-%COMP%]:before {\n    content: '';\n    display: block;\n    background-image: url(/assets/contacts.svg);\n    height: 46px;\n    width: 46px;\n    margin: 0 auto 25px; }\n  .contact[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-bottom: 25px; }\n  .attend-button[_ngcontent-%COMP%] {\n  -ms-grid-row-align: center;\n      align-self: center; }\n  @media (max-width: 767px) {\n    .attend-button[_ngcontent-%COMP%] {\n      padding: 0 20px; } }"];
 
 
 
@@ -1495,4 +1495,4 @@ module.exports = __webpack_require__(/*! C:\Users\eldar\WebstormProjects\romanen
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.b719f154586e8b5f8ec7.js.map
+//# sourceMappingURL=main.b55f508b82a9deac625d.js.map
