@@ -301,7 +301,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
             language: 'en'
         }, {
             entityId: '[modal] appointment',
-            header: 'Make an appointment',
+            header: 'Записаться на приём',
             pageData: [
                 {name: 'name', label: 'Имя и фамилия'},
                 {name: 'phone', label: 'Телефон'},
@@ -317,7 +317,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
             language: 'ru'
         }, {
             entityId: '[modal] appointment',
-            header: 'Make an appointment',
+            header: 'Записатися на прийом',
             pageData: [
                 {name: 'name', label: 'Ім\'я та прізвище'},
                 {name: 'phone', label: 'Телефон'},
@@ -333,7 +333,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
             language: 'uk'
         }, {
             entityId: '[modal] appointment',
-            header: 'Make an appointment',
+            header: 'Prendre rendez-vous',
             pageData: [
                 {name: 'name', label: 'Nom et prénom'},
                 {name: 'phone', label: 'Numéro de téléphone'},
