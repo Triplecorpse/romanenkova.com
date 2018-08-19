@@ -1,12 +1,8 @@
 require('dotenv').config();
 
-import {iPage, model as Page} from "../server/models/page";
+import {model as Page} from "../server/models/page";
 import log from "../server/services/log-service";
-import mongoose, {DocumentQuery} from "mongoose";
-import {Cursor} from "mongodb";
-
-const pagesToPush: Array<iPage> = [];
-let skipped: number = 0;
+import mongoose from "mongoose";
 
 mongoose.connect(process.env.MONGODB_URI as string)
     .then((): Promise<boolean> => {

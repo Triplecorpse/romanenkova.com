@@ -12,6 +12,7 @@
     "connect": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod",
     "dbinit": "ts-node test/initialize-pages",
     "dbdrop": "ts-node test/drop-pages",
+    "dbdropmodal": "ts-node test/drop-pages-modal",
     "dbconsole": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongo"
   },
   "repository": {
