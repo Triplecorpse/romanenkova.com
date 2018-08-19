@@ -109,7 +109,8 @@ mongoose.connect(process.env.MONGODB_URI as string)
         return Page.find({entityId: 'about'});
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
-        log.warning('RUN OF ABOUT CREATE');
+        log.warning('RUN OF ABOUT CREATE - SKIPPED');
+        return Page.find({entityId: 'service'});
 
         pagesToPush.push({
             entityId: 'about',
@@ -273,6 +274,77 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 {name: "Skype", account: "ira", linkto: 'skype:ira?chat', type: 'skype'},
                 {name: "Téléphone", account: "+380000000000", linkto: 'tel:+380000000000', type: 'phone'},
                 {name: "E-mail", account: "infoAromanenkova.com", linkto: 'mailto:infoAromanenkova.com', type: 'email'}
+            ],
+            language: 'fr'
+        });
+
+        return Page.find()
+    })
+    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
+        log.warning('RUN OF MODAL CREATE');
+
+        pagesToPush.push({
+            entityId: '[modal] appointment',
+            header: 'Make an appointment',
+            pageData: [
+                {name: 'name', label: 'First and last names'},
+                {name: 'phone', label: 'Phone'},
+                {name: 'email', label: 'Email'},
+                {name: 'date', label: 'Date'},
+                {name: 'time', label: 'Time'},
+                {name: 'service', label: 'Service'},
+                {name: 'message', label: 'Message'},
+                {name: 'checkbox', label: 'Mark this checkbox'},
+                {name: 'submit', label: 'OK'},
+                {name: 'explanation', label: 'No personal data entered in this form is stored on the site or transmitted to third parties for promotional purposes. Contact information is used only for contact with you and is saved only in my personal mail box.'}
+            ],
+            language: 'en'
+        }, {
+            entityId: '[modal] appointment',
+            header: 'Make an appointment',
+            pageData: [
+                {name: 'name', label: 'Имя и фамилия'},
+                {name: 'phone', label: 'Телефон'},
+                {name: 'email', label: 'Email'},
+                {name: 'date', label: 'Дата'},
+                {name: 'time', label: 'Время'},
+                {name: 'service', label: 'Вид консультации'},
+                {name: 'message', label: 'Сообщение'},
+                {name: 'checkbox', label: 'С правилами сайта ознакомлен'},
+                {name: 'submit', label: 'Записаться'},
+                {name: 'explanation', label: 'Никакие личные данные, введённые в этой форме, не сохраняются на сайте и не передаются третьим лицам в рекламных целях. Контактная информация используется только для контакта с вами и сохраняется только в моём личном почтовом ящике.'}
+            ],
+            language: 'ru'
+        }, {
+            entityId: '[modal] appointment',
+            header: 'Make an appointment',
+            pageData: [
+                {name: 'name', label: 'Ім\'я та прізвище'},
+                {name: 'phone', label: 'Телефон'},
+                {name: 'email', label: 'Email'},
+                {name: 'date', label: 'Дата'},
+                {name: 'time', label: 'Час'},
+                {name: 'service', label: 'Сервіс'},
+                {name: 'message', label: 'Повідомлення'},
+                {name: 'checkbox', label: 'З правилами ознайомлений'},
+                {name: 'submit', label: 'Записатися'},
+                {name: 'explanation', label: 'Ніякі особисті дані, які були введені у цій формі, не зберігаються на сайті і не передаються третім особам у рекламних цілях. Контактна інформація використовується тільки для контакта з вамиі зберігається тільки у моїй особистій поштовій скринці.'}
+            ],
+            language: 'uk'
+        }, {
+            entityId: '[modal] appointment',
+            header: 'Make an appointment',
+            pageData: [
+                {name: 'name', label: 'Nom et prénom'},
+                {name: 'phone', label: 'Numéro de téléphone'},
+                {name: 'email', label: 'Email'},
+                {name: 'date', label: 'Date'},
+                {name: 'time', label: 'Heure'},
+                {name: 'service', label: 'Type de consultation'},
+                {name: 'message', label: 'Votre message'},
+                {name: 'checkbox', label: 'Je lis les règles du site'},
+                {name: 'submit', label: 'S\'inscrire'},
+                {name: 'explanation', label: 'Aucune donnée personnelle saisie dans ce formulaire n\'est stockée sur le site ou transmise à des tiers à des fins promotionnelles. Les informations de contact ne sont utilisées que pour vous contacter et sont enregistrées uniquement dans ma boîte aux lettres personnelle.'}
             ],
             language: 'fr'
         });

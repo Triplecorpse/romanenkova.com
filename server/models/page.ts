@@ -1,7 +1,7 @@
 import mongoose = require('mongoose');
 import {iMongooseSchema} from "./iMongooseSchema";
 import {TLanguage, TPageId} from "../types/types";
-import {languages} from "../const/const";
+import {languages, pagesId} from "../const/const";
 
 export interface iNav {
     name: string;
@@ -26,9 +26,7 @@ function validateLanguage(lang: TLanguage): boolean {
 }
 
 function validateId(id: TPageId): boolean {
-    const ids: Array<TPageId> = ['nav', 'contacts', 'about', 'diploma', 'service', 'article', 'main', 'review'];
-
-    return ids.indexOf(id) > -1;
+    return pagesId.indexOf(id) > -1;
 }
 
 function setBody(body: string | Array<iNav> | Array<iContact>): string {
