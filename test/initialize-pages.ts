@@ -313,7 +313,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 checkbox: 'С правилами сайта ознакомлен',
                 submit: 'Записаться',
                 explanation: 'Никакие личные данные, введённые в этой форме, не сохраняются на сайте и не передаются третьим лицам в рекламных целях. Контактная информация используется только для контакта с вами и сохраняется только в моём личном почтовом ящике.'
-    },
+            },
             language: 'ru'
         }, {
             entityId: '[modal] appointment',
@@ -334,8 +334,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
         }, {
             entityId: '[modal] appointment',
             header: 'Prendre rendez-vous',
-            pageData:
-            {
+            pageData: {
                 name: 'Nom et prénom',
                 phone: 'Numéro de téléphone',
                 email: 'Email',
