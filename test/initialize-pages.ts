@@ -296,6 +296,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 message: 'Message',
                 checkbox: 'Mark this checkbox',
                 submit: 'OK',
+                instructions: 'Required fields: name and any contact information.',
                 explanation: 'No personal data entered in this form is stored on the site or transmitted to third parties for promotional purposes. Contact information is used only for contact with you and is saved only in my personal mail box.'
             },
             language: 'en'
@@ -312,6 +313,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 message: 'Сообщение',
                 checkbox: 'С правилами сайта ознакомлен',
                 submit: 'Записаться',
+                instructions: 'Необходимые поля: имя и любая контактная информация.',
                 explanation: 'Никакие личные данные, введённые в этой форме, не сохраняются на сайте и не передаются третьим лицам в рекламных целях. Контактная информация используется только для контакта с вами и сохраняется только в моём личном почтовом ящике.'
             },
             language: 'ru'
@@ -328,6 +330,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 message: 'Повідомлення',
                 checkbox: 'З правилами ознайомлений',
                 submit: 'Записатися',
+                instructions: 'Необхідні поля: ім\'я та будь-яка контактна інформація.',
                 explanation: 'Ніякі особисті дані, які були введені у цій формі, не зберігаються на сайті і не передаються третім особам у рекламних цілях. Контактна інформація використовується тільки для контакта з вамиі зберігається тільки у моїй особистій поштовій скринці.'
             },
             language: 'uk'
@@ -344,6 +347,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 message: 'Votre message',
                 checkbox: 'Je lis les règles du site',
                 submit: 'S\'inscrire',
+                instructions: 'Champs obligatoires: nom et informations de contact.',
                 explanation: 'Aucune donnée personnelle saisie dans ce formulaire n\'est stockée sur le site ou transmise à des tiers à des fins promotionnelles. Les informations de contact ne sont utilisées que pour vous contacter et sont enregistrées uniquement dans ma boîte aux lettres personnelle.'
             },
             language: 'fr'

@@ -12,7 +12,6 @@ import {languages} from "../const/const";
 import {iPage, model as Page} from "../models/page";
 import {read as readInterface, updatePageSubmitObj} from '../services/db-middleware/interface';
 
-
 const parseAcceptLanguage = require('parse-accept-language');
 
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {

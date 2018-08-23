@@ -13,6 +13,8 @@ import bodyParser = require("body-parser");
 import {IMulterFile} from "../../interfaces/iMulterFile";
 import {ICloudinaryResponse} from "../../interfaces/iCloudinaryResponse";
 import {languageObjs} from "../../const/const";
+import {IAppointment} from "../../interfaces/iAppointment";
+import request from 'request';
 
 const multer = require('multer');
 
@@ -77,6 +79,29 @@ router.post('/uservalid', (req: Request, res: Response) => {
         .catch((err: Error) => {
             res.status(401).send({success: false, message: err.message});
         });
+});
+
+router.post('/appointment', (req: Request, res: Response) => {
+    const appointment: IAppointment = req.body as IAppointment;
+    const captchaRequestOpts = {
+        uri: 'https://www.google.com/recaptcha/api/siteverify',
+        body: {
+            secret: '6Lc2zmsUAAAAAEBIlXk1nuiBQ75DsABN44Kxuxpn',
+            response: appointment.recaptcha
+        },
+        method: 'POST',
+        json: true,
+        headers: {
+            'Content-type': 'application/json'
+        }
+    };
+    request.post(captchaRequestOpts, (g_error: any, g_response: any) => {
+        if (g_error || !g_response.body.success) {
+            return res.status(400).json({m: 'Recaptcha not verified'})
+        }
+        res.status(200).json({m: 'Recaptcha verified'});
+        console.log(g_response, appointment.recaptcha);
+    })
 });
 
 export default router;
