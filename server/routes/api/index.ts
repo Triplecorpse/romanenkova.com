@@ -96,11 +96,11 @@ router.post('/appointment', (req: Request, res: Response) => {
         }
     };
     request.post(captchaRequestOpts, (g_error: any, g_response: any) => {
+        console.log(g_response.body, captchaRequestOpts);
         if (g_error || !g_response.body.success) {
             return res.status(400).json({m: 'Recaptcha not verified'})
         }
         res.status(200).json({m: 'Recaptcha verified'});
-        console.log(g_response, appointment.recaptcha);
     })
 });
 
