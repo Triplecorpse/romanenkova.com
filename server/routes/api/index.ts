@@ -93,7 +93,7 @@ router.post('/appointment', (req: IRequest, res: Response) => {
         return res.status(400).json({name: 'Please enter your name'})
     }
 
-    if (!appointment.email || appointment.phone || appointment.message) {
+    if (!(appointment.email || appointment.phone || appointment.message)) {
         return res.status(400).json({contact: 'Please enter at least one of your contact data or message'});
     }
 
