@@ -14,7 +14,6 @@ import {IMulterFile} from "../../interfaces/iMulterFile";
 import {ICloudinaryResponse} from "../../interfaces/iCloudinaryResponse";
 import {languageObjs} from "../../const/const";
 import {IAppointment} from "../../interfaces/iAppointment";
-import request from 'request';
 import {validateRecaptcha} from "../../services/security-services/recaptcha-validator";
 import {IRecaptchaResponse} from "../../interfaces/iRecaptchaResponse";
 
@@ -85,12 +84,17 @@ router.post('/uservalid', (req: Request, res: Response) => {
 
 router.post('/appointment', (req: IRequest, res: Response) => {
     const appointment: IAppointment = req.body as IAppointment;
+
+    if (!appointment.name && (!appointment.email || appointment.phone || appointment.message)) {
+        res.status(400).json({m: 'Requested params didn\'t pass'});
+    }
+
     validateRecaptcha(appointment.recaptcha)
         .then((data: IRecaptchaResponse) => {
-            res.status(200).json({data, lang: req.language, m: 'success'});
+            res.status(200).json({data, lang: req.language, m: 'Appointment successfully submitted'});
         })
         .catch((err: any) => {
-            return res.status(400).json(err);
+            res.status(400).json({m: 'Requested params didn\'t pass', err});
         });
 });
 
