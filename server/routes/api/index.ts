@@ -86,7 +86,7 @@ router.post('/appointment', (req: IRequest, res: Response) => {
     const appointment: IAppointment = req.body as IAppointment;
 
     if (!appointment.name && (!appointment.email || appointment.phone || appointment.message)) {
-        res.status(400).json({m: 'Requested params didn\'t pass'});
+        return res.status(400).json({m: 'Requested params didn\'t pass'});
     }
 
     validateRecaptcha(appointment.recaptcha)
