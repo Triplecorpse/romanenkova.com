@@ -83,11 +83,11 @@ router.post('/uservalid', (req: Request, res: Response) => {
         });
 });
 
-router.post('/appointment', (req: Request, res: Response) => {
+router.post('/appointment', (req: IRequest, res: Response) => {
     const appointment: IAppointment = req.body as IAppointment;
     validateRecaptcha(appointment.recaptcha)
         .then((data: IRecaptchaResponse) => {
-            res.status(200).json(data);
+            res.status(200).json({data, lang: req.language, m: 'success'});
         })
         .catch((err: any) => {
             return res.status(400).json(err);

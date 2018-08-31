@@ -49,7 +49,6 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
 
     // todo: make checks for params
     const decidedLang = req.params.lang || req.language;
-    console.log('lang', decidedLang);
 
 
     readInterface('nav', decidedLang)
