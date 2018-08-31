@@ -85,16 +85,20 @@ router.post('/uservalid', (req: Request, res: Response) => {
 router.post('/appointment', (req: IRequest, res: Response) => {
     const appointment: IAppointment = req.body as IAppointment;
 
-    if (!appointment.name && (!appointment.email || appointment.phone || appointment.message)) {
-        return res.status(400).json({m: 'Requested params didn\'t pass'});
+    if (!appointment.name) {
+        return res.status(400).json({m: 'Please enter your name', err: 'name'})
+    }
+
+    if (!appointment.email || appointment.phone || appointment.message) {
+        return res.status(400).json({m: 'Please enter at least one of your contact data or message', err: 'contact'});
     }
 
     validateRecaptcha(appointment.recaptcha)
         .then((data: IRecaptchaResponse) => {
-            res.status(200).json({data, lang: req.language, m: 'Appointment successfully submitted'});
+            res.status(200).json({data, lang: req.language, m: 'Appointment successfully submitted', h: 'Success'});
         })
         .catch((err: any) => {
-            res.status(400).json({m: 'Requested params didn\'t pass', err});
+            res.status(400).json({m: 'Requested params didn\'t pass', h: 'Error', err});
         });
 });
 

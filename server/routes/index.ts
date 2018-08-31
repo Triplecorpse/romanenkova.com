@@ -17,10 +17,9 @@ const parseAcceptLanguage = require('parse-accept-language');
 
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     const parsed = parseAcceptLanguage(req);
-    const acceptables: Array<string> = languages;
 
     const languageObj = parsed.find((lang: any) =>
-        acceptables.find((acceptable: string) =>
+        languages.find((acceptable: string) =>
             lang.language === acceptable
         )
     );
@@ -49,7 +48,6 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
     }
 
     req.language = req.params.lang || req.language;
-
 
     readInterface('nav', req.language as TLanguage)
         .then((page: Array<iPage>) => {
