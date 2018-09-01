@@ -12,10 +12,11 @@ import {getToken, validate} from "../../services/security-services/auth-service"
 import bodyParser = require("body-parser");
 import {IMulterFile} from "../../interfaces/iMulterFile";
 import {ICloudinaryResponse} from "../../interfaces/iCloudinaryResponse";
-import {languageObjs} from "../../const/const";
+import {errorMessages, languageObjs, successMessages} from "../../const/const";
 import {IAppointment} from "../../interfaces/iAppointment";
 import {validateRecaptcha} from "../../services/security-services/recaptcha-validator";
 import {IRecaptchaResponse} from "../../interfaces/iRecaptchaResponse";
+import {TLanguage} from "../../types/types";
 
 const multer = require('multer');
 
@@ -84,25 +85,26 @@ router.post('/uservalid', (req: Request, res: Response) => {
 
 router.post('/appointment', (req: IRequest, res: Response) => {
     const appointment: IAppointment = req.body as IAppointment;
+    const language: TLanguage = req.params.language || 'en';
 
     if (!appointment.name && !(appointment.email || appointment.phone || appointment.message)) {
-        return res.status(400).json({name: 'Please enter your name', contact: 'Please enter at least one of your contact data or message', lang: req.language})
+        return res.status(400).json({name: errorMessages.appointment.name[language], contact: errorMessages.appointment.contact[language], lang: language})
     }
 
     if (!appointment.name) {
-        return res.status(400).json({name: 'Please enter your name', lang: req.language})
+        return res.status(400).json({name: errorMessages.appointment.name[language], lang: language})
     }
 
     if (!(appointment.email || appointment.phone || appointment.message)) {
-        return res.status(400).json({contact: 'Please enter at least one of your contact data or message', lang: req.language});
+        return res.status(400).json({contact: errorMessages.appointment.contact[language], lang: language});
     }
 
     validateRecaptcha(appointment.recaptcha)
         .then((data: IRecaptchaResponse) => {
-            res.status(200).json({data, lang: req.language, m: 'Appointment successfully submitted', h: 'Success'});
+            res.status(200).json({data, lang: language, m: successMessages.appointment.body[language], h: successMessages.appointment.header[language]});
         })
         .catch((err: any) => {
-            res.status(400).json({m: 'Requested params didn\'t pass', h: 'Error', err});
+            res.status(400).json({m: errorMessages.captcha[language], err, lang: language});
         });
 });
 
