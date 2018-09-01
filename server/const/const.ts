@@ -8,8 +8,8 @@ export const errorMessages: any = {
         name: {
             ru: 'Пожалуйста, введите Ваше имя.',
             en: 'Please enter your name.',
-            uk: 'S\'il vous plaît entrez votre nom.',
-            fr: 'Будь ласка, введіть своє ім\'я.'
+            uk: 'Будь ласка, введіть своє ім\'я.',
+            fr: 'S\'il vous plaît entrez votre nom.'
         },
         contact: {
             ru: 'Укажите хотя бы одну из ваших контактных данных или сообщений.',
