@@ -85,7 +85,7 @@ router.post('/uservalid', (req: Request, res: Response) => {
 
 router.post('/appointment', (req: IRequest, res: Response) => {
     const appointment: IAppointment = req.body as IAppointment;
-    const language: TLanguage = req.params.language || 'en';
+    const language: TLanguage = req.query.language || 'en';
 
     if (!appointment.name && !(appointment.email || appointment.phone || appointment.message)) {
         return res.status(400).json({name: errorMessages.appointment.name[language], contact: errorMessages.appointment.contact[language], lang: language})
