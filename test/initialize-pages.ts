@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
             pageData: [
                 {name: ["Online", "psychology"], anchor: "main"},
                 {name: "Make an appointment", anchor: "appointment"},
-                {name: ["Irina", "Romanenkova"], anchor: "name"},
+                {name: ["Psychologist", "Irina", "Romanenkova"], anchor: "name"},
                 {name: "About me", anchor: "about"},
                 {name: "Services", anchor: "services"},
                 {name: "Diplomas", anchor: "diplomas"},
@@ -43,7 +43,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
             pageData: [
                 {name: ["Онлайн", "психология"], anchor: "main"},
                 {name: "Записаться на приём", anchor: "appointment"},
-                {name: ["Ирина", "Романенкова"], anchor: "name"},
+                {name: ["Психолог", "Ирина", "Романенкова"], anchor: "name"},
                 {name: "Обо мне", anchor: "about"},
                 {name: "Услуги", anchor: "services"},
                 {name: "Дипломы", anchor: "diplomas"},
@@ -57,7 +57,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
             pageData: [
                 {name: ["Онлайн", "психологія"], anchor: "main"},
                 {name: "Записатися на прийом", anchor: "appointment"},
-                {name: ["Ірина", "Романенкова"], anchor: "name"},
+                {name: ["Психолог", "Ірина", "Романенкова"], anchor: "name"},
                 {name: "Про мене", anchor: "about"},
                 {name: "Послуги", anchor: "services"},
                 {name: "Дипломи", anchor: "diplomas"},
@@ -71,7 +71,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
             pageData: [
                 {name: ["en ligne", "Psychologie"], anchor: "main"},
                 {name: "Prendre rendez-vous", anchor: "appointment"},
-                {name: ["Irina", "Romanenkova"], anchor: "name"},
+                {name: ["Psychologue", "Irina", "Romanenkova"], anchor: "name"},
                 {name: "Sur moi", anchor: "about"},
                 {name: "Services", anchor: "services"},
                 {name: "Diplômes", anchor: "diplomas"},
