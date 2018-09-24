@@ -110,7 +110,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
     })
     .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF ABOUT CREATE - SKIPPED');
-        return Page.find({entityId: 'service'});
+        // return Page.find({entityId: 'service'});
 
         pagesToPush.push({
             entityId: 'about',

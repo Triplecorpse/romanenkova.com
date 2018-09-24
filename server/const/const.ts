@@ -23,6 +23,12 @@ export const errorMessages: any = {
         en: 'Recaptcha cannot be validated.',
         uk: 'Recaptcha не може бути перевірена.',
         fr: 'Recaptcha ne peut être validé.'
+    },
+    email: {
+        ru: 'Email не может быть отправлен.',
+        en: 'Email can not be sent.',
+        uk: 'Email не може бути відправлений.',
+        fr: 'Email ne peut pas être envoyé.'
     }
 };
 export const successMessages: any = {

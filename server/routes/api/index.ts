@@ -17,6 +17,9 @@ import {IAppointment} from "../../interfaces/iAppointment";
 import {validateRecaptcha} from "../../services/security-services/recaptcha-validator";
 import {IRecaptchaResponse} from "../../interfaces/iRecaptchaResponse";
 import {TLanguage} from "../../types/types";
+import {sendEmail} from "../../services/user-services/email-service";
+import {app} from "../../server";
+import {Error} from "mongoose";
 
 const multer = require('multer');
 
@@ -100,12 +103,32 @@ router.post('/appointment', (req: IRequest, res: Response) => {
     }
 
     validateRecaptcha(appointment.recaptcha)
-        .then((data: IRecaptchaResponse) => {
-            res.status(200).json({data, lang: language, m: successMessages.appointment.body[language], h: successMessages.appointment.header[language]});
-        })
         .catch((err: any) => {
             res.status(400).json({m: errorMessages.captcha[language], err, lang: language});
-        });
+            throw new Error(errorMessages.captcha[language]);
+        })
+        .then((data: IRecaptchaResponse) => {
+            return sendEmail({
+                to: 'benzin.a95@gmail.com',
+                from: `${appointment.name} <info@romanenkova.com>`,
+                subject: 'New Appointment from site',
+                text: `
+                  FROM: ${appointment.name},
+                  CONTACTS: ${appointment.phone}, ${appointment.email},
+                  SUGG. DATE: ${appointment.date} ${appointment.time},
+                  SERVICE: ${appointment.service}
+                  -----------------------------------
+                  MESSAGE: ${appointment.message}
+                `
+            });
+        })
+        .catch((err: any) => {
+            res.status(400).json({m: errorMessages.email[language], err, lang: language});
+            throw new Error(errorMessages.email[language]);
+        })
+        .then((data) => {
+            res.status(200).json({data, lang: language, m: successMessages.appointment.body[language], h: successMessages.appointment.header[language]});
+        })
 });
 
 export default router;
