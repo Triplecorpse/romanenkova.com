@@ -10,7 +10,7 @@
     // "declaration": true,                   /* Generates corresponding '.d.ts' file. */
     // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
     // "sourceMap": true,                     /* Generates corresponding '.map' file. */
-    // "outFile": "./",                       /* Concatenate and emit output to single file. */
+//     "outFile": "./server/app.js",                       /* Concatenate and emit output to single file. */
     // "outDir": "./",                        /* Redirect output structure to the directory. */
      "rootDir": "./server",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     // "composite": true,                     /* Enable project compilation */
@@ -61,6 +61,7 @@
     "public",
     "typings/browser",
     "typings/browser.d.ts",
-    "front"
+    "front",
+    "admin"
   ]
 }
