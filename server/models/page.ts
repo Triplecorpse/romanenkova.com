@@ -14,7 +14,7 @@ interface iContact {
     linkto?: 'mailto:' | 'skype:' | 'tel:'
 }
 
-export interface iPage extends iMongooseSchema {
+export interface IPage extends iMongooseSchema {
     header?: string;
     pageData?: any;
     entityId: TPageId;

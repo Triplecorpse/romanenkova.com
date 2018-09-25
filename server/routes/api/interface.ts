@@ -3,7 +3,7 @@ import express = require('express');
 const router = express.Router();
 
 import {read, updatePageSubmitObj} from '../../services/db-middleware/interface';
-import {iPage} from "../../models/page";
+import {IPage} from "../../models/page";
 
 import {Request, Response} from "express-serve-static-core";
 import {validate} from "../../services/security-services/auth-service";
@@ -32,7 +32,7 @@ router
             .then((data: IPageSubmit) => {
                 return updatePageSubmitObj(data);
             })
-            .then((data: Array<iPage>) => {
+            .then((data: Array<IPage>) => {
                 res.json(data);
             })
             .catch((err: Error) => {
@@ -48,7 +48,7 @@ router
         }
 
         read(id, language)
-            .then((pages: Array<iPage>) => {
+            .then((pages: Array<IPage>) => {
                 if (pages.length === 1) {
                     return res.json(pages[0]);
                 }

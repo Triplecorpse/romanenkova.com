@@ -1,11 +1,11 @@
-import {iPage} from "../models/page";
+import {IPage} from "../models/page";
 import {TPageId, TStatus} from "../types/types";
 
 export interface IPageLanguageContainer {
-    en?: iPage;
-    ru?: iPage;
-    uk?: iPage;
-    fr?: iPage;
+    en?: IPage;
+    ru?: IPage;
+    uk?: IPage;
+    fr?: IPage;
 }
 
 export interface IPageImage {

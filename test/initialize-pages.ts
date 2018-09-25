@@ -1,11 +1,11 @@
 require('dotenv').config();
 
-import {iPage, model as Page} from "../server/models/page";
+import {IPage, model as Page} from "../server/models/page";
 import log from "../server/services/log-service";
 import mongoose, {DocumentQuery} from "mongoose";
 import {Cursor} from "mongodb";
 
-const pagesToPush: Array<iPage> = [];
+const pagesToPush: Array<IPage> = [];
 let skipped: number = 0;
 
 console.log('process.env.MONGODB_URI', process.env.MONGODB_URI);
@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         return Page.find({entityId: 'nav'});
     })
-    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<IPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF NAVIGATION CREATE');
 
         pagesToPush.push({
@@ -85,7 +85,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         return Page.find({entityId: 'main'});
     })
-    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<IPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF MAIN CREATE');
 
         pagesToPush.push({
@@ -108,7 +108,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         return Page.find({entityId: 'about'});
     })
-    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<IPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF ABOUT CREATE - SKIPPED');
         // return Page.find({entityId: 'service'});
 
@@ -140,7 +140,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         return Page.find({entityId: 'service'});
     })
-    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<IPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF SERVICE CREATE');
 
         pagesToPush.push({
@@ -163,7 +163,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         return Page.find({entityId: 'diploma'});
     })
-    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<IPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF DIPLOMA CREATE');
 
         pagesToPush.push({
@@ -186,7 +186,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         return Page.find({entityId: 'review'});
     })
-    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<IPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF REVIEW CREATE');
 
         pagesToPush.push({
@@ -209,7 +209,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         return Page.find({entityId: 'article'});
     })
-    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<IPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF ARTICLE CREATE');
 
         pagesToPush.push({
@@ -232,7 +232,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         return Page.find({entityId: 'contacts'});
     })
-    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<IPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF CONTACTS CREATE');
 
         pagesToPush.push({
@@ -280,7 +280,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         return Page.find()
     })
-    .then((pages: Array<Cursor<iPage>>): DocumentQuery<any, any> => {
+    .then((pages: Array<Cursor<IPage>>): DocumentQuery<any, any> => {
         log.warning('RUN OF MODAL CREATE');
 
         pagesToPush.push({
@@ -355,7 +355,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
         return Page.find()
     })
-    .then((data: Array<Cursor<iPage>>): Promise<mongoose.Document[] | never> => {
+    .then((data: Array<Cursor<IPage>>): Promise<mongoose.Document[] | never> => {
         if (data && data.length && !pagesToPush.length) {
             log.error('Some data found in pages, for security reasons delete it by hand. No overwrite will be performed');
             return Promise.reject(new Error('Some data found in pages, for security reasons delete it by hand. No overwrite will be performed'));

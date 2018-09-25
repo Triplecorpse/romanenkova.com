@@ -1,14 +1,14 @@
 import log from './../log-service';
-import {iPage, model as Page} from '../../models/page';
+import {IPage, model as Page} from '../../models/page';
 import {IPageImage, IPageLanguageContainer, IPageSubmit} from "../../interfaces/iPageSubmit";
 import {TLanguage} from "../../types/types";
 import {languages} from "../../const/const";
 
 const cloudinary = require('cloudinary');
 
-export function read(entityId: string | Array<string>, language: string | Array<string>): Promise<Array<iPage>> {
+export function read(entityId: string | Array<string>, language: string | Array<string>): Promise<Array<IPage>> {
     return Page.find({entityId, language})
-        .then((pages: any) => pages.map((page: iPage): iPage => {
+        .then((pages: any) => pages.map((page: IPage): IPage => {
                 let pageBody: string = page.pageData as string;
                 let pageLanguage: TLanguage = page.language;
 
@@ -23,8 +23,8 @@ export function read(entityId: string | Array<string>, language: string | Array<
         );
 }
 
-export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<iPage>> {
-    const pagesQ: Array<Promise<iPage>> = [];
+export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<IPage>> {
+    const pagesQ: Array<Promise<IPage>> = [];
     const availableLanguages: Array<TLanguage> = languages;
     const pages: IPageLanguageContainer = pageObj.page;
     const pageMedia: Array<IPageImage> = pageObj.media || [];
@@ -78,10 +78,10 @@ export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<iPage>>
     return Promise.all(pagesQ);
 }
 
-export function updateSinglePage(entityId: string, language: string, page: any): Promise<iPage> {
+export function updateSinglePage(entityId: string, language: string, page: any): Promise<IPage> {
     return Page.updateOne({entityId, language}, page)
         .then(() => {
             return read(entityId, language);
         })
-        .then((result: Array<iPage>) => result[0]);
+        .then((result: Array<IPage>) => result[0]);
 }

@@ -9,7 +9,7 @@ import {Request, Response} from "express-serve-static-core";
 import IRequest from "../interfaces/iRequest";
 import {NextFunction} from "express";
 import {languages} from "../const/const";
-import {iPage, model as Page} from "../models/page";
+import {IPage, model as Page} from "../models/page";
 import {read as readInterface, updatePageSubmitObj} from '../services/db-middleware/interface';
 import {TLanguage} from "../types/types";
 
@@ -50,7 +50,7 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
     req.language = req.params.lang || req.language;
 
     readInterface('nav', req.language as TLanguage)
-        .then((page: Array<iPage>) => {
+        .then((page: Array<IPage>) => {
             const pageData = page[0].pageData;
             name = pageData.find((pageEntity: any) => pageEntity.anchor === 'name').name.join(' ');
             return readFile('./front/index.html');
