@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha test/index.spec.js",
     "prestart:ts": "npm run connect",
+    "prestart": "npm i ts-node -g",
     "start:ts": "ts-node server/app.ts",
     "start": "ts-node server/app.ts",
     "build": "tsc",
