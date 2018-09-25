@@ -358,7 +358,7 @@ mongoose.connect(process.env.MONGODB_URI as string)
     .then((data: Array<Cursor<iPage>>): Promise<mongoose.Document[] | never> => {
         if (data && data.length && !pagesToPush.length) {
             log.error('Some data found in pages, for security reasons delete it by hand. No overwrite will be performed');
-            return Promise.reject();
+            return Promise.reject(new Error('Some data found in pages, for security reasons delete it by hand. No overwrite will be performed'));
         }
 
         return Page.insertMany(pagesToPush);

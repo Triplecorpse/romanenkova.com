@@ -35,8 +35,6 @@ export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<iPage>>
         .filter((mediaObject: IPageImage): boolean => mediaObject.status === 'remove')
         .map((m: IPageImage): string => m.src);
 
-    let i: TLanguage;
-
     mediaToRemove.forEach((media: string) => {
         const lastIndexOfDot: number = media.lastIndexOf('.');
         const lastIndexOfSlash: number = media.lastIndexOf('/') + 1;
@@ -59,9 +57,9 @@ export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<iPage>>
         })
     }
 
-    for (i in pages) {
-        if (pages.hasOwnProperty(i) && (availableLanguages.indexOf(i) > -1 || pageMedia.length)) {
-            const page = pages[i] || {entityId: pageObj.id, language: i};
+    for (let i in pages) {
+        if (pages.hasOwnProperty(i) && (availableLanguages.indexOf(i as TLanguage) > -1 || pageMedia.length)) {
+            const page = pages[i as TLanguage] || {entityId: pageObj.id, language: i};
 
             if (mediaToAdd.length) {
                 pagesQ.push(updateSinglePage(pageObj.id, i, {...page, $push: {images: {$each: mediaToAdd}}}));
