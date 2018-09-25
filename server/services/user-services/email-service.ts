@@ -1,6 +1,7 @@
 import IMail from "../../interfaces/iMail";
+require('dotenv').config();
 
-const apiKey: string = 'key-a30feefc607588d47ddace28b4f0c355';
+const apiKey: string = process.env.MAILGUN_API_KEY as string;
 const domain: string = 'mail.romanenkova.com';
 const mailgun = require('mailgun-js')({apiKey, domain, host: 'api.eu.mailgun.net'});
 
