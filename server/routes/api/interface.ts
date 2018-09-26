@@ -11,6 +11,7 @@ import {validate} from "../../services/security-services/auth-service";
 import log from './../../services/log-service';
 import {removeTagsFromObject} from "../../services/security-services/strip-html";
 import {IPageSubmit} from "../../interfaces/iPageSubmit";
+import {databaseConstQ} from "../../const/databaseConst";
 
 router
     .route('/:id?')
@@ -24,7 +25,7 @@ router
                 return removeTagsFromObject(page);
             })
             .catch((err: Error) => {
-                log.info('Seems auth validation failed');
+                log.info('Seems that auth validation was failed');
 
                 res.status(401).json({m: err.message});
                 throw err;
@@ -33,6 +34,7 @@ router
                 return updatePageSubmitObj(data);
             })
             .then((data: Array<IPage>) => {
+                databaseConstQ.updateValues();
                 res.json(data);
             })
             .catch((err: Error) => {

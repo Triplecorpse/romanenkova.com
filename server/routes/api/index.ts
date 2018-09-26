@@ -20,6 +20,7 @@ import {TLanguage} from "../../types/types";
 import {sendEmail} from "../../services/user-services/email-service";
 import {app} from "../../server";
 import {Error} from "mongoose";
+import {databaseConstQ} from "../../const/databaseConst";
 
 const multer = require('multer');
 
@@ -107,11 +108,16 @@ router.post('/appointment', (req: IRequest, res: Response) => {
             res.status(400).json({m: errorMessages.captcha[language], err, lang: language});
             throw new Error(errorMessages.captcha[language]);
         })
-        .then((data: IRecaptchaResponse) => {
+        .then(() => {
+            console.log('BEFORE GETTING EMAIL');
+            return databaseConstQ.email;
+        })
+        .then((notificationEmail: string) => {
+            console.log(notificationEmail);
             return sendEmail({
-                to: 'benzin.a95@gmail.com',
+                to: notificationEmail,
                 from: `${appointment.name} <info@romanenkova.com>`,
-                subject: 'New Appointment from site',
+                subject: 'New Appointment From Site',
                 text: `
                   FROM: ${appointment.name},
                   CONTACTS: ${appointment.phone}, ${appointment.email},

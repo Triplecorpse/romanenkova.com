@@ -3,6 +3,8 @@ import {IPage, model as Page} from '../../models/page';
 import {IPageImage, IPageLanguageContainer, IPageSubmit} from "../../interfaces/iPageSubmit";
 import {TLanguage} from "../../types/types";
 import {languages} from "../../const/const";
+import {IMainDatabaseModel, IMainDataRequest} from "../../interfaces/IMainDataRequest";
+import indexData from "../../const/indexData";
 
 const cloudinary = require('cloudinary');
 
@@ -59,7 +61,11 @@ export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<IPage>>
 
     for (let i in pages) {
         if (pages.hasOwnProperty(i) && (availableLanguages.indexOf(i as TLanguage) > -1 || pageMedia.length)) {
-            const page = pages[i as TLanguage] || {entityId: pageObj.id, language: i};
+            let page: IPage = pages[i as TLanguage] || {entityId: pageObj.id, language: i} as IPage;
+            console.log(page);
+            if (pageObj.id === 'main') {
+                page = {entityId: pageObj.id, language: i, pageData: mainAdapter(page.pageData as IMainDataRequest, i as TLanguage)} as IPage;
+            }
 
             if (mediaToAdd.length) {
                 pagesQ.push(updateSinglePage(pageObj.id, i, {...page, $push: {images: {$each: mediaToAdd}}}));
@@ -84,4 +90,13 @@ export function updateSinglePage(entityId: string, language: string, page: any):
             return read(entityId, language);
         })
         .then((result: Array<IPage>) => result[0]);
+}
+
+function mainAdapter(rawData: IMainDataRequest, language: TLanguage): IMainDatabaseModel {
+    return {
+        ...indexData[language],
+        name: [rawData.firstName, rawData.lastName],
+        position: rawData.position,
+        notificationEmail: rawData.email
+    }
 }
