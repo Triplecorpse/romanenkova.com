@@ -22,13 +22,22 @@ const mapper: any = {
 
 mongoose.connect(process.env.MONGODB_URI as string)
     .then((): any => {
-        log.warning('CONNECTED TO DATABASE');
+        log.warning('\x1b[0m', 'DBINIT :::: CONNECTED TO DATABASE');
+        const pagesQ: Array<Promise<any>> = [];
 
         pagesToCreate.forEach((pageId: string): void => {
-            mapper[pageId]()
-                .then((data: Array<IPage>) => {
-                    Page.insertMany(data);
-                    log.warning('\x1b[32m', 'INSERTED:', pageId, data.length, 'pages');
-                })
+            pagesQ.push(mapper[pageId]()
+                .then((data: Array<IPage>) => Page.insertMany(data))
+                .then((inserted: any) => {
+                    log.warning('\x1b[32m', 'INSERTED:', pageId, inserted.length, 'pages');
+                }))
         });
+
+        return Promise.all(pagesQ);
+    })
+    .then(() => {
+        return mongoose.disconnect();
+    })
+    .then(() => {
+        log.warning('\x1b[0m', 'DBINIT :::: DISCONNECTED FROM DATABASE');
     });

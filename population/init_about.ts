@@ -21,6 +21,7 @@ export function getAboutPageData(): Promise<Array<IPage>> {
                 return util.promisify(fs.readFile)('./population/assets/about.json', 'UTF8');
             })
             .then((textes: any) => {
+                textes = JSON.parse(textes);
                 resolve([{
                     entityId: 'about',
                     header: 'About me',

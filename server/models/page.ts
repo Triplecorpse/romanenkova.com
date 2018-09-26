@@ -14,11 +14,11 @@ interface iContact {
     linkto?: 'mailto:' | 'skype:' | 'tel:'
 }
 
-export interface IPage extends iMongooseSchema {
+export interface IPage<T = any> extends iMongooseSchema {
     header?: string;
-    pageData?: any;
+    pageData?: T;
     entityId: TPageId;
-    images?: string[]
+    images?: Array<string>
 }
 
 function validateLanguage(lang: TLanguage): boolean {
