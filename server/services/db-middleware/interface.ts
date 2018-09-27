@@ -62,7 +62,7 @@ export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<IPage>>
     for (let i in pages) {
         if (pages.hasOwnProperty(i) && (availableLanguages.indexOf(i as TLanguage) > -1 || pageMedia.length)) {
             let page: IPage = pages[i as TLanguage] || {entityId: pageObj.id, language: i} as IPage;
-            console.log(page);
+
             if (pageObj.id === 'main') {
                 page = {entityId: pageObj.id, language: i, pageData: mainAdapter(page.pageData as IMainDataRequest, i as TLanguage)} as IPage;
             }

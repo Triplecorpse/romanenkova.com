@@ -109,11 +109,9 @@ router.post('/appointment', (req: IRequest, res: Response) => {
             throw new Error(errorMessages.captcha[language]);
         })
         .then(() => {
-            console.log('BEFORE GETTING EMAIL');
             return databaseConstQ.email;
         })
         .then((notificationEmail: string) => {
-            console.log(notificationEmail);
             return sendEmail({
                 to: notificationEmail,
                 from: `${appointment.name} <info@romanenkova.com>`,

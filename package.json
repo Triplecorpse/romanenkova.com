@@ -12,6 +12,11 @@
     "dbconnect": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod",
     "predbinit": "tsc",
     "dbinit": "node population/init -- about contacts main nav modalappointment",
+    "dbabout": "node population/init -- about",
+    "dbappointmentmodal": "node population/init -- modalappointment",
+    "dbcontacts": "node population/init -- contacts",
+    "dbmain": "node population/init -- main",
+    "dbnav": "node population/init -- nav",
     "dbdropmodal": "ts-node test/drop-pages-modal",
     "dbconsole": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongo"
   },
