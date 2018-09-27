@@ -6,21 +6,40 @@ export function getContactsPageData(): Promise<Array<IPage>> {
         entityId: 'contacts',
         header: 'Contacts',
         pageData: [
-            {name: "Skype", account: "microbenz", linkto: 'skype:microbenz?chat', type: 'skype'},
             {
-                name: "Phone",
-                account: "+380971499115",
-                linkto: 'tel:+380971499115',
-                type: 'phone',
-                viberMobile: 'viber://add?number=+380971499115',
-                viberDesktop: 'viber://chat?number=+380971499115',
-                telegram: 'tg://resolve?domain=triplecorpse'
+                name: 'Telegram',
+                account: 'triplecorpse',
+                type: 'telegram'
             },
             {
-                name: "E-mail",
-                account: "eldar.khaitov@gmail.com",
-                linkto: 'mailto:Eldar Khaitov<eldar.khaitov@gmail.com>',
+                name: 'Viber',
+                account: 'microbenz',
+                type: 'viber'
+            },
+            {
+                name: 'Skype',
+                account: 'microbenz',
+                type: 'skype'
+            },
+            {
+                name: 'Phone',
+                account: '+380971499115',
+                type: 'phone',
+            },
+            {
+                name: 'E-mail',
+                account: 'eldar.khaitov@gmail.com',
                 type: 'email'
+            },
+            {
+                name: 'Facebook',
+                account: 'eldar.khaitov',
+                type: 'facebook'
+            },
+            {
+                name: 'Instagram',
+                account: 'triplecorpse',
+                type: 'instagram'
             }
         ],
         language: 'en'
@@ -28,21 +47,40 @@ export function getContactsPageData(): Promise<Array<IPage>> {
         entityId: 'contacts',
         header: 'Контакты',
         pageData: [
-            {name: "Skype", account: "microbenz", linkto: 'skype:microbenz?chat', type: 'skype'},
             {
-                name: "Телефон",
-                account: "+380971499115",
-                linkto: 'tel:+380971499115',
-                type: 'phone',
-                viberMobile: 'viber://add?number=+380971499115',
-                viberDesktop: 'viber://chat?number=+380971499115',
-                telegram: 'tg://resolve?domain=triplecorpse'
+                name: 'Telegram',
+                account: 'triplecorpse',
+                type: 'telegram'
             },
             {
-                name: "E-mail",
-                account: "eldar.khaitov@gmail.com",
-                linkto: 'mailto:Eldar Khaitov<eldar.khaitov@gmail.com>',
+                name: 'Viber',
+                account: 'microbenz',
+                type: 'viber'
+            },
+            {
+                name: 'Skype',
+                account: 'microbenz',
+                type: 'skype'
+            },
+            {
+                name: 'Телефон',
+                account: '+380971499115',
+                type: 'phone',
+            },
+            {
+                name: 'E-mail',
+                account: 'eldar.khaitov@gmail.com',
                 type: 'email'
+            },
+            {
+                name: 'Facebook',
+                account: 'eldar.khaitov',
+                type: 'facebook'
+            },
+            {
+                name: 'Instagram',
+                account: 'triplecorpse',
+                type: 'instagram'
             }
         ],
         language: 'ru'
@@ -50,21 +88,40 @@ export function getContactsPageData(): Promise<Array<IPage>> {
         entityId: 'contacts',
         header: 'Контакти',
         pageData: [
-            {name: "Skype", account: "microbenz", linkto: 'skype:microbenz?chat', type: 'skype'},
             {
-                name: "Телефон",
-                account: "+380971499115",
-                linkto: 'tel:+380971499115',
-                type: 'phone',
-                viberMobile: 'viber://add?number=+380971499115',
-                viberDesktop: 'viber://chat?number=+380971499115',
-                telegram: 'tg://resolve?domain=triplecorpse'
+                name: 'Telegram',
+                account: 'triplecorpse',
+                type: 'telegram'
             },
             {
-                name: "E-mail",
-                account: "eldar.khaitov@gmail.com",
-                linkto: 'mailto:Eldar Khaitov<eldar.khaitov@gmail.com>',
+                name: 'Viber',
+                account: 'microbenz',
+                type: 'viber'
+            },
+            {
+                name: 'Skype',
+                account: 'microbenz',
+                type: 'skype'
+            },
+            {
+                name: 'Телефон',
+                account: '+380971499115',
+                type: 'phone',
+            },
+            {
+                name: 'E-mail',
+                account: 'eldar.khaitov@gmail.com',
                 type: 'email'
+            },
+            {
+                name: 'Facebook',
+                account: 'eldar.khaitov',
+                type: 'facebook'
+            },
+            {
+                name: 'Instagram',
+                account: 'triplecorpse',
+                type: 'instagram'
             }
         ],
         language: 'uk'
@@ -72,21 +129,40 @@ export function getContactsPageData(): Promise<Array<IPage>> {
         entityId: 'contacts',
         header: 'Contacts',
         pageData: [
-            {name: "Skype", account: "microbenz", linkto: 'skype:microbenz?chat', type: 'skype'},
             {
-                name: "Téléphone",
-                account: "+380971499115",
-                linkto: 'tel:+380971499115',
-                type: 'phone',
-                viberMobile: 'viber://add?number=+380971499115',
-                viberDesktop: 'viber://chat?number=+380971499115',
-                telegram: 'tg://resolve?domain=triplecorpse'
+                name: 'Telegram',
+                account: 'triplecorpse',
+                type: 'telegram'
             },
             {
-                name: "E-mail",
-                account: "eldar.khaitov@gmail.com",
-                linkto: 'mailto:Eldar Khaitov<eldar.khaitov@gmail.com>',
+                name: 'Viber',
+                account: 'microbenz',
+                type: 'viber'
+            },
+            {
+                name: 'Skype',
+                account: 'microbenz',
+                type: 'skype'
+            },
+            {
+                name: 'Téléphone',
+                account: '+380971499115',
+                type: 'phone',
+            },
+            {
+                name: 'E-mail',
+                account: 'eldar.khaitov@gmail.com',
                 type: 'email'
+            },
+            {
+                name: 'Facebook',
+                account: 'eldar.khaitov',
+                type: 'facebook'
+            },
+            {
+                name: 'Instagram',
+                account: 'triplecorpse',
+                type: 'instagram'
             }
         ],
         language: 'fr'
