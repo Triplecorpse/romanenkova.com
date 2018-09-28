@@ -1,6 +1,6 @@
 {
   "name": "romanenkova",
-  "version": "0.0.1",
+  "version": "0.5.1",
   "description": "Personal site",
   "main": "app.js",
   "scripts": {
@@ -11,7 +11,7 @@
     "build": "tsc",
     "dbconnect": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod",
     "predbinit": "tsc",
-    "dbinit": "node population/init -- about contacts main nav modalappointment",
+    "dbinit": "node population/init -- about contacts main nav modalappointment article",
     "dbabout": "node population/init -- about",
     "dbappointmentmodal": "node population/init -- modalappointment",
     "dbcontacts": "node population/init -- contacts",

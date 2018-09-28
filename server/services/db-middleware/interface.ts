@@ -1,5 +1,5 @@
 import log from './../log-service';
-import {IPage, model as Page} from '../../models/page';
+import {IPage, Page as Page} from '../../models/page';
 import {IPageImage, IPageLanguageContainer, IPageSubmit} from "../../interfaces/iPageSubmit";
 import {TLanguage} from "../../types/types";
 import {languages} from "../../const/const";

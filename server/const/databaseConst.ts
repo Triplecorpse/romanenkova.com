@@ -1,4 +1,4 @@
-import {model as Page} from "../models/page";
+import {Page as Page} from "../models/page";
 
 let email: string;
 let lastUpdated: number;

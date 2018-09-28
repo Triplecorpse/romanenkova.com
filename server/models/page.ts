@@ -55,4 +55,4 @@ const schema = new mongoose.Schema({
 }, {strict: false});
 
 
-export const model = mongoose.model('Page', schema);
+export const Page = mongoose.model('Page', schema);

@@ -1,4 +1,4 @@
-import {IPage, model as Page} from "../server/models/page";
+import {IPage, Page as Page} from "../server/models/page";
 import log from '../server/services/log-service'
 
 const fs = require('fs');

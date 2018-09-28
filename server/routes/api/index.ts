@@ -15,10 +15,8 @@ import {ICloudinaryResponse} from "../../interfaces/iCloudinaryResponse";
 import {errorMessages, languageObjs, successMessages} from "../../const/const";
 import {IAppointment} from "../../interfaces/iAppointment";
 import {validateRecaptcha} from "../../services/security-services/recaptcha-validator";
-import {IRecaptchaResponse} from "../../interfaces/iRecaptchaResponse";
 import {TLanguage} from "../../types/types";
 import {sendEmail} from "../../services/user-services/email-service";
-import {app} from "../../server";
 import {Error} from "mongoose";
 import {databaseConstQ} from "../../const/databaseConst";
 

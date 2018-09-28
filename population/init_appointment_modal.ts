@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-import {IPage, model as Page} from "../server/models/page";
+import {IPage, Page as Page} from "../server/models/page";
 import log from "../server/services/log-service";
 
 export function getAppointmentModalPageData(): Promise<Array<IPage>> {

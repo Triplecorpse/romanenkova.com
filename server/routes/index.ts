@@ -9,7 +9,7 @@ import {Request, Response} from "express-serve-static-core";
 import IRequest from "../interfaces/iRequest";
 import {NextFunction} from "express";
 import {languages} from "../const/const";
-import {IPage, model as Page} from "../models/page";
+import {IPage, Page as Page} from "../models/page";
 import {read as readInterface, updatePageSubmitObj} from '../services/db-middleware/interface';
 import {TLanguage} from "../types/types";
 

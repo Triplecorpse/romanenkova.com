@@ -1,4 +1,4 @@
-import {IPage, model as Page} from "../server/models/page";
+import {IPage, Page as Page} from "../server/models/page";
 import log from "../server/services/log-service";
 
 export function getContactsPageData(): Promise<Array<IPage>> {
@@ -13,7 +13,7 @@ export function getContactsPageData(): Promise<Array<IPage>> {
             },
             {
                 name: 'Viber',
-                account: 'microbenz',
+                account: '+380971499115',
                 type: 'viber'
             },
             {
@@ -54,7 +54,7 @@ export function getContactsPageData(): Promise<Array<IPage>> {
             },
             {
                 name: 'Viber',
-                account: 'microbenz',
+                account: '+380971499115',
                 type: 'viber'
             },
             {
@@ -95,7 +95,7 @@ export function getContactsPageData(): Promise<Array<IPage>> {
             },
             {
                 name: 'Viber',
-                account: 'microbenz',
+                account: '+380971499115',
                 type: 'viber'
             },
             {
@@ -136,7 +136,7 @@ export function getContactsPageData(): Promise<Array<IPage>> {
             },
             {
                 name: 'Viber',
-                account: 'microbenz',
+                account: '+380971499115',
                 type: 'viber'
             },
             {
