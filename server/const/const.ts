@@ -29,6 +29,12 @@ export const errorMessages: any = {
         en: 'Email can not be sent.',
         uk: 'Email не може бути відправлений.',
         fr: 'Email ne peut pas être envoyé.'
+    },
+    date: {
+        ru: 'Неверный формат даты.',
+        en: 'Invalid date input.',
+        uk: 'Невірний формат дати.',
+        fr: 'Format de date invalide.',
     }
 };
 export const successMessages: any = {
