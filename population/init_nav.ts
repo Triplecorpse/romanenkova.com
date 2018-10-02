@@ -70,8 +70,8 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 log.warning('\x1b[31m', 'DELETED: nav', result.n, 'pages');
                 resolve(data);
             })
-            .catch(() => {
-                resolve(data);
+            .catch((err: any) => {
+                reject(err);
             });
     })
 }

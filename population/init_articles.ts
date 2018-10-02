@@ -28,8 +28,8 @@ export function getArticlePageData(): Promise<Array<IPage>> {
                 log.warning('\x1b[31m', 'DELETED: article', result.n, 'pages');
                 resolve(data);
             })
-            .catch(() => {
-                resolve(data);
+            .catch((err: any) => {
+                reject(err);
             });
     })
 }

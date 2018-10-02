@@ -10,16 +10,21 @@ import {getMainPageData} from "./init_main";
 import {getAppointmentModalPageData} from "./init_appointment_modal";
 import {getNavPageData} from "./init_nav";
 import {getArticlePageData} from "./init_articles";
+import {getSchedule} from "./init_schedule";
+import {Schedule} from "../server/models/schedule";
 
 const pages = ['nav', 'about', 'article', 'contacts', 'diploma', 'main', 'modal', 'nav', 'review', 'service', 'modalappointment'];
+const documents = ['schedule'];
 const pagesToCreate: Array<string> = process.argv.filter((argv: string): boolean => pages.indexOf(argv) > -1);
+const documentsToCreate: Array<string> = process.argv.filter((argv: string): boolean => documents.indexOf(argv) > -1);
 const mapper: any = {
     about: getAboutPageData,
     contacts: getContactsPageData,
     main: getMainPageData,
     nav: getNavPageData,
     modalappointment: getAppointmentModalPageData,
-    article: getArticlePageData
+    article: getArticlePageData,
+    schedule: getSchedule
 };
 
 mongoose.connect(process.env.MONGODB_URI as string)
@@ -32,12 +37,25 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 .then((data: Array<IPage>) => Page.insertMany(data))
                 .then((inserted: any) => {
                     log.warning('\x1b[32m', 'INSERTED:', pageId, inserted.length, 'pages');
-                }))
+                }));
+        });
+
+        documentsToCreate.forEach((document: string) => {
+            pagesQ.push(mapper[document]()
+                .then((data: any) => {
+                    if (document === 'schedule') {
+                        return Schedule.insertMany(data);
+                    }
+                    return [];
+                })
+                .then((inserted: any) => {
+                    log.warning('\x1b[32m', 'INSERTED:', document, inserted.length, 'documents');
+                }));
         });
 
         return Promise.all(pagesQ);
     })
-    .then(() => {
+    .then((a: any) => {
         return mongoose.disconnect();
     })
     .then(() => {

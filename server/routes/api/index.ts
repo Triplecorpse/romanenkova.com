@@ -19,6 +19,7 @@ import {TLanguage} from "../../types/types";
 import {sendEmail} from "../../services/user-services/email-service";
 import {Error} from "mongoose";
 import {databaseConstQ} from "../../const/databaseConst";
+import {ISchedule, Schedule} from "../../models/schedule";
 
 const multer = require('multer');
 
@@ -54,7 +55,7 @@ router.post('/upload', upload.array("upload"), (req: IRequest, res: Response, ne
 
     Promise.all(cloudinaryQ)
         .then((data: Array<ICloudinaryResponse>) => {
-            res.send(data.map((s: ICloudinaryResponse): {url: string} => ({url: s.url})));
+            res.send(data.map((s: ICloudinaryResponse): { url: string } => ({url: s.url})));
         })
         .catch((err: any) => {
             res.status(500).send(err);
@@ -90,7 +91,11 @@ router.post('/appointment', (req: IRequest, res: Response) => {
     const language: TLanguage = req.query.language || 'en';
 
     if (!appointment.name && !(appointment.email || appointment.phone || appointment.message)) {
-        return res.status(400).json({name: errorMessages.appointment.name[language], contact: errorMessages.appointment.contact[language], lang: language})
+        return res.status(400).json({
+            name: errorMessages.appointment.name[language],
+            contact: errorMessages.appointment.contact[language],
+            lang: language
+        })
     }
 
     if (!appointment.name) {
@@ -129,7 +134,23 @@ router.post('/appointment', (req: IRequest, res: Response) => {
             throw new Error(errorMessages.email[language]);
         })
         .then((data) => {
-            res.status(200).json({data, lang: language, m: successMessages.appointment.body[language], h: successMessages.appointment.header[language]});
+            res.status(200).json({
+                data,
+                lang: language,
+                m: successMessages.appointment.body[language],
+                h: successMessages.appointment.header[language]
+            });
+        })
+});
+
+router.get('/schedule', (req: Request, res: Response) => {
+    Schedule.find()
+        .then((schedule: Array<any>) => {
+            res.json(schedule.map((item: any): ISchedule => ({
+                availableHours: item.availableHours,
+                weekday: item.weekday,
+                date: item.date
+            })));
         })
 });
 

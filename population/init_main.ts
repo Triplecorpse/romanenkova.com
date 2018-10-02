@@ -33,8 +33,8 @@ export function getMainPageData(): Promise<Array<IPage>> {
                 log.warning('\x1b[31m', 'DELETED: main', result.n, 'pages');
                 resolve(data);
             })
-            .catch(() => {
-                resolve(data);
+            .catch((err: any) => {
+                reject(err);
             });
     })
 }

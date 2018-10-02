@@ -174,8 +174,8 @@ export function getContactsPageData(): Promise<Array<IPage>> {
                 log.warning('\x1b[31m', 'DELETED: contacts', result.n, 'pages');
                 resolve(contacts);
             })
-            .catch(() => {
-                resolve(contacts);
+            .catch((err: any) => {
+                reject(err);
             });
     })
 }

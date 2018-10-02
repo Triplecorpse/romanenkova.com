@@ -50,6 +50,7 @@ export function getAboutPageData(): Promise<Array<IPage>> {
             })
             .catch((err: any) => {
                 log.error(err);
+                reject(err);
             });
     })
 }
