@@ -24,10 +24,13 @@ export function getSchedule(): Promise<Array<ISchedule>> {
             availableHours: ['16:00-19:59'],
         }, {
             weekday: 'sa',
-            availableHours: ['10:00-19:59'],
+            availableHours: ['10:00-12:59', '14:00-19:59'],
+        }, {
+            date: '28.10.2018',
+            availableHours: ['02:00-10:00']
         }, {
             date: '30.10.2018',
-            availableHours: ['02:00-10:00']
+            availableHours: []
         }
     ];
 

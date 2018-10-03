@@ -28,7 +28,8 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
                     time: '',
                     service: '',
                     message: ''
-                }
+                },
+                selectClear: 'Clear selection'
             },
             language: 'en'
         }, {
@@ -54,7 +55,8 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
                     time: 'Предполагаемое время ознакомительного сеанса.',
                     service: 'Вид сеанса.',
                     message: 'Обязательное поле 1 из 3: телефон, электронная почта или любые другие контакты в сообщении. Нужно для связи с вами и/или для дополнительной информации (например, по номеру телефона писать в Вайбер или Телеграм).'
-                }
+                },
+                selectClear: 'Очистить выбор\n'
             },
             language: 'ru'
         }, {
@@ -80,7 +82,8 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
                     time: '',
                     service: '',
                     message: ''
-                }
+                },
+                selectClear: 'Очистити вибір'
             },
             language: 'uk'
         }, {
@@ -106,7 +109,8 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
                     time: '',
                     service: '',
                     message: ''
-                }
+                },
+                selectClear: 'Effacer la sélection'
             },
             language: 'fr'
         }
