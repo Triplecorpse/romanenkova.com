@@ -1,3 +1,5 @@
+import {Service} from "../server/models/service";
+
 require('dotenv').config();
 
 import {IPage, Page as Page} from "../server/models/page";

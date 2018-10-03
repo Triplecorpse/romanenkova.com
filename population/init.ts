@@ -12,9 +12,12 @@ import {getNavPageData} from "./init_nav";
 import {getArticlePageData} from "./init_articles";
 import {getSchedule} from "./init_schedule";
 import {Schedule} from "../server/models/schedule";
+import {getServicePageData} from "./init_services";
+import {getServiceItemData} from "./init_services_items";
+import {Service} from "../server/models/service";
 
 const pages = ['nav', 'about', 'article', 'contacts', 'diploma', 'main', 'modal', 'nav', 'review', 'service', 'modalappointment'];
-const documents = ['schedule'];
+const documents = ['schedule', 'serviceItem'];
 const pagesToCreate: Array<string> = process.argv.filter((argv: string): boolean => pages.indexOf(argv) > -1);
 const documentsToCreate: Array<string> = process.argv.filter((argv: string): boolean => documents.indexOf(argv) > -1);
 const mapper: any = {
@@ -24,7 +27,9 @@ const mapper: any = {
     nav: getNavPageData,
     modalappointment: getAppointmentModalPageData,
     article: getArticlePageData,
-    schedule: getSchedule
+    schedule: getSchedule,
+    service: getServicePageData,
+    serviceItem: getServiceItemData
 };
 
 mongoose.connect(process.env.MONGODB_URI as string)
@@ -45,6 +50,9 @@ mongoose.connect(process.env.MONGODB_URI as string)
                 .then((data: any) => {
                     if (document === 'schedule') {
                         return Schedule.insertMany(data);
+                    }
+                    if (document === 'serviceItem') {
+                        return Service.insertMany(data)
                     }
                     return [];
                 })

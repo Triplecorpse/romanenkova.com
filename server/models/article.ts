@@ -1,11 +1,11 @@
 import mongoose = require('mongoose');
 
-import {iMongooseSchema} from "./iMongooseSchema";
+import {IMongooseSchema} from "./IMongooseSchema";
 import {stripStringAsync} from "../services/security-services/strip-html";
 import {TLanguage} from "../types/types";
 import {languages} from "../const/const";
 
-export interface IArticle extends iMongooseSchema {
+export interface IArticle extends IMongooseSchema {
     logo: string;
     header: string;
     isPublished: boolean;

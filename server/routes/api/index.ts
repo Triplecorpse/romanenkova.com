@@ -3,6 +3,7 @@ import express = require('express');
 const router = express.Router();
 
 import article from './article';
+import service from './service';
 import getInterface from './interface';
 import {NextFunction, Request, Response} from "express-serve-static-core";
 import log from './../../services/log-service';
@@ -36,6 +37,7 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     }
 });
 router.use('/article', article);
+router.use('/service', service);
 router.use('/interface', getInterface);
 
 const storage = multer.diskStorage({
@@ -51,7 +53,7 @@ const upload = multer({storage: storage});
 
 router.post('/upload', upload.array("upload"), (req: IRequest, res: Response, next: NextFunction) => {
     const cloudinaryQ: Array<Promise<ICloudinaryResponse>> =
-        req.files.map((file: IMulterFile): Promise<ICloudinaryResponse> => fileStorage.upload(file.path));
+        req.files.map((file: IMulterFile): Promise<ICloudinaryResponse> => fileStorage.uploadImage(file.path));
 
     Promise.all(cloudinaryQ)
         .then((data: Array<ICloudinaryResponse>) => {

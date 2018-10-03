@@ -12,6 +12,8 @@ import log from './../../services/log-service';
 import {removeTagsFromObject} from "../../services/security-services/strip-html";
 import {IPageSubmit} from "../../interfaces/iPageSubmit";
 import {databaseConstQ} from "../../const/databaseConst";
+import {Service} from "../../models/service";
+import IRequest from "../../interfaces/iRequest";
 
 router
     .route('/:id?')
@@ -41,7 +43,7 @@ router
                 res.status(500).json({m: err.message});
             });
     })
-    .get((req: Request, res: Response) => {
+    .get((req: IRequest, res: Response) => {
         const language = req.query.lang;
         const id = req.query.id;
 
@@ -50,7 +52,7 @@ router
         }
 
         read(id, language)
-            .then((pages: Array<IPage>) => {
+            .then((pages: Array<IPage>): any => {
                 if (pages.length === 1) {
                     return res.json(pages[0]);
                 }

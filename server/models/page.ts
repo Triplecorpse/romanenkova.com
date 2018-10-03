@@ -1,5 +1,5 @@
 import mongoose = require('mongoose');
-import {iMongooseSchema} from "./iMongooseSchema";
+import {IMongooseSchema} from "./IMongooseSchema";
 import {TLanguage, TPageId} from "../types/types";
 import {languages, pagesId} from "../const/const";
 
@@ -14,7 +14,7 @@ interface iContact {
     linkto?: 'mailto:' | 'skype:' | 'tel:'
 }
 
-export interface IPage<T = any> extends iMongooseSchema {
+export interface IPage<T = any> extends IMongooseSchema {
     header?: string;
     pageData?: T;
     entityId: TPageId;
