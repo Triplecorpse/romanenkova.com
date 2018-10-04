@@ -1,5 +1,5 @@
 import express = require('express');
-import {NextFunction, Request, Response} from "express-serve-static-core";
+import {Response} from "express-serve-static-core";
 import {IService, Service} from "../../models/service";
 import IRequest from "../../interfaces/iRequest";
 
@@ -15,7 +15,9 @@ router.get('/', (req: IRequest, res: Response) => {
                 price: service.price,
                 currency: service.currency,
                 priceLabel: service.priceLabel,
-                language: service.language
+                language: service.language,
+                entityId: service.entityId,
+                title: service.title
             })));
         })
         .catch((err: any) => {

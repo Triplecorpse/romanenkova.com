@@ -14,7 +14,7 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
                 name: 'First and last names',
                 phone: 'Phone',
                 email: 'Email',
-                date: 'Date (DD.MM.YYYY)',
+                date: 'Date',
                 time: 'Time',
                 service: 'Service',
                 message: 'Message',

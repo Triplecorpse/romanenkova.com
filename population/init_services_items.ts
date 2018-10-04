@@ -11,7 +11,9 @@ export function getServiceItemData(): Promise<Array<IService>> {
             description: 'I work mostly with adults, but I also have experience working with children and teenagers. I am often approached by parents who face difficulties in raising children.',
             image: '0',
             price: 30,
-            priceLabel: 'Cost'
+            priceLabel: 'Cost',
+            entityId: '[counseling] individual',
+            title: 'Individual counselling'
         }, {
             currency: 'EUR',
             header: 'Индивидуальные консультации',
@@ -19,7 +21,9 @@ export function getServiceItemData(): Promise<Array<IService>> {
             description: 'Я работаю преимущественно со взрослыми людьми, но есть и опыт работы с детьми и подростками. Ко мне часто обращаются родители, которые сталкиваются с трудностями в воспитании детей.',
             image: '0',
             price: 30,
-            priceLabel: 'Стоимость'
+            priceLabel: 'Стоимость',
+            entityId: '[counseling] individual',
+            title: 'Individual counselling'
         }, {
             currency: 'EUR',
             header: 'Індивідуальні консультації',
@@ -27,7 +31,9 @@ export function getServiceItemData(): Promise<Array<IService>> {
             description: 'Я працюю переважно з дорослими людьми, але є і досвід роботи з дітьми і підлітками. До мене часто звертаються батьки, які стикаються з труднощами у вихованні дітей.',
             image: '0',
             price: 30,
-            priceLabel: 'Вартість'
+            priceLabel: 'Вартість',
+            entityId: '[counseling] individual',
+            title: 'Individual counselling'
         }, {
             currency: 'EUR',
             header: 'Personnalisé conseil',
@@ -35,7 +41,9 @@ export function getServiceItemData(): Promise<Array<IService>> {
             description: 'Je travaille principalement avec des adultes, mais j\'ai aussi de l\'expérience avec des enfants et des adolescents. Je suis souvent approché par des parents qui ont des difficultés à élever leurs enfants.',
             image: '0',
             price: 30,
-            priceLabel: 'Coût de'
+            priceLabel: 'Coût de',
+            entityId: '[counseling] individual',
+            title: 'Individual counselling'
         },
         {
             currency: 'EUR',
@@ -44,7 +52,9 @@ export function getServiceItemData(): Promise<Array<IService>> {
             description: 'I work as a group psychotherapist and provide a group psychotherapy service. In this format, I work in co-therapy (with a colleague).',
             image: '1',
             price: 30,
-            priceLabel: 'Cost'
+            priceLabel: 'Cost',
+            entityId: '[counseling] group',
+            title: 'Group counselling'
         }, {
             currency: 'EUR',
             header: 'Груповые консультации',
@@ -52,7 +62,9 @@ export function getServiceItemData(): Promise<Array<IService>> {
             description: 'Я работаю как групповой психотерапевт и предоставляю услугу групповой психотерапии. В этом формате я работаю в ко-терапии ( вместе с коллегой).',
             image: '1',
             price: 30,
-            priceLabel: 'Стоимость'
+            priceLabel: 'Стоимость',
+            entityId: '[counseling] group',
+            title: 'Group counselling'
         }, {
             currency: 'EUR',
             header: 'Групові консультації',
@@ -60,7 +72,9 @@ export function getServiceItemData(): Promise<Array<IService>> {
             description: 'Я працюю як груповий психотерапевт і надаю послугу групової психотерапії. У цьому форматі я працюю в ко-терапії (разом з колегою).',
             image: '1',
             price: 30,
-            priceLabel: 'Вартість'
+            priceLabel: 'Вартість',
+            entityId: '[counseling] group',
+            title: 'Group counselling'
         }, {
             currency: 'EUR',
             header: 'Conseil de groupe',
@@ -68,7 +82,9 @@ export function getServiceItemData(): Promise<Array<IService>> {
             description: 'Je travaille comme psychothérapeute de groupe et offre un service de psychothérapie de groupe. Dans ce format, je travaille en co-thérapie (avec un collègue).',
             image: '1',
             price: 30,
-            priceLabel: 'Coût de'
+            priceLabel: 'Coût de',
+            entityId: '[counseling] group',
+            title: 'Group counselling'
         }
     ];
 

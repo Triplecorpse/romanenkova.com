@@ -10,21 +10,18 @@ import IRequest from "../interfaces/iRequest";
 import {NextFunction} from "express";
 import {languages} from "../const/const";
 import {IPage} from "../models/page";
-import {read as readInterface} from '../services/db-middleware/interface';
+import {readInterface as readInterface} from '../services/db-middleware/interface';
 import {TLanguage} from "../types/types";
 
 const parseAcceptLanguage = require('parse-accept-language');
 
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
-    const parsed = parseAcceptLanguage(req);
-
-    const languageObj = parsed.find((lang: any) =>
-        languages.find((acceptable: string) =>
-            lang.language === acceptable
-        )
+    const acceptedLangs = parseAcceptLanguage(req);
+    const languageObj = acceptedLangs.find((lang: any) =>
+        languages.find((acceptable: string) => lang.language === acceptable)
     );
 
-    req.language = languageObj ? languageObj.language : 'en';
+    req.language = req.query.lang || (languageObj ? languageObj.language : 'en');
     next();
 });
 router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunction) => {
@@ -43,6 +40,7 @@ router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunc
 router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
     let name: string;
 
+    // continue routing if language is not acceptable
     if (req.params.lang && languages.indexOf(req.params.lang) === -1) {
         return next();
     }

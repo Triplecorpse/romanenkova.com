@@ -5,23 +5,44 @@ import {TLanguage} from "../../types/types";
 import {languages} from "../../const/const";
 import {IMainDatabaseModel, IMainDataRequest} from "../../interfaces/IMainDataRequest";
 import indexData from "../../const/indexData";
+import {IService, Service} from "../../models/service";
+import {readService} from "./service";
 
 const cloudinary = require('cloudinary');
 
-export function read(entityId: string | Array<string>, language: string | Array<string>): Promise<Array<IPage>> {
-    return Page.find({entityId, language})
-        .then((pages: any) => pages.map((page: IPage): IPage => {
-                let pageBody: string = page.pageData as string;
-                let pageLanguage: TLanguage = page.language;
+export function readInterface(entityId: string | Array<string>, language: string | Array<string>): Promise<Array<IPage>> {
+    if (typeof entityId === 'string') {
+        entityId = [entityId];
+    }
 
-                return {
-                    header: page.header,
-                    entityId: page.entityId,
-                    pageData: pageBody,
-                    language: pageLanguage,
-                    images: page.images
-                }
-            })
+    const hasServicePage = entityId.indexOf('service') > -1;
+
+    return Page.find({entityId, language})
+        .then((pages: any) => {
+            if (hasServicePage) {
+                return Promise.all([pages, readService(language as TLanguage) as any]);
+            }
+
+            return Promise.all([pages, null]);
+        })
+        .then((result: any) => {
+                return result[0].map((page: IPage): IPage => {
+                    let pageBody = page.pageData;
+                    let pageLanguage: TLanguage = page.language;
+
+                    if (page.entityId === 'service' && result[1]) {
+                        pageBody = result[1];
+                    }
+
+                    return {
+                        header: page.header,
+                        entityId: page.entityId,
+                        pageData: pageBody,
+                        language: pageLanguage,
+                        images: page.images
+                    }
+                })
+            }
         );
 }
 
@@ -64,7 +85,11 @@ export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<IPage>>
             let page: IPage = pages[i as TLanguage] || {entityId: pageObj.id, language: i} as IPage;
 
             if (pageObj.id === 'main') {
-                page = {entityId: pageObj.id, language: i, pageData: mainAdapter(page.pageData as IMainDataRequest, i as TLanguage)} as IPage;
+                page = {
+                    entityId: pageObj.id,
+                    language: i,
+                    pageData: mainAdapter(page.pageData as IMainDataRequest, i as TLanguage)
+                } as IPage;
             }
 
             if (mediaToAdd.length) {
@@ -87,7 +112,7 @@ export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<IPage>>
 export function updateSinglePage(entityId: string, language: string, page: any): Promise<IPage> {
     return Page.updateOne({entityId, language}, page)
         .then(() => {
-            return read(entityId, language);
+            return readInterface(entityId, language);
         })
         .then((result: Array<IPage>) => result[0]);
 }

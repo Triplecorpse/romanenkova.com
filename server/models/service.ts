@@ -11,6 +11,8 @@ export interface IService extends IMongooseSchema {
     price: number;
     currency: string;
     priceLabel: string;
+    entityId: string;
+    title: string;
 }
 
 function validateLanguage(lang: TLanguage): boolean {
@@ -31,7 +33,9 @@ const schema = new mongoose.Schema({
     image: {type: String, required: true, validate: validateUrl},
     language: {type: String, required: true, validate: validateLanguage},
     price: {type: Number, required: true},
-    currency: {type: String, required: true}
+    currency: {type: String, required: true},
+    entityId: {type: String, required: true, set: secureHtmlString},
+    title: {type: String, required: true, set: secureHtmlString}
 });
 
 

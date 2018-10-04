@@ -2,7 +2,7 @@ import express = require('express');
 
 const router = express.Router();
 
-import {read, updatePageSubmitObj} from '../../services/db-middleware/interface';
+import {readInterface, updatePageSubmitObj} from '../../services/db-middleware/interface';
 import {IPage} from "../../models/page";
 
 import {Request, Response} from "express-serve-static-core";
@@ -12,8 +12,9 @@ import log from './../../services/log-service';
 import {removeTagsFromObject} from "../../services/security-services/strip-html";
 import {IPageSubmit} from "../../interfaces/iPageSubmit";
 import {databaseConstQ} from "../../const/databaseConst";
-import {Service} from "../../models/service";
+import {IService, Service} from "../../models/service";
 import IRequest from "../../interfaces/iRequest";
+import {readService} from "../../services/db-middleware/service";
 
 router
     .route('/:id?')
@@ -51,7 +52,7 @@ router
             return res.status(400).json({m: 'Required parameters are missing.', language, id});
         }
 
-        read(id, language)
+        readInterface(id, language)
             .then((pages: Array<IPage>): any => {
                 if (pages.length === 1) {
                     return res.json(pages[0]);
