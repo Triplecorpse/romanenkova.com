@@ -78,7 +78,7 @@ export function getServiceItemData(): Promise<Array<IService>> {
         Service.find()
             .then((services: Array<any>) => {
                 const differentServices = services.filter((service: IService): boolean => service.language === 'en');
-                if (!differentServices) {
+                if (!differentServices.length) {
                     return Promise.all([uploadImage('./population/assets/groupServices.png'), uploadImage('./population/assets/individualServices.png')]);
                 }
                 differentServices.forEach((service: IService): void => {
