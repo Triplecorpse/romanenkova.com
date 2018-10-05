@@ -112,11 +112,11 @@ export function getServiceItemData(): Promise<Array<IService>> {
             .then((result: any) => {
                 if (Array.isArray(result)) {
                     data.forEach((item: IService): void => {
-                        item.image = result[1 - +item.image].url;
+                        item.image = result[+item.image].url;
                     });
                 } else {
                     data.forEach((item: IService): void => {
-                        item.image = images[1 - +item.image];
+                        item.image = images[+item.image];
                     });
                 }
 
