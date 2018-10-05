@@ -13,7 +13,8 @@ export function getServiceItemData(): Promise<Array<IService>> {
             price: 30,
             priceLabel: 'Cost',
             entityId: '[counseling] individual',
-            title: 'Individual counselling'
+            title: 'Individual counselling',
+            period: 'hour'
         }, {
             currency: 'EUR',
             header: 'Индивидуальные консультации',
@@ -23,7 +24,8 @@ export function getServiceItemData(): Promise<Array<IService>> {
             price: 30,
             priceLabel: 'Стоимость',
             entityId: '[counseling] individual',
-            title: 'Individual counselling'
+            title: 'Individual counselling',
+            period: 'час'
         }, {
             currency: 'EUR',
             header: 'Індивідуальні консультації',
@@ -33,7 +35,8 @@ export function getServiceItemData(): Promise<Array<IService>> {
             price: 30,
             priceLabel: 'Вартість',
             entityId: '[counseling] individual',
-            title: 'Individual counselling'
+            title: 'Individual counselling',
+            period: 'год'
         }, {
             currency: 'EUR',
             header: 'Personnalisé conseil',
@@ -43,7 +46,8 @@ export function getServiceItemData(): Promise<Array<IService>> {
             price: 30,
             priceLabel: 'Coût de',
             entityId: '[counseling] individual',
-            title: 'Individual counselling'
+            title: 'Individual counselling',
+            period: 'heure'
         },
         {
             currency: 'EUR',
@@ -54,7 +58,8 @@ export function getServiceItemData(): Promise<Array<IService>> {
             price: 30,
             priceLabel: 'Cost',
             entityId: '[counseling] group',
-            title: 'Group counselling'
+            title: 'Group counselling',
+            period: 'hour'
         }, {
             currency: 'EUR',
             header: 'Груповые консультации',
@@ -64,7 +69,8 @@ export function getServiceItemData(): Promise<Array<IService>> {
             price: 30,
             priceLabel: 'Стоимость',
             entityId: '[counseling] group',
-            title: 'Group counselling'
+            title: 'Group counselling',
+            period: 'час'
         }, {
             currency: 'EUR',
             header: 'Групові консультації',
@@ -74,7 +80,8 @@ export function getServiceItemData(): Promise<Array<IService>> {
             price: 30,
             priceLabel: 'Вартість',
             entityId: '[counseling] group',
-            title: 'Group counselling'
+            title: 'Group counselling',
+            period: 'год'
         }, {
             currency: 'EUR',
             header: 'Conseil de groupe',
@@ -84,7 +91,8 @@ export function getServiceItemData(): Promise<Array<IService>> {
             price: 30,
             priceLabel: 'Coût de',
             entityId: '[counseling] group',
-            title: 'Group counselling'
+            title: 'Group counselling',
+            period: 'heure'
         }
     ];
 
@@ -95,7 +103,7 @@ export function getServiceItemData(): Promise<Array<IService>> {
             .then((services: Array<any>) => {
                 const differentServices = services.filter((service: IService): boolean => service.language === 'en');
                 if (!differentServices.length) {
-                    return Promise.all([uploadImage('./population/assets/groupServices.png'), uploadImage('./population/assets/individualServices.png')]);
+                    return Promise.all([uploadImage('./population/assets/individualServices.png'), uploadImage('./population/assets/groupServices.png')]);
                 }
                 differentServices.forEach((service: IService): void => {
                     images.push(service.image);
@@ -104,11 +112,11 @@ export function getServiceItemData(): Promise<Array<IService>> {
             .then((result: any) => {
                 if (Array.isArray(result)) {
                     data.forEach((item: IService): void => {
-                        item.image = result[+item.image].url;
+                        item.image = result[1 - +item.image].url;
                     });
                 } else {
                     data.forEach((item: IService): void => {
-                        item.image = images[+item.image];
+                        item.image = images[1 - +item.image];
                     });
                 }
 
