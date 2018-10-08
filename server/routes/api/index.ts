@@ -5,11 +5,12 @@ const router = express.Router();
 import article from './article';
 import service from './service';
 import getInterface from './interface';
+import user from './user';
 import {NextFunction, Request, Response} from "express-serve-static-core";
 import log from './../../services/log-service';
 import * as fileStorage from './../../services/file-storage/file-storage-service';
 import IRequest from "../../interfaces/iRequest";
-import {getToken, validate} from "../../services/security-services/auth-service";
+import {getToken, validateToken} from "../../services/security-services/auth-service";
 import bodyParser = require("body-parser");
 import {IMulterFile} from "../../interfaces/iMulterFile";
 import {ICloudinaryResponse} from "../../interfaces/iCloudinaryResponse";
@@ -21,6 +22,7 @@ import {sendEmail} from "../../services/user-services/email-service";
 import {Error} from "mongoose";
 import {databaseConstQ} from "../../const/databaseConst";
 import {ISchedule, Schedule} from "../../models/schedule";
+import {IUser} from "../../models/user";
 
 const multer = require('multer');
 
@@ -39,6 +41,7 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
 router.use('/article', article);
 router.use('/service', service);
 router.use('/interface', getInterface);
+router.use('/user', user);
 
 const storage = multer.diskStorage({
     // destination
@@ -70,8 +73,8 @@ router.get('/language', (req: IRequest, res: Response) => {
 
 router.post('/login', (req: Request, res: Response) => {
     getToken(req.body)
-        .then((data: string) => {
-            res.json({success: true, message: data});
+        .then((data: { token: string, user: IUser }) => {
+            res.json({success: true, message: data.token, user: data.user});
         })
         .catch((err: Error) => {
             res.status(401).send({success: false, message: err.message});
@@ -79,9 +82,9 @@ router.post('/login', (req: Request, res: Response) => {
 });
 
 router.post('/uservalid', (req: Request, res: Response) => {
-    validate(req.body.token)
-        .then(() => {
-            res.json({success: true, message: ''});
+    validateToken(req.body.token)
+        .then((user: IUser) => {
+            res.json({success: true, message: '', user});
         })
         .catch((err: Error) => {
             res.status(401).send({success: false, message: err.message});

@@ -6,7 +6,7 @@ import {readInterface, updatePageSubmitObj} from '../../services/db-middleware/i
 import {IPage} from "../../models/page";
 
 import {Request, Response} from "express-serve-static-core";
-import {validate} from "../../services/security-services/auth-service";
+import {validateToken} from "../../services/security-services/auth-service";
 
 import log from './../../services/log-service';
 import {removeTagsFromObject} from "../../services/security-services/strip-html";
@@ -19,7 +19,7 @@ import {readService} from "../../services/db-middleware/service";
 router
     .route('/:id?')
     .put((req: Request, res: Response) => {
-        validate(req.body.token)
+        validateToken(req.body.token)
             .then((): Promise<IPageSubmit> => {
                 const page = req.body as IPageSubmit;
 

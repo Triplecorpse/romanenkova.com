@@ -1,5 +1,5 @@
 import express = require('express');
-import {validate} from "../../services/security-services/auth-service";
+import {validateToken} from "../../services/security-services/auth-service";
 import {getArticles} from "../../services/user-services/article-service";
 import {IArticle} from "../../models/article";
 import IRequest from "../../interfaces/iRequest";
@@ -28,7 +28,7 @@ router
                 });
         }
 
-        validate(req.query.token)
+        validateToken(req.query.token)
             .then(() => {
                 return getArticles();
             })

@@ -80,11 +80,24 @@ export function deleteUser(nickName: string): Promise<boolean> {
         .then((result: boolean) => result);
 }
 
-export function checkUser(nickName: string, passwordStr: string): Promise<boolean> {
+export function checkUser(nickName: string, passwordStr: string): Promise<IUser> {
     return User.findOne({nickName: nickName, password: passwordStr})
         .then((user: any) => {
             if (user) {
-                return true;
+                return {
+                    canAddArticles: user.canAddArticles,
+                    canAddServices: user.canAddServices,
+                    canApproveReviews: user.canApproveReviews,
+                    canCreateUsers: user.canCreateUsers,
+                    canEditArticles: user.canEditArticles,
+                    canEditContacts: user.canEditContacts,
+                    canEditServices: user.canEditServices,
+                    canEditUsers: user.canEditUsers,
+                    email: user.email,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    nickName: user.nickName
+                };
             }
 
             throw new Error('User doesn\'t exist');
