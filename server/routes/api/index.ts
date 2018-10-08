@@ -80,7 +80,7 @@ router.post('/login', (req: Request, res: Response) => {
 
 router.post('/uservalid', (req: Request, res: Response) => {
     validate(req.body.token)
-        .then((data: string | object) => {
+        .then(() => {
             res.json({success: true, message: ''});
         })
         .catch((err: Error) => {

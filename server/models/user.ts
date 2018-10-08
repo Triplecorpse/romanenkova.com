@@ -30,8 +30,8 @@ function setPassword(password: string): string {
     return crypto.createHash('md5').update(password).digest('hex');
 }
 
-function getPassword(): void {
-
+function getPassword(): string {
+    return '';
 }
 
 const schema = new mongoose.Schema({
@@ -39,7 +39,7 @@ const schema = new mongoose.Schema({
     lastName: {type: String, set: secureHtmlString},
     nickName: {type: String, required: true, set: secureHtmlString},
     email: {type: String, required: true, validate: validateEmail, set: secureHtmlString},
-    password: {type: String, required: true, set: setPassword, get: getPassword},
+    password: {type: String, required: true, set: setPassword},
     canEditUsers: {type: Boolean},
     canCreateUsers: {type: Boolean},
     canEditArticles: {type: Boolean},

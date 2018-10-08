@@ -69,10 +69,27 @@ export function getUser(nickName: string): Promise<IUser> {
 export function updateUser(nickName: string, newUser: IUser): Promise<any> {
     delete newUser.nickName;
     return User.updateOne({nickName}, newUser)
-        .then((result: any) => result);
+        .then((result: any) => result)
+        .catch((err: any) => {
+            throw new Error(err.message || 'Error in updateUser method');
+        });
 }
 
 export function deleteUser(nickName: string): Promise<boolean> {
     return User.deleteOne({nickName})
         .then((result: boolean) => result);
+}
+
+export function checkUser(nickName: string, passwordStr: string): Promise<boolean> {
+    return User.findOne({nickName: nickName, password: passwordStr})
+        .then((user: any) => {
+            if (user) {
+                return true;
+            }
+
+            throw new Error('User doesn\'t exist');
+        })
+        .catch((err: any) => {
+            throw new Error(err.message || 'Error in checkUser method');
+        });
 }

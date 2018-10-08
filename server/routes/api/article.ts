@@ -29,17 +29,19 @@ router
         }
 
         validate(req.query.token)
-            .then((data: string | object) => {
-                getArticles()
-                    .then((articles: Array<IArticle>) => {
-                        res.json(articles);
-                    })
-                    .catch((err: Error) => {
-                        res.json(err);
-                    });
+            .then(() => {
+                return getArticles();
+            })
+            .catch((err: Error) => {
+                res.json(err);
+                throw new Error();
+            })
+            .then((articles: Array<IArticle>) => {
+                res.json(articles);
             })
             .catch((err: any) => {
                 res.status(401).json(err);
+                throw new Error();
             });
     })
     .delete(function (req, res) {
