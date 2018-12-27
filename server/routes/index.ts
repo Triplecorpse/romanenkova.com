@@ -62,6 +62,13 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
         })
 });
 
+(function () {
+    const builtOn = new Date();
+    router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {
+        res.send(builtOn.toString());
+    });
+})();
+
 router.use(express.static('./front'));
 router.use(express.static('./admin'));
 router.use('/admin', express.static('admin'));
