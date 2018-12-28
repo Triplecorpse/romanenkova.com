@@ -18,7 +18,8 @@ export function getInitUsers(): Promise<Array<ISchedule>> {
             canCreateUsers: true,
             canApproveReviews: true,
             canAddServices: true,
-            canAddArticles: true
+            canAddArticles: true,
+            isFirstLogin: true
         }
     ];
 

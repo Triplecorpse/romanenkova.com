@@ -1,7 +1,4 @@
 import express = require('express');
-
-const router = express.Router();
-
 import api from './api/index';
 import {readFile} from '../services/file-service';
 import log from './../services/log-service';
@@ -14,6 +11,8 @@ import {readInterface as readInterface} from '../services/db-middleware/interfac
 import {TLanguage} from "../types/types";
 
 const parseAcceptLanguage = require('parse-accept-language');
+const builtOn = new Date();
+const router = express.Router();
 
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     const acceptedLangs = parseAcceptLanguage(req);
@@ -61,13 +60,10 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
             res.status(500).send(err);
         })
 });
-
-(function () {
-    const builtOn = new Date();
-    router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {
-        res.send(builtOn.toString());
-    });
-})();
+router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {
+    res.send(builtOn.toString());
+    next();
+});
 
 router.use(express.static('./front'));
 router.use(express.static('./admin'));

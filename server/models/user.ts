@@ -8,6 +8,7 @@ export interface IUser {
     nickName: string;
     email?: string;
     password?: string;
+    isFirstLogin: boolean;
     canEditUsers: boolean;
     canCreateUsers: boolean;
     canEditArticles: boolean;
@@ -30,10 +31,6 @@ function setPassword(password: string): string {
     return crypto.createHash('md5').update(password).digest('hex');
 }
 
-function getPassword(): string {
-    return '';
-}
-
 const schema = new mongoose.Schema({
     firstName: {type: String, set: secureHtmlString},
     lastName: {type: String, set: secureHtmlString},
@@ -47,7 +44,8 @@ const schema = new mongoose.Schema({
     canApproveReviews: {type: Boolean},
     canEditContacts: {type: Boolean},
     canAddServices: {type: Boolean},
-    canEditServices: {type: Boolean}
+    canEditServices: {type: Boolean},
+    isFirstLogin: {type: Boolean, default: true}
 });
 
 export const User = mongoose.model('User', schema);

@@ -1,7 +1,5 @@
 import express = require('express');
 
-const router = express.Router();
-
 import article from './article';
 import service from './service';
 import getInterface from './interface';
@@ -25,17 +23,20 @@ import {ISchedule, Schedule} from "../../models/schedule";
 import {IUser} from "../../models/user";
 
 const multer = require('multer');
+const router = express.Router();
 
 router.use(bodyParser.json());
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     log.info('Request registered from', req.hostname, req.method, req.baseUrl);
+
     if (/romanenkova.com|localhost|romanenkova.herokuapp.com/i.test(req.hostname)) {
-        res.header("Access-Control-Allow-Origin", "*");
-        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        res.header('Access-Control-Allow-Origin', req.get('origin') || '*');
+        res.header('Access-Control-Allow-Headers', 'Origin,X-Requested-With,Content-Type,Accept');
+        res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
 
         next();
     } else {
-        res.status(403).json({m: 'Request are allowed from domain romanenkova.com only'});
+        res.status(403).json({m: `Request from domain romanenkova.com only`});
     }
 });
 router.use('/article', article);

@@ -22,7 +22,8 @@ export function createNewUser(userToAdd: IUser): Promise<IUser> {
             firstName: newUser.firstName,
             lastName: newUser.lastName,
             nickName: newUser.nickName,
-            password: newUser.password
+            password: newUser.password,
+            isFirstLogin: newUser.isFirstLogin
         }));
 }
 
@@ -42,7 +43,8 @@ export function getUsers(opts?: IUser): Promise<Array<IUser>> {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 nickName: user.nickName,
-                password: user.password
+                password: user.password,
+                isFirstLogin: user.isFirstLogin
             }))
 
         });
@@ -62,7 +64,8 @@ export function getUser(nickName: string): Promise<IUser> {
             email: user.email,
             firstName: user.firstName,
             lastName: user.lastName,
-            nickName: user.nickName
+            nickName: user.nickName,
+            isFirstLogin: user.isFirstLogin
         }));
 }
 
@@ -96,11 +99,12 @@ export function checkUser(nickName: string, passwordStr: string): Promise<IUser>
                     email: user.email,
                     firstName: user.firstName,
                     lastName: user.lastName,
-                    nickName: user.nickName
+                    nickName: user.nickName,
+                    isFirstLogin: user.isFirstLogin
                 };
             }
 
-            throw new Error('User doesn\'t exist');
+            throw new Error('Nickname or password do not exist.');
         })
         .catch((err: any) => {
             throw new Error(err.message || 'Error in checkUser method');

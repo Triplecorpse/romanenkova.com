@@ -1,5 +1,4 @@
 import jwt = require('jsonwebtoken');
-import {JsonWebTokenError} from 'jsonwebtoken';
 import {readFile} from '../file-service';
 import {checkUser} from "../db-middleware/user";
 import {IUser} from "../../models/user";
