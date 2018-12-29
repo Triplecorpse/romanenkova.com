@@ -14,7 +14,7 @@ export function getToken(data: { login: string; password: string }): Promise<{ t
 
     return checkUser(data.login, data.password)
         .catch((err: any) => {
-            throw new Error('User doesn\'t exist');
+            throw new Error('User with given credentials was not found.');
         })
         .then((result: IUser) => {
             user = result;

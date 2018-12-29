@@ -9,6 +9,7 @@ import {languages} from "../const/const";
 import {IPage} from "../models/page";
 import {readInterface as readInterface} from '../services/db-middleware/interface';
 import {TLanguage} from "../types/types";
+import * as util from "util";
 
 const parseAcceptLanguage = require('parse-accept-language');
 const builtOn = new Date();
@@ -67,6 +68,7 @@ router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {
 
 router.use(express.static('./front'));
 router.use(express.static('./admin'));
+router.use(express.static('./static'));
 router.use('/admin', express.static('admin'));
 router.use('/api', api);
 

@@ -16,15 +16,21 @@ router
     .put(function (req, res) {
         validateToken(req.body.token)
             .then((user: IUser) => {
-                if (req.body.password === req.body.curPassword) {
+                if (req.body.password && req.body.password === req.body.curPassword) {
                     throw new Error('Current password and new password cannot be the same');
                 }
 
                 return user;
             })
-            .then((user: IUser) => checkUser(user.nickName, req.body.curPassword))
+            .then((user: IUser) => {
+                if (req.body.curPassword) {
+                    return checkUser(user.nickName, req.body.curPassword)
+                }
+
+                return user;
+            })
             .catch(error => {
-                log.info('Seems that auth validation was failed');
+                log.info('Seems that auth validation has been failed');
 
                 res.status(401).json({m: error.message});
                 throw error;
@@ -38,12 +44,19 @@ router
                     req.body.isFirstLogin = false;
                 }
 
+                Object.keys(req.body).forEach((key: string): void => {
+                    if (!req.body[key]) {
+                        delete req.body[key];
+                    }
+                });
+
                 return updateUser(user.nickName, req.body);
             })
             .then((user: IUser) => {
                 return res.json(user);
             })
             .catch(error => {
+                console.log(error.stack);
                 res.status(500).json({m: error.message});
                 throw new Error(error.message);
             })

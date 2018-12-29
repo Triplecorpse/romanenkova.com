@@ -1,7 +1,7 @@
 import {IPage, Page as Page} from "../server/models/page";
 import log from "../server/services/log-service";
 import {ISchedule, Schedule} from "../server/models/schedule";
-import {IUser} from "../server/models/user";
+import {IUser, User} from "../server/models/user";
 
 export function getInitUsers(): Promise<Array<ISchedule>> {
     const data: Array<IUser> = [
@@ -24,7 +24,7 @@ export function getInitUsers(): Promise<Array<ISchedule>> {
     ];
 
     return new Promise((resolve: any, reject: any) => {
-        return Schedule.deleteOne({nickName: 'admin'})
+        return User.deleteOne({nickName: 'admin'})
             .then(() => {
                 log.warning('\x1b[31m', 'DELETED: user admin');
                 resolve(data);

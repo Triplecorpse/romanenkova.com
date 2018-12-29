@@ -69,11 +69,13 @@ export function getUser(nickName: string): Promise<IUser> {
         }));
 }
 
-export function updateUser(nickName: string, newUser: IUser): Promise<any> {
+export function updateUser(nickName: string, newUser: IUser): Promise<IUser> {
     delete newUser.nickName;
     return User.updateOne({nickName}, newUser)
         .then((result: any) => result)
+        .then(() => getUser(nickName))
         .catch((err: any) => {
+            console.log(err);
             throw new Error(err.message || 'Error in updateUser method');
         });
 }

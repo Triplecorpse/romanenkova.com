@@ -17,6 +17,8 @@ export interface IUser {
     canEditContacts: boolean;
     canEditServices: boolean;
     canAddServices: boolean;
+    curPassword?: string;
+    repPassword?: string;
 }
 
 function validateEmail(email: string): boolean {

@@ -51,16 +51,16 @@ mongoose.connect(process.env.MONGODB_URI as string)
         documentsToCreate.forEach((document: string) => {
             pagesQ.push(mapper[document]()
                 .then((data: any) => {
-                    if (document === 'schedule') {
-                        return Schedule.insertMany(data);
+                    switch (document) {
+                        case 'schedule':
+                            return Schedule.insertMany(data);
+                        case 'users':
+                            return User.insertMany(data);
+                        case 'serviceItem':
+                            return Service.insertMany(data);
+                        default:
+                            return []
                     }
-                    if (document === 'serviceItem') {
-                        return Service.insertMany(data)
-                    }
-                    if (document === 'users') {
-                        return User.insertMany(data)
-                    }
-                    return [];
                 })
                 .then((inserted: any) => {
                     log.warning('\x1b[32m', 'INSERTED:', document, inserted.length, 'documents');
