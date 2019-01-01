@@ -62,7 +62,7 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
         })
 });
 router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {
-    res.send(builtOn.getTime());
+    res.send(builtOn.toString());
     next();
 });
 
