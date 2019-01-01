@@ -37,7 +37,7 @@ const mapper: any = {
 
 mongoose.connect(process.env.MONGODB_URI as string)
     .then((): any => {
-        log.warning('\x1b[0m', 'DBINIT :::: CONNECTED TO DATABASE');
+        log.warning('\x1b[0m', 'DBINIT :::: CONNECTED TO DATABASE :::: ' + process.env.MONGODB_URI);
         const pagesQ: Array<Promise<any>> = [];
 
         pagesToCreate.forEach((pageId: string): void => {
