@@ -19,7 +19,8 @@ export function getNavPageData(): Promise<Array<IPage>> {
             language: 'en',
             entityId: 'nav',
             header: 'Main menu'
-        }, {
+        },
+        {
             pageData: [
                 {name: ["Онлайн", "психология"], anchor: "main"},
                 {name: "Записаться на приём", anchor: "appointment"},
@@ -33,7 +34,8 @@ export function getNavPageData(): Promise<Array<IPage>> {
             language: 'ru',
             entityId: 'nav',
             header: 'Главное меню'
-        }, {
+        },
+        {
             pageData: [
                 {name: ["Онлайн", "психологія"], anchor: "main"},
                 {name: "Записатися на прийом", anchor: "appointment"},
@@ -47,7 +49,8 @@ export function getNavPageData(): Promise<Array<IPage>> {
             language: 'uk',
             entityId: 'nav',
             header: 'Головне меню'
-        }, {
+        },
+        {
             pageData: [
                 {name: ["en ligne", "Psychologie"], anchor: "main"},
                 {name: "Prendre rendez-vous", anchor: "appointment"},
