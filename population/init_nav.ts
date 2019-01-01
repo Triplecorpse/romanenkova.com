@@ -62,7 +62,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
     return new Promise((resolve: any, reject: any) => {
         Page.deleteMany({entityId: 'nav'})
             .then((result: any) => {
-                log.warning('\x1b[31m', 'DELETED: nav', result.n, 'pages');
+                log.warning('\x1b[31m', 'DELETED: nav', result.n, 'pages', data);
                 resolve(data);
             })
             .catch((err: any) => {
