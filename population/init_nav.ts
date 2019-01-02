@@ -12,7 +12,6 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: ["Psychologist", "Irina", "Romanenkova"], anchor: "name"},
                 {name: "About me", anchor: "about"},
                 {name: "Services", anchor: "services"},
-                {name: "Contacts", anchor: "contacts"},
                 {name: "Contacts", anchor: "contacts"}
             ],
             language: 'en',
@@ -26,7 +25,6 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: ["Психолог", "Ирина", "Романенкова"], anchor: "name"},
                 {name: "Обо мне", anchor: "about"},
                 {name: "Услуги", anchor: "services"},
-                {name: "Контакты", anchor: "contacts"},
                 {name: "Контакты", anchor: "contacts"}
             ],
             language: 'ru',
@@ -40,7 +38,6 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: ["Психолог", "Ірина", "Романенкова"], anchor: "name"},
                 {name: "Про мене", anchor: "about"},
                 {name: "Послуги", anchor: "services"},
-                {name: "Контакти", anchor: "contacts"},
                 {name: "Контакти", anchor: "contacts"}
             ],
             language: 'uk',
@@ -54,7 +51,6 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: ["Psychologue", "Irina", "Romanenkova"], anchor: "name"},
                 {name: "Sur moi", anchor: "about"},
                 {name: "Services", anchor: "services"},
-                {name: "Contacts", anchor: "contacts"},
                 {name: "Contacts", anchor: "contacts"}
             ],
             language: 'fr',
