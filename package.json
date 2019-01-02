@@ -18,6 +18,8 @@
     "dbnav": "node population/init -- nav",
     "dbdropmodal": "ts-node test/drop-pages-modal",
     "dbconsole": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongo",
+    "dbread": "node population/readdb",
+    "predbread": "tsc",
     "predbinit": "tsc",
     "predbrecreateadmin": "tsc",
     "predbabout": "tsc",
