@@ -13,6 +13,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: "About me", anchor: "about"},
                 {name: "Services", anchor: "services"},
                 {name: "Diplomas", anchor: "diplomas"},
+                {name: "Diplomas", anchor: "diplomas"},
                 {name: "Articles", anchor: "articles"},
                 {name: "Contacts", anchor: "contacts"}
             ],
@@ -27,6 +28,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: ["Психолог", "Ирина", "Романенкова"], anchor: "name"},
                 {name: "Обо мне", anchor: "about"},
                 {name: "Услуги", anchor: "services"},
+                {name: "Дипломы", anchor: "diplomas"},
                 {name: "Дипломы", anchor: "diplomas"},
                 {name: "Статьи", anchor: "articles"},
                 {name: "Контакты", anchor: "contacts"}
@@ -43,6 +45,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: "Про мене", anchor: "about"},
                 {name: "Послуги", anchor: "services"},
                 {name: "Дипломи", anchor: "diplomas"},
+                {name: "Дипломи", anchor: "diplomas"},
                 {name: "Статті", anchor: "articles"},
                 {name: "Контакти", anchor: "contacts"}
             ],
@@ -57,6 +60,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: ["Psychologue", "Irina", "Romanenkova"], anchor: "name"},
                 {name: "Sur moi", anchor: "about"},
                 {name: "Services", anchor: "services"},
+                {name: "Diplômes", anchor: "diplomas"},
                 {name: "Diplômes", anchor: "diplomas"},
                 {name: "Articles", anchor: "articles"},
                 {name: "Contacts", anchor: "contacts"}
