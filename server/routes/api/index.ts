@@ -21,6 +21,7 @@ import {Error} from "mongoose";
 import {databaseConstQ} from "../../const/databaseConst";
 import {ISchedule, Schedule} from "../../models/schedule";
 import {IUser} from "../../models/user";
+import {Page} from "../../models/page";
 
 const multer = require('multer');
 const router = express.Router();

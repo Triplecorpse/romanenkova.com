@@ -50,49 +50,41 @@ export function getServiceItemData(): Promise<Array<IService>> {
             period: 'heure'
         },
         {
-            currency: 'EUR',
             header: 'Group counseling',
             language: 'en',
-            description: 'I work as a group psychotherapist and provide a group psychotherapy service. In this format, I work in co-therapy (with a colleague).',
+            description: 'Conducted as a set of groups. If you are interested in this service, you can leave a request and I will contact you when the group is recruited. In this format, I work in co-therapy (with a colleague).',
             image: '1',
-            price: 30,
             priceLabel: 'Cost',
             entityId: '[counseling] group',
             title: 'Group counselling',
-            period: 'hour'
+            noPriceValue: 'calculated for each group'
         }, {
-            currency: 'EUR',
             header: 'Груповые консультации',
             language: 'ru',
-            description: 'Я работаю как групповой психотерапевт и предоставляю услугу групповой психотерапии. В этом формате я работаю в ко-терапии ( вместе с коллегой).',
+            description: 'Проводится по мере набора группы.  Если вам интересна данная услуга, вы можете оставить заявку и я с вами свяжусь, когда группа будет набрана. В этом формате я работаю в ко-терапии (вместе с коллегой).',
             image: '1',
-            price: 30,
             priceLabel: 'Стоимость',
             entityId: '[counseling] group',
             title: 'Group counselling',
-            period: 'час'
+            noPriceValue: 'рассчитывается для каждой группы'
         }, {
-            currency: 'EUR',
             header: 'Групові консультації',
             language: 'uk',
-            description: 'Я працюю як груповий психотерапевт і надаю послугу групової психотерапії. У цьому форматі я працюю в ко-терапії (разом з колегою).',
+            description: 'Проводиться по мірі набору групи. Якщо вам цікава дана послуга, ви можете залишити заявку і я з вами зв\'яжуся, коли група буде набрана. У цьому форматі я працюю в ко-терапії (разом з колегою).',
             image: '1',
-            price: 30,
             priceLabel: 'Вартість',
             entityId: '[counseling] group',
             title: 'Group counselling',
-            period: 'год'
+            noPriceValue: 'розраховується для кожної групи'
         }, {
-            currency: 'EUR',
             header: 'Conseil de groupe',
             language: 'fr',
-            description: 'Je travaille comme psychothérapeute de groupe et offre un service de psychothérapie de groupe. Dans ce format, je travaille en co-thérapie (avec un collègue).',
+            description: 'Réalisé comme un ensemble de groupes. Si vous êtes intéressé par ce service, vous pouvez laisser une demande et je vous contacterai lorsque le groupe sera recruté. Dans ce format, je travaille en co-thérapie (avec un collègue).',
             image: '1',
-            price: 30,
             priceLabel: 'Coût de',
             entityId: '[counseling] group',
             title: 'Group counselling',
-            period: 'heure'
+            noPriceValue: 'calculé pour chaque groupe'
         }
     ];
 

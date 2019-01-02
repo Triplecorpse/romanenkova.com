@@ -15,7 +15,8 @@ export function readService(lang?: TLanguage): Promise<Array<IService>> {
                     image: serviceItem.image,
                     price: serviceItem.price,
                     priceLabel: serviceItem.priceLabel,
-                    period: serviceItem.period
+                    period: serviceItem.period,
+                    noPriceValue: serviceItem.noPriceValue
                 })));
             })
             .catch((err: any) => {

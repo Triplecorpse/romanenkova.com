@@ -8,12 +8,13 @@ export interface IService extends IMongooseSchema {
     header: string;
     description: string;
     image: string;
-    price: number;
-    currency: string;
+    price?: number;
+    currency?: string;
     priceLabel: string;
     entityId: string;
     title: string;
-    period: string;
+    period?: string;
+    noPriceValue?: string;
 }
 
 function validateLanguage(lang: TLanguage): boolean {
@@ -33,11 +34,12 @@ const schema = new mongoose.Schema({
     description: {type: String, required: false, set: secureHtmlString},
     image: {type: String, required: true, validate: validateUrl},
     language: {type: String, required: true, validate: validateLanguage},
-    price: {type: Number, required: true},
-    currency: {type: String, required: true},
+    price: {type: Number, required: false},
+    currency: {type: String, required: false},
     entityId: {type: String, required: true, set: secureHtmlString},
     title: {type: String, required: true, set: secureHtmlString},
-    period: {type: String, required: true, set: secureHtmlString},
+    period: {type: String, required: false, set: secureHtmlString},
+    noPriceValue: {type: String, required: false, set: secureHtmlString},
     priceLabel: {type: String, required: true, set: secureHtmlString}
 });
 
