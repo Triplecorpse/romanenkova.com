@@ -9,19 +9,19 @@ export function getToken(data: { login: string; password: string }): Promise<{ t
     let user: IUser;
 
     if (!data || !data.login || !data.password) {
-        return Promise.reject({message: 'data should have properties login and password'});
+        return Promise.reject(new Error('Missing login or password.'));
     }
 
     return checkUser(data.login, data.password)
         .catch((err: any) => {
-            throw new Error('User with given credentials was not found.');
+            throw new Error(err.message || 'User with given credentials was not found.');
         })
         .then((result: IUser) => {
             user = result;
             return readFile('./server/auth/jwtRS256.key');
         })
         .catch((err: any) => {
-            throw new Error('Error in reading key file');
+            throw new Error(err.message || 'Error in reading key file. Please contact your administrator.');
         })
         .then((file: string) => {
             return {
@@ -30,7 +30,7 @@ export function getToken(data: { login: string; password: string }): Promise<{ t
             }
         })
         .catch((err: Error) => {
-            throw new Error('Cannot create token');
+            throw new Error(err.message || 'Cannot create token. Please contact your administrator.');
         });
 }
 
@@ -46,6 +46,6 @@ export function validateToken(token: string): Promise<IUser> {
             return checkUser(payload.login, payload.password);
         })
         .catch((err: any) => {
-            throw new Error('Error in token validation');
+            throw new Error(err.message || 'Error in token validation');
         });
 }

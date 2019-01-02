@@ -114,7 +114,7 @@ router.post('/appointment', (req: IRequest, res: Response) => {
 
     validateRecaptcha(appointment.recaptcha)
         .catch((err: any) => {
-            res.status(400).json({m: errorMessages.captcha[language], err, lang: language});
+            res.status(400).json({m: errorMessages.captcha[language], err: err.message, lang: language});
             throw new Error(errorMessages.captcha[language]);
         })
         .then(() => {
@@ -136,7 +136,7 @@ router.post('/appointment', (req: IRequest, res: Response) => {
             });
         })
         .catch((err: any) => {
-            res.status(400).json({m: errorMessages.email[language], err, lang: language});
+            res.status(400).json({m: errorMessages.email[language], err: err.message, lang: language});
             throw new Error(errorMessages.email[language]);
         })
         .then((data) => {

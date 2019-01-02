@@ -24,7 +24,7 @@ router
                     res.json(articles);
                 })
                 .catch((err: Error) => {
-                    res.json(err);
+                    res.json(err.message);
                 });
         }
 
@@ -33,15 +33,15 @@ router
                 return getArticles();
             })
             .catch((err: Error) => {
-                res.json(err);
-                throw new Error();
+                res.json(err.message);
+                throw new Error(err.message);
             })
             .then((articles: Array<IArticle>) => {
                 res.json(articles);
             })
             .catch((err: any) => {
-                res.status(401).json(err);
-                throw new Error();
+                res.status(401).json(err.message);
+                throw new Error(err.message);
             });
     })
     .delete(function (req, res) {

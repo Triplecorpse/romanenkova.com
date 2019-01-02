@@ -13,7 +13,7 @@ router.get('/', (req: IRequest, res: Response) => {
             res.json(services);
         })
         .catch((err: any) => {
-            res.status(500).json(err);
+            res.status(500).json(err.message);
         });
 });
 

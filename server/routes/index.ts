@@ -34,7 +34,7 @@ router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunc
             res.send(data);
         })
         .catch(err => {
-            res.status(500).send(err);
+            res.status(500).send(err.message);
         })
 });
 router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
@@ -58,7 +58,7 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
             res.send(data);
         })
         .catch(err => {
-            res.status(500).send(err);
+            res.status(500).send(err.message);
         })
 });
 router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {

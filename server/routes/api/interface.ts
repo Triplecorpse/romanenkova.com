@@ -28,7 +28,7 @@ router
                 return removeTagsFromObject(page);
             })
             .catch((err: Error) => {
-                log.info('Seems that auth validation was failed');
+                log.info(err.message || 'Seems that auth validation was failed');
 
                 res.status(401).json({m: err.message});
                 throw err;

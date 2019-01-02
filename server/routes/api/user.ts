@@ -45,7 +45,7 @@ router
                 }
 
                 Object.keys(req.body).forEach((key: string): void => {
-                    if (!req.body[key]) {
+                    if (!req.body[key] && req.body[key] !== false) {
                         delete req.body[key];
                     }
                 });
@@ -56,7 +56,6 @@ router
                 return res.json(user);
             })
             .catch(error => {
-                console.log(error.stack);
                 res.status(500).json({m: error.message});
                 throw new Error(error.message);
             })
@@ -68,20 +67,20 @@ router
                     res.json(users);
                 })
                 .catch((err: any) => {
-                    res.status(500).json(err);
+                    res.status(500).json(err.message);
                 })
         }
 
         validateToken(req.query.token)
             .catch((err: any) => {
-                res.status(401).json(err);
+                res.status(401).json(err.message);
             })
             .then(() => getUser(req.query.nickname))
             .then((user: IUser) => {
                 res.json(user);
             })
             .catch((err: any) => {
-                res.status(500).json(err);
+                res.status(500).json(err.message);
             })
     })
     .delete(function (req, res) {
