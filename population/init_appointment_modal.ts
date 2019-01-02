@@ -13,6 +13,9 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
             pageData: {
                 name: 'First and last names',
                 phone: 'Phone',
+                contact: 'Contact',
+                nickname: 'Nickname',
+                contactOption: 'Phone / nickname',
                 email: 'Email',
                 date: 'Date',
                 time: 'Time',
@@ -21,7 +24,7 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
                 checkbox: 'Mark this checkbox',
                 submit: 'OK',
                 instructions: 'Required fields: name and any contact information.',
-                explanation: 'No personal data entered in this form is stored on the site or transmitted to third parties for promotional purposes. Contact information is used only for contact with you and is saved only in my personal mail box.',
+                explanation: 'The date and time of the first trial consultation are indicative and may change by mutual agreement.\nNo personal data entered in this form is stored on the site or transmitted to third parties for promotional purposes.\nContact information is used only for contact with you and is saved only in my personal mail box.',
                 tooltips: {
                     name: 'Required.',
                     phone: '',
@@ -40,6 +43,9 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
             pageData: {
                 name: 'Имя и фамилия',
                 phone: 'Телефон',
+                nickname: 'Ник',
+                contact: 'Контакт',
+                contactOption: 'Телефон / ник',
                 email: 'Email',
                 date: 'Дата',
                 time: 'Время',
@@ -48,7 +54,7 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
                 checkbox: 'С правилами сайта ознакомлен',
                 submit: 'Записаться',
                 instructions: 'Необходимые поля: имя и любая контактная информация.',
-                explanation: 'Никакие личные данные, введённые в этой форме, не сохраняются на сайте и не передаются третьим лицам в рекламных целях. Контактная информация используется только для контакта с вами и сохраняется только в моём личном почтовом ящике.',
+                explanation: 'Дата и время первой пробной консультации являются ориентировочными и могут измениться по обоюдной договорённости.\nНикакие личные данные, введённые в этой форме, не сохраняются на сайте и не передаются третьим лицам в рекламных целях.\nКонтактная информация используется только для контакта с вами и сохраняется только в моём личном почтовом ящике.',
                 tooltips: {
                     name: 'Обязательное поле. Напишите ваше имя.',
                     phone: 'Обязательное поле 1 из 3: телефон, электронная почта или любые другие контакты в сообщении. Нужно для связи с вами.',
@@ -67,6 +73,9 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
             pageData: {
                 name: 'Ім\'я та прізвище',
                 phone: 'Телефон',
+                nickname: 'Нік',
+                contact: 'Контакт',
+                contactOption: 'Телефон / нік',
                 email: 'Email',
                 date: 'Дата',
                 time: 'Час',
@@ -75,7 +84,7 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
                 checkbox: 'З правилами ознайомлений',
                 submit: 'Записатися',
                 instructions: 'Необхідні поля: ім\'я та будь-яка контактна інформація.',
-                explanation: 'Ніякі особисті дані, які були введені у цій формі, не зберігаються на сайті і не передаються третім особам у рекламних цілях. Контактна інформація використовується тільки для контакта з вамиі зберігається тільки у моїй особистій поштовій скринці.',
+                explanation: 'Дата і час першої пробної консультації є орієнтовними і можуть змінитися за обопільною домовленістю.\nНіякі особисті дані, які були введені у цій формі, не зберігаються на сайті і не передаються третім особам у рекламних цілях.\nКонтактна інформація використовується тільки для контакта з вамиі зберігається тільки у моїй особистій поштовій скринці.',
                 tooltips: {
                     name: 'Required.',
                     phone: '',
@@ -93,7 +102,10 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
             header: 'Prendre rendez-vous',
             pageData: {
                 name: 'Nom et prénom',
-                phone: 'Numéro de téléphone',
+                phone: 'Téléphone',
+                nickname: 'Ник',
+                contact: 'Surnom',
+                contactOption: 'Téléphone / surnom',
                 email: 'Email',
                 date: 'Date',
                 time: 'Heure',
@@ -102,7 +114,7 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
                 checkbox: 'Je lis les règles du site',
                 submit: 'S\'inscrire',
                 instructions: 'Champs obligatoires: nom et informations de contact.',
-                explanation: 'Aucune donnée personnelle saisie dans ce formulaire n\'est stockée sur le site ou transmise à des tiers à des fins promotionnelles. Les informations de contact ne sont utilisées que pour vous contacter et sont enregistrées uniquement dans ma boîte aux lettres personnelle.',
+                explanation: 'La date et l\'heure de la première consultation d\'essai sont indicatives et peuvent changer d\'un commun accord.\nAucune donnée personnelle saisie dans ce formulaire n\'est stockée sur le site ou transmise à des tiers à des fins promotionnelles.\nLes informations de contact ne sont utilisées que pour vous contacter et sont enregistrées uniquement dans ma boîte aux lettres personnelle.',
                 tooltips: {
                     name: 'Required.',
                     phone: '',
