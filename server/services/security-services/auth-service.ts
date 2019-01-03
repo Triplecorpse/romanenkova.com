@@ -12,26 +12,31 @@ export function getToken(data: { login: string; password: string }): Promise<{ t
         return Promise.reject(new Error('Missing login or password.'));
     }
 
-    return checkUser(data.login, data.password)
-        .catch((err: any) => {
-            throw new Error(err.message || 'User with given credentials was not found.');
-        })
-        .then((result: IUser) => {
-            user = result;
-            return readFile('./server/auth/jwtRS256.key');
-        })
-        .catch((err: any) => {
-            throw new Error(err.message || 'Error in reading key file. Please contact your administrator.');
-        })
-        .then((file: string) => {
-            return {
-                token: jwt.sign(data, file, {algorithm: 'RS256'}),
-                user
-            }
-        })
-        .catch((err: Error) => {
-            throw new Error(err.message || 'Cannot create token. Please contact your administrator.');
-        });
+    return new Promise((resolve, reject) => {
+        checkUser(data.login, data.password)
+            .catch(() => {
+                reject(new Error('User with given credentials was not found.'));
+                throw new Error();
+            })
+            .then((result: IUser) => {
+                user = result;
+                return readFile('./server/auth/jwtRS256.key');
+            })
+            .catch(() => {
+                reject(new Error('Error in reading key file. Please contact your administrator.'));
+                throw new Error();
+            })
+            .then((file: string) => {
+                resolve({
+                    token: jwt.sign(data, file, {algorithm: 'RS256'}),
+                    user
+                });
+            })
+            .catch(() => {
+                reject(new Error('Cannot create token. Please contact your administrator.'));
+                throw new Error();
+            });
+    })
 }
 
 export function validateToken(token: string): Promise<IUser> {
@@ -39,13 +44,16 @@ export function validateToken(token: string): Promise<IUser> {
         return Promise.reject(new Error('Token is missing'))
     }
 
-    return readFile('./server/auth/jwtRS256.key.pub')
-        .then((file: string) => util.promisify(jwt.verify)(token, file, {algorithms: ['RS256']}))
-        .then(() => {
-            const payload = (jwt.decode(token, {complete: true, json: true}) as any).payload;
-            return checkUser(payload.login, payload.password);
-        })
-        .catch((err: any) => {
-            throw new Error(err.message || 'Error in token validation');
-        });
+    return new Promise((resolve, reject) => {
+        readFile('./server/auth/jwtRS256.key.pub')
+            .then((file: string) => util.promisify(jwt.verify)(token, file, {algorithms: ['RS256']}))
+            .then(() => {
+                const payload = (jwt.decode(token, {complete: true, json: true}) as any).payload;
+                resolve(checkUser(payload.login, payload.password));
+            })
+            .catch((err: any) => {
+                reject(new Error('Error in token validation'));
+                throw new Error();
+            });
+    });
 }
