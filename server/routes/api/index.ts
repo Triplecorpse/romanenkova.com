@@ -4,6 +4,7 @@ import article from './article';
 import service from './service';
 import getInterface from './interface';
 import user from './user';
+import database from './database';
 import {NextFunction, Request, Response} from "express-serve-static-core";
 import log from './../../services/log-service';
 import * as fileStorage from './../../services/file-storage/file-storage-service';
@@ -40,10 +41,28 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
         res.status(403).json({m: `Request from domain romanenkova.com only`});
     }
 });
+router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
+    let token = req.query.token;
+
+    if (req.method.toLowerCase() === 'post' || req.method.toLowerCase() === 'put' || req.method.toLowerCase() === 'options') {
+        token = req.body.token;
+    }
+
+    if (token) {
+        validateToken(token)
+            .then(() => {
+                req.isTokenValid = true;
+                next();
+            });
+    } else {
+        next();
+    }
+});
 router.use('/article', article);
 router.use('/service', service);
 router.use('/interface', getInterface);
 router.use('/user', user);
+router.use('/database', database);
 
 const storage = multer.diskStorage({
     // destination
