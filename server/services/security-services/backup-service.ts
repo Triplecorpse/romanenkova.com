@@ -25,8 +25,9 @@ export function backupDatabase() {
     return new Promise((resolve, reject) => {
         dbbackup({
             uri: MONGODB_URI,
-            root: `./backups/${dirname}`,
+            root: `./backups`,
             logger: './backups/.log',
+            tar: `${dirname}.tar`,
             callback(err: any) {
                 if (err) {
                     reject(err);
