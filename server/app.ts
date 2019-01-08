@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import {startRegularBackups} from "./services/security-services/backup-service";
 
 require('dotenv').config();
