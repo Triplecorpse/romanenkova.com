@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import express = require('express');
 import bodyParser = require('body-parser');
 import routes from './routes';
