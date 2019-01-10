@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs = require('fs');
 import log from './log-service';
 
 export function readFile(path: string, options: object | string = 'UTF8'): Promise<string> {

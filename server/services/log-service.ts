@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs = require('fs');
 const Log = require('log');
 const log = new Log('info', fs.createWriteStream('./my.log'));
 export default {
