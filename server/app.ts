@@ -1,11 +1,19 @@
+#!/usr/bin/env node
+
+import {startRegularBackups} from "./services/security-services/backup-service";
+
+require('dotenv').config();
 import {app} from './server';
-import {config} from './config';
 import log from './services/log-service';
-import mongoose from 'mongoose';
+import mongoose = require('mongoose');
+import {generateSiteMap} from "./services/file-service";
 
-const port: string | number = process.env.port || config.port;
+const port: string = process.env.PORT as string;
 
-mongoose.connect(config.dbp);
+mongoose.connect(process.env.MONGODB_URI as string)
+    .then(startRegularBackups.bind(this, 2 * 24 * 60 * 60 * 1000));
+
+generateSiteMap();
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
