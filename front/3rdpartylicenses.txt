@@ -318,7 +318,7 @@ END OF TERMS AND CONDITIONS
 MIT
 MIT
 
-ngx-swiper-wrapper@7.1.1
+ngx-swiper-wrapper@6.4.1
 MIT
 The MIT License
 
