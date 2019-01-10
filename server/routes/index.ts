@@ -1,15 +1,16 @@
 import express = require('express');
 import api from './api/index';
-import {readFile} from '../services/file-service';
+import {readFile, replaceTemplateVariables} from '../services/file-service';
 import log from './../services/log-service';
 import {Request, Response} from "express-serve-static-core";
 import IRequest from "../interfaces/iRequest";
 import {NextFunction} from "express";
-import {languages} from "../const/const";
+import {langObjects, languages, templateVars} from "../const/const";
 import {IPage} from "../models/page";
 import {readInterface as readInterface} from '../services/db-middleware/interface';
 import {TLanguage} from "../types/types";
 import * as util from "util";
+import {ILanguageObject} from "../interfaces/iLanguageObject";
 
 const parseAcceptLanguage = require('parse-accept-language');
 const builtOn = new Date();
@@ -39,7 +40,6 @@ router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunc
 });
 router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
     let name: string;
-
     // continue routing if language is not acceptable
     if (req.params.lang && languages.indexOf(req.params.lang) === -1) {
         return next();
@@ -47,15 +47,28 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
 
     req.language = req.params.lang || req.language;
 
+    if (!req.params.lang) {
+        return res.redirect(`${req.baseUrl}/${req.language}`);
+    }
+
     readInterface('nav', req.language as TLanguage)
         .then((page: Array<IPage>) => {
             const pageData = page[0].pageData;
             name = pageData.find((pageEntity: any) => pageEntity.anchor === 'name').name.join(' ');
             return readFile('./front/index.html');
         })
-        .then(data => {
-            data = data.replace('@lang', req.language as TLanguage).replace('@name', name);
-            res.send(data);
+        .then(htmlTemplate => {
+            const langObject = langObjects.find((langObj: ILanguageObject) => langObj.codeISO2 === req.language);
+            const configObj = {
+                name,
+                lang: req.language,
+                locale: langObject ? langObject.locale : '',
+                description: templateVars[req.language as TLanguage].description
+            };
+            return replaceTemplateVariables(htmlTemplate, configObj);
+        })
+        .then((htmlPage) => {
+            res.send(htmlPage);
         })
         .catch(err => {
             res.status(500).send(err.message);
@@ -73,8 +86,8 @@ router.use('/admin', express.static('admin'));
 router.use('/api', api);
 
 // todo: decide either to do page 404 or redirect to /:lang
-router.get('*', (req: Request, res: Response) => {
-    res.sendStatus(404);
+router.get('*', (req: IRequest, res: Response) => {
+    res.redirect(`${req.baseUrl}/${req.language}`);
 });
 
 export default router;
