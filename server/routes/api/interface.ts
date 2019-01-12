@@ -12,9 +12,8 @@ import log from './../../services/log-service';
 import {removeTagsFromObject} from "../../services/security-services/strip-html";
 import {IPageSubmit} from "../../interfaces/iPageSubmit";
 import {databaseConstQ} from "../../const/databaseConst";
-import {IService, Service} from "../../models/service";
 import IRequest from "../../interfaces/iRequest";
-import {readService} from "../../services/db-middleware/service";
+import {IStriptagsOptions} from "../../interfaces/iStriptagsOptions";
 
 router
     .route('/:id?')
@@ -22,10 +21,15 @@ router
         validateToken(req.body.token)
             .then((): Promise<IPageSubmit> => {
                 const page = req.body as IPageSubmit;
+                let options: IStriptagsOptions = {};
 
                 page.media = page.media || [];
 
-                return removeTagsFromObject(page);
+                if (page.id === 'about') {
+                    options.allowedTags = ['a'];
+                }
+
+                return removeTagsFromObject(page, options);
             })
             .catch((err: Error) => {
                 log.info(err.message || 'Seems that auth validation was failed');

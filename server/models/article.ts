@@ -1,7 +1,7 @@
 import mongoose = require('mongoose');
 
 import {IMongooseSchema} from "./IMongooseSchema";
-import {stripStringAsync} from "../services/security-services/strip-html";
+import {stripString} from "../services/security-services/strip-html";
 import {TLanguage} from "../types/types";
 import {languages} from "../const/const";
 
@@ -18,7 +18,7 @@ export interface IArticle extends IMongooseSchema {
 }
 
 function secureHtmlString(input: string): string {
-    return stripStringAsync(input);
+    return stripString(input);
 }
 
 function validateUrl(url: string) {

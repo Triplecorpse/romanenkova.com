@@ -5,7 +5,6 @@ import {TLanguage} from "../../types/types";
 import {languages} from "../../const/const";
 import {IMainDatabaseModel, IMainDataRequest} from "../../interfaces/IMainDataRequest";
 import indexData from "../../const/indexData";
-import {IService, Service} from "../../models/service";
 import {readService} from "./service";
 
 const cloudinary = require('cloudinary');

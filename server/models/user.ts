@@ -1,5 +1,5 @@
 import mongoose = require('mongoose');
-import {stripStringAsync} from "../services/security-services/strip-html";
+import {stripString} from "../services/security-services/strip-html";
 import crypto from 'crypto';
 
 export interface IUser {
@@ -26,7 +26,7 @@ function validateEmail(email: string): boolean {
 }
 
 function secureHtmlString(input: string): string {
-    return stripStringAsync(input);
+    return stripString(input);
 }
 
 function setPassword(password: string): string {
