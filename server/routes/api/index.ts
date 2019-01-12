@@ -148,7 +148,8 @@ router.post('/appointment', (req: IRequest, res: Response) => {
                 text: `
                   FROM: ${appointment.name},
                   CONTACTS: ${appointment.phone}, ${appointment.email},
-                  SUGG. DATE: ${appointment.date} ${appointment.time},
+                  SUGGESTED DATE: ${appointment.date} ${appointment.time},
+                  SUGGESTED TIMEZONE: ${appointment.timezone},
                   SERVICE: ${appointment.service}
                   -----------------------------------
                   MESSAGE: ${appointment.message}
