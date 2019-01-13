@@ -42,7 +42,6 @@ export function backupDatabase() {
 
 export function startRegularBackups(interval: number) {
     stopRegularBackups();
-    console.log('StartedRegularBackups', interval);
     intervalId = +setInterval(() => {
         backupDatabase();
         readDir('./backups')
