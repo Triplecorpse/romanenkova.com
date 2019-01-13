@@ -4,6 +4,7 @@ import {Response} from "express-serve-static-core";
 import {getReviews, publishReview, removeReview, setReview, unpublishReview} from "../../services/db-middleware/review";
 import {validateRecaptcha} from "../../services/security-services/recaptcha-validator";
 import {IReview} from "../../models/review";
+import {TLanguage} from "../../types/types";
 
 const router = express.Router();
 
@@ -49,7 +50,8 @@ router.route('/')
     })
     .get(function (req: IRequest, res: Response) {
         const qty = req.isTokenValid ? 0 : 5;
-        getReviews(qty, {random: true, language: req.query.language, all: req.isTokenValid})
+        const language = req.isTokenValid ? undefined : req.query.language;
+        getReviews(qty, {random: true, language: language as TLanguage, all: req.isTokenValid})
             .then((reviews: Array<IReview>) => {
                 res.json(reviews);
             })

@@ -6,6 +6,10 @@ export function getReviews(count: number = 0, options: IReviewOptions = {}): Pro
         language: options.language
     };
 
+    if (!options.language) {
+        delete query.language;
+    }
+
     if (!options.all) {
         query.isPublished = true;
     }
