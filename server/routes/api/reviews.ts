@@ -48,7 +48,8 @@ router.route('/')
         }
     })
     .get(function (req: IRequest, res: Response) {
-        getReviews(5, {random: true, language: req.query.language, all: req.isTokenValid})
+        const qty = req.isTokenValid ? 0 : 5;
+        getReviews(qty, {random: true, language: req.query.language, all: req.isTokenValid})
             .then((reviews: Array<IReview>) => {
                 res.json(reviews);
             })
