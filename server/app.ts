@@ -11,8 +11,7 @@ import {generateSiteMap} from "./services/file-service";
 const port: string = process.env.PORT as string;
 
 mongoose.connect(process.env.MONGODB_URI as string)
-    // .then(startRegularBackups.bind(this, 2 * 24 * 60 * 60 * 1000));
-    .then(startRegularBackups.bind(this, 60 * 1000));
+    .then(startRegularBackups.bind(this, 2 * 24 * 60 * 60 * 1000));
 
 generateSiteMap();
 
