@@ -31,6 +31,34 @@ export function writeFile(path: string, data: string, options: object | string =
     });
 }
 
+export function removeFile(path: string): Promise<string> {
+    return new Promise ((resolve, reject) => {
+        fs.unlink(path, (err: Error) => {
+            if (err) {
+                reject(err);
+                log.error(`Error removing file ${path}`, err);
+            } else {
+                resolve();
+                log.info(`File ${path} was removed successfully`);
+            }
+        });
+    });
+}
+
+export function readDir(path: string, options: object | string = 'UTF8'): Promise<Array<string>> {
+    return new Promise ((resolve, reject) => {
+        fs.readdir(path, (err: Error, files: Array<string>) => {
+            if (err) {
+                reject(err);
+                log.error(`Error reading directoru ${path}`, err);
+            } else {
+                resolve(files);
+                log.info(`Directory ${path} was read successfully`);
+            }
+        });
+    });
+}
+
 export function replaceTemplateVariables(template: string, configObj: any): Promise<string> {
     return new Promise((resolve, reject) => {
         resolve(_replaceRecursive(template, configObj));

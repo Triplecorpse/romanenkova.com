@@ -1,4 +1,5 @@
 import Timer = NodeJS.Timer;
+import {readDir} from "../file-service";
 
 require('dotenv').config();
 
@@ -40,10 +41,18 @@ export function backupDatabase() {
 }
 
 export function startRegularBackups(interval: number) {
-    stopRegularBackups(intervalId);
-    intervalId = +setInterval(backupDatabase, interval);
+    stopRegularBackups();
+    console.log('StartedRegularBackups', interval);
+    intervalId = +setInterval(() => {
+        backupDatabase();
+        readDir('./backups')
+            .then((files) => {
+                // todo: remove old backups
+                console.log(files);
+            })
+    }, interval);
 }
 
-export function stopRegularBackups(interval: number) {
+export function stopRegularBackups() {
     clearInterval(intervalId)
 }
