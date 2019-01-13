@@ -10,10 +10,6 @@ const router = express.Router();
 
 router.route('/')
     .post(function (req: IRequest, res: Response) {
-        if (!req.isTokenValid) {
-            res.sendStatus(401);
-        }
-
         validateRecaptcha(req.body.recaptcha)
             .then(() => {
                 return setReview(req.body);
