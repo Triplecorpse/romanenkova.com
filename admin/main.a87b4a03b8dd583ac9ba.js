@@ -2938,7 +2938,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
 var environment = {
     production: false,
-    api: 'https://romanenkova.herokuapp.com/api/'
+    api: 'http://localhost:3000/api/'
 };
 
 
@@ -2977,10 +2977,10 @@ _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["platformBrowser"]().boot
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\eldar\WebstormProjects\romanenkova-admin\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/triplecorpse/WebstormProjects/romanenkova-admin/src/main.ts */"./src/main.ts");
 
 
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.007568de87bdb5bdcb00.js.map
+//# sourceMappingURL=main.a87b4a03b8dd583ac9ba.js.map

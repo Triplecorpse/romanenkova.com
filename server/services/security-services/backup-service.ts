@@ -1,20 +1,21 @@
 import Timer = NodeJS.Timer;
-import {readDir} from "../file-service";
+import {readDir, removeFile} from "../file-service";
+import {getMilliseconds} from "../base";
 
 require('dotenv').config();
 
 const dbrestore = require('mongodb-restore');
 const dbbackup = require('mongodb-backup');
 const MONGODB_URI = process.env.MONGODB_URI;
+const basePath = './../backups';
 let intervalId: number;
 
 export function restoreDatabase(v: string): Promise<any> {
     return new Promise((resolve, reject) => {
         dbrestore({
             uri: MONGODB_URI,
-            root: `./backups/${v}`,
+            root: `${basePath}/${v}`,
             callback(d: any, e: any) {
-                console.log(d, e);
                 resolve(d);
             }
         });
@@ -22,13 +23,13 @@ export function restoreDatabase(v: string): Promise<any> {
 }
 
 export function backupDatabase() {
-    const dirname = new Date().toISOString();
+    const filename = new Date().toISOString();
     return new Promise((resolve, reject) => {
         dbbackup({
             uri: MONGODB_URI,
-            root: `./backups`,
-            logger: './backups/.log',
-            tar: `${dirname}.tar`,
+            root: basePath,
+            logger: `${basePath}/.log`,
+            tar: `${filename}.tar`,
             callback(err: any) {
                 if (err) {
                     reject(err);
@@ -44,10 +45,18 @@ export function startRegularBackups(interval: number) {
     stopRegularBackups();
     intervalId = +setInterval(() => {
         backupDatabase();
-        readDir('./backups')
+        readDir(basePath)
             .then((files) => {
-                // todo: remove old backups
-                console.log(files);
+                files = files.filter((file: string): boolean => file !== '.file' && file !== '.log');
+                files.forEach((file: string) => {
+                    let filename: any = file.split('.');
+                    filename.length = filename.length - 1;
+                    filename = filename.join('.');
+                    const fileCreated = new Date(filename);
+                    if (fileCreated.getTime() < new Date().getTime() - getMilliseconds(5, 'minutes')) {
+                        removeFile(`${basePath}/${file}`);
+                    }
+                });
             })
     }, interval);
 }

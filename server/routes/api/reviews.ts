@@ -10,10 +10,11 @@ const router = express.Router();
 
 router.route('/')
     .post(function (req: IRequest, res: Response) {
-        validateRecaptcha(req.body.recaptcha)
-            .then(() => {
-                return setReview(req.body);
-            })
+        // validateRecaptcha(req.body.recaptcha)
+        //     .then(() => {
+        //         return setReview(req.body);
+        //     });
+        setReview(req.body)
             .then((review: IReview) => {
                 res.json(review);
             })
