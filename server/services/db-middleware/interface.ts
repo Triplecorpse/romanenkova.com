@@ -32,11 +32,11 @@ export function readInterface(entityId: string | Array<string>, language: string
         })
         .then((result: any) => {
                 return result[0].map((page: IPage): IPage => {
-                    let pageBody = page.pageData;
+                    let pageBody = page.pageData || {};
                     let pageLanguage: TLanguage = page.language;
 
                     if ((page.entityId === 'service' || page.entityId === 'review') && result[1]) {
-                        if (Object.keys(page.pageData).length) {
+                        if (Object.keys(pageBody).length) {
                             pageBody = {...pageBody, ...result[1]}
                         } else {
                             pageBody = result[1];
