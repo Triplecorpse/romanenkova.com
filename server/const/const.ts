@@ -27,6 +27,14 @@ export const errorMessages: any = {
             fr: 'Veuillez entrer au moins une de vos données de contact ou message.'
         }
     },
+    review: {
+        review: {
+            ru: 'Поле "Отзыв" обязательное.',
+            en: 'The "Feedback" field is required.',
+            uk: 'Поле "Відгук" обов\'язкове.',
+            fr: 'Le champ "Revue" est obligatoire.'
+        }
+    },
     captcha: {
         ru: 'Recaptcha не может быть подтверждена.',
         en: 'Recaptcha cannot be validated.',
@@ -59,6 +67,20 @@ export const successMessages: any = {
             en: 'Please wait until I will contact you.',
             uk: 'Будь ласка, зачекайте, поки я зв\'яжусь з вами.',
             fr: 'Veuillez attendre que je vous contacte.'
+        }
+    },
+    review: {
+        header: {
+            ru: 'Отзыв отправлен.',
+            en: 'Feedback sent.',
+            uk: 'Відгук відправлений.',
+            fr: 'Commentaires envoyés.'
+        },
+        body: {
+            ru: 'Отзыв появится на русскоязычной версии сайта, как только он будет проверен.',
+            en: 'Feedback will appear on the English version of the site as soon as it is verified.',
+            uk: 'Відгук з\'явиться на україномовній версії сайту, як тільки він буде перевірений.',
+            fr: 'Les commentaires apparaîtront sur la version française du site dès que celle-ci aura été vérifiée.'
         }
     }
 };

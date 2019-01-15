@@ -17,8 +17,10 @@ import {getServiceItemData} from "./init_services_items";
 import {Service} from "../server/models/service";
 import {getInitUsers} from "./init_users";
 import {User} from "../server/models/user";
+import {getReviewPageData} from "./init_review";
+import {getReviewModalPageData} from "./init_review_modal";
 
-const pages = ['nav', 'about', 'article', 'contacts', 'diploma', 'main', 'modal', 'nav', 'review', 'service', 'modalappointment'];
+const pages = ['nav', 'about', 'article', 'contacts', 'diploma', 'main', 'modal', 'nav', 'review', 'service', 'modalappointment', 'modalreview'];
 const documents = ['schedule', 'serviceItem', 'users'];
 const pagesToCreate: Array<string> = process.argv.filter((argv: string): boolean => pages.indexOf(argv) > -1);
 const documentsToCreate: Array<string> = process.argv.filter((argv: string): boolean => documents.indexOf(argv) > -1);
@@ -32,7 +34,9 @@ const mapper: any = {
     schedule: getSchedule,
     service: getServicePageData,
     serviceItem: getServiceItemData,
-    users: getInitUsers
+    users: getInitUsers,
+    review: getReviewPageData,
+    modalreview: getReviewModalPageData
 };
 
 mongoose.connect(process.env.MONGODB_URI as string)

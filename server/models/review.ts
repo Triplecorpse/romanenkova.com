@@ -13,7 +13,6 @@ const schema = new mongoose.Schema({
     language: {type: String, required: false},
     name: {type: String, required: false},
     review: {type: String, required: true},
-    email: {type: String, required: false},
     isPublished: {type: Boolean, required: true, default: false}
 });
 

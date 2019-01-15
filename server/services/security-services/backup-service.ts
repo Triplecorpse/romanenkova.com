@@ -53,7 +53,7 @@ export function startRegularBackups(interval: number) {
                     filename.length = filename.length - 1;
                     filename = filename.join('.');
                     const fileCreated = new Date(filename);
-                    if (fileCreated.getTime() < new Date().getTime() - getMilliseconds(5, 'minutes')) {
+                    if (fileCreated.getTime() < new Date().getTime() - getMilliseconds(5, 'days')) {
                         removeFile(`${basePath}/${file}`);
                     }
                 });

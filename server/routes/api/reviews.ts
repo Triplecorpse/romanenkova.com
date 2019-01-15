@@ -5,18 +5,48 @@ import {getReviews, publishReview, removeReview, setReview, unpublishReview} fro
 import {validateRecaptcha} from "../../services/security-services/recaptcha-validator";
 import {IReview} from "../../models/review";
 import {TLanguage} from "../../types/types";
+import {sendEmail} from "../../services/user-services/email-service";
+import {errorMessages, successMessages} from "../../const/const";
+import {Error} from "mongoose";
 
 const router = express.Router();
 
 router.route('/')
     .post(function (req: IRequest, res: Response) {
-        // validateRecaptcha(req.body.recaptcha)
-        //     .then(() => {
-        //         return setReview(req.body);
-        //     });
-        setReview(req.body)
-            .then((review: IReview) => {
-                res.json(review);
+        if (!req.body.review) {
+            res.status(400).json({m: errorMessages.review.review[req.body.language], err: {}, lang: req.body.language});
+            throw new Error(errorMessages.review.review[req.body.language]);
+        }
+
+        validateRecaptcha(req.body.recaptcha)
+            .then(() => {
+                if (req.body.email) {
+                    return sendEmail({
+                        to: req.body.email,
+                        from: `${req.body.name || 'Anonymous'} <info@romanenkova.com>`,
+                        subject: 'A feedback was left for you',
+                        text: `
+                                  FROM: ${req.body.name},
+                                  EMAIL: ${req.body.email},
+                                  -----------------------------------
+                                  FEEDBACK: ${req.body.reviev}
+                                `
+                    })
+                } else {
+                    return Promise.resolve();
+                }
+            })
+            .then(() => {
+                delete req.body.email;
+                return setReview(req.body);
+            })
+            .then((data: IReview) => {
+                res.json({
+                    data,
+                    lang: req.body.language,
+                    m: successMessages.review.body[req.body.language],
+                    h: successMessages.review.header[req.body.language]
+                });
             })
             .catch((err: any) => {
                 res.status(500).json({m: err.message});
