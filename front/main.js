@@ -4413,7 +4413,7 @@ exports.I18nService = I18nService;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.environment = {
     production: false,
-    api: 'https://romanenkova-staging.herokuapp.com/api/'
+    api: 'https://romanenkova.herokuapp.com/api/'
 };
 
 

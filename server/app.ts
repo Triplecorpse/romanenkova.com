@@ -14,7 +14,7 @@ require('dotenv').config();
 const port: string = process.env.PORT as string;
 
 mongoose.connect(process.env.MONGODB_URI as string)
-    .then(startRegularBackups.bind(this, getMilliseconds(1, 'days')));
+    // .then(startRegularBackups.bind(this, getMilliseconds(1, 'minutes')));
 
 generateSiteMap();
 
