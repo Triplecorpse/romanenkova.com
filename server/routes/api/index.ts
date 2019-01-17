@@ -14,7 +14,7 @@ import {getToken, validateToken} from "../../services/security-services/auth-ser
 import bodyParser = require("body-parser");
 import {IMulterFile} from "../../interfaces/iMulterFile";
 import {ICloudinaryResponse} from "../../interfaces/iCloudinaryResponse";
-import {errorMessages, languageObjs, successMessages} from "../../const/const";
+import {errorMessages, langObjects, languageObjs, successMessages, templateVars} from "../../const/const";
 import {IAppointment} from "../../interfaces/iAppointment";
 import {validateRecaptcha} from "../../services/security-services/recaptcha-validator";
 import {TLanguage} from "../../types/types";
@@ -91,7 +91,10 @@ router.post('/upload', upload.array("upload"), (req: IRequest, res: Response, ne
 });
 
 router.get('/language', (req: IRequest, res: Response) => {
-    res.json({lang: req.language, availableLangs: languageObjs, locale: 'n/a'});
+    res.json({
+        lang: req.language,
+        availableLangs: langObjects
+    });
 });
 
 router.post('/login', (req: Request, res: Response) => {

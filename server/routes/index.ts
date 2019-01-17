@@ -58,32 +58,7 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
 
     const DIST_FOLDER = join(process.cwd(), 'front');
 
-    // const template = readFileSync(join(DIST_FOLDER, 'index.html')).toString();
-
     res.render(join(DIST_FOLDER, 'index.html'), {req})
-
-    // readInterface('nav', req.language as TLanguage)
-    //     .then((page: Array<IPage>) => {
-    //         const pageData = page[0].pageData;
-    //         name = pageData.find((pageEntity: any) => pageEntity.anchor === 'name').name.join(' ');
-    //         return readFile('./front/index.html');
-    //     })
-    //     .then(htmlTemplate => {
-    //         const langObject = langObjects.find((langObj: ILanguageObject) => langObj.codeISO2 === req.language);
-    //         const configObj = {
-    //             name,
-    //             lang: req.language,
-    //             locale: langObject ? langObject.locale : '',
-    //             description: templateVars[req.language as TLanguage].description
-    //         };
-    //         return replaceTemplateVariables(htmlTemplate, configObj);
-    //     })
-    //     .then((htmlPage) => {
-    //         res.send(htmlPage);
-    //     })
-    //     .catch(err => {
-    //         res.status(500).send(err.message);
-    //     })
 });
 router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {
     res.send(builtOn.toString());
