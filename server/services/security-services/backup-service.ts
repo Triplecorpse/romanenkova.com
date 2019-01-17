@@ -1,4 +1,3 @@
-import Timer = NodeJS.Timer;
 import {readDir, removeFile} from "../file-service";
 import {getMilliseconds} from "../base";
 
