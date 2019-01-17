@@ -98,7 +98,7 @@ router.use('/api', api);
 
 // todo: decide either to do page 404 or redirect to /:lang
 router.get('*', (req: IRequest, res: Response) => {
-    res.redirect(`${req.baseUrl}/${req.language}`);
+    res.status(404).send('this page is unavailable. <a href="/">Click here to go back</a>');
 });
 
 export default router;
