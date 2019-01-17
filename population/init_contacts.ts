@@ -28,7 +28,7 @@ export function getContactsPageData(): Promise<Array<IPage>> {
             },
             {
                 name: 'E-mail',
-                account: 'irina.romanenkova28@gmail.com',
+                account: 'info@romanenkova.com',
                 type: 'email'
             },
             {
@@ -69,7 +69,7 @@ export function getContactsPageData(): Promise<Array<IPage>> {
             },
             {
                 name: 'E-mail',
-                account: 'irina.romanenkova28@gmail.com',
+                account: 'info@romanenkova.com',
                 type: 'email'
             },
             {
@@ -110,7 +110,7 @@ export function getContactsPageData(): Promise<Array<IPage>> {
             },
             {
                 name: 'E-mail',
-                account: 'irina.romanenkova28@gmail.com',
+                account: 'info@romanenkova.com',
                 type: 'email'
             },
             {
@@ -151,7 +151,7 @@ export function getContactsPageData(): Promise<Array<IPage>> {
             },
             {
                 name: 'E-mail',
-                account: 'irina.romanenkova28@gmail.com',
+                account: 'info@romanenkova.com',
                 type: 'email'
             },
             {
