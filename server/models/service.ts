@@ -2,7 +2,7 @@ import mongoose = require('mongoose');
 import {IMongooseSchema} from "./IMongooseSchema";
 import {TLanguage, TPageId} from "../types/types";
 import {languages, pagesId} from "../const/const";
-import {stripStringAsync} from "../services/security-services/strip-html";
+import {stripString} from "../services/security-services/strip-html";
 
 export interface IService extends IMongooseSchema {
     header: string;
@@ -22,7 +22,7 @@ function validateLanguage(lang: TLanguage): boolean {
 }
 
 function secureHtmlString(input: string): string {
-    return stripStringAsync(input);
+    return stripString(input);
 }
 
 function validateUrl(url: string): boolean {

@@ -8,37 +8,37 @@ export function getContactsPageData(): Promise<Array<IPage>> {
         pageData: [
             {
                 name: 'Telegram',
-                account: 'triplecorpse',
+                account: 'irina_romanenkova',
                 type: 'telegram'
             },
             {
                 name: 'Viber',
-                account: '+380971499115',
+                account: '+380664809701',
                 type: 'viber'
             },
             {
                 name: 'Skype',
-                account: 'microbenz',
+                account: 'iren.romanenkova1986',
                 type: 'skype'
             },
             {
                 name: 'Phone',
-                account: '+380971499115',
+                account: '+380664809701',
                 type: 'phone',
             },
             {
                 name: 'E-mail',
-                account: 'eldar.khaitov@gmail.com',
+                account: 'info@romanenkova.com',
                 type: 'email'
             },
             {
                 name: 'Facebook',
-                account: 'eldar.khaitov',
+                account: 'romanenkovagestalt',
                 type: 'facebook'
             },
             {
                 name: 'Instagram',
-                account: 'triplecorpse',
+                account: 'irinaromanenkova31',
                 type: 'instagram'
             }
         ],
@@ -49,37 +49,37 @@ export function getContactsPageData(): Promise<Array<IPage>> {
         pageData: [
             {
                 name: 'Telegram',
-                account: 'triplecorpse',
+                account: 'irina_romanenkova',
                 type: 'telegram'
             },
             {
                 name: 'Viber',
-                account: '+380971499115',
+                account: '+380664809701',
                 type: 'viber'
             },
             {
                 name: 'Skype',
-                account: 'microbenz',
+                account: 'iren.romanenkova1986',
                 type: 'skype'
             },
             {
                 name: 'Телефон',
-                account: '+380971499115',
+                account: '+380664809701',
                 type: 'phone',
             },
             {
                 name: 'E-mail',
-                account: 'eldar.khaitov@gmail.com',
+                account: 'info@romanenkova.com',
                 type: 'email'
             },
             {
                 name: 'Facebook',
-                account: 'eldar.khaitov',
+                account: 'romanenkovagestalt',
                 type: 'facebook'
             },
             {
                 name: 'Instagram',
-                account: 'triplecorpse',
+                account: 'irinaromanenkova31',
                 type: 'instagram'
             }
         ],
@@ -90,37 +90,37 @@ export function getContactsPageData(): Promise<Array<IPage>> {
         pageData: [
             {
                 name: 'Telegram',
-                account: 'triplecorpse',
+                account: 'irina_romanenkova',
                 type: 'telegram'
             },
             {
                 name: 'Viber',
-                account: '+380971499115',
+                account: '+380664809701',
                 type: 'viber'
             },
             {
                 name: 'Skype',
-                account: 'microbenz',
+                account: 'iren.romanenkova1986',
                 type: 'skype'
             },
             {
                 name: 'Телефон',
-                account: '+380971499115',
+                account: '+380664809701',
                 type: 'phone',
             },
             {
                 name: 'E-mail',
-                account: 'eldar.khaitov@gmail.com',
+                account: 'info@romanenkova.com',
                 type: 'email'
             },
             {
                 name: 'Facebook',
-                account: 'eldar.khaitov',
+                account: 'romanenkovagestalt',
                 type: 'facebook'
             },
             {
                 name: 'Instagram',
-                account: 'triplecorpse',
+                account: 'irinaromanenkova31',
                 type: 'instagram'
             }
         ],
@@ -131,37 +131,37 @@ export function getContactsPageData(): Promise<Array<IPage>> {
         pageData: [
             {
                 name: 'Telegram',
-                account: 'triplecorpse',
+                account: 'irina_romanenkova',
                 type: 'telegram'
             },
             {
                 name: 'Viber',
-                account: '+380971499115',
+                account: '+380664809701',
                 type: 'viber'
             },
             {
                 name: 'Skype',
-                account: 'microbenz',
+                account: 'iren.romanenkova1986',
                 type: 'skype'
             },
             {
                 name: 'Téléphone',
-                account: '+380971499115',
+                account: '+380664809701',
                 type: 'phone',
             },
             {
                 name: 'E-mail',
-                account: 'eldar.khaitov@gmail.com',
+                account: 'info@romanenkova.com',
                 type: 'email'
             },
             {
                 name: 'Facebook',
-                account: 'eldar.khaitov',
+                account: 'romanenkovagestalt',
                 type: 'facebook'
             },
             {
                 name: 'Instagram',
-                account: 'triplecorpse',
+                account: 'irinaromanenkova31',
                 type: 'instagram'
             }
         ],

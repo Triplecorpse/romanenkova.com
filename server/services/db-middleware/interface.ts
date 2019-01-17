@@ -5,8 +5,8 @@ import {TLanguage} from "../../types/types";
 import {languages} from "../../const/const";
 import {IMainDatabaseModel, IMainDataRequest} from "../../interfaces/IMainDataRequest";
 import indexData from "../../const/indexData";
-import {IService, Service} from "../../models/service";
 import {readService} from "./service";
+import {getReviews} from "./review";
 
 const cloudinary = require('cloudinary');
 
@@ -16,6 +16,7 @@ export function readInterface(entityId: string | Array<string>, language: string
     }
 
     const hasServicePage = entityId.indexOf('service') > -1;
+    const hasReviewPage = entityId.indexOf('review') > -1;
 
     return Page.find({entityId, language})
         .then((pages: any) => {
@@ -23,15 +24,23 @@ export function readInterface(entityId: string | Array<string>, language: string
                 return Promise.all([pages, readService(language as TLanguage) as any]);
             }
 
+            if (hasReviewPage) {
+                return Promise.all([pages, getReviews(5, {random: true, language: language as TLanguage}) as any]);
+            }
+
             return Promise.all([pages, null]);
         })
         .then((result: any) => {
                 return result[0].map((page: IPage): IPage => {
-                    let pageBody = page.pageData;
+                    let pageBody = page.pageData || {};
                     let pageLanguage: TLanguage = page.language;
 
-                    if (page.entityId === 'service' && result[1]) {
-                        pageBody = result[1];
+                    if ((page.entityId === 'service' || page.entityId === 'review') && result[1]) {
+                        if (Object.keys(pageBody).length) {
+                            pageBody = {...pageBody, ...result[1]}
+                        } else {
+                            pageBody = result[1];
+                        }
                     }
 
                     return {

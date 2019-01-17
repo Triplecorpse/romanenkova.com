@@ -7,4 +7,5 @@ export interface IAppointment {
     message: string;
     service: string;
     recaptcha:  string;
+    timezone: string;
 }

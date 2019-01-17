@@ -5,6 +5,7 @@ import service from './service';
 import getInterface from './interface';
 import user from './user';
 import database from './database';
+import review from './reviews';
 import {NextFunction, Request, Response} from "express-serve-static-core";
 import log from './../../services/log-service';
 import * as fileStorage from './../../services/file-storage/file-storage-service';
@@ -63,6 +64,7 @@ router.use('/service', service);
 router.use('/interface', getInterface);
 router.use('/user', user);
 router.use('/database', database);
+router.use('/review', review);
 
 const storage = multer.diskStorage({
     // destination
@@ -148,7 +150,8 @@ router.post('/appointment', (req: IRequest, res: Response) => {
                 text: `
                   FROM: ${appointment.name},
                   CONTACTS: ${appointment.phone}, ${appointment.email},
-                  SUGG. DATE: ${appointment.date} ${appointment.time},
+                  SUGGESTED DATE: ${appointment.date} ${appointment.time},
+                  SUGGESTED TIMEZONE: ${appointment.timezone},
                   SERVICE: ${appointment.service}
                   -----------------------------------
                   MESSAGE: ${appointment.message}

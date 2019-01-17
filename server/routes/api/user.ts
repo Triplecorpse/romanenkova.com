@@ -1,16 +1,20 @@
 import express = require('express');
 import IRequest from "../../interfaces/iRequest";
-
-const router = express.Router();
 import {Response} from "express-serve-static-core";
 import {checkUser, getUser, getUsers, updateUser} from "../../services/db-middleware/user";
 import {IUser} from "../../models/user";
 import {validateToken} from "../../services/security-services/auth-service";
 import log from "../../services/log-service";
+import {validateRecaptcha} from "../../services/security-services/recaptcha-validator";
+
+const router = express.Router();
 
 router
     .route('/:nickname?')
-    .post(function (req, res) {
+    .post(function (req: IRequest, res: Response) {
+        if (!req.isTokenValid) {
+            res.sendStatus(401);
+        }
         res.status(501).json({v: '0.1', b: req.body, m: req.method});
     })
     .put(function (req, res) {
