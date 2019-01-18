@@ -23,9 +23,9 @@
     "dbserviceitems": "tsc --project server && node population/init -- serviceItem",
     "serve:local": "ng serve --configuration=local --aot --port=4201",
     "build:local:watch": "ng run front:server:local && ng build --configuration=local --aot --watch",
-    "start:local": "npm run build:local && npm run build && npm run start:server",
-    "start:development": "npm run build:qa && npm run build && npm run start:server",
-    "start:staging": "npm run build:staging && npm run build && npm run start:server",
+    "start:local": "npm run build:local && npm run start:server",
+    "start:development": "npm run build:development && npm run start:server",
+    "start:staging": "npm run build:staging && npm run start:server",
     "start:server": "node server/app.js",
     "build:local": "ng run front:server:local && npm run build && npm run build:ssr && ng build --configuration=local --aot",
     "build:development": "ng run front:server:qa && npm run build && npm run build:ssr && ng build --configuration=qa --aot",
@@ -80,7 +80,6 @@
     "ng4-click-outside": "^1.0.1",
     "ngx-captcha": "^4.0.1",
     "ngx-swiper-wrapper": "^6.4.1",
-    "recursive-copy": "^2.0.9",
     "web-animations-js": "^2.3.1",
     "webpack-cli": "^3.2.1",
     "@nguniversal/express-engine": "6.0.0",
@@ -114,7 +113,6 @@
     "typescript": "~2.7.2",
     "@types/jasmine": "~2.6.3",
     "@types/jasminewd2": "~2.0.3",
-    "ts-node": "~5.0.1",
     "tslint": "~5.9.1"
   }
 }
