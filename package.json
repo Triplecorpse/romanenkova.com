@@ -28,7 +28,7 @@
     "start:staging": "npm run build:staging && npm run build && npm run start:server",
     "start:server": "node server/app.js",
     "build:local": "ng run front:server:local && npm run build && npm run build:ssr && ng build --configuration=local --aot",
-    "build:development": "ng run front:server:development && npm run build && npm run build:ssr && ng build --configuration=qa --aot",
+    "build:development": "ng run front:server:qa && npm run build && npm run build:ssr && ng build --configuration=qa --aot",
     "build:staging": "ng run front:server:staging && npm run build && npm run build:ssr && ng build --configuration=staging --aot",
     "build:production": "ng run front:server:production && npm run build && npm run build:ssr && ng build --configuration=production --aot --prod"
   },
