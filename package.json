@@ -8,7 +8,6 @@
     "start": "git checkout . && git pull && npm run build:production && pm2 restart app",
     "build": "tsc --project server",
     "build:ssr": "webpack --config webpack.server.config.js --progress --colors --mode production",
-
     "dbconnect": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod",
     "dbconsole": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongo",
     "dbinit": "tsc --project population && node population/init -- about contacts main nav modalappointment article schedule service serviceItem review modalreview",
@@ -22,18 +21,16 @@
     "dbnav": "tsc --project population && node population/init -- nav",
     "dbread": "tsc --project population && node population/readdb",
     "dbserviceitems": "tsc --project server && node population/init -- serviceItem",
-
     "serve:local": "ng serve --configuration=local --aot --port=4201",
     "build:local:watch": "ng run front:server:local && ng build --configuration=local --aot --watch",
-
-    "start:local": "ng build --configuration=local --aot && ng run front:server:local && npm run build && node server/app.js",
-    "start:development": "ng build --configuration=qa --aot && ng run front:server:qa && npm run build && node server/app.js",
-    "start:staging": "ng build --configuration=staging --aot && ng run front:server:staging && npm run build && node server/app.js",
-
-    "build:local": "ng build --configuration=local --aot && ng run front:server:local",
-    "build:development": "ng build --configuration=qa --aot && ng run front:server:qa",
-    "build:staging": "ng build --configuration=staging --aot && ng run front:server:staging",
-    "build:production": "ng build --configuration=production --aot --prod && ng run front:server:production"
+    "start:local": "npm run build:local && npm run build && npm run start:server",
+    "start:development": "npm run build:qa && npm run build && npm run start:server",
+    "start:staging": "npm run build:staging && npm run build && npm run start:server",
+    "start:server": "node server/app.js",
+    "build:local": "ng run front:server:local && npm run build && npm run build:ssr && ng build --configuration=local --aot",
+    "build:development": "ng run front:server:development && npm run build && npm run build:ssr && ng build --configuration=qa --aot",
+    "build:staging": "ng run front:server:staging && npm run build && npm run build:ssr && ng build --configuration=staging --aot",
+    "build:production": "ng run front:server:production && npm run build && npm run build:ssr && ng build --configuration=production --aot --prod"
   },
   "repository": {
     "type": "git",

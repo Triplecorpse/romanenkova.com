@@ -13,12 +13,12 @@ require('dotenv').config();
 
 const port: string = process.env.PORT as string;
 
-(async () => {
-  await mongoose.connect(process.env.MONGODB_URI as string);
-  startRegularBackups.bind(this, getMilliseconds(1, 'days'));
-  await generateSiteMap();
-  app.listen(port, () => {
+mongoose.connect(process.env.MONGODB_URI as string)
+    .then(startRegularBackups.bind(this, getMilliseconds(1, 'days')));
+
+generateSiteMap();
+
+app.listen(port, () => {
     console.log(`Listening on port ${port}`);
     log.info(`Server started on port ${port}`);
-  });
-})();
+});

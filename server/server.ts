@@ -5,7 +5,6 @@ import {ngExpressEngine} from "@nguniversal/express-engine";
 import {provideModuleMap} from "@nguniversal/module-map-ngfactory-loader";
 import {enableProdMode} from "@angular/core";
 import {join} from "path";
-import {readFileSync} from "fs";
 
 export const app = express();
 
