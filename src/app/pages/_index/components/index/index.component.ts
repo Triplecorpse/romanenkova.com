@@ -51,7 +51,7 @@ export class IndexComponent implements OnInit {
         const position = locale.pageMetadata.position;
         const fullName = `${locale.pageMetadata.firstName} ${locale.pageMetadata.lastName}`;
         this.titleService.setTitle(`${title} - ${position} ${fullName}`);
-        if (environment.production) {
+        if (environment.production && isPlatformBrowser(PLATFORM_ID)) {
           (<any>window).ga('create', 'UA-132675881-1', 'auto');
           (<any>window).ga('set', 'page', e.urlAfterRedirects);
           (<any>window).ga('send', 'pageview');
