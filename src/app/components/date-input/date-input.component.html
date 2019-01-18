@@ -1,0 +1,47 @@
+<div class="input-wrapper" [class.invalid]="value && !parsedDate">
+  <div class="input-label" (click)="focusInput()">
+    <input class="input"
+           [ngModel]="value"
+           (ngModelChange)="writeValueFromTemplate($event)"
+           [ngModelOptions]="{standalone: true}"
+           (blur)="onBlurInput()"
+           #dateInput/>
+    <div class="input-text" [class.top]="value || textValue">{{label}} {{parsedDate}}</div>
+    <span class="input-icon icon-calendar" (click)="toggleCalendar()" (click)="stopPropagation($event)" tabindex="0"
+          (keyup)="onCalendarIconKeyPress($event)" #calendarIconEl></span>
+  </div>
+  <div class="calendar-wrapper" (click)="stopPropagation($event)">
+    <ng-container *ngIf="isCalendarOpen">
+      <div class="calendar-month">
+        <div class="prev"
+             [class.hidden]="monthYearRangeIndex === 0"
+             (click)="setMonth('prev')"
+             tabindex="0"
+             (keyup)="onMonthKeyPress($event, 'prev')"></div>
+        <div class="label">{{getMonthString()}}</div>
+        <div class="next"
+             [class.hidden]="monthYearRangeIndex === monthYearRange.length - 1"
+             (click)="setMonth('next')"
+             tabindex="0"
+             (keyup)="onMonthKeyPress($event, 'next')"></div>
+      </div>
+      <div class="calendar-weekdays">
+        <div class="weekday" *ngFor="let weekday of weekdays"><span>{{weekday}}</span></div>
+      </div>
+      <div class="calendar-dates">
+        <ng-container *ngFor="let day of getDays(); let index = index">
+          <div class="date"
+               [class.active]="selectedDate.format('D.M.YYYY') === day.format('D.M.YYYY')"
+               [class.disabled]="!getAvailability(day)"
+               [style.margin-left.px]="index === 0 && 8 + (day.weekday() * 46)"
+               (click)="setActiveDate(day)"
+               (keypress)="onDateKeyPress($event, day)"
+               tabindex="0">
+            {{day.format('DD')}}
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <div class="input-subscr">{{subscr}}</div>
+</div>

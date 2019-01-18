@@ -1,0 +1,60 @@
+import {Component, HostListener, OnInit, Renderer2, TemplateRef} from '@angular/core';
+import {ModalService} from '../../services/modal.service';
+import {IModalEvent} from '../../../../interfaces/iModalEvent';
+import {filter} from 'rxjs/operators';
+import {Subject} from 'rxjs';
+import {fade} from '../../shortcuts/animations';
+
+@Component({
+  selector: 'app-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.scss'],
+  animations: [
+    fade()
+  ]
+})
+export class ModalComponent implements OnInit {
+  isModalOpen: boolean;
+  openModalName: string;
+  template: TemplateRef<any>;
+  context: any;
+  events$: Subject<any> = new Subject();
+  @HostListener('window:scroll', ['$event'])
+  private scrollListener($event) {
+    if (this.isModalOpen) {
+      $event.preventDefault();
+    }
+  }
+
+  constructor(private modalService: ModalService, private renderer: Renderer2) {
+  }
+
+  public closeModal(status: 'dismiss' | 'success', resolve: any): void {
+    this.modalService.closeModal('appointment', status, resolve);
+  }
+
+  public stopPropagation($event: Event): void {
+    $event.stopPropagation();
+    this.events$.next($event);
+  }
+
+  public ngOnInit(): void {
+    this.modalService.modalEvent.pipe(
+      filter((modalEvent: IModalEvent): boolean => modalEvent.type === 'open')
+    ).subscribe((data: IModalEvent): void => {
+      this.isModalOpen = true;
+      this.openModalName = data.name;
+      this.template = data.template;
+      this.context = data.context;
+      this.renderer.addClass(document.body, 'modal-overlay');
+    });
+
+    this.modalService.modalEvent.pipe(
+      filter((modalEvent: IModalEvent): boolean => modalEvent.type === 'dismiss' || modalEvent.type === 'success')
+    ).subscribe((data: IModalEvent): void => {
+      this.isModalOpen = false;
+      this.openModalName = void 0;
+      this.renderer.removeClass(document.body, 'modal-overlay');
+    });
+  }
+}

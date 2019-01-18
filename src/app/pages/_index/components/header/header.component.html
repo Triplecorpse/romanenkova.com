@@ -1,0 +1,39 @@
+<header class="header-block-wrapper" [class.is-root]="isRoot">
+  <div class="nav-wrapper" [class.fixed]="isFixed" *ngIf="!isMobile || isNavOpen">
+    <div class="close-button" (click)="toggleNavOpen(false)"></div>
+    <div class="logo">
+      <a class="link-root desktop" routerLink="" *ngIf="title" ngx-scroll-to="navigation">
+        <h4>
+          <span class="accent">{{title[0]?.toUpperCase()}} </span>
+          <span>{{title[1]?.toUpperCase()}}</span>
+        </h4>
+      </a>
+    </div>
+    <div class="nav">
+      <app-navigation [nav]="nav" class="navigation" (click)="toggleNavOpen(false)"></app-navigation>
+    </div>
+    <div class="soc-lang">
+      <app-social class="social" (click)="toggleNavOpen(false)" [contactData]="contactData"></app-social>
+      <app-language-selector [(isLanguageListOpen)]="isOpen" class="language"></app-language-selector>
+    </div>
+  </div>
+  <div class="m-nav-wrapper">
+    <a class="link-root mobile" routerLink="" *ngIf="title">
+      <h4>
+        <span class="accent">{{title[0]?.toUpperCase()}} </span>
+        <span>{{title[1]?.toUpperCase()}}</span>
+      </h4>
+    </a>
+    <div class="hamburger" (click)="toggleNavOpen(true)">
+      <div class="strips"></div>
+    </div>
+  </div>
+  <h1 class="page-header" [class.fixed]="isFixed">
+    {{header}}
+  </h1>
+  <div class="button-wrapper">
+    <div class="button">
+      <app-attend-button></app-attend-button>
+    </div>
+  </div>
+</header>

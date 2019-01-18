@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="services-wrapper">
+    <ng-container *ngFor="let service of services">
+      <div class="services-item">
+        <app-service [service]="service"></app-service>
+      </div>
+    </ng-container>
+  </div>
+</div>

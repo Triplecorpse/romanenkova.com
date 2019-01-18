@@ -1,0 +1,115 @@
+@import '../../../../../styles/variables';
+@import '../../../../../styles/mixins';
+
+.language-selector {
+  align-self: center;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  transition: .3s color ease;
+  display: flex;
+  height: 30px;
+  font-size: 14px;
+
+  &-text {
+    align-self: center;
+  }
+
+  &-icon {
+    align-self: center;
+  }
+
+  &:hover {
+    .language-selector-icon {
+      animation: arrowdown 1s infinite linear;
+    }
+  }
+
+  .language-list {
+    list-style: none;
+    position: absolute;
+    left: -15px;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    z-index: 21;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, .1);
+
+    &-item {
+      padding: 15px 15px 0;
+      background-color: #ffffff;
+      white-space: nowrap;
+      display: flex;
+
+      &-icon {
+        transform: rotate(180deg);
+        display: block;
+        align-self: center;
+
+        &:hover {
+          animation: arrowup 1s infinite linear;
+        }
+      }
+
+      &-text {
+        align-self: center;
+
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: none;
+          color: $color-text-accent;
+          transition: .3s color ease;
+        }
+      }
+
+      &:last-child {
+        padding-bottom: 15px;
+      }
+    }
+
+    @include tablet-breakpoint {
+      transform: translateX(-50%);
+      left: 50%;
+    }
+  }
+
+  @include tablet-breakpoint {
+    padding: 30px;
+  }
+}
+
+@keyframes arrowdown {
+  0% {
+    margin-top: 0;
+    opacity: 1;
+  }
+  25% {
+    margin-top: 10px;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    margin-top: 10px;
+    opacity: 0;
+  }
+}
+
+@keyframes arrowup {
+  0% {
+    margin-top: 0;
+    opacity: 1;
+  }
+  25% {
+    margin-top: -10px;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    margin-top: -10px;
+    opacity: 0;
+  }
+}

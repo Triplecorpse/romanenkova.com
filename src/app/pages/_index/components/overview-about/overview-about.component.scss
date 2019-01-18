@@ -1,0 +1,64 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.block {
+  &-wrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    @include tablet-breakpoint {
+      padding: 0 20px;
+      flex-direction: column;
+    }
+  }
+
+  &-image {
+    max-width: 370px;
+
+    @include tablet-breakpoint {
+      max-width: 100%;
+      min-width: 100%;
+    }
+  }
+
+  &-info {
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      margin-left: 100px;
+
+      &.no-image {
+        margin-left: 0;
+      }
+
+      @include tablet-breakpoint {
+        margin-left: 0;
+      }
+    }
+
+    &-position {
+      @include tablet-breakpoint {
+        margin-top: 15px;
+      }
+    }
+
+    &-name {
+      @include tablet-breakpoint {
+        line-height: 1;
+      }
+    }
+
+    &-paragraph {
+      margin: 20px 0 40px;
+    }
+
+    &-link {
+      text-transform: uppercase;
+      font-weight: 700;
+      color: $color-text-accent;
+      padding: 5px 0;
+      border-bottom: 2px solid $color-text-accent;
+    }
+  }
+}

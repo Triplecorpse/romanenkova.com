@@ -13,8 +13,7 @@ enableProdMode();
 
 const DIST_FOLDER = join(process.cwd(), 'front');
 
-const template = readFileSync(join(DIST_FOLDER, 'index.html')).toString();
-const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./../front/main');
+const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./../dist/main');
 
 app.engine('html', ngExpressEngine({
     bootstrap: AppServerModuleNgFactory,

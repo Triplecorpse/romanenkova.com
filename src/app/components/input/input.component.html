@@ -1,0 +1,12 @@
+<div class="input-wrapper" [class.disabled]="isDisabled">
+  <label class="input-label">
+    <input class="input"
+           [disabled]="isDisabled"
+           [type]="type"
+           [(ngModel)]="value"
+           [ngModelOptions]="{standalone: true}"
+           (ngModelChange)="writeValue($event)" [autocomplete]="autocomplete"/>
+    <div class="input-text" [class.top]="value && value.length">{{label}}</div>
+    <span class="input-icon" [ngClass]="icon" *ngIf="icon"></span>
+  </label>
+</div>

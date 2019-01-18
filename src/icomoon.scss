@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('assets/fonts/icomoon.eot?qszsr5');
+  src: url('assets/fonts/icomoon.eot?qszsr5#iefix') format('embedded-opentype'),
+  url('assets/fonts/icomoon.ttf?qszsr5') format('truetype'),
+  url('assets/fonts/icomoon.woff?qszsr5') format('woff'),
+  url('assets/fonts/icomoon.svg?qszsr5#icomoon') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-viber:before {
+  content: "\e900";
+  color: #665cac;
+}
+.icon-calendar:before {
+  content: "\e90a";
+}
+.icon-clock:before {
+  content: "\e90b";
+}
+.icon-arrow-down:before {
+  content: "\e90c";
+}
+.icon-small-arrow-down:before {
+  content: "\e90d";
+}
+.icon-facebook:before {
+  content: "\ea91";
+}
+.icon-instagram:before {
+  content: "\ea93";
+}
+.icon-telegram:before {
+  content: "\e90e";
+  color: #179cde;
+}
+

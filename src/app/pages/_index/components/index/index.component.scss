@@ -1,0 +1,10 @@
+@import '../../../../styles/mixins';
+
+.content {
+  margin: 0 auto 250px;
+
+  @include mobile-breakpoint {
+    margin-bottom: 100px;
+    margin-top: -50px;
+  }
+}

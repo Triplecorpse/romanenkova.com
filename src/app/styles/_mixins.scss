@@ -1,0 +1,49 @@
+@import 'variables';
+
+@mixin mobile-breakpoint() {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin mobile-breakpoint-landscape() {
+  @media (max-width: 767px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin tablet-breakpoint {
+  @media (max-width: 1023px) {
+    @content
+  }
+}
+
+@mixin desktop-sm-breakpoint {
+  @media (max-width: 1279px) {
+    @content
+  }
+}
+
+@mixin desktop-breakpoint() {
+  @media (min-width: 1280px) {
+    @content;
+  }
+
+  @include desktop-sm-breakpoint {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  &:-ms-input-placeholder  {
+    @content;
+  }
+
+  &:-ms-input-placeholder  {
+    @content;
+  }
+
+  &::placeholder  {
+    @content;
+  }
+}
