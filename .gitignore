@@ -63,7 +63,3 @@ typings/
 .idea
 node_modules
 bitbucket-pipelines.yml
-dist
-dist/*.*
-front
-front/*.*
