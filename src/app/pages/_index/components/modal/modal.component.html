@@ -1,0 +1,7 @@
+<div class="modal-wrapper" @fade *ngIf="isModalOpen"></div>
+<div class="modal-container" @fade *ngIf="isModalOpen" (click)="closeModal('dismiss', null)">
+  <div class="modal-window" (click)="stopPropagation($event)">
+    <div class="modal-close-button" (click)="closeModal('dismiss', null)"></div>
+    <ng-container *ngTemplateOutlet="template; context: {modalData: context, events: events$}"></ng-container>
+  </div>
+</div>

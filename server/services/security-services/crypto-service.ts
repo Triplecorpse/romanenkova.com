@@ -1,4 +1,4 @@
-import crypto from "crypto";
+import * as crypto from "crypto";
 
 export function encryptString(rawString: string): string {
     return crypto.createHash('md5').update(rawString).digest('hex');

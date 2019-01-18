@@ -19,8 +19,6 @@ const parseAcceptLanguage = require('parse-accept-language');
 const builtOn = new Date();
 const router = express.Router();
 
-
-
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     const acceptedLangs = parseAcceptLanguage(req);
     const languageObj = acceptedLangs.find((lang: any) =>
@@ -58,7 +56,7 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
 
     const DIST_FOLDER = join(process.cwd(), 'front');
 
-    res.render(join(DIST_FOLDER, 'index.html'), {req})
+    res.render(join(DIST_FOLDER, 'index.html'), {req});
 });
 router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {
     res.send(builtOn.toString());
@@ -73,7 +71,7 @@ router.use('/api', api);
 
 // todo: decide either to do page 404 or redirect to /:lang
 router.get('*', (req: IRequest, res: Response) => {
-    res.status(404).send('this page is unavailable. <a href="/">Click here to go back</a>');
+  res.status(404).render(join(process.cwd(), 'front', 'index.html'), {req});
 });
 
 export default router;

@@ -1,0 +1,11 @@
+<div class="input-wrapper">
+  <label class="input-label">
+    <textarea class="input"
+              [(ngModel)]="value"
+              [ngModelOptions]="{standalone: true}"
+              (ngModelChange)="writeValue($event)"
+              [rows]="rows">
+    </textarea>
+    <div class="input-text" [class.top]="value && value.length">{{label}}</div>
+  </label>
+</div>

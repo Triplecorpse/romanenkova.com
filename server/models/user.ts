@@ -1,6 +1,6 @@
 import mongoose = require('mongoose');
 import {stripString} from "../services/security-services/strip-html";
-import crypto from 'crypto';
+import * as crypto from 'crypto';
 
 export interface IUser {
     firstName?: string;

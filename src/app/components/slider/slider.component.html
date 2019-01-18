@@ -1,0 +1,20 @@
+<div class="ngx-swiper__wrapper">
+  <div class="ngx-swiper__header" *ngIf="slides.length && !sideButtons">
+    <div class="ngx-swiper__slide-display">
+      <span class="slide-current accent">{{currentIndex + 1}}</span>
+      <span class="separator">/</span>
+      <span class="slide-total">{{slides.length}}</span>
+    </div>
+    <div class="ngx-swiper__slide-prev" (click)="slidePrev()" *ngIf="!sideButtons" [class.disabled]="currentIndex === 0"></div>
+    <div class="ngx-swiper__slide-next" (click)="slideNext()" *ngIf="!sideButtons" [class.disabled]="currentIndex === slides.length - 1"></div>
+  </div>
+  <div class="ngx-swiper__side-slide-prev" (click)="slidePrev()" *ngIf="sideButtons" [class.disabled]="currentIndex === 0"></div>
+  <div class="ngx-swiper__side-slide-next" (click)="slideNext()" *ngIf="sideButtons" [class.disabled]="currentIndex === slides.length - 1"></div>
+  <swiper [config]="config" [(index)]="currentIndex" (indexChange)="onIndexChange($event)" #swiper>
+    <ng-container *ngFor="let slide of slides">
+      <div #slideTpl>
+        <ng-container *ngTemplateOutlet="template; context: {slide: slide}"></ng-container>
+      </div>
+    </ng-container>
+  </swiper>
+</div>

@@ -1,0 +1,39 @@
+<div class="input-wrapper" [class.disabled]="isDisabled" (click)="stopPropagation($event)">
+  <div class="input-label" (click)="toggleList()">
+    <div class="input" tabindex="0" (keydown)="onInputKeyPress($event)" #selectEl>
+      <span>{{value}}</span>
+    </div>
+    <div class="input-text" [class.top]="value && value.length">{{label}}</div>
+    <span class="input-icon" [ngClass]="icon" *ngIf="icon"></span>
+  </div>
+  <ng-container *ngIf="isListOpen">
+    <div class="list-wrapper" *ngIf="list && list.length">
+      <ul class="list">
+        <li class="list-item"
+            tabindex="0"
+            data-is-empty
+            (click)="setActiveItem(null)"
+            (keydown)="onItemKeyPress($event, null)"
+            #emptyListEl>
+          {{clearSelectionLabel}}
+        </li>
+        <li class="list-separator"></li>
+        <ng-container *ngFor="let listItem of list; let isFirst = first; let index = index; let isLast = last">
+          <ng-container *ngIf="listItem !== '_'">
+            <li class="list-item" [class.separator]="!isLast && list[index + 1] === '_'" [attr.data-is-first]="isFirst"
+                tabindex="0" (click)="setActiveItem(listItem)" (keydown)="onItemKeyPress($event, listItem)" #listItemEl>
+              <ng-container *ngIf="listDisplayProperty; then object; else plain"></ng-container>
+              <ng-template #object>
+                <span>{{listItem[listDisplayProperty]}}</span>
+              </ng-template>
+              <ng-template #plain>
+                <span *ngIf="listItem !== '_'">{{listItem}}</span>
+              </ng-template>
+            </li>
+          </ng-container>
+        </ng-container>
+      </ul>
+    </div>
+  </ng-container>
+  <div class="input-subscr">{{subscr}}</div>
+</div>

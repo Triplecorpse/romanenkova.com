@@ -1,4 +1,4 @@
-import request from 'request';
+import * as request from 'request';
 
 const privateKey: string = '6Lc2zmsUAAAAAEBIlXk1nuiBQ75DsABN44Kxuxpn';
 
