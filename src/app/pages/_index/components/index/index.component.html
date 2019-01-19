@@ -9,3 +9,20 @@
 </div>
 
 <app-modal></app-modal>
+
+<ng-template #cookieConfirmationModal let-source="modalData">
+  <div class="modal-confirm-wrapper">
+    <h3>Would you like to allow cookies?</h3>
+    <p>By agreeing you agree with usage of 3rd part cookies. By checking the checkbox "Don't show again", you agree with usage of site's cookies.</p>
+    <p>If you agree, an anonymous statistics will be sent to Google Analytics.</p>
+    <ul>
+      <li>Your IP-based location</li>
+      <li>Your system data (OS, browser, platform etc)</li>
+    </ul>
+    <label><input type="hidden" [(ngModel)]="dontShowAgain" [ngModelOptions]="{standalone: true}"> Don't show again for 1 month</label>
+    <div class="button-wrapper">
+      <button class="button yes" (click)="agreeToCookies()">Yes</button>
+      <button class="button no" (click)="disagreeToCookies()">No</button>
+    </div>
+  </div>
+</ng-template>

@@ -1,4 +1,8 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit, PLATFORM_ID, TemplateRef,
+  ViewChild
+} from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
@@ -11,6 +15,7 @@ import {ModalService} from '../../services/modal.service';
 import {I18nService} from '../../../../services/i18n.service';
 import {LanguageGuardService} from "../../../../language-guard.service";
 import {environment} from "../../../../../environments/environment";
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-index',
@@ -18,7 +23,7 @@ import {environment} from "../../../../../environments/environment";
   styleUrls: ['./index.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent implements OnInit, AfterViewInit {
   public title: Array<string>;
   public nav: Array<INavigationItem>;
   public isRoot: boolean;
@@ -28,6 +33,10 @@ export class IndexComponent implements OnInit {
   public name: [string, string];
   public modalAppointment: IPage<IModalAppointment>;
   public isBrowser: boolean;
+  public dontShowAgain: boolean = true;
+  private allowTracking: boolean;
+
+  @ViewChild('cookieConfirmationModal') private cookieConfirmationModal: TemplateRef<any>;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
               @Inject(DOCUMENT) private document: Document,
@@ -38,9 +47,15 @@ export class IndexComponent implements OnInit {
               private changeDetectorRef: ChangeDetectorRef,
               private meta: Meta,
               private languageGuardService: LanguageGuardService,
-              private titleService: Title) {
+              private titleService: Title,
+              private cookieService: CookieService) {
 
     const locale = languageGuardService.locale;
+
+    if (isPlatformBrowser(this.platformId) && this.cookieService.get('allow') === '1') {
+      this.addTrackerCode();
+      this.allowTracking = true;
+    }
 
     router.events
       .pipe(filter((e: RouterEvent) => e instanceof NavigationEnd))
@@ -51,7 +66,8 @@ export class IndexComponent implements OnInit {
         const position = locale.pageMetadata.position;
         const fullName = `${locale.pageMetadata.firstName} ${locale.pageMetadata.lastName}`;
         this.titleService.setTitle(`${title} - ${position} ${fullName}`);
-        if (environment.production && isPlatformBrowser(PLATFORM_ID)) {
+
+        if (environment.production && this.allowTracking && isPlatformBrowser(PLATFORM_ID)) {
           (<any>window).ga('create', 'UA-132675881-1', 'auto');
           (<any>window).ga('set', 'page', e.urlAfterRedirects);
           (<any>window).ga('send', 'pageview');
@@ -59,6 +75,37 @@ export class IndexComponent implements OnInit {
 
         this.changeDetectorRef.markForCheck();
       });
+  }
+
+  addTrackerCode() {
+    //todo: add code to insert and run scripts here
+  }
+
+  agreeToCookies() {
+    if (isPlatformBrowser(PLATFORM_ID)) {
+      if (this.dontShowAgain) {
+        this.cookieService.set('dont', '1', 30);
+        this.cookieService.set('agree', '1', 30);
+      }
+    }
+
+    this.closeModal();
+  }
+
+  disagreeToCookies() {
+    if (isPlatformBrowser(PLATFORM_ID)) {
+      if (this.dontShowAgain) {
+        this.cookieService.set('dont', '1', 30);
+        this.cookieService.set('agree', '0', 30);
+      }
+    }
+
+    this.cookieService.deleteAll();
+    this.closeModal();
+  }
+
+  closeModal() {
+    this.modalService.closeModal('cookieConfirm', 'dismiss', null);
   }
 
   ngOnInit() {
@@ -78,6 +125,12 @@ export class IndexComponent implements OnInit {
       html.setAttribute('lang', locale.codeISO2);
       this.meta.addTag({ name: 'og:locale', content: `${locale.codeISO2}_${locale.locale}`});
       this.meta.addTag({ name: 'og:description', content: locale.pageMetadata.description});
+    }
+  }
+
+  ngAfterViewInit() {
+    if (!this.cookieService.get('dont') && isPlatformBrowser(PLATFORM_ID)) {
+      // this.modalService.openModal('cookieConfirm', this.cookieConfirmationModal, {}, false);
     }
   }
 }

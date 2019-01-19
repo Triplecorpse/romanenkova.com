@@ -23,6 +23,7 @@ import {InterceptResponseService} from './services/intercept-response.service';
 import {PipesModule} from '../../pipes/pipes.module';
 import { OverviewReviewsComponent } from './components/overview-reviews/overview-reviews.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   imports: [
@@ -89,7 +90,8 @@ import {NgxCaptchaModule} from 'ngx-captcha';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: InterceptResponseService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptResponseService, multi: true},
+    CookieService
   ]
 })
 export class IndexModule {

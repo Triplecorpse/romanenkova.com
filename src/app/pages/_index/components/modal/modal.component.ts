@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit, Renderer2, TemplateRef} from '@angular/core';
+import {ChangeDetectorRef, Component, HostListener, OnInit, Renderer2, TemplateRef} from '@angular/core';
 import {ModalService} from '../../services/modal.service';
 import {IModalEvent} from '../../../../interfaces/iModalEvent';
 import {filter} from 'rxjs/operators';
@@ -26,11 +26,15 @@ export class ModalComponent implements OnInit {
     }
   }
 
-  constructor(private modalService: ModalService, private renderer: Renderer2) {
+  constructor(private modalService: ModalService,
+              private renderer: Renderer2,
+              private changeDetectorRef: ChangeDetectorRef) {
   }
 
   public closeModal(status: 'dismiss' | 'success', resolve: any): void {
-    this.modalService.closeModal('appointment', status, resolve);
+    if (this.modalService.closeWithBackdrop) {
+      this.modalService.closeModal('appointment', status, resolve);
+    }
   }
 
   public stopPropagation($event: Event): void {
@@ -47,6 +51,7 @@ export class ModalComponent implements OnInit {
       this.template = data.template;
       this.context = data.context;
       this.renderer.addClass(document.body, 'modal-overlay');
+      this.changeDetectorRef.detectChanges();
     });
 
     this.modalService.modalEvent.pipe(

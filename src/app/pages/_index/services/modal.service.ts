@@ -13,6 +13,7 @@ export class ModalService {
   private _modalAppointment: IPage<IModalAppointment>;
   private _modalEvent: Subject<IModalEvent> = new Subject<IModalEvent>();
   public services: Array<IService>;
+  public closeWithBackdrop: boolean;
 
   public set modalAppointment(value: IPage<IModalAppointment>) {
     if (this._modalAppointment) {
@@ -30,7 +31,8 @@ export class ModalService {
     return this._modalEvent.asObservable();
   }
 
-  public openModal(name: string, tpl: TemplateRef<any>, ctx: any) {
+  public openModal(name: string, tpl: TemplateRef<any>, ctx: any, closeWithBackdrop: boolean = true) {
+    this.closeWithBackdrop = closeWithBackdrop;
     this._modalEvent.next({name, type: 'open', success: true, template: tpl, context: ctx});
   }
 
