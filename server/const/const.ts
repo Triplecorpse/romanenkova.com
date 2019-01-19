@@ -1,13 +1,6 @@
 import {TLanguage, TPageId} from "../types/types";
 import {ILanguageObject} from "../interfaces/iLanguageObject";
 
-export const templateVars: any = {
-    en: {description: 'Personal website of online psychologist'},
-    ru: {description: 'Персональный сайт онлайн-психолога'},
-    uk: {description: 'Особистий сайт онлайн-психолога'},
-    fr: {description: 'Site personnel du psychologue en ligne'},
-};
-
 export const langObjects: Array<ILanguageObject> = [
     {
         codeISO2: 'ru',
@@ -61,12 +54,6 @@ export const langObjects: Array<ILanguageObject> = [
 
 export const languages: Array<TLanguage> = langObjects.map((langObj: ILanguageObject): TLanguage => langObj.codeISO2);
 export const pagesId: Array<TPageId> = ['nav', 'contacts', 'about', 'diploma', 'service', 'article', 'main', 'review', '[modal] appointment', '[modal] review'];
-export const languageObjs: Array<{ code: TLanguage, name: string }> =
-    langObjects.map((langObj: ILanguageObject): { code: TLanguage, name: string, locale: string } => ({
-        code: langObj.codeISO2,
-        name: langObj.languageName,
-        locale: langObj.locale
-    }));
 export const errorMessages: any = {
     appointment: {
         name: {

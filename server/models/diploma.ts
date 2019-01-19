@@ -1,10 +1,25 @@
 import mongoose from 'mongoose';
-const schema = new mongoose.Schema({
-    picture: {type: String, required: true},
-    header: {type: String, required: true},
-    receivedAt: {type: Date, required: true},
-    language: {type: String, require: true},
-    entityId: {type: String, required: true}
-}, {timestamps: {createdAt: 'createdAt', updatedAt: 'updatedAt'}});
+import {TPageId} from "../types/types";
+import {IMongooseSchema} from "./IMongooseSchema";
 
-export const model = mongoose.model('Diploma', schema);
+export interface IDiploma extends IMongooseSchema {
+  picture: string;
+  header: string;
+  graduateYear: number;
+  description: string;
+  itemId?: string;
+  entityId?: TPageId;
+  isPublished?: boolean;
+}
+
+const schema = new mongoose.Schema({
+  itemId: {type: String, required: true},
+  picture: {type: String, required: true},
+  header: {type: String, required: true},
+  graduateYear: {type: Number, required: true},
+  description: {type: String, required: false},
+  isPublished: {type: Boolean, required: true, default: false},
+  entityId: {type: String, required: true}
+});
+
+export const Diploma = mongoose.model('Diploma', schema);

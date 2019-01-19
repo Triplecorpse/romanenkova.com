@@ -6,6 +6,7 @@ import getInterface from './interface';
 import user from './user';
 import database from './database';
 import review from './reviews';
+import diploma from './dipoma';
 import {NextFunction, Request, Response} from "express-serve-static-core";
 import log from './../../services/log-service';
 import * as fileStorage from './../../services/file-storage/file-storage-service';
@@ -14,7 +15,7 @@ import {getToken, validateToken} from "../../services/security-services/auth-ser
 import bodyParser = require("body-parser");
 import {IMulterFile} from "../../interfaces/iMulterFile";
 import {ICloudinaryResponse} from "../../interfaces/iCloudinaryResponse";
-import {errorMessages, langObjects, languageObjs, successMessages, templateVars} from "../../const/const";
+import {errorMessages, langObjects, successMessages} from "../../const/const";
 import {IAppointment} from "../../interfaces/iAppointment";
 import {validateRecaptcha} from "../../services/security-services/recaptcha-validator";
 import {TLanguage} from "../../types/types";
@@ -65,9 +66,9 @@ router.use('/interface', getInterface);
 router.use('/user', user);
 router.use('/database', database);
 router.use('/review', review);
+router.use('/diploma', diploma);
 
 const storage = multer.diskStorage({
-    // destination
     destination: function (req: any, file: any, cb: any) {
         cb(null, './uploads/')
     },

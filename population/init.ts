@@ -19,6 +19,7 @@ import {getInitUsers} from "./init_users";
 import {User} from "../server/models/user";
 import {getReviewPageData} from "./init_review";
 import {getReviewModalPageData} from "./init_review_modal";
+import {getDiplomaPageData} from "./init_diplomas";
 
 const pages = ['nav', 'about', 'article', 'contacts', 'diploma', 'main', 'modal', 'nav', 'review', 'service', 'modalappointment', 'modalreview'];
 const documents = ['schedule', 'serviceItem', 'users'];
@@ -31,6 +32,7 @@ const mapper: any = {
     nav: getNavPageData,
     modalappointment: getAppointmentModalPageData,
     article: getArticlePageData,
+    diploma: getDiplomaPageData,
     schedule: getSchedule,
     service: getServicePageData,
     serviceItem: getServiceItemData,

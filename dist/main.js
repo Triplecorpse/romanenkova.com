@@ -2354,35 +2354,58 @@ var i0 = __webpack_require__(/*! ./index.component.scss.shim.ngstyle */ "./src/a
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i2 = __webpack_require__(/*! ../footer/footer.component.ngfactory */ "./src/app/pages/_index/components/footer/footer.component.ngfactory.js");
 var i3 = __webpack_require__(/*! ../footer/footer.component */ "./src/app/pages/_index/components/footer/footer.component.ts");
-var i4 = __webpack_require__(/*! ../header/header.component.ngfactory */ "./src/app/pages/_index/components/header/header.component.ngfactory.js");
-var i5 = __webpack_require__(/*! ../header/header.component */ "./src/app/pages/_index/components/header/header.component.ts");
-var i6 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i7 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i8 = __webpack_require__(/*! ../modal/modal.component.ngfactory */ "./src/app/pages/_index/components/modal/modal.component.ngfactory.js");
-var i9 = __webpack_require__(/*! ../modal/modal.component */ "./src/app/pages/_index/components/modal/modal.component.ts");
-var i10 = __webpack_require__(/*! ../../services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
-var i11 = __webpack_require__(/*! ./index.component */ "./src/app/pages/_index/components/index/index.component.ts");
-var i12 = __webpack_require__(/*! ../../../../services/i18n.service */ "./src/app/services/i18n.service.ts");
-var i13 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
-var i14 = __webpack_require__(/*! ../../../../language-guard.service */ "./src/app/language-guard.service.ts");
+var i4 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
+var i5 = __webpack_require__(/*! ../header/header.component.ngfactory */ "./src/app/pages/_index/components/header/header.component.ngfactory.js");
+var i6 = __webpack_require__(/*! ../header/header.component */ "./src/app/pages/_index/components/header/header.component.ts");
+var i7 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i8 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i9 = __webpack_require__(/*! ../modal/modal.component.ngfactory */ "./src/app/pages/_index/components/modal/modal.component.ngfactory.js");
+var i10 = __webpack_require__(/*! ../modal/modal.component */ "./src/app/pages/_index/components/modal/modal.component.ts");
+var i11 = __webpack_require__(/*! ../../services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
+var i12 = __webpack_require__(/*! ./index.component */ "./src/app/pages/_index/components/index/index.component.ts");
+var i13 = __webpack_require__(/*! ../../../../services/i18n.service */ "./src/app/services/i18n.service.ts");
+var i14 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var i15 = __webpack_require__(/*! ../../../../language-guard.service */ "./src/app/language-guard.service.ts");
 var styles_IndexComponent = [i0.styles];
 var RenderType_IndexComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_IndexComponent, data: {} });
 exports.RenderType_IndexComponent = RenderType_IndexComponent;
 function View_IndexComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-footer", [["class", "footer"]], null, null, null, i2.View_FooterComponent_0, i2.RenderType_FooterComponent)), i1.ɵdid(1, 114688, null, 0, i3.FooterComponent, [], { data: [0, "data"], name: [1, "name"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.footer; var currVal_1 = _co.name; _ck(_v, 1, 0, currVal_0, currVal_1); }, null); }
-function View_IndexComponent_0(_l) { return i1.ɵvid(2, [(_l()(), i1.ɵeld(0, 0, null, null, 7, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "app-header", [], null, [["window", "scroll"], ["window", "resize"]], function (_v, en, $event) { var ad = true; if (("window:scroll" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 2).listener() !== false);
+function View_IndexComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 25, "div", [["class", "modal-confirm-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Would you like to allow cookies?"])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["By agreeing you agree with usage of 3rd part cookies. By checking the checkbox \"Don't show again\", you agree with usage of site's cookies."])), (_l()(), i1.ɵeld(5, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["If you agree, an anonymous statistics will be sent to Google Analytics."])), (_l()(), i1.ɵeld(7, 0, null, null, 4, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵeld(8, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Your IP-based location"])), (_l()(), i1.ɵeld(10, 0, null, null, 1, "li", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Your system data (OS, browser, platform etc)"])), (_l()(), i1.ɵeld(12, 0, null, null, 8, "label", [], null, null, null, null, null)), (_l()(), i1.ɵeld(13, 0, null, null, 6, "input", [["type", "hidden"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("input" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 14)._handleInput($event.target.value) !== false);
+        ad = (pd_0 && ad);
+    } if (("blur" === en)) {
+        var pd_1 = (i1.ɵnov(_v, 14).onTouched() !== false);
+        ad = (pd_1 && ad);
+    } if (("compositionstart" === en)) {
+        var pd_2 = (i1.ɵnov(_v, 14)._compositionStart() !== false);
+        ad = (pd_2 && ad);
+    } if (("compositionend" === en)) {
+        var pd_3 = (i1.ɵnov(_v, 14)._compositionEnd($event.target.value) !== false);
+        ad = (pd_3 && ad);
+    } if (("ngModelChange" === en)) {
+        var pd_4 = ((_co.dontShowAgain = $event) !== false);
+        ad = (pd_4 && ad);
+    } return ad; }, null, null)), i1.ɵdid(14, 16384, null, 0, i4.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i4.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵprd(1024, null, i4.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i4.DefaultValueAccessor]), i1.ɵdid(16, 671744, null, 0, i4.NgModel, [[8, null], [8, null], [8, null], [6, i4.NG_VALUE_ACCESSOR]], { model: [0, "model"], options: [1, "options"] }, { update: "ngModelChange" }), i1.ɵpod(17, { standalone: 0 }), i1.ɵprd(2048, null, i4.NgControl, null, [i4.NgModel]), i1.ɵdid(19, 16384, null, 0, i4.NgControlStatus, [[4, i4.NgControl]], null, null), (_l()(), i1.ɵted(-1, null, [" Don't show again for 1 month"])), (_l()(), i1.ɵeld(21, 0, null, null, 4, "div", [["class", "button-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(22, 0, null, null, 1, "button", [["class", "button yes"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.agreeToCookies() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Yes"])), (_l()(), i1.ɵeld(24, 0, null, null, 1, "button", [["class", "button no"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.disagreeToCookies() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["No"]))], function (_ck, _v) { var _co = _v.component; var currVal_7 = _co.dontShowAgain; var currVal_8 = _ck(_v, 17, 0, true); _ck(_v, 16, 0, currVal_7, currVal_8); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 19).ngClassUntouched; var currVal_1 = i1.ɵnov(_v, 19).ngClassTouched; var currVal_2 = i1.ɵnov(_v, 19).ngClassPristine; var currVal_3 = i1.ɵnov(_v, 19).ngClassDirty; var currVal_4 = i1.ɵnov(_v, 19).ngClassValid; var currVal_5 = i1.ɵnov(_v, 19).ngClassInvalid; var currVal_6 = i1.ɵnov(_v, 19).ngClassPending; _ck(_v, 13, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6); }); }
+function View_IndexComponent_0(_l) { return i1.ɵvid(2, [i1.ɵqud(402653184, 1, { cookieConfirmationModal: 0 }), (_l()(), i1.ɵeld(1, 0, null, null, 7, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "app-header", [], null, [["window", "scroll"], ["window", "resize"]], function (_v, en, $event) { var ad = true; if (("window:scroll" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 3).listener() !== false);
         ad = (pd_0 && ad);
     } if (("window:resize" === en)) {
-        var pd_1 = (i1.ɵnov(_v, 2).onResize() !== false);
+        var pd_1 = (i1.ɵnov(_v, 3).onResize() !== false);
         ad = (pd_1 && ad);
-    } return ad; }, i4.View_HeaderComponent_0, i4.RenderType_HeaderComponent)), i1.ɵdid(2, 114688, null, 0, i5.HeaderComponent, [i6.DOCUMENT, i1.PLATFORM_ID], { isRoot: [0, "isRoot"], header: [1, "header"], title: [2, "title"], nav: [3, "nav"], contactData: [4, "contactData"] }, null), (_l()(), i1.ɵeld(3, 0, null, null, 2, "main", [["class", "content"]], null, null, null, null, null)), (_l()(), i1.ɵeld(4, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(5, 212992, null, 0, i7.RouterOutlet, [i7.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_IndexComponent_1)), i1.ɵdid(7, 16384, null, 0, i6.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(8, 0, null, null, 1, "app-modal", [], null, [["window", "scroll"]], function (_v, en, $event) { var ad = true; if (("window:scroll" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 9).scrollListener($event) !== false);
+    } return ad; }, i5.View_HeaderComponent_0, i5.RenderType_HeaderComponent)), i1.ɵdid(3, 114688, null, 0, i6.HeaderComponent, [i7.DOCUMENT, i1.PLATFORM_ID], { isRoot: [0, "isRoot"], header: [1, "header"], title: [2, "title"], nav: [3, "nav"], contactData: [4, "contactData"] }, null), (_l()(), i1.ɵeld(4, 0, null, null, 2, "main", [["class", "content"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(6, 212992, null, 0, i8.RouterOutlet, [i8.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_IndexComponent_1)), i1.ɵdid(8, 16384, null, 0, i7.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(9, 0, null, null, 1, "app-modal", [], null, [["window", "scroll"]], function (_v, en, $event) { var ad = true; if (("window:scroll" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 10).scrollListener($event) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, i8.View_ModalComponent_0, i8.RenderType_ModalComponent)), i1.ɵdid(9, 114688, null, 0, i9.ModalComponent, [i10.ModalService, i1.Renderer2], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.isRoot; var currVal_1 = _co.header; var currVal_2 = _co.title; var currVal_3 = _co.nav; var currVal_4 = _co.footer.pageData; _ck(_v, 2, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4); _ck(_v, 5, 0); var currVal_5 = _co.isBrowser; _ck(_v, 7, 0, currVal_5); _ck(_v, 9, 0); }, null); }
+    } return ad; }, i9.View_ModalComponent_0, i9.RenderType_ModalComponent)), i1.ɵdid(10, 114688, null, 0, i10.ModalComponent, [i11.ModalService, i1.Renderer2, i1.ChangeDetectorRef], null, null), (_l()(), i1.ɵand(0, [[1, 2], ["cookieConfirmationModal", 2]], null, 0, null, View_IndexComponent_2))], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.isRoot; var currVal_1 = _co.header; var currVal_2 = _co.title; var currVal_3 = _co.nav; var currVal_4 = _co.footer.pageData; _ck(_v, 3, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4); _ck(_v, 6, 0); var currVal_5 = _co.isBrowser; _ck(_v, 8, 0, currVal_5); _ck(_v, 10, 0); }, null); }
 exports.View_IndexComponent_0 = View_IndexComponent_0;
-function View_IndexComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-index", [], null, null, null, View_IndexComponent_0, RenderType_IndexComponent)), i1.ɵdid(1, 114688, null, 0, i11.IndexComponent, [i1.PLATFORM_ID, i6.DOCUMENT, i7.ActivatedRoute, i7.Router, i10.ModalService, i12.I18nService, i1.ChangeDetectorRef, i13.Meta, i14.LanguageGuardService, i13.Title], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_IndexComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-index", [], null, null, null, View_IndexComponent_0, RenderType_IndexComponent)), i1.ɵdid(1, 4308992, null, 0, i12.IndexComponent, [i1.PLATFORM_ID, i7.DOCUMENT, i8.ActivatedRoute, i8.Router, i11.ModalService, i13.I18nService, i1.ChangeDetectorRef, i14.Meta, i15.LanguageGuardService, i14.Title], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_IndexComponent_Host_0 = View_IndexComponent_Host_0;
-var IndexComponentNgFactory = i1.ɵccf("app-index", i11.IndexComponent, View_IndexComponent_Host_0, {}, {}, []);
+var IndexComponentNgFactory = i1.ɵccf("app-index", i12.IndexComponent, View_IndexComponent_Host_0, {}, {}, []);
 exports.IndexComponentNgFactory = IndexComponentNgFactory;
 
 
@@ -2404,7 +2427,7 @@ exports.IndexComponentNgFactory = IndexComponentNgFactory;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [".content[_ngcontent-%COMP%] {\n  margin: 0 auto 250px; }\n  @media (max-width: 767px) {\n    .content[_ngcontent-%COMP%] {\n      margin-bottom: 100px;\n      margin-top: -50px; } }"];
+var styles = [".content[_ngcontent-%COMP%] {\n  margin: 0 auto 250px; }\n  @media (max-width: 767px) {\n    .content[_ngcontent-%COMP%] {\n      margin-bottom: 100px;\n      margin-top: -50px; } }\n  .modal-confirm-wrapper[_ngcontent-%COMP%]   .button-wrapper[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: flex-end; }\n  .modal-confirm-wrapper[_ngcontent-%COMP%]   .button-wrapper[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%] {\n    height: 40px;\n    border: none;\n    text-transform: uppercase;\n    font-weight: 700;\n    padding: 0 50px;\n    font-family: 'Montserrat', sans-serif;\n    cursor: pointer;\n    position: relative;\n    font-size: .8rem;\n    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.15);\n    transition: .3s transform ease;\n    margin-left: 10px; }\n  .modal-confirm-wrapper[_ngcontent-%COMP%]   .button-wrapper[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%]:hover {\n      -webkit-transform: scale(1.2);\n              transform: scale(1.2);\n      transition: .3s transform ease;\n      z-index: 5; }\n  .modal-confirm-wrapper[_ngcontent-%COMP%]   .button-wrapper[_ngcontent-%COMP%]   .button.yes[_ngcontent-%COMP%] {\n      background-color: #0f778b;\n      color: #ffffff; }\n  .modal-confirm-wrapper[_ngcontent-%COMP%]   .button-wrapper[_ngcontent-%COMP%]   .button.no[_ngcontent-%COMP%] {\n      background-color: #ffffff; }"];
 exports.styles = styles;
 
 
@@ -2442,7 +2465,12 @@ var IndexComponent = /** @class */ (function () {
         this.meta = meta;
         this.languageGuardService = languageGuardService;
         this.titleService = titleService;
+        this.dontShowAgain = true;
         var locale = languageGuardService.locale;
+        // if (isPlatformBrowser(this.platformId) && this.cookieService.get('allow') === '1') {
+        //   this.addTrackerCode();
+        //   this.allowTracking = true;
+        // }
         router.events
             .pipe(operators_1.filter(function (e) { return e instanceof router_1.NavigationEnd; }))
             .subscribe(function (e) {
@@ -2452,7 +2480,7 @@ var IndexComponent = /** @class */ (function () {
             var position = locale.pageMetadata.position;
             var fullName = locale.pageMetadata.firstName + " " + locale.pageMetadata.lastName;
             _this.titleService.setTitle(title + " - " + position + " " + fullName);
-            if (environment_1.environment.production && common_1.isPlatformBrowser(core_1.PLATFORM_ID)) {
+            if (environment_1.environment.production && _this.allowTracking && common_1.isPlatformBrowser(core_1.PLATFORM_ID)) {
                 window.ga('create', 'UA-132675881-1', 'auto');
                 window.ga('set', 'page', e.urlAfterRedirects);
                 window.ga('send', 'pageview');
@@ -2460,6 +2488,31 @@ var IndexComponent = /** @class */ (function () {
             _this.changeDetectorRef.markForCheck();
         });
     }
+    IndexComponent.prototype.addTrackerCode = function () {
+        //todo: add code to insert and run scripts here
+    };
+    IndexComponent.prototype.agreeToCookies = function () {
+        // if (isPlatformBrowser(PLATFORM_ID)) {
+        //   if (this.dontShowAgain) {
+        //     this.cookieService.set('dont', '1', 30);
+        //     this.cookieService.set('agree', '1', 30);
+        //   }
+        // }
+        this.closeModal();
+    };
+    IndexComponent.prototype.disagreeToCookies = function () {
+        // if (isPlatformBrowser(PLATFORM_ID)) {
+        //   if (this.dontShowAgain) {
+        //     this.cookieService.set('dont', '1', 30);
+        //     this.cookieService.set('agree', '0', 30);
+        //   }
+        // }
+        // this.cookieService.deleteAll();
+        // this.closeModal();
+    };
+    IndexComponent.prototype.closeModal = function () {
+        this.modalService.closeModal('cookieConfirm', 'dismiss', null);
+    };
     IndexComponent.prototype.ngOnInit = function () {
         // todo: perform more clear way to receive data
         this.title = this.route.snapshot['_resolvedData'].headerData.title;
@@ -2477,6 +2530,11 @@ var IndexComponent = /** @class */ (function () {
             this.meta.addTag({ name: 'og:locale', content: locale.codeISO2 + "_" + locale.locale });
             this.meta.addTag({ name: 'og:description', content: locale.pageMetadata.description });
         }
+    };
+    IndexComponent.prototype.ngAfterViewInit = function () {
+        // if (!this.cookieService.get('dont') && isPlatformBrowser(PLATFORM_ID)) {
+        // this.modalService.openModal('cookieConfirm', this.cookieConfirmationModal, {}, false);
+        // }
     };
     return IndexComponent;
 }());
@@ -2624,7 +2682,7 @@ exports.View_ModalComponent_0 = View_ModalComponent_0;
 function View_ModalComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-modal", [], null, [["window", "scroll"]], function (_v, en, $event) { var ad = true; if (("window:scroll" === en)) {
         var pd_0 = (i1.ɵnov(_v, 1).scrollListener($event) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, View_ModalComponent_0, RenderType_ModalComponent)), i1.ɵdid(1, 114688, null, 0, i3.ModalComponent, [i4.ModalService, i1.Renderer2], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+    } return ad; }, View_ModalComponent_0, RenderType_ModalComponent)), i1.ɵdid(1, 114688, null, 0, i3.ModalComponent, [i4.ModalService, i1.Renderer2, i1.ChangeDetectorRef], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_ModalComponent_Host_0 = View_ModalComponent_Host_0;
 var ModalComponentNgFactory = i1.ɵccf("app-modal", i3.ModalComponent, View_ModalComponent_Host_0, {}, {}, []);
 exports.ModalComponentNgFactory = ModalComponentNgFactory;
@@ -2669,9 +2727,10 @@ var modal_service_1 = __webpack_require__(/*! ../../services/modal.service */ ".
 var operators_1 = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
 var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
 var ModalComponent = /** @class */ (function () {
-    function ModalComponent(modalService, renderer) {
+    function ModalComponent(modalService, renderer, changeDetectorRef) {
         this.modalService = modalService;
         this.renderer = renderer;
+        this.changeDetectorRef = changeDetectorRef;
         this.events$ = new rxjs_1.Subject();
     }
     ModalComponent.prototype.scrollListener = function ($event) {
@@ -2680,7 +2739,9 @@ var ModalComponent = /** @class */ (function () {
         }
     };
     ModalComponent.prototype.closeModal = function (status, resolve) {
-        this.modalService.closeModal('appointment', status, resolve);
+        if (this.modalService.closeWithBackdrop) {
+            this.modalService.closeModal('appointment', status, resolve);
+        }
     };
     ModalComponent.prototype.stopPropagation = function ($event) {
         $event.stopPropagation();
@@ -2694,6 +2755,7 @@ var ModalComponent = /** @class */ (function () {
             _this.template = data.template;
             _this.context = data.context;
             _this.renderer.addClass(document.body, 'modal-overlay');
+            _this.changeDetectorRef.detectChanges();
         });
         this.modalService.modalEvent.pipe(operators_1.filter(function (modalEvent) { return modalEvent.type === 'dismiss' || modalEvent.type === 'success'; })).subscribe(function (data) {
             _this.isModalOpen = false;
@@ -3284,7 +3346,9 @@ var ModalService = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    ModalService.prototype.openModal = function (name, tpl, ctx) {
+    ModalService.prototype.openModal = function (name, tpl, ctx, closeWithBackdrop) {
+        if (closeWithBackdrop === void 0) { closeWithBackdrop = true; }
+        this.closeWithBackdrop = closeWithBackdrop;
         this._modalEvent.next({ name: name, type: 'open', success: true, template: tpl, context: ctx });
     };
     ModalService.prototype.closeModal = function (name, type, data) {

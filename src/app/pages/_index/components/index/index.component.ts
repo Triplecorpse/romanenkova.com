@@ -15,7 +15,6 @@ import {ModalService} from '../../services/modal.service';
 import {I18nService} from '../../../../services/i18n.service';
 import {LanguageGuardService} from "../../../../language-guard.service";
 import {environment} from "../../../../../environments/environment";
-import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-index',
@@ -47,15 +46,14 @@ export class IndexComponent implements OnInit, AfterViewInit {
               private changeDetectorRef: ChangeDetectorRef,
               private meta: Meta,
               private languageGuardService: LanguageGuardService,
-              private titleService: Title,
-              private cookieService: CookieService) {
+              private titleService: Title) {
 
     const locale = languageGuardService.locale;
 
-    if (isPlatformBrowser(this.platformId) && this.cookieService.get('allow') === '1') {
-      this.addTrackerCode();
-      this.allowTracking = true;
-    }
+    // if (isPlatformBrowser(this.platformId) && this.cookieService.get('allow') === '1') {
+    //   this.addTrackerCode();
+    //   this.allowTracking = true;
+    // }
 
     router.events
       .pipe(filter((e: RouterEvent) => e instanceof NavigationEnd))
@@ -82,26 +80,26 @@ export class IndexComponent implements OnInit, AfterViewInit {
   }
 
   agreeToCookies() {
-    if (isPlatformBrowser(PLATFORM_ID)) {
-      if (this.dontShowAgain) {
-        this.cookieService.set('dont', '1', 30);
-        this.cookieService.set('agree', '1', 30);
-      }
-    }
+    // if (isPlatformBrowser(PLATFORM_ID)) {
+    //   if (this.dontShowAgain) {
+    //     this.cookieService.set('dont', '1', 30);
+    //     this.cookieService.set('agree', '1', 30);
+    //   }
+    // }
 
     this.closeModal();
   }
 
   disagreeToCookies() {
-    if (isPlatformBrowser(PLATFORM_ID)) {
-      if (this.dontShowAgain) {
-        this.cookieService.set('dont', '1', 30);
-        this.cookieService.set('agree', '0', 30);
-      }
-    }
+    // if (isPlatformBrowser(PLATFORM_ID)) {
+    //   if (this.dontShowAgain) {
+    //     this.cookieService.set('dont', '1', 30);
+    //     this.cookieService.set('agree', '0', 30);
+    //   }
+    // }
 
-    this.cookieService.deleteAll();
-    this.closeModal();
+    // this.cookieService.deleteAll();
+    // this.closeModal();
   }
 
   closeModal() {
@@ -129,8 +127,8 @@ export class IndexComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if (!this.cookieService.get('dont') && isPlatformBrowser(PLATFORM_ID)) {
+    // if (!this.cookieService.get('dont') && isPlatformBrowser(PLATFORM_ID)) {
       // this.modalService.openModal('cookieConfirm', this.cookieConfirmationModal, {}, false);
-    }
+    // }
   }
 }

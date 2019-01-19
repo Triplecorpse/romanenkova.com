@@ -12,6 +12,8 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: ["Psychologist", "Irina", "Romanenkova"], anchor: "name"},
                 {name: "About me", anchor: "about"},
                 {name: "Services", anchor: "services"},
+                {name: "Diplomas", anchor: "diplomas"},
+                // {name: "Articles", anchor: "articles"},
                 {name: "Contacts", anchor: "contacts"}
             ],
             language: 'en',
@@ -25,6 +27,8 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: ["Психолог", "Ирина", "Романенкова"], anchor: "name"},
                 {name: "Обо мне", anchor: "about"},
                 {name: "Услуги", anchor: "services"},
+                {name: "Дипломы", anchor: "diplomas"},
+                // {name: "Статьи", anchor: "articles"},
                 {name: "Контакты", anchor: "contacts"}
             ],
             language: 'ru',
@@ -38,6 +42,8 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: ["Психолог", "Ірина", "Романенкова"], anchor: "name"},
                 {name: "Про мене", anchor: "about"},
                 {name: "Послуги", anchor: "services"},
+                {name: "Дипломи", anchor: "diplomas"},
+                // {name: "Статті", anchor: "articles"},
                 {name: "Контакти", anchor: "contacts"}
             ],
             language: 'uk',
@@ -46,11 +52,13 @@ export function getNavPageData(): Promise<Array<IPage>> {
         },
         {
             pageData: [
-                {name: ["en ligne", "Psychologie"], anchor: "main"},
+                {name: ["En ligne", "Psychologie"], anchor: "main"},
                 {name: "Prendre rendez-vous", anchor: "appointment"},
                 {name: ["Psychologue", "Irina", "Romanenkova"], anchor: "name"},
                 {name: "Sur moi", anchor: "about"},
                 {name: "Services", anchor: "services"},
+                {name: "Diplômes", anchor: "diplomas"},
+                // {name: "Articles", anchor: "articles"},
                 {name: "Contacts", anchor: "contacts"}
             ],
             language: 'fr',

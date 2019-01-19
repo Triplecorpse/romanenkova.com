@@ -1,19 +1,12 @@
 import express = require('express');
 import api from './api/index';
-import {readFile, replaceTemplateVariables} from '../services/file-service';
+import {readFile} from '../services/file-service';
 import log from './../services/log-service';
 import {Request, Response} from "express-serve-static-core";
 import IRequest from "../interfaces/iRequest";
 import {NextFunction} from "express";
-import {langObjects, languages, templateVars} from "../const/const";
-import {IPage} from "../models/page";
-import {readInterface as readInterface} from '../services/db-middleware/interface';
-import {TLanguage} from "../types/types";
-import * as util from "util";
-import {ILanguageObject} from "../interfaces/iLanguageObject";
-import {enableProdMode} from "@angular/core";
+import {languages} from "../const/const";
 import {join} from "path";
-import {readFileSync} from "fs";
 
 const parseAcceptLanguage = require('parse-accept-language');
 const builtOn = new Date();
