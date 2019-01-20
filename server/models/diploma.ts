@@ -13,13 +13,13 @@ export interface IDiploma extends IMongooseSchema {
 }
 
 const schema = new mongoose.Schema({
-  itemId: {type: String, required: true},
+  itemId: {type: String, required: false},
   picture: {type: String, required: true},
   header: {type: String, required: true},
   graduateYear: {type: Number, required: true},
   description: {type: String, required: false},
-  isPublished: {type: Boolean, required: true, default: false},
-  entityId: {type: String, required: true}
+  isPublished: {type: Boolean, required: true, default: true},
+  entityId: {type: String, required: false}
 });
 
 export const Diploma = mongoose.model('Diploma', schema);

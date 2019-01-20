@@ -1,0 +1,22 @@
+<div class="diploma-wrapper">
+  <div class="diploma-photo-wrapper" (click)="showBigPicture()">
+    <div class="diploma-photo" [style.background-image]="'url(' + diploma.picture + ')'"></div>
+  </div>
+  <div class="diploma-description-wrapper">
+    <div class="diploma-description">
+      <h4 class="diploma-description-header">{{diploma.header}}</h4>
+      <p CLASS="diploma-description-graduate">{{diploma.graduateYear}}</p>
+      <a routerLink="diplomas">
+        <button class="diploma-button">View All</button>
+      </a>
+    </div>
+  </div>
+</div>
+
+<ng-template #pictureTpl let-modalData="modalData" let-events="events">
+  <div class="img-contents">
+    <a class="img-wrapper" [href]="modalData" target="_blank">
+      <img class="img" [src]="modalData" alt="">
+    </a>
+  </div>
+</ng-template>

@@ -15,6 +15,7 @@ import {fade} from '../../shortcuts/animations';
 })
 export class ModalComponent implements OnInit {
   isModalOpen: boolean;
+  isFullScreen: boolean;
   openModalName: string;
   template: TemplateRef<any>;
   context: any;
@@ -51,6 +52,7 @@ export class ModalComponent implements OnInit {
       this.template = data.template;
       this.context = data.context;
       this.renderer.addClass(document.body, 'modal-overlay');
+      this.isFullScreen = this.modalService.isFullScreen;
       this.changeDetectorRef.detectChanges();
     });
 
@@ -61,5 +63,7 @@ export class ModalComponent implements OnInit {
       this.openModalName = void 0;
       this.renderer.removeClass(document.body, 'modal-overlay');
     });
+
+    this.isFullScreen
   }
 }

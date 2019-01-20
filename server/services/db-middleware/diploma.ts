@@ -29,7 +29,8 @@ export function readDiploma(typeId?: string, isAdmin = false): Promise<Array<IDi
 
 export function createDiploma(diploma: IDiploma): Promise<IDiploma> {
   return Diploma.create(diploma)
-    .then(() => diploma);
+    .then(() => diploma)
+    .catch(err => {throw new Error(err.message)})
 }
 
 export function updateDiploma(id: string, newDiploma: IDiploma): Promise<IDiploma> {
@@ -38,6 +39,7 @@ export function updateDiploma(id: string, newDiploma: IDiploma): Promise<IDiplom
 }
 
 export function removeDiploma(_id: string): Promise<any> {
-  return Diploma.deleteOne({_id})
+  console.log(_id);
+  return Diploma.findOneAndDelete({_id})
     .then(result => result);
 }

@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef, HostListener, Inject, Input, OnInit, ViewChild} from '@angular/core';
 import IPage from '../../../../interfaces/iPage';
-import {IContact} from '../../../../interfaces/iContact';
+import {IContact} from '../../../../interfaces/IContact';
 import {DOCUMENT} from '@angular/common';
 import {fade} from '../../shortcuts/animations';
 

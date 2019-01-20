@@ -32,6 +32,11 @@
   max-height: 100vh;
   overflow-y: auto;
 
+  &.full-screen {
+    max-width: none;
+    height: 100%;
+  }
+
   @include mobile-breakpoint {
     width: 100%;
     min-height: 100%;

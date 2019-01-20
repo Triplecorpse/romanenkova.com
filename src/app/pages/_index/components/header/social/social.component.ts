@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {IContact} from '../../../../../interfaces/iContact';
+import {IContact} from '../../../../../interfaces/IContact';
 
 @Component({
   selector: 'app-social',

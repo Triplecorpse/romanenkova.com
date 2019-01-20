@@ -1,10 +1,9 @@
 import {Injectable, TemplateRef} from '@angular/core';
 import IPage from '../../../interfaces/iPage';
 import {IModalAppointment} from '../../../interfaces/iModalAppointment';
-import {Observable, Subject} from 'rxjs';
+import {Subject} from 'rxjs';
 import {IModalEvent} from '../../../interfaces/iModalEvent';
 import {IService} from '../../../interfaces/IService';
-import {IModalAddReview} from "../../../interfaces/iModalAddReview";
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +13,7 @@ export class ModalService {
   private _modalEvent: Subject<IModalEvent> = new Subject<IModalEvent>();
   public services: Array<IService>;
   public closeWithBackdrop: boolean;
+  public isFullScreen: boolean;
 
   public set modalAppointment(value: IPage<IModalAppointment>) {
     if (this._modalAppointment) {
@@ -31,8 +31,9 @@ export class ModalService {
     return this._modalEvent.asObservable();
   }
 
-  public openModal(name: string, tpl: TemplateRef<any>, ctx: any, closeWithBackdrop: boolean = true) {
-    this.closeWithBackdrop = closeWithBackdrop;
+  public openModal(name: string, tpl: TemplateRef<any>, ctx: any, options: IModalOptions = {}) {
+    this.closeWithBackdrop = options.closeWithBackdrop !== false;
+    this.isFullScreen = options.fullScreen;
     this._modalEvent.next({name, type: 'open', success: true, template: tpl, context: ctx});
   }
 

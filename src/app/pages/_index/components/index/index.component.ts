@@ -9,7 +9,7 @@ import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/route
 import {INavigationItem} from '../../../../interfaces/iNavigation';
 import {filter} from 'rxjs/operators';
 import IPage from '../../../../interfaces/iPage';
-import {IContact} from '../../../../interfaces/iContact';
+import {IContact} from '../../../../interfaces/IContact';
 import {IModalAppointment} from '../../../../interfaces/iModalAppointment';
 import {ModalService} from '../../services/modal.service';
 import {I18nService} from '../../../../services/i18n.service';

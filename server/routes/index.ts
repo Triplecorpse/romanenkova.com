@@ -18,6 +18,10 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
         languages.find((acceptable: string) => lang.language === acceptable)
     );
 
+    if (req.url.indexOf('https') > -1) {
+
+    }
+
     req.language = req.query.lang || (languageObj ? languageObj.language : 'en');
     next();
 });

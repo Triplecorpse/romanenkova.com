@@ -1,0 +1,48 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.overview-diploma {
+  &-wrapper {
+    margin-top: 200px;
+  }
+
+  &-header {
+    width: 50%;
+    margin-bottom: -20px;
+    z-index: 2;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      background-image: url(/assets/diploma.svg);
+      background-size: 46px 46px;
+      height: 46px;
+      width: 46px;
+      margin: 0 0 25px 0;
+
+    }
+
+    @include tablet-breakpoint {
+      text-align: center;
+      margin: 0 auto -10px;
+
+      &:before {
+        margin: 0 auto 25px;;
+      }
+    }
+  }
+}
+
+.swiper-slide {
+  &-wrapper {
+    height: 466px;
+    width: calc(100% - 300px);
+    margin: 0 auto;
+
+    @include tablet-breakpoint {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

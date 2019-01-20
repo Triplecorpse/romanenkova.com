@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, HostListener, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
 import {INavigationItem} from '../../../../interfaces/iNavigation';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
-import {IContact} from '../../../../interfaces/iContact';
+import {IContact} from '../../../../interfaces/IContact';
 
 export interface ILanguageState {
   open: boolean;

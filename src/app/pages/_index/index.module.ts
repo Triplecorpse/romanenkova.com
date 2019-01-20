@@ -23,6 +23,8 @@ import {InterceptResponseService} from './services/intercept-response.service';
 import {PipesModule} from '../../pipes/pipes.module';
 import { OverviewReviewsComponent } from './components/overview-reviews/overview-reviews.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
+import { OverviewDiplomasComponent } from './components/overview-diplomas/overview-diplomas.component';
+import { DiplomaComponent } from './components/diploma/diploma.component';
 
 @NgModule({
   imports: [
@@ -85,7 +87,9 @@ import {NgxCaptchaModule} from 'ngx-captcha';
     LanguageSelectorComponent,
     ModalComponent,
     OverviewAboutComponent,
-    OverviewReviewsComponent
+    OverviewReviewsComponent,
+    OverviewDiplomasComponent,
+    DiplomaComponent
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},

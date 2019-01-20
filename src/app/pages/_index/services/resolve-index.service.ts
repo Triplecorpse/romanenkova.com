@@ -6,7 +6,7 @@ import {map} from 'rxjs/operators';
 import {INavigationItem, INavigationUrl} from '../../../interfaces/iNavigation';
 import IPage from '../../../interfaces/iPage';
 import {IIndexPageData} from '../../../interfaces/iIndexPageData';
-import {IContact} from '../../../interfaces/iContact';
+import {IContact} from '../../../interfaces/IContact';
 import {IModalAppointment} from '../../../interfaces/iModalAppointment';
 
 @Injectable({

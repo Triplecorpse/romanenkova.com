@@ -137,6 +137,13 @@ $arrow: 2px solid #ffffff;
   &__side-slide-next {
     right: 0;
   }
+
+  &__side-slide-mobile-hide {
+    @include tablet-breakpoint {
+      display: none;
+    }
+  }
+
 }
 
 @keyframes arrowleft {

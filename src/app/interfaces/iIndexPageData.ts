@@ -1,5 +1,5 @@
 import {INavigationItem} from './iNavigation';
-import {IContact} from './iContact';
+import {IContact} from './IContact';
 import IPage from './iPage';
 import {IModalAppointment} from './iModalAppointment';
 

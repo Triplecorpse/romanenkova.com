@@ -4,6 +4,7 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {combineLatest, Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import IPage from '../../../interfaces/iPage';
+import {IDiploma} from "../../../interfaces/IDiploma";
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +12,16 @@ import IPage from '../../../interfaces/iPage';
 export class ResolveMainPageService implements Resolve<Array<any>> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Array<any>> {
     const lang = this.languageGuard.selectedLang;
-    let aboutPage$;
-    aboutPage$ = this.httpClient.get<IPage<string>>('interface', {
+    const aboutPage$ = this.httpClient.get<IPage<string>>('interface', {
       params: {
         lang,
         id: ['about', 'review', '[modal] review']
       }
     });
 
-    return combineLatest([aboutPage$]);
+    const diploma$ = this.httpClient.get<IDiploma>('diploma');
+
+    return combineLatest([aboutPage$, diploma$]);
   }
 
   constructor(private languageGuard: LanguageGuardService,

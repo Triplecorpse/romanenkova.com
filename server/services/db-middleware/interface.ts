@@ -39,7 +39,7 @@ export function readInterface(entityId: string | Array<string>, language: string
     .then((result: any) => {
         return result[0].map((page: IPage): IPage => {
           let pageBody = page.pageData || {};
-          let pageLanguage: TLanguage = page.language;
+          let pageLanguage: TLanguage = page.language as TLanguage;
 
           if ((page.entityId === 'service' || page.entityId === 'review' || page.entityId === 'diploma') && result[1]) {
             if (Object.keys(pageBody).length) {
