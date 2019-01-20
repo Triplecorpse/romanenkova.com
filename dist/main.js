@@ -85,7 +85,7 @@
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! @angular/router */ "@angular/router");
@@ -118,7 +118,7 @@ exports.ɵEmptyOutletComponentNgFactory = ɵEmptyOutletComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! ngx-captcha */ "ngx-captcha");
@@ -162,7 +162,7 @@ exports.InvisibleReCaptchaComponentNgFactory = InvisibleReCaptchaComponentNgFact
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! ngx-swiper-wrapper */ "ngx-swiper-wrapper");
@@ -244,7 +244,7 @@ exports.AppRoutingModule = AppRoutingModule;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./app.component.scss.shim.ngstyle */ "./src/app/app.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -277,7 +277,7 @@ exports.AppComponentNgFactory = AppComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".container[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start; }\n\n.footer[_ngcontent-%COMP%] {\n  margin-top: auto; }"];
 exports.styles = styles;
@@ -339,7 +339,7 @@ exports.AppModule = AppModule;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! ./app.server.module */ "./src/app/app.server.module.ts");
@@ -418,7 +418,7 @@ exports.AppServerModule = AppServerModule;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./attend-button.component.scss.shim.ngstyle */ "./src/app/components/attend-button/attend-button.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -490,7 +490,7 @@ exports.AttendButtonComponentNgFactory = AttendButtonComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".attend-button[_ngcontent-%COMP%] {\n  height: 70px;\n  background-color: #fff;\n  border: none;\n  text-transform: uppercase;\n  font-weight: 700;\n  padding: 0 50px;\n  font-family: 'Montserrat', sans-serif;\n  cursor: pointer;\n  position: relative;\n  -webkit-transform: perspective(1px) translateZ(0);\n          transform: perspective(1px) translateZ(0);\n  transition: color .3s ease;\n  font-size: .8rem;\n  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.15); }\n  @media (max-width: 767px) {\n    .attend-button[_ngcontent-%COMP%] {\n      width: 100%; } }\n  .attend-button[_ngcontent-%COMP%]:before {\n    content: '';\n    background-color: #0f778b;\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 100%;\n    bottom: 0;\n    z-index: -1;\n    transition: right .3s ease; }\n  .attend-button[_ngcontent-%COMP%]:hover {\n    color: #ffffff;\n    transition: color .3s ease; }\n  .attend-button[_ngcontent-%COMP%]:hover:before {\n      right: 0;\n      transition: right .3s ease; }\n  .datetime[_ngcontent-%COMP%], .messenger[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between; }\n  .datetime[_ngcontent-%COMP%]   .date[_ngcontent-%COMP%], .datetime[_ngcontent-%COMP%]   .time[_ngcontent-%COMP%], .datetime[_ngcontent-%COMP%]   .msn-input-wrapper[_ngcontent-%COMP%], .datetime[_ngcontent-%COMP%]   .msn-select[_ngcontent-%COMP%], .messenger[_ngcontent-%COMP%]   .date[_ngcontent-%COMP%], .messenger[_ngcontent-%COMP%]   .time[_ngcontent-%COMP%], .messenger[_ngcontent-%COMP%]   .msn-input-wrapper[_ngcontent-%COMP%], .messenger[_ngcontent-%COMP%]   .msn-select[_ngcontent-%COMP%] {\n    flex-basis: calc(50% - 10px); }\n  .recaptcha[_ngcontent-%COMP%] {\n  margin: 20px 0;\n  display: flex;\n  justify-content: center; }\n  .submit-button[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 70px;\n  width: 100%;\n  border: none;\n  background-color: #0f778b;\n  color: #ffffff;\n  position: relative;\n  font-size: 1rem;\n  text-transform: uppercase;\n  cursor: pointer; }\n  .submit-button[disabled][_ngcontent-%COMP%] {\n    background-color: #e5e5e5;\n    cursor: pointer; }\n  .submit-button[_ngcontent-%COMP%]   .loader[_ngcontent-%COMP%] {\n    width: 20px;\n    height: 20px;\n    background-color: rgba(255, 255, 255, 0.5);\n    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);\n    -webkit-animation: submitting 1s ease infinite;\n            animation: submitting 1s ease infinite;\n    right: 50px;\n    position: absolute; }\n  .explanation[_ngcontent-%COMP%] {\n  margin-top: 11px;\n  line-height: 16px;\n  font-size: 14px; }\n  .explanation-p[_ngcontent-%COMP%] {\n    margin-bottom: 10px; }\n  .explanation-p[_ngcontent-%COMP%]:last-child {\n      margin-bottom: 0; }\n  .explanation.oneof-field-err[_ngcontent-%COMP%] {\n    margin-top: 0;\n    color: #8b610f; }\n  .explanation.uniq-field-err[_ngcontent-%COMP%] {\n    margin-top: 0;\n    color: #8b230f; }\n  .header[_ngcontent-%COMP%] {\n  text-align: center; }\n  @-webkit-keyframes submitting {\n  0% {\n    opacity: 0; }\n  66.667% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n  @keyframes submitting {\n  0% {\n    opacity: 0; }\n  66.667% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }"];
 exports.styles = styles;
@@ -722,7 +722,7 @@ exports.ComponentsModule = ComponentsModule;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./date-input.component.scss.shim.ngstyle */ "./src/app/components/date-input/date-input.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -811,7 +811,7 @@ exports.DateInputComponentNgFactory = DateInputComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".input[_ngcontent-%COMP%] {\n  display: block;\n  width: 100%;\n  height: 30px;\n  border: none;\n  border-bottom: 1px solid;\n  border-bottom-color: #000000;\n  font-size: 1rem;\n  border-radius: 0; }\n  .input-subscr[_ngcontent-%COMP%] {\n    font-size: 10px;\n    position: absolute;\n    top: calc(100% + 5px);\n    line-height: 1.1;\n    text-align: right;\n    width: 100%;\n    color: rgba(0, 0, 0, 0.5); }\n  .input[_ngcontent-%COMP%]:focus    + .input-text[_ngcontent-%COMP%] {\n    font-size: 10px;\n    -webkit-transform: translateY(-100%);\n            transform: translateY(-100%);\n    top: 3px;\n    transition: .5s all ease; }\n  .input-wrapper[_ngcontent-%COMP%] {\n    display: block;\n    padding-top: 20px;\n    position: relative; }\n  .input-wrapper.invalid[_ngcontent-%COMP%] {\n      color: #8b230f; }\n  .input-wrapper.invalid[_ngcontent-%COMP%]   .input[_ngcontent-%COMP%] {\n        color: #8b230f;\n        border-bottom-color: #8b230f; }\n  .input-label[_ngcontent-%COMP%] {\n    display: block;\n    position: relative; }\n  .input-label[_ngcontent-%COMP%]:hover   .input[_ngcontent-%COMP%] {\n      border-bottom-color: #0f778b;\n      color: #0f778b; }\n  .input-label[_ngcontent-%COMP%]:hover   .input-text[_ngcontent-%COMP%], .input-label[_ngcontent-%COMP%]:hover   .input-icon[_ngcontent-%COMP%] {\n        color: #0f778b; }\n  .input-text[_ngcontent-%COMP%] {\n    position: absolute;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    top: 50%;\n    font-size: 1rem;\n    transition: .5s all ease;\n    cursor: inherit; }\n  .input-text.top[_ngcontent-%COMP%] {\n      font-size: 10px;\n      -webkit-transform: translateY(-100%);\n              transform: translateY(-100%);\n      top: 3px; }\n  .input-icon[_ngcontent-%COMP%] {\n    position: absolute;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    top: 50%;\n    right: 0;\n    cursor: pointer; }\n  .calendar-wrapper[_ngcontent-%COMP%] {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  z-index: 20;\n  background-color: #fff;\n  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);\n  width: 322px; }\n  .calendar-month[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 15px 8px 8px; }\n  .calendar-month[_ngcontent-%COMP%]   .prev[_ngcontent-%COMP%], .calendar-month[_ngcontent-%COMP%]   .next[_ngcontent-%COMP%] {\n    width: 30px;\n    height: 30px;\n    border-radius: 50%;\n    background-color: #0f778b;\n    position: relative;\n    cursor: pointer; }\n  .calendar-month[_ngcontent-%COMP%]   .prev.hidden[_ngcontent-%COMP%], .calendar-month[_ngcontent-%COMP%]   .next.hidden[_ngcontent-%COMP%] {\n      visibility: hidden; }\n  .calendar-month[_ngcontent-%COMP%]   .prev[_ngcontent-%COMP%]:after, .calendar-month[_ngcontent-%COMP%]   .next[_ngcontent-%COMP%]:after {\n      content: '';\n      display: block;\n      position: absolute;\n      width: 5px;\n      height: 5px;\n      -webkit-transform: translate(-50%, -50%) rotate(45deg);\n              transform: translate(-50%, -50%) rotate(45deg);\n      top: 50%; }\n  .calendar-month[_ngcontent-%COMP%]   .prev[_ngcontent-%COMP%]:after {\n    border-bottom: 1px solid #ffffff;\n    border-left: 1px solid #ffffff;\n    left: calc(50% + 1px); }\n  .calendar-month[_ngcontent-%COMP%]   .next[_ngcontent-%COMP%]:after {\n    border-top: 1px solid #ffffff;\n    border-right: 1px solid #ffffff;\n    left: calc(50% - 1px); }\n  .calendar-month[_ngcontent-%COMP%]   .label[_ngcontent-%COMP%] {\n    font-weight: 700; }\n  .calendar-weekdays[_ngcontent-%COMP%] {\n  display: flex;\n  width: 100%; }\n  .calendar-weekdays[_ngcontent-%COMP%]   .weekday[_ngcontent-%COMP%] {\n    flex-basis: 30px;\n    height: 30px;\n    text-align: center;\n    flex-grow: 0;\n    flex-shrink: 0;\n    color: #bebebe;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin: 0 8px; }\n  .calendar-dates[_ngcontent-%COMP%] {\n  display: flex;\n  width: 100%;\n  flex-wrap: wrap;\n  padding-bottom: 15px; }\n  .calendar-dates[_ngcontent-%COMP%]   .date[_ngcontent-%COMP%] {\n    flex-basis: 30px;\n    height: 30px;\n    border-radius: 50%;\n    text-align: center;\n    flex-grow: 0;\n    flex-shrink: 0;\n    cursor: pointer;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin: 0 8px;\n    background-color: #fff;\n    transition: .3s background-color ease; }\n  .calendar-dates[_ngcontent-%COMP%]   .date.active[_ngcontent-%COMP%] {\n      background-color: #71c341; }\n  .calendar-dates[_ngcontent-%COMP%]   .date.disabled[_ngcontent-%COMP%] {\n      background-color: #f4f4f4;\n      color: #bebebe;\n      pointer-events: none; }\n  .calendar-dates[_ngcontent-%COMP%]   .date[_ngcontent-%COMP%]:hover {\n      background-color: #71c341;\n      transition: .3s background-color ease; }"];
 exports.styles = styles;
@@ -1048,7 +1048,7 @@ exports.DateInputComponent = DateInputComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./input.component.scss.shim.ngstyle */ "./src/app/components/input/input.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -1101,7 +1101,7 @@ exports.InputComponentNgFactory = InputComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".ng-invalid[_nghost-%COMP%]   .input-wrapper[_ngcontent-%COMP%] {\n  color: #8b230f; }\n  .ng-invalid[_nghost-%COMP%]   .input-wrapper[_ngcontent-%COMP%]   .input[_ngcontent-%COMP%]:not(:hover) {\n    color: #8b230f;\n    border-bottom-color: #8b230f; }\n  .input[_ngcontent-%COMP%] {\n  display: block;\n  width: 100%;\n  height: 30px;\n  border: none;\n  border-bottom: 1px solid;\n  border-bottom-color: #000000;\n  font-size: 1rem;\n  border-radius: 0; }\n  .input[_ngcontent-%COMP%]:focus    + .input-text[_ngcontent-%COMP%] {\n    font-size: 10px;\n    -webkit-transform: translateY(-100%);\n            transform: translateY(-100%);\n    top: 3px;\n    transition: .5s all ease; }\n  .input-wrapper[_ngcontent-%COMP%] {\n    display: block;\n    padding-top: 20px; }\n  .input-wrapper.disabled[_ngcontent-%COMP%] {\n      color: #bebebe; }\n  .input-wrapper.disabled[_ngcontent-%COMP%]   .input[_ngcontent-%COMP%] {\n        border-bottom-color: #bebebe;\n        background-color: #ffffff;\n        pointer-events: none; }\n  .input-wrapper.disabled[_ngcontent-%COMP%]   .input-label[_ngcontent-%COMP%] {\n          pointer-events: none; }\n  .input-wrapper.disabled[_ngcontent-%COMP%]   .input-label[_ngcontent-%COMP%]:hover   .input[_ngcontent-%COMP%] {\n            border-bottom-color: #bebebe;\n            color: #bebebe; }\n  .input-wrapper.disabled[_ngcontent-%COMP%]   .input-label[_ngcontent-%COMP%]:hover   .input-text[_ngcontent-%COMP%], .input-wrapper.disabled[_ngcontent-%COMP%]   .input-label[_ngcontent-%COMP%]:hover   .input-icon[_ngcontent-%COMP%] {\n              color: #bebebe; }\n  .input-label[_ngcontent-%COMP%] {\n    display: block;\n    position: relative; }\n  .input-label[_ngcontent-%COMP%]:hover   .input[_ngcontent-%COMP%] {\n      border-bottom-color: #0f778b;\n      color: #0f778b; }\n  .input-label[_ngcontent-%COMP%]:hover   .input-text[_ngcontent-%COMP%], .input-label[_ngcontent-%COMP%]:hover   .input-icon[_ngcontent-%COMP%] {\n        color: #0f778b; }\n  .input-text[_ngcontent-%COMP%] {\n    position: absolute;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    top: 50%;\n    font-size: 1rem;\n    transition: .5s all ease;\n    cursor: text; }\n  .input-text.top[_ngcontent-%COMP%] {\n      font-size: 10px;\n      -webkit-transform: translateY(-100%);\n              transform: translateY(-100%);\n      top: 3px; }\n  .input-icon[_ngcontent-%COMP%] {\n    position: absolute;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    top: 50%;\n    right: 0; }"];
 exports.styles = styles;
@@ -1166,7 +1166,7 @@ exports.InputComponent = InputComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./select.component.scss.shim.ngstyle */ "./src/app/components/select/select.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -1231,7 +1231,7 @@ exports.SelectComponentNgFactory = SelectComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".input[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  width: 100%;\n  border: none;\n  border-bottom: 1px solid;\n  border-bottom-color: #000000;\n  font-size: 1rem;\n  border-radius: 0;\n  min-height: 30px;\n  padding-right: 15px; }\n  .input-wrapper[_ngcontent-%COMP%] {\n    display: block;\n    padding-top: 20px;\n    position: relative; }\n  .input-wrapper.disabled[_ngcontent-%COMP%] {\n      color: #bebebe; }\n  .input-wrapper.disabled[_ngcontent-%COMP%]   .input[_ngcontent-%COMP%] {\n        border-bottom-color: #bebebe;\n        pointer-events: none; }\n  .input-wrapper.disabled[_ngcontent-%COMP%]   .input-label[_ngcontent-%COMP%] {\n          pointer-events: none; }\n  .input-wrapper.disabled[_ngcontent-%COMP%]   .input-label[_ngcontent-%COMP%]:hover   .input[_ngcontent-%COMP%] {\n            border-bottom-color: #bebebe;\n            color: #bebebe; }\n  .input-wrapper.disabled[_ngcontent-%COMP%]   .input-label[_ngcontent-%COMP%]:hover   .input-text[_ngcontent-%COMP%], .input-wrapper.disabled[_ngcontent-%COMP%]   .input-label[_ngcontent-%COMP%]:hover   .input-icon[_ngcontent-%COMP%] {\n              color: #bebebe; }\n  .input-label[_ngcontent-%COMP%] {\n    display: block;\n    position: relative; }\n  .input-label[_ngcontent-%COMP%]:hover   .input[_ngcontent-%COMP%] {\n      border-bottom-color: #0f778b;\n      color: #0f778b; }\n  .input-label[_ngcontent-%COMP%]:hover   .input-text[_ngcontent-%COMP%], .input-label[_ngcontent-%COMP%]:hover   .input-icon[_ngcontent-%COMP%] {\n        color: #0f778b; }\n  .input-text[_ngcontent-%COMP%] {\n    position: absolute;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    top: 50%;\n    font-size: 1rem;\n    transition: .5s all ease;\n    cursor: inherit; }\n  .input-text.top[_ngcontent-%COMP%] {\n      font-size: 10px;\n      -webkit-transform: translateY(-100%);\n              transform: translateY(-100%);\n      top: 3px; }\n  .input-subscr[_ngcontent-%COMP%] {\n    font-size: 10px;\n    position: absolute;\n    top: calc(100% + 5px);\n    line-height: 1.1;\n    color: rgba(0, 0, 0, 0.5); }\n  .input-icon[_ngcontent-%COMP%] {\n    position: absolute;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    top: 50%;\n    right: 0; }\n  .list[_ngcontent-%COMP%] {\n  list-style: none; }\n  .list-wrapper[_ngcontent-%COMP%] {\n    position: absolute;\n    display: flex;\n    flex-direction: column;\n    z-index: 20;\n    background-color: #fff;\n    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);\n    right: 0;\n    padding: 15px;\n    min-width: 100%; }\n  .list-item[_ngcontent-%COMP%] {\n    cursor: pointer;\n    transition: .3s color ease;\n    position: relative; }\n  .list-item.separator[_ngcontent-%COMP%] {\n      margin-bottom: 1rem; }\n  .list-item.separator[_ngcontent-%COMP%]:after {\n      content: '';\n      position: absolute;\n      display: block;\n      width: 100%;\n      height: 1px;\n      background-color: #bebebe;\n      margin-top: .5rem;\n      margin-bottom: .5rem;\n      top: 1.4rem; }\n  .list-item[_ngcontent-%COMP%]:hover {\n      color: #71c341;\n      transition: .3s color ease; }\n  .list-separator[_ngcontent-%COMP%] {\n    border-bottom: 1px solid #bebebe;\n    margin-top: .5rem;\n    margin-bottom: .5rem;\n    width: 100%; }"];
 exports.styles = styles;
@@ -1370,7 +1370,7 @@ exports.SelectComponent = SelectComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./slider.component.scss.shim.ngstyle */ "./src/app/components/slider/slider.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -1390,14 +1390,14 @@ function View_SliderComponent_3(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0
         ad = (pd_0 && ad);
     } return ad; }, null, null))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = (_co.currentIndex === (_co.slides.length - 1)); _ck(_v, 0, 0, currVal_0); }); }
 function View_SliderComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 11, "div", [["class", "ngx-swiper__header"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 6, "div", [["class", "ngx-swiper__slide-display"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "span", [["class", "slide-current accent"]], null, null, null, null, null)), (_l()(), i1.ɵted(3, null, ["", ""])), (_l()(), i1.ɵeld(4, 0, null, null, 1, "span", [["class", "separator"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["/"])), (_l()(), i1.ɵeld(6, 0, null, null, 1, "span", [["class", "slide-total"]], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", ""])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_SliderComponent_2)), i1.ɵdid(9, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_SliderComponent_3)), i1.ɵdid(11, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_2 = !_co.sideButtons; _ck(_v, 9, 0, currVal_2); var currVal_3 = !_co.sideButtons; _ck(_v, 11, 0, currVal_3); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = (_co.currentIndex + 1); _ck(_v, 3, 0, currVal_0); var currVal_1 = _co.slides.length; _ck(_v, 7, 0, currVal_1); }); }
-function View_SliderComponent_4(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 0, "div", [["class", "ngx-swiper__side-slide-prev"]], [[2, "disabled", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+function View_SliderComponent_4(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 0, "div", [["class", "ngx-swiper__side-slide-prev"]], [[2, "ngx-swiper__side-slide-mobile-hide", null], [2, "disabled", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.slidePrev() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = (_co.currentIndex === 0); _ck(_v, 0, 0, currVal_0); }); }
-function View_SliderComponent_5(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 0, "div", [["class", "ngx-swiper__side-slide-next"]], [[2, "disabled", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+    } return ad; }, null, null))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = !_co.sideButtonsMobile; var currVal_1 = (_co.currentIndex === 0); _ck(_v, 0, 0, currVal_0, currVal_1); }); }
+function View_SliderComponent_5(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 0, "div", [["class", "ngx-swiper__side-slide-next"]], [[2, "ngx-swiper__side-slide-mobile-hide", null], [2, "disabled", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.slideNext() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = (_co.currentIndex === (_co.slides.length - 1)); _ck(_v, 0, 0, currVal_0); }); }
+    } return ad; }, null, null))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = !_co.sideButtonsMobile; var currVal_1 = (_co.currentIndex === (_co.slides.length - 1)); _ck(_v, 0, 0, currVal_0, currVal_1); }); }
 function View_SliderComponent_7(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 0, null, null, null, null, null, null, null))], null, null); }
 function View_SliderComponent_6(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 4, null, null, null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, [[2, 0], ["slideTpl", 1]], null, 3, "div", [], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 2, null, View_SliderComponent_7)), i1.ɵdid(3, 540672, null, 0, i2.NgTemplateOutlet, [i1.ViewContainerRef], { ngTemplateOutletContext: [0, "ngTemplateOutletContext"], ngTemplateOutlet: [1, "ngTemplateOutlet"] }, null), i1.ɵpod(4, { slide: 0 })], function (_ck, _v) { var _co = _v.component; var currVal_0 = _ck(_v, 4, 0, _v.context.$implicit); var currVal_1 = _co.template; _ck(_v, 3, 0, currVal_0, currVal_1); }, null); }
 function View_SliderComponent_0(_l) { return i1.ɵvid(2, [i1.ɵqud(402653184, 1, { swiper: 0 }), i1.ɵqud(671088640, 2, { slideTpls: 1 }), (_l()(), i1.ɵeld(2, 0, null, null, 10, "div", [["class", "ngx-swiper__wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_SliderComponent_1)), i1.ɵdid(4, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_SliderComponent_4)), i1.ɵdid(6, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_SliderComponent_5)), i1.ɵdid(8, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(9, 0, null, null, 3, "swiper", [], null, [[null, "indexChange"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("indexChange" === en)) {
@@ -1410,7 +1410,7 @@ function View_SliderComponent_0(_l) { return i1.ɵvid(2, [i1.ɵqud(402653184, 1,
 exports.View_SliderComponent_0 = View_SliderComponent_0;
 function View_SliderComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-slider", [], null, null, null, View_SliderComponent_0, RenderType_SliderComponent)), i1.ɵdid(1, 114688, null, 0, i5.SliderComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_SliderComponent_Host_0 = View_SliderComponent_Host_0;
-var SliderComponentNgFactory = i1.ɵccf("app-slider", i5.SliderComponent, View_SliderComponent_Host_0, { template: "template", slides: "slides", sideButtons: "sideButtons", index: "index" }, { indexChange: "indexChange" }, []);
+var SliderComponentNgFactory = i1.ɵccf("app-slider", i5.SliderComponent, View_SliderComponent_Host_0, { template: "template", slides: "slides", sideButtons: "sideButtons", sideButtonsMobile: "sideButtonsMobile", index: "index" }, { indexChange: "indexChange" }, []);
 exports.SliderComponentNgFactory = SliderComponentNgFactory;
 
 
@@ -1430,9 +1430,9 @@ exports.SliderComponentNgFactory = SliderComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [".ngx-swiper__wrapper[_ngcontent-%COMP%] {\n  position: relative; }\n  @media (max-width: 1023px) {\n    .ngx-swiper__wrapper[_ngcontent-%COMP%] {\n      margin-bottom: 50px; } }\n  .ngx-swiper__header[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 75px;\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  z-index: 2; }\n  @media (max-width: 1023px) {\n    .ngx-swiper__header[_ngcontent-%COMP%] {\n      height: 50px;\n      bottom: -50px;\n      top: auto; } }\n  .ngx-swiper__slide-display[_ngcontent-%COMP%] {\n  padding: 0 40px; }\n  .ngx-swiper__slide-display[_ngcontent-%COMP%]   .slide-current[_ngcontent-%COMP%] {\n    font-weight: 700; }\n  @media (max-width: 1023px) {\n    .ngx-swiper__slide-display[_ngcontent-%COMP%] {\n      padding: 0 20px; } }\n  .ngx-swiper__slide-prev[_ngcontent-%COMP%], .ngx-swiper__slide-next[_ngcontent-%COMP%] {\n  background-color: #0f778b;\n  flex-basis: 75px;\n  flex-grow: 0;\n  flex-shrink: 0;\n  height: 100%;\n  position: relative; }\n  .ngx-swiper__slide-prev[_ngcontent-%COMP%]:not(.disabled), .ngx-swiper__slide-next[_ngcontent-%COMP%]:not(.disabled) {\n    cursor: pointer; }\n  .ngx-swiper__slide-prev[_ngcontent-%COMP%]:after, .ngx-swiper__slide-next[_ngcontent-%COMP%]:after {\n    content: '';\n    display: block;\n    position: absolute;\n    width: 12px;\n    height: 12px;\n    -webkit-transform: translate(-50%, -50%) rotate(45deg);\n            transform: translate(-50%, -50%) rotate(45deg);\n    left: 50%;\n    top: 50%; }\n  @media (max-width: 1023px) {\n    .ngx-swiper__slide-prev[_ngcontent-%COMP%], .ngx-swiper__slide-next[_ngcontent-%COMP%] {\n      display: none; } }\n  .ngx-swiper__slide-prev[_ngcontent-%COMP%]:after {\n  border-bottom: 2px solid #ffffff;\n  border-left: 2px solid #ffffff; }\n  .ngx-swiper__slide-prev.disabled[_ngcontent-%COMP%]:after {\n  border-color: #cccccc; }\n  .ngx-swiper__slide-prev[_ngcontent-%COMP%]:not(.disabled):hover:after {\n  -webkit-animation: arrowleft 1s infinite linear;\n          animation: arrowleft 1s infinite linear; }\n  .ngx-swiper__slide-next[_ngcontent-%COMP%]:after {\n  border-top: 2px solid #ffffff;\n  border-right: 2px solid #ffffff; }\n  .ngx-swiper__slide-next.disabled[_ngcontent-%COMP%]:after {\n  border-color: #cccccc; }\n  .ngx-swiper__slide-next[_ngcontent-%COMP%]:not(.disabled):hover:after {\n  -webkit-animation: arrowright 1s infinite linear;\n          animation: arrowright 1s infinite linear; }\n  .ngx-swiper__side-slide-prev[_ngcontent-%COMP%], .ngx-swiper__side-slide-next[_ngcontent-%COMP%] {\n  position: absolute;\n  height: 120px;\n  width: 60px;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  background-image: url(/assets/arrow-slider.svg);\n  background-repeat: no-repeat;\n  background-size: 40px 100px;\n  background-position: center center;\n  top: 50%;\n  z-index: 20;\n  padding: 10px;\n  transition: .3s background-color ease; }\n  @media (max-width: 1023px) {\n    .ngx-swiper__side-slide-prev[_ngcontent-%COMP%], .ngx-swiper__side-slide-next[_ngcontent-%COMP%] {\n      top: 0; } }\n  .ngx-swiper__side-slide-prev.disabled[_ngcontent-%COMP%], .ngx-swiper__side-slide-next.disabled[_ngcontent-%COMP%] {\n    opacity: .2; }\n  .ngx-swiper__side-slide-prev[_ngcontent-%COMP%]:hover:not(.disabled), .ngx-swiper__side-slide-next[_ngcontent-%COMP%]:hover:not(.disabled) {\n    cursor: pointer;\n    background-color: #cecece;\n    transition: .3s background-color ease; }\n  .ngx-swiper__side-slide-prev[_ngcontent-%COMP%] {\n  -webkit-transform: translateY(-50%) rotate(180deg);\n          transform: translateY(-50%) rotate(180deg);\n  left: 0; }\n  .ngx-swiper__side-slide-next[_ngcontent-%COMP%] {\n  right: 0; }\n  @-webkit-keyframes arrowleft {\n  0% {\n    left: 50%;\n    opacity: 1; }\n  25% {\n    left: calc(50% - 10px); }\n  50% {\n    opacity: 0; }\n  100% {\n    left: calc(50% - 10px);\n    opacity: 0; } }\n  @keyframes arrowleft {\n  0% {\n    left: 50%;\n    opacity: 1; }\n  25% {\n    left: calc(50% - 10px); }\n  50% {\n    opacity: 0; }\n  100% {\n    left: calc(50% - 10px);\n    opacity: 0; } }\n  @-webkit-keyframes arrowright {\n  0% {\n    left: 50%;\n    opacity: 1; }\n  25% {\n    left: calc(50% + 10px); }\n  50% {\n    opacity: 0; }\n  100% {\n    left: calc(50% + 10px);\n    opacity: 0; } }\n  @keyframes arrowright {\n  0% {\n    left: 50%;\n    opacity: 1; }\n  25% {\n    left: calc(50% + 10px); }\n  50% {\n    opacity: 0; }\n  100% {\n    left: calc(50% + 10px);\n    opacity: 0; } }"];
+var styles = [".ngx-swiper__wrapper[_ngcontent-%COMP%] {\n  position: relative; }\n  @media (max-width: 1023px) {\n    .ngx-swiper__wrapper[_ngcontent-%COMP%] {\n      margin-bottom: 50px; } }\n  .ngx-swiper__header[_ngcontent-%COMP%] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 75px;\n  display: flex;\n  justify-content: flex-end;\n  align-items: center;\n  z-index: 2; }\n  @media (max-width: 1023px) {\n    .ngx-swiper__header[_ngcontent-%COMP%] {\n      height: 50px;\n      bottom: -50px;\n      top: auto; } }\n  .ngx-swiper__slide-display[_ngcontent-%COMP%] {\n  padding: 0 40px; }\n  .ngx-swiper__slide-display[_ngcontent-%COMP%]   .slide-current[_ngcontent-%COMP%] {\n    font-weight: 700; }\n  @media (max-width: 1023px) {\n    .ngx-swiper__slide-display[_ngcontent-%COMP%] {\n      padding: 0 20px; } }\n  .ngx-swiper__slide-prev[_ngcontent-%COMP%], .ngx-swiper__slide-next[_ngcontent-%COMP%] {\n  background-color: #0f778b;\n  flex-basis: 75px;\n  flex-grow: 0;\n  flex-shrink: 0;\n  height: 100%;\n  position: relative; }\n  .ngx-swiper__slide-prev[_ngcontent-%COMP%]:not(.disabled), .ngx-swiper__slide-next[_ngcontent-%COMP%]:not(.disabled) {\n    cursor: pointer; }\n  .ngx-swiper__slide-prev[_ngcontent-%COMP%]:after, .ngx-swiper__slide-next[_ngcontent-%COMP%]:after {\n    content: '';\n    display: block;\n    position: absolute;\n    width: 12px;\n    height: 12px;\n    -webkit-transform: translate(-50%, -50%) rotate(45deg);\n            transform: translate(-50%, -50%) rotate(45deg);\n    left: 50%;\n    top: 50%; }\n  @media (max-width: 1023px) {\n    .ngx-swiper__slide-prev[_ngcontent-%COMP%], .ngx-swiper__slide-next[_ngcontent-%COMP%] {\n      display: none; } }\n  .ngx-swiper__slide-prev[_ngcontent-%COMP%]:after {\n  border-bottom: 2px solid #ffffff;\n  border-left: 2px solid #ffffff; }\n  .ngx-swiper__slide-prev.disabled[_ngcontent-%COMP%]:after {\n  border-color: #cccccc; }\n  .ngx-swiper__slide-prev[_ngcontent-%COMP%]:not(.disabled):hover:after {\n  -webkit-animation: arrowleft 1s infinite linear;\n          animation: arrowleft 1s infinite linear; }\n  .ngx-swiper__slide-next[_ngcontent-%COMP%]:after {\n  border-top: 2px solid #ffffff;\n  border-right: 2px solid #ffffff; }\n  .ngx-swiper__slide-next.disabled[_ngcontent-%COMP%]:after {\n  border-color: #cccccc; }\n  .ngx-swiper__slide-next[_ngcontent-%COMP%]:not(.disabled):hover:after {\n  -webkit-animation: arrowright 1s infinite linear;\n          animation: arrowright 1s infinite linear; }\n  .ngx-swiper__side-slide-prev[_ngcontent-%COMP%], .ngx-swiper__side-slide-next[_ngcontent-%COMP%] {\n  position: absolute;\n  height: 120px;\n  width: 60px;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  background-image: url(/assets/arrow-slider.svg);\n  background-repeat: no-repeat;\n  background-size: 40px 100px;\n  background-position: center center;\n  top: 50%;\n  z-index: 20;\n  padding: 10px;\n  transition: .3s background-color ease; }\n  @media (max-width: 1023px) {\n    .ngx-swiper__side-slide-prev[_ngcontent-%COMP%], .ngx-swiper__side-slide-next[_ngcontent-%COMP%] {\n      top: 0; } }\n  .ngx-swiper__side-slide-prev.disabled[_ngcontent-%COMP%], .ngx-swiper__side-slide-next.disabled[_ngcontent-%COMP%] {\n    opacity: .2; }\n  .ngx-swiper__side-slide-prev[_ngcontent-%COMP%]:hover:not(.disabled), .ngx-swiper__side-slide-next[_ngcontent-%COMP%]:hover:not(.disabled) {\n    cursor: pointer;\n    background-color: #cecece;\n    transition: .3s background-color ease; }\n  .ngx-swiper__side-slide-prev[_ngcontent-%COMP%] {\n  -webkit-transform: translateY(-50%) rotate(180deg);\n          transform: translateY(-50%) rotate(180deg);\n  left: 0; }\n  .ngx-swiper__side-slide-next[_ngcontent-%COMP%] {\n  right: 0; }\n  @media (max-width: 1023px) {\n  .ngx-swiper__side-slide-mobile-hide[_ngcontent-%COMP%] {\n    display: none; } }\n  @-webkit-keyframes arrowleft {\n  0% {\n    left: 50%;\n    opacity: 1; }\n  25% {\n    left: calc(50% - 10px); }\n  50% {\n    opacity: 0; }\n  100% {\n    left: calc(50% - 10px);\n    opacity: 0; } }\n  @keyframes arrowleft {\n  0% {\n    left: 50%;\n    opacity: 1; }\n  25% {\n    left: calc(50% - 10px); }\n  50% {\n    opacity: 0; }\n  100% {\n    left: calc(50% - 10px);\n    opacity: 0; } }\n  @-webkit-keyframes arrowright {\n  0% {\n    left: 50%;\n    opacity: 1; }\n  25% {\n    left: calc(50% + 10px); }\n  50% {\n    opacity: 0; }\n  100% {\n    left: calc(50% + 10px);\n    opacity: 0; } }\n  @keyframes arrowright {\n  0% {\n    left: 50%;\n    opacity: 1; }\n  25% {\n    left: calc(50% + 10px); }\n  50% {\n    opacity: 0; }\n  100% {\n    left: calc(50% + 10px);\n    opacity: 0; } }"];
 exports.styles = styles;
 
 
@@ -1452,6 +1452,7 @@ var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var ngx_swiper_wrapper_1 = __webpack_require__(/*! ngx-swiper-wrapper */ "ngx-swiper-wrapper");
 var SliderComponent = /** @class */ (function () {
     function SliderComponent() {
+        this.sideButtonsMobile = true;
         this.index = 0;
         this.indexChange = new core_1.EventEmitter();
         this.slideHeights = [];
@@ -1495,7 +1496,7 @@ exports.SliderComponent = SliderComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./textarea.component.scss.shim.ngstyle */ "./src/app/components/textarea/textarea.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -1546,7 +1547,7 @@ exports.TextareaComponentNgFactory = TextareaComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".input[_ngcontent-%COMP%] {\n  display: block;\n  width: 100%;\n  min-height: 30px;\n  border: none;\n  border-bottom: 1px solid;\n  border-bottom-color: #000000;\n  font-size: 1rem;\n  border-radius: 0; }\n  .input[_ngcontent-%COMP%]:focus    + .input-text[_ngcontent-%COMP%] {\n    font-size: 10px;\n    -webkit-transform: translateY(-100%);\n            transform: translateY(-100%);\n    top: 3px;\n    transition: .5s all ease; }\n  .input-wrapper[_ngcontent-%COMP%] {\n    display: block;\n    padding-top: 20px; }\n  .input-label[_ngcontent-%COMP%] {\n    display: block;\n    position: relative; }\n  .input-label[_ngcontent-%COMP%]:hover   .input[_ngcontent-%COMP%] {\n      border-bottom-color: #0f778b;\n      color: #0f778b; }\n  .input-label[_ngcontent-%COMP%]:hover   .input-text[_ngcontent-%COMP%] {\n        color: #0f778b; }\n  .input-text[_ngcontent-%COMP%] {\n    position: absolute;\n    -webkit-transform: translateY(-50%);\n            transform: translateY(-50%);\n    top: 50%;\n    font-size: 1rem;\n    transition: .5s all ease; }\n  .input-text.top[_ngcontent-%COMP%] {\n      font-size: 10px;\n      -webkit-transform: translateY(-100%);\n              transform: translateY(-100%);\n      top: 3px; }\n  textarea[_ngcontent-%COMP%] {\n  resize: vertical; }"];
 exports.styles = styles;
@@ -1694,7 +1695,7 @@ exports.LanguageGuardService = LanguageGuardService;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./contacts.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/contacts/contacts.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -1743,7 +1744,7 @@ exports.ContactsComponentNgFactory = ContactsComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".contacts[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 40%;\n  margin: auto;\n  margin-top: 50px; }\n  @media (max-width: 767px) {\n    .contacts[_ngcontent-%COMP%] {\n      width: 100%; } }\n  .contacts-header[_ngcontent-%COMP%] {\n    text-align: center;\n    margin-bottom: 25px; }\n  @media (max-width: 767px) {\n      .contacts-header[_ngcontent-%COMP%] {\n        margin-bottom: 15px; } }\n  .contacts[_ngcontent-%COMP%]:before {\n    content: '';\n    display: block;\n    background-image: url(/assets/contacts.svg);\n    height: 46px;\n    width: 46px;\n    margin: 0 auto 25px; }\n  .contact[_ngcontent-%COMP%] {\n  text-align: center;\n  margin-bottom: 25px; }\n  .contact[_ngcontent-%COMP%]   .icon-viber[_ngcontent-%COMP%] {\n    display: none;\n    margin-right: 5px; }\n  .contact[_ngcontent-%COMP%]   .icon-viber[_ngcontent-%COMP%], .contact[_ngcontent-%COMP%]   .icon-telegram[_ngcontent-%COMP%] {\n    font-size: 1.5rem; }\n  @media (max-width: 767px) {\n    .contact[_ngcontent-%COMP%] {\n      margin-bottom: 15px; }\n      .contact[_ngcontent-%COMP%]   .viber-mobile[_ngcontent-%COMP%] {\n        display: inline; } }\n  @media (min-width: 1280px) {\n    .contact[_ngcontent-%COMP%]   .viber-pc[_ngcontent-%COMP%] {\n      display: inline; }\n    .contact[_ngcontent-%COMP%]   .viber-mobile[_ngcontent-%COMP%] {\n      display: none; } }\n  @media (max-width: 1279px) {\n    .contact[_ngcontent-%COMP%]   .viber-pc[_ngcontent-%COMP%] {\n      display: inline; }\n    .contact[_ngcontent-%COMP%]   .viber-mobile[_ngcontent-%COMP%] {\n      display: none; } }\n  .attend-button[_ngcontent-%COMP%] {\n  -ms-grid-row-align: center;\n      align-self: center; }\n  @media (max-width: 767px) {\n    .attend-button[_ngcontent-%COMP%] {\n      padding: 0 20px; } }"];
 exports.styles = styles;
@@ -1808,6 +1809,98 @@ exports.ContactsComponent = ContactsComponent;
 
 /***/ }),
 
+/***/ "./src/app/pages/_index/components/diploma/diploma.component.ngfactory.js":
+/*!********************************************************************************!*\
+  !*** ./src/app/pages/_index/components/diploma/diploma.component.ngfactory.js ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./diploma.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/diploma/diploma.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i3 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i4 = __webpack_require__(/*! ./diploma.component */ "./src/app/pages/_index/components/diploma/diploma.component.ts");
+var i5 = __webpack_require__(/*! ../../services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
+var styles_DiplomaComponent = [i0.styles];
+var RenderType_DiplomaComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_DiplomaComponent, data: {} });
+exports.RenderType_DiplomaComponent = RenderType_DiplomaComponent;
+function View_DiplomaComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "img-contents"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "a", [["class", "img-wrapper"], ["target", "_blank"]], [[8, "href", 4]], null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 0, "img", [["alt", ""], ["class", "img"]], [[8, "src", 4]], null, null, null, null))], null, function (_ck, _v) { var currVal_0 = _v.context.modalData; _ck(_v, 1, 0, currVal_0); var currVal_1 = _v.context.modalData; _ck(_v, 2, 0, currVal_1); }); }
+function View_DiplomaComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1, { pictureTpl: 0 }), (_l()(), i1.ɵeld(1, 0, null, null, 12, "div", [["class", "diploma-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "div", [["class", "diploma-photo-wrapper"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.showBigPicture() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 0, "div", [["class", "diploma-photo"]], [[4, "background-image", null]], null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 9, "div", [["class", "diploma-description-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 8, "div", [["class", "diploma-description"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "h4", [["class", "diploma-description-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", ""])), (_l()(), i1.ɵeld(8, 0, null, null, 1, "p", [["CLASS", "diploma-description-graduate"]], null, null, null, null, null)), (_l()(), i1.ɵted(9, null, ["", ""])), (_l()(), i1.ɵeld(10, 0, null, null, 3, "a", [["routerLink", "diplomas"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 11).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), i1.ɵdid(11, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵeld(12, 0, null, null, 1, "button", [["class", "diploma-button"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["View All"])), (_l()(), i1.ɵand(0, [[1, 2], ["pictureTpl", 2]], null, 0, null, View_DiplomaComponent_1))], function (_ck, _v) { var currVal_5 = "diplomas"; _ck(_v, 11, 0, currVal_5); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = (("url(" + _co.diploma.picture) + ")"); _ck(_v, 3, 0, currVal_0); var currVal_1 = _co.diploma.header; _ck(_v, 7, 0, currVal_1); var currVal_2 = _co.diploma.graduateYear; _ck(_v, 9, 0, currVal_2); var currVal_3 = i1.ɵnov(_v, 11).target; var currVal_4 = i1.ɵnov(_v, 11).href; _ck(_v, 10, 0, currVal_3, currVal_4); }); }
+exports.View_DiplomaComponent_0 = View_DiplomaComponent_0;
+function View_DiplomaComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-diploma", [], null, null, null, View_DiplomaComponent_0, RenderType_DiplomaComponent)), i1.ɵdid(1, 114688, null, 0, i4.DiplomaComponent, [i5.ModalService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_DiplomaComponent_Host_0 = View_DiplomaComponent_Host_0;
+var DiplomaComponentNgFactory = i1.ɵccf("app-diploma", i4.DiplomaComponent, View_DiplomaComponent_Host_0, { diploma: "diploma" }, {}, []);
+exports.DiplomaComponentNgFactory = DiplomaComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/pages/_index/components/diploma/diploma.component.scss.shim.ngstyle.js":
+/*!****************************************************************************************!*\
+  !*** ./src/app/pages/_index/components/diploma/diploma.component.scss.shim.ngstyle.js ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [".diploma-wrapper[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  display: flex; }\n  @media (max-width: 1023px) {\n    .diploma-wrapper[_ngcontent-%COMP%] {\n      flex-direction: column; } }\n  .diploma-photo[_ngcontent-%COMP%] {\n  height: calc(100% - 200px);\n  width: calc(100% - 200px);\n  background-repeat: no-repeat;\n  background-size: cover; }\n  .diploma-photo-wrapper[_ngcontent-%COMP%] {\n    height: 100%;\n    width: 50%;\n    flex-grow: 0;\n    flex-shrink: 0;\n    background-color: #f8f8f8;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    position: relative;\n    cursor: pointer; }\n  .diploma-photo-wrapper[_ngcontent-%COMP%]:after {\n      content: '';\n      position: absolute;\n      width: 40px;\n      height: 40px;\n      top: 20px;\n      right: 20px;\n      background-image: url(/assets/lens.svg);\n      background-size: contain;\n      transition: .3s opacity ease; }\n  @media (max-width: 1023px) {\n        .diploma-photo-wrapper[_ngcontent-%COMP%]:after {\n          top: 10px; } }\n  .diploma-photo-wrapper[_ngcontent-%COMP%]:hover:after {\n      opacity: .5;\n      transition: .3s opacity ease; }\n  @media (max-width: 767px) {\n      .diploma-photo-wrapper[_ngcontent-%COMP%] {\n        width: 100%;\n        height: 342px; } }\n  @media (max-width: 1023px) {\n    .diploma-photo[_ngcontent-%COMP%] {\n      height: calc(100% - 120px);\n      width: calc(100% - 40px); } }\n  .diploma-description-wrapper[_ngcontent-%COMP%] {\n  width: 50%;\n  flex-grow: 0;\n  flex-shrink: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  @media (max-width: 1023px) {\n  .diploma-description[_ngcontent-%COMP%] {\n    width: 100%; }\n    .diploma-description-wrapper[_ngcontent-%COMP%] {\n      width: 100%; } }\n  @media (max-width: 1023px) {\n  .diploma-description-header[_ngcontent-%COMP%] {\n    background-color: #f8f8f8;\n    padding: 0 15px; } }\n  @media (max-width: 1023px) {\n  .diploma-description-graduate[_ngcontent-%COMP%] {\n    padding: 0 15px; } }\n  .diploma-button[_ngcontent-%COMP%] {\n  height: 70px;\n  background-color: #fff;\n  border: none;\n  text-transform: uppercase;\n  font-weight: 700;\n  padding: 0 50px;\n  font-family: 'Montserrat', sans-serif;\n  cursor: pointer;\n  position: relative;\n  -webkit-transform: perspective(1px) translateZ(0);\n          transform: perspective(1px) translateZ(0);\n  transition: color .3s ease;\n  font-size: .8rem;\n  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.15);\n  margin-top: 30px;\n  display: inline; }\n  @media (max-width: 767px) {\n    .diploma-button[_ngcontent-%COMP%] {\n      width: calc(100% - 30px);\n      margin: 30px 15px; } }\n  .diploma-button[_ngcontent-%COMP%]:before {\n    content: '';\n    background-color: #0f778b;\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 100%;\n    bottom: 0;\n    z-index: -1;\n    transition: right .3s ease; }\n  .diploma-button[_ngcontent-%COMP%]:hover {\n    color: #ffffff;\n    transition: color .3s ease; }\n  .diploma-button[_ngcontent-%COMP%]:hover:before {\n      right: 0;\n      transition: right .3s ease; }\n  .img[_ngcontent-%COMP%] {\n  display: inline;\n  max-height: 100%;\n  max-width: 100%; }\n  .img-wrapper[_ngcontent-%COMP%] {\n    height: 100%; }\n  .img-contents[_ngcontent-%COMP%] {\n    height: 100%;\n    text-align: center; }"];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/pages/_index/components/diploma/diploma.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/pages/_index/components/diploma/diploma.component.ts ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var modal_service_1 = __webpack_require__(/*! ../../services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
+var DiplomaComponent = /** @class */ (function () {
+    function DiplomaComponent(modalService) {
+        this.modalService = modalService;
+    }
+    DiplomaComponent.prototype.ngOnInit = function () {
+    };
+    DiplomaComponent.prototype.showBigPicture = function () {
+        this.modalService.openModal('lightbox', this.pictureTpl, this.diploma.picture, { fullScreen: true });
+    };
+    return DiplomaComponent;
+}());
+exports.DiplomaComponent = DiplomaComponent;
+
+
+/***/ }),
+
 /***/ "./src/app/pages/_index/components/footer/footer.component.ngfactory.js":
 /*!******************************************************************************!*\
   !*** ./src/app/pages/_index/components/footer/footer.component.ngfactory.js ***!
@@ -1822,7 +1915,7 @@ exports.ContactsComponent = ContactsComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./footer.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/footer/footer.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -1860,7 +1953,7 @@ exports.FooterComponentNgFactory = FooterComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".footer[_ngcontent-%COMP%] {\n  background-repeat: no-repeat;\n  background-image: url(/assets/footer.png);\n  background-position: 50% 100%;\n  background-size: cover;\n  width: 100%;\n  padding-bottom: 200px; }"];
 exports.styles = styles;
@@ -1905,7 +1998,7 @@ exports.FooterComponent = FooterComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./header.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/header/header.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -1984,7 +2077,7 @@ exports.HeaderComponentNgFactory = HeaderComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".header-block-wrapper[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  width: 100%; }\n  @media (min-width: 1280px) {\n    .header-block-wrapper[_ngcontent-%COMP%] {\n      background-repeat: no-repeat;\n      background-size: cover;\n      background-position: 50% 50%;\n      background-image: url(/assets/header-common.png);\n      height: 525px; }\n      .header-block-wrapper.is-root[_ngcontent-%COMP%] {\n        background-image: url(/assets/header-main.png); } }\n  @media (max-width: 1279px) {\n    .header-block-wrapper[_ngcontent-%COMP%] {\n      background-repeat: no-repeat;\n      background-size: cover;\n      background-position: 50% 50%;\n      background-image: url(/assets/header-common.png);\n      height: 525px; }\n      .header-block-wrapper.is-root[_ngcontent-%COMP%] {\n        background-image: url(/assets/header-main.png); } }\n  .button-wrapper[_ngcontent-%COMP%] {\n  justify-self: center;\n  justify-content: center;\n  display: flex; }\n  .button-wrapper[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%] {\n    -ms-grid-column-align: center;\n        justify-self: center; }\n  @media (max-width: 1023px) {\n    .button-wrapper[_ngcontent-%COMP%] {\n      width: 85%; } }\n  .logo[_ngcontent-%COMP%] {\n  width: 30%; }\n  .page-header[_ngcontent-%COMP%] {\n  margin-bottom: 35px;\n  font-weight: 600;\n  text-align: center; }\n  @media (min-width: 1280px) {\n    .page-header.fixed[_ngcontent-%COMP%] {\n      margin-top: 120px; } }\n  @media (max-width: 1279px) {\n    .page-header.fixed[_ngcontent-%COMP%] {\n      margin-top: 120px; } }\n  @media (max-width: 1023px) {\n    .page-header[_ngcontent-%COMP%] {\n      width: 85%; } }\n  .nav-wrapper[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0 100px;\n  width: 100%;\n  z-index: 10;\n  position: relative; }\n  @media (min-width: 1280px) {\n    .nav-wrapper[_ngcontent-%COMP%] {\n      height: 50px;\n      margin: 35px 0; }\n      .nav-wrapper.fixed[_ngcontent-%COMP%] {\n        background-color: #ffffff;\n        position: fixed;\n        margin-top: 0;\n        top: 0;\n        left: 0;\n        box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);\n        transition: background-color .3s ease .3s,  box-shadow .3s ease .3s; } }\n  @media (max-width: 1279px) {\n    .nav-wrapper[_ngcontent-%COMP%] {\n      height: 50px;\n      margin: 35px 0; }\n      .nav-wrapper.fixed[_ngcontent-%COMP%] {\n        background-color: #ffffff;\n        position: fixed;\n        margin-top: 0;\n        top: 0;\n        left: 0;\n        box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);\n        transition: background-color .3s ease .3s,  box-shadow .3s ease .3s; } }\n  @media (max-width: 1023px) {\n    .nav-wrapper[_ngcontent-%COMP%] {\n      position: absolute;\n      top: 0;\n      left: 0;\n      height: auto;\n      margin-top: 0;\n      background: #ffffff;\n      display: flex;\n      flex-direction: column;\n      justify-content: flex-start;\n      padding-bottom: 30px;\n      box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1); } }\n  @media (max-width: 767px) {\n    .nav-wrapper[_ngcontent-%COMP%] {\n      height: 100vh; } }\n  @media (max-width: 767px) and (orientation: landscape) {\n    .nav-wrapper[_ngcontent-%COMP%] {\n      flex-direction: row;\n      justify-content: space-around; }\n      .nav-wrapper[_ngcontent-%COMP%]   .logo[_ngcontent-%COMP%] {\n        display: none; } }\n  .m-nav-wrapper[_ngcontent-%COMP%] {\n  display: none; }\n  .m-nav-wrapper[_ngcontent-%COMP%]   .hamburger[_ngcontent-%COMP%] {\n    width: 45px;\n    height: 45px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: #ffffff;\n    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.25);\n    border-radius: 50%; }\n  .m-nav-wrapper[_ngcontent-%COMP%]   .hamburger[_ngcontent-%COMP%]   .strips[_ngcontent-%COMP%] {\n      width: 20px;\n      height: 2px;\n      background-color: #000000;\n      position: relative; }\n  .m-nav-wrapper[_ngcontent-%COMP%]   .hamburger[_ngcontent-%COMP%]   .strips[_ngcontent-%COMP%]:before, .m-nav-wrapper[_ngcontent-%COMP%]   .hamburger[_ngcontent-%COMP%]   .strips[_ngcontent-%COMP%]:after {\n        content: '';\n        display: block;\n        position: absolute;\n        top: -7px;\n        width: 100%;\n        height: 100%;\n        background-color: #000000; }\n  .m-nav-wrapper[_ngcontent-%COMP%]   .hamburger[_ngcontent-%COMP%]   .strips[_ngcontent-%COMP%]:after {\n        top: auto;\n        bottom: -7px; }\n  @media (max-width: 1023px) {\n    .m-nav-wrapper[_ngcontent-%COMP%] {\n      display: flex;\n      align-items: center;\n      height: 75px;\n      width: 100%;\n      padding: 0 15px;\n      margin-bottom: 25px;\n      background-image: url(/assets/header-mobile.png);\n      background-repeat: no-repeat;\n      background-size: cover;\n      background-position: 50% 50%; } }\n  .link-root[_ngcontent-%COMP%] {\n  display: block;\n  -ms-grid-row-align: center;\n      align-self: center;\n  text-transform: uppercase;\n  flex-basis: 0;\n  flex-grow: 1;\n  text-decoration: none;\n  font-size: 14px; }\n  .link-root[_ngcontent-%COMP%]   span[_ngcontent-%COMP%] {\n    font-size: 18px; }\n  .link-root[_ngcontent-%COMP%], .link-root[_ngcontent-%COMP%]:hover, .link-root[_ngcontent-%COMP%]:focus, .link-root[_ngcontent-%COMP%]:visited {\n    text-decoration: none; }\n  @media (max-width: 1023px) {\n    .link-root.desktop[_ngcontent-%COMP%] {\n      display: none; }\n    .link-root[_ngcontent-%COMP%]   h4[_ngcontent-%COMP%] {\n      display: flex;\n      flex-direction: column; } }\n  .navigation[_ngcontent-%COMP%] {\n  width: 40%;\n  margin: 0 auto; }\n  @media (max-width: 1023px) {\n    .navigation[_ngcontent-%COMP%] {\n      position: static;\n      -webkit-transform: translate(0, 0);\n              transform: translate(0, 0); } }\n  .soc-lang[_ngcontent-%COMP%] {\n  width: 30%;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center; }\n  @media (max-width: 1023px) {\n    .soc-lang[_ngcontent-%COMP%] {\n      flex-direction: column;\n      width: auto; } }\n  .social[_ngcontent-%COMP%] {\n  margin: 0 auto; }\n  .close-button[_ngcontent-%COMP%] {\n  display: none; }\n  @media (max-width: 1023px) {\n    .close-button[_ngcontent-%COMP%] {\n      position: absolute;\n      top: 20px;\n      right: 20px;\n      width: 15px;\n      height: 15px;\n      background-image: url(/assets/icons/close.svg);\n      display: block; } }"];
 exports.styles = styles;
@@ -2048,7 +2141,7 @@ exports.HeaderComponent = HeaderComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./language-selector.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/header/language-selector/language-selector.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -2096,7 +2189,7 @@ exports.LanguageSelectorComponentNgFactory = LanguageSelectorComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".language-selector[_ngcontent-%COMP%] {\n  align-self: center;\n  font-weight: 700;\n  cursor: pointer;\n  position: relative;\n  text-transform: uppercase;\n  transition: .3s color ease;\n  display: flex;\n  height: 30px;\n  font-size: 14px; }\n  .language-selector-text[_ngcontent-%COMP%] {\n    -ms-grid-row-align: center;\n        align-self: center; }\n  .language-selector-icon[_ngcontent-%COMP%] {\n    -ms-grid-row-align: center;\n        align-self: center; }\n  .language-selector[_ngcontent-%COMP%]:hover   .language-selector-icon[_ngcontent-%COMP%] {\n    -webkit-animation: arrowdown 1s infinite linear;\n            animation: arrowdown 1s infinite linear; }\n  .language-selector[_ngcontent-%COMP%]   .language-list[_ngcontent-%COMP%] {\n    list-style: none;\n    position: absolute;\n    left: -15px;\n    top: 0;\n    padding: 0;\n    margin: 0;\n    z-index: 21;\n    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1); }\n  .language-selector[_ngcontent-%COMP%]   .language-list-item[_ngcontent-%COMP%] {\n      padding: 15px 15px 0;\n      background-color: #ffffff;\n      white-space: nowrap;\n      display: flex; }\n  .language-selector[_ngcontent-%COMP%]   .language-list-item-icon[_ngcontent-%COMP%] {\n        -webkit-transform: rotate(180deg);\n                transform: rotate(180deg);\n        display: block;\n        -ms-grid-row-align: center;\n            align-self: center; }\n  .language-selector[_ngcontent-%COMP%]   .language-list-item-icon[_ngcontent-%COMP%]:hover {\n          -webkit-animation: arrowup 1s infinite linear;\n                  animation: arrowup 1s infinite linear; }\n  .language-selector[_ngcontent-%COMP%]   .language-list-item-text[_ngcontent-%COMP%] {\n        -ms-grid-row-align: center;\n            align-self: center;\n        text-decoration: none; }\n  .language-selector[_ngcontent-%COMP%]   .language-list-item-text[_ngcontent-%COMP%]:hover {\n          text-decoration: none;\n          color: #0f778b;\n          transition: .3s color ease; }\n  .language-selector[_ngcontent-%COMP%]   .language-list-item[_ngcontent-%COMP%]:last-child {\n        padding-bottom: 15px; }\n  @media (max-width: 1023px) {\n      .language-selector[_ngcontent-%COMP%]   .language-list[_ngcontent-%COMP%] {\n        -webkit-transform: translateX(-50%);\n                transform: translateX(-50%);\n        left: 50%; } }\n  @media (max-width: 1023px) {\n    .language-selector[_ngcontent-%COMP%] {\n      padding: 30px; } }\n  @-webkit-keyframes arrowdown {\n  0% {\n    margin-top: 0;\n    opacity: 1; }\n  25% {\n    margin-top: 10px; }\n  50% {\n    opacity: 0; }\n  100% {\n    margin-top: 10px;\n    opacity: 0; } }\n  @keyframes arrowdown {\n  0% {\n    margin-top: 0;\n    opacity: 1; }\n  25% {\n    margin-top: 10px; }\n  50% {\n    opacity: 0; }\n  100% {\n    margin-top: 10px;\n    opacity: 0; } }\n  @-webkit-keyframes arrowup {\n  0% {\n    margin-top: 0;\n    opacity: 1; }\n  25% {\n    margin-top: -10px; }\n  50% {\n    opacity: 0; }\n  100% {\n    margin-top: -10px;\n    opacity: 0; } }\n  @keyframes arrowup {\n  0% {\n    margin-top: 0;\n    opacity: 1; }\n  25% {\n    margin-top: -10px; }\n  50% {\n    opacity: 0; }\n  100% {\n    margin-top: -10px;\n    opacity: 0; } }"];
 exports.styles = styles;
@@ -2172,7 +2265,7 @@ exports.LanguageSelectorComponent = LanguageSelectorComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./navigation.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/header/navigation/navigation.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -2213,7 +2306,7 @@ exports.NavigationComponentNgFactory = NavigationComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".navigation[_ngcontent-%COMP%] {\n  text-transform: uppercase; }\n  .navigation-list[_ngcontent-%COMP%] {\n    list-style: none;\n    display: flex;\n    justify-content: center;\n    align-items: center; }\n  .navigation-list-item[_ngcontent-%COMP%] {\n      margin-right: 15px;\n      font-weight: 700; }\n  .navigation-list-item-text[_ngcontent-%COMP%] {\n        color: #0f778b;\n        transition: .3s color ease;\n        white-space: nowrap;\n        font-size: 14px;\n        cursor: pointer; }\n  .navigation-list-item-text[_ngcontent-%COMP%], .navigation-list-item-text[_ngcontent-%COMP%]:hover, .navigation-list-item-text[_ngcontent-%COMP%]:focus, .navigation-list-item-text[_ngcontent-%COMP%]:visited {\n          text-decoration: none; }\n  .navigation-list-item-text.active[_ngcontent-%COMP%] {\n          color: #000000;\n          transition: .3s color ease;\n          border-bottom: 1px solid #000000; }\n  .navigation-list-item-text[_ngcontent-%COMP%]:hover {\n          color: #000000;\n          transition: .3s color ease; }\n  .navigation-list-item[_ngcontent-%COMP%]:last-child {\n        margin-right: 0; }\n  @media (max-width: 1023px) {\n        .navigation-list-item[_ngcontent-%COMP%] {\n          margin-right: 0;\n          padding-top: 15px;\n          padding-bottom: 15px;\n          text-align: center; }\n          .navigation-list-item[_ngcontent-%COMP%]:first-child {\n            padding-top: 30px; }\n          .navigation-list-item[_ngcontent-%COMP%]:last-child {\n            padding-bottom: 30px; } }\n  @media (max-width: 1023px) {\n      .navigation-list[_ngcontent-%COMP%] {\n        flex-direction: column;\n        justify-content: center;\n        padding-top: 20px; } }\n  @media (max-width: 767px) and (orientation: landscape) {\n      .navigation-list[_ngcontent-%COMP%] {\n        padding-top: 0; } }\n  @media (max-width: 1023px) {\n    .navigation[_ngcontent-%COMP%] {\n      flex-basis: auto; } }"];
 exports.styles = styles;
@@ -2258,7 +2351,7 @@ exports.NavigationComponent = NavigationComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./social.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/header/social/social.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -2290,7 +2383,7 @@ exports.SocialComponentNgFactory = SocialComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".social[_ngcontent-%COMP%] {\n  flex-basis: 0;\n  flex-grow: 1;\n  display: flex;\n  flex-direction: row;\n  align-items: center; }\n  .social-icon[_ngcontent-%COMP%] {\n    margin-right: 20px; }\n  .social-icon[_ngcontent-%COMP%], .social-icon[_ngcontent-%COMP%]:hover, .social-icon[_ngcontent-%COMP%]:focus, .social-icon[_ngcontent-%COMP%]:visited {\n      text-decoration: none; }\n  .social-icon[_ngcontent-%COMP%]:last-child {\n      margin-right: 0; }\n  @media (max-width: 1023px) {\n    .social[_ngcontent-%COMP%] {\n      flex-basis: auto;\n      justify-content: center;\n      margin-right: 0;\n      padding: 25px 30px;\n      border-top: 1px solid #e5e5e5;\n      border-bottom: 1px solid #e5e5e5; } }"];
 exports.styles = styles;
@@ -2348,7 +2441,7 @@ exports.SocialComponent = SocialComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./index.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/index/index.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -2425,7 +2518,7 @@ exports.IndexComponentNgFactory = IndexComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".content[_ngcontent-%COMP%] {\n  margin: 0 auto 250px; }\n  @media (max-width: 767px) {\n    .content[_ngcontent-%COMP%] {\n      margin-bottom: 100px;\n      margin-top: -50px; } }\n  .modal-confirm-wrapper[_ngcontent-%COMP%]   .button-wrapper[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: flex-end; }\n  .modal-confirm-wrapper[_ngcontent-%COMP%]   .button-wrapper[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%] {\n    height: 40px;\n    border: none;\n    text-transform: uppercase;\n    font-weight: 700;\n    padding: 0 50px;\n    font-family: 'Montserrat', sans-serif;\n    cursor: pointer;\n    position: relative;\n    font-size: .8rem;\n    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.15);\n    transition: .3s transform ease;\n    margin-left: 10px; }\n  .modal-confirm-wrapper[_ngcontent-%COMP%]   .button-wrapper[_ngcontent-%COMP%]   .button[_ngcontent-%COMP%]:hover {\n      -webkit-transform: scale(1.2);\n              transform: scale(1.2);\n      transition: .3s transform ease;\n      z-index: 5; }\n  .modal-confirm-wrapper[_ngcontent-%COMP%]   .button-wrapper[_ngcontent-%COMP%]   .button.yes[_ngcontent-%COMP%] {\n      background-color: #0f778b;\n      color: #ffffff; }\n  .modal-confirm-wrapper[_ngcontent-%COMP%]   .button-wrapper[_ngcontent-%COMP%]   .button.no[_ngcontent-%COMP%] {\n      background-color: #ffffff; }"];
 exports.styles = styles;
@@ -2533,7 +2626,7 @@ var IndexComponent = /** @class */ (function () {
     };
     IndexComponent.prototype.ngAfterViewInit = function () {
         // if (!this.cookieService.get('dont') && isPlatformBrowser(PLATFORM_ID)) {
-        // this.modalService.openModal('cookieConfirm', this.cookieConfirmationModal, {}, {closeWithBackrop: false});
+        // this.modalService.openModal('cookieConfirm', this.cookieConfirmationModal, {}, false);
         // }
     };
     return IndexComponent;
@@ -2557,7 +2650,7 @@ exports.IndexComponent = IndexComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./main.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/main/main.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -2565,24 +2658,26 @@ var i2 = __webpack_require__(/*! ../overview-about/overview-about.component.ngfa
 var i3 = __webpack_require__(/*! ../overview-about/overview-about.component */ "./src/app/pages/_index/components/overview-about/overview-about.component.ts");
 var i4 = __webpack_require__(/*! @angular/common */ "@angular/common");
 var i5 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i6 = __webpack_require__(/*! ../overview-reviews/overview-reviews.component.ngfactory */ "./src/app/pages/_index/components/overview-reviews/overview-reviews.component.ngfactory.js");
-var i7 = __webpack_require__(/*! ../overview-reviews/overview-reviews.component */ "./src/app/pages/_index/components/overview-reviews/overview-reviews.component.ts");
-var i8 = __webpack_require__(/*! ../../services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
-var i9 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
-var i10 = __webpack_require__(/*! ../../../../language-guard.service */ "./src/app/language-guard.service.ts");
-var i11 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
-var i12 = __webpack_require__(/*! ./main.component */ "./src/app/pages/_index/components/main/main.component.ts");
+var i6 = __webpack_require__(/*! ../overview-diplomas/overview-diplomas.component.ngfactory */ "./src/app/pages/_index/components/overview-diplomas/overview-diplomas.component.ngfactory.js");
+var i7 = __webpack_require__(/*! ../overview-diplomas/overview-diplomas.component */ "./src/app/pages/_index/components/overview-diplomas/overview-diplomas.component.ts");
+var i8 = __webpack_require__(/*! ../overview-reviews/overview-reviews.component.ngfactory */ "./src/app/pages/_index/components/overview-reviews/overview-reviews.component.ngfactory.js");
+var i9 = __webpack_require__(/*! ../overview-reviews/overview-reviews.component */ "./src/app/pages/_index/components/overview-reviews/overview-reviews.component.ts");
+var i10 = __webpack_require__(/*! ../../services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
+var i11 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
+var i12 = __webpack_require__(/*! ../../../../language-guard.service */ "./src/app/language-guard.service.ts");
+var i13 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
+var i14 = __webpack_require__(/*! ./main.component */ "./src/app/pages/_index/components/main/main.component.ts");
 var styles_MainComponent = [i0.styles];
 var RenderType_MainComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_MainComponent, data: {} });
 exports.RenderType_MainComponent = RenderType_MainComponent;
-function View_MainComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "content-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "app-overview-about", [], null, [["window", "scroll"]], function (_v, en, $event) { var ad = true; if (("window:scroll" === en)) {
+function View_MainComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 4, "div", [["class", "content-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "app-overview-about", [], null, [["window", "scroll"]], function (_v, en, $event) { var ad = true; if (("window:scroll" === en)) {
         var pd_0 = (i1.ɵnov(_v, 2).listener() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, i2.View_OverviewAboutComponent_0, i2.RenderType_OverviewAboutComponent)), i1.ɵdid(2, 4308992, null, 0, i3.OverviewAboutComponent, [i4.DOCUMENT, i1.PLATFORM_ID, i5.ActivatedRoute], { name: [0, "name"], position: [1, "position"] }, null), (_l()(), i1.ɵeld(3, 0, null, null, 0, "div", [["class", "separator"]], null, null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 2, "div", [["class", "content-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 1, "app-overview-reviews", [], null, null, null, i6.View_OverviewReviewsComponent_0, i6.RenderType_OverviewReviewsComponent)), i1.ɵdid(6, 114688, null, 0, i7.OverviewReviewsComponent, [i5.ActivatedRoute, i8.ModalService, i9.FormBuilder, i10.LanguageGuardService, i1.ChangeDetectorRef, i11.HttpClient], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.name; var currVal_1 = _co.position; _ck(_v, 2, 0, currVal_0, currVal_1); _ck(_v, 6, 0); }, null); }
+    } return ad; }, i2.View_OverviewAboutComponent_0, i2.RenderType_OverviewAboutComponent)), i1.ɵdid(2, 4308992, null, 0, i3.OverviewAboutComponent, [i4.DOCUMENT, i1.PLATFORM_ID, i5.ActivatedRoute], { name: [0, "name"], position: [1, "position"] }, null), (_l()(), i1.ɵeld(3, 0, null, null, 1, "app-overview-diplomas", [], null, null, null, i6.View_OverviewDiplomasComponent_0, i6.RenderType_OverviewDiplomasComponent)), i1.ɵdid(4, 114688, null, 0, i7.OverviewDiplomasComponent, [i5.ActivatedRoute], null, null), (_l()(), i1.ɵeld(5, 0, null, null, 0, "div", [["class", "separator"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 2, "div", [["class", "content-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(7, 0, null, null, 1, "app-overview-reviews", [], null, null, null, i8.View_OverviewReviewsComponent_0, i8.RenderType_OverviewReviewsComponent)), i1.ɵdid(8, 114688, null, 0, i9.OverviewReviewsComponent, [i5.ActivatedRoute, i10.ModalService, i11.FormBuilder, i12.LanguageGuardService, i1.ChangeDetectorRef, i13.HttpClient], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.name; var currVal_1 = _co.position; _ck(_v, 2, 0, currVal_0, currVal_1); _ck(_v, 4, 0); _ck(_v, 8, 0); }, null); }
 exports.View_MainComponent_0 = View_MainComponent_0;
-function View_MainComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-main", [], null, null, null, View_MainComponent_0, RenderType_MainComponent)), i1.ɵdid(1, 114688, null, 0, i12.MainComponent, [i5.ActivatedRoute, i8.ModalService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_MainComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-main", [], null, null, null, View_MainComponent_0, RenderType_MainComponent)), i1.ɵdid(1, 114688, null, 0, i14.MainComponent, [i5.ActivatedRoute, i10.ModalService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_MainComponent_Host_0 = View_MainComponent_Host_0;
-var MainComponentNgFactory = i1.ɵccf("app-main", i12.MainComponent, View_MainComponent_Host_0, {}, {}, []);
+var MainComponentNgFactory = i1.ɵccf("app-main", i14.MainComponent, View_MainComponent_Host_0, {}, {}, []);
 exports.MainComponentNgFactory = MainComponentNgFactory;
 
 
@@ -2602,7 +2697,7 @@ exports.MainComponentNgFactory = MainComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".separator[_ngcontent-%COMP%] {\n  padding-top: 18.5416666666667%;\n  background-image: url(\"/assets/separator.png\");\n  background-repeat: no-repeat;\n  background-size: 100% 100%; }\n\n.content-wrapper[_ngcontent-%COMP%] {\n  width: 80%;\n  margin: 0 auto; }\n\n@media (max-width: 767px) {\n    .content-wrapper[_ngcontent-%COMP%] {\n      width: 100%; } }"];
 exports.styles = styles;
@@ -2655,7 +2750,7 @@ exports.MainComponent = MainComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./modal.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/modal/modal.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -2670,13 +2765,13 @@ function View_ModalComponent_3(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0,
 function View_ModalComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 5, "div", [["class", "modal-container"]], [[24, "@fade", 0]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.closeModal("dismiss", null) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 4, "div", [["class", "modal-window"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+    } return ad; }, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 4, "div", [["class", "modal-window"]], [[2, "full-screen", null]], [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.stopPropagation($event) !== false);
         ad = (pd_0 && ad);
     } return ad; }, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 0, "div", [["class", "modal-close-button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.closeModal("dismiss", null) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵand(16777216, null, null, 2, null, View_ModalComponent_3)), i1.ɵdid(4, 540672, null, 0, i2.NgTemplateOutlet, [i1.ViewContainerRef], { ngTemplateOutletContext: [0, "ngTemplateOutletContext"], ngTemplateOutlet: [1, "ngTemplateOutlet"] }, null), i1.ɵpod(5, { modalData: 0, events: 1 })], function (_ck, _v) { var _co = _v.component; var currVal_1 = _ck(_v, 5, 0, _co.context, _co.events$); var currVal_2 = _co.template; _ck(_v, 4, 0, currVal_1, currVal_2); }, function (_ck, _v) { var currVal_0 = undefined; _ck(_v, 0, 0, currVal_0); }); }
+    } return ad; }, null, null)), (_l()(), i1.ɵand(16777216, null, null, 2, null, View_ModalComponent_3)), i1.ɵdid(4, 540672, null, 0, i2.NgTemplateOutlet, [i1.ViewContainerRef], { ngTemplateOutletContext: [0, "ngTemplateOutletContext"], ngTemplateOutlet: [1, "ngTemplateOutlet"] }, null), i1.ɵpod(5, { modalData: 0, events: 1 })], function (_ck, _v) { var _co = _v.component; var currVal_2 = _ck(_v, 5, 0, _co.context, _co.events$); var currVal_3 = _co.template; _ck(_v, 4, 0, currVal_2, currVal_3); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = undefined; _ck(_v, 0, 0, currVal_0); var currVal_1 = _co.isFullScreen; _ck(_v, 1, 0, currVal_1); }); }
 function View_ModalComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵand(16777216, null, null, 1, null, View_ModalComponent_1)), i1.ɵdid(1, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_ModalComponent_2)), i1.ɵdid(3, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.isModalOpen; _ck(_v, 1, 0, currVal_0); var currVal_1 = _co.isModalOpen; _ck(_v, 3, 0, currVal_1); }, null); }
 exports.View_ModalComponent_0 = View_ModalComponent_0;
 function View_ModalComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-modal", [], null, [["window", "scroll"]], function (_v, en, $event) { var ad = true; if (("window:scroll" === en)) {
@@ -2704,9 +2799,9 @@ exports.ModalComponentNgFactory = ModalComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [".modal-wrapper[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(255, 255, 255, 0.75);\n  z-index: 20; }\n\n.modal-container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 25;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n\n.modal-window[_ngcontent-%COMP%] {\n  position: relative;\n  width: 85%;\n  max-width: 600px;\n  padding: 85px;\n  background-color: #ffffff;\n  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);\n  max-height: 100vh;\n  overflow-y: auto; }\n\n@media (max-width: 767px) {\n    .modal-window[_ngcontent-%COMP%] {\n      width: 100%;\n      min-height: 100%;\n      padding: 20px; } }\n\n.modal-close-button[_ngcontent-%COMP%] {\n  width: 20px;\n  height: 20px;\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  background-image: url(/assets/icons/close.svg);\n  cursor: pointer; }"];
+var styles = [".modal-wrapper[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  position: fixed;\n  top: 0;\n  left: 0;\n  background-color: rgba(255, 255, 255, 0.75);\n  z-index: 20; }\n\n.modal-container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 25;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n\n.modal-window[_ngcontent-%COMP%] {\n  position: relative;\n  width: 85%;\n  max-width: 600px;\n  padding: 85px;\n  background-color: #ffffff;\n  box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);\n  max-height: 100vh;\n  overflow-y: auto; }\n\n.modal-window.full-screen[_ngcontent-%COMP%] {\n    max-width: none;\n    height: 100%; }\n\n@media (max-width: 767px) {\n    .modal-window[_ngcontent-%COMP%] {\n      width: 100%;\n      min-height: 100%;\n      padding: 20px; } }\n\n.modal-close-button[_ngcontent-%COMP%] {\n  width: 20px;\n  height: 20px;\n  position: absolute;\n  top: 20px;\n  right: 20px;\n  background-image: url(/assets/icons/close.svg);\n  cursor: pointer; }"];
 exports.styles = styles;
 
 
@@ -2755,6 +2850,7 @@ var ModalComponent = /** @class */ (function () {
             _this.template = data.template;
             _this.context = data.context;
             _this.renderer.addClass(document.body, 'modal-overlay');
+            _this.isFullScreen = _this.modalService.isFullScreen;
             _this.changeDetectorRef.detectChanges();
         });
         this.modalService.modalEvent.pipe(operators_1.filter(function (modalEvent) { return modalEvent.type === 'dismiss' || modalEvent.type === 'success'; })).subscribe(function (data) {
@@ -2762,6 +2858,7 @@ var ModalComponent = /** @class */ (function () {
             _this.openModalName = void 0;
             _this.renderer.removeClass(document.body, 'modal-overlay');
         });
+        this.isFullScreen;
     };
     return ModalComponent;
 }());
@@ -2784,7 +2881,7 @@ exports.ModalComponent = ModalComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./overview-about.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/overview-about/overview-about.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -2825,9 +2922,9 @@ exports.OverviewAboutComponentNgFactory = OverviewAboutComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [".block-wrapper[_ngcontent-%COMP%] {\n  width: 100%;\n  display: flex;\n  align-items: center; }\n  @media (max-width: 1023px) {\n    .block-wrapper[_ngcontent-%COMP%] {\n      padding: 0 20px;\n      flex-direction: column; } }\n  .block-image[_ngcontent-%COMP%] {\n  max-width: 370px; }\n  @media (max-width: 1023px) {\n    .block-image[_ngcontent-%COMP%] {\n      max-width: 100%;\n      min-width: 100%; } }\n  .block-info-wrapper[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  margin-left: 100px; }\n  .block-info-wrapper.no-image[_ngcontent-%COMP%] {\n    margin-left: 0; }\n  @media (max-width: 1023px) {\n    .block-info-wrapper[_ngcontent-%COMP%] {\n      margin-left: 0; } }\n  @media (max-width: 1023px) {\n  .block-info-position[_ngcontent-%COMP%] {\n    margin-top: 15px; } }\n  @media (max-width: 1023px) {\n  .block-info-name[_ngcontent-%COMP%] {\n    line-height: 1; } }\n  .block-info-paragraph[_ngcontent-%COMP%] {\n  margin: 20px 0 40px; }\n  .block-info-link[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n  font-weight: 700;\n  color: #0f778b;\n  padding: 5px 0;\n  border-bottom: 2px solid #0f778b; }"];
+var styles = [".block-wrapper[_ngcontent-%COMP%] {\n  width: 100%;\n  display: flex;\n  align-items: center; }\n  @media (max-width: 1023px) {\n    .block-wrapper[_ngcontent-%COMP%] {\n      padding: 0 20px;\n      flex-direction: column; } }\n  .block-image[_ngcontent-%COMP%] {\n  max-width: 370px; }\n  @media (max-width: 1023px) {\n    .block-image[_ngcontent-%COMP%] {\n      max-width: 100%;\n      min-width: 100%; } }\n  .block-info-wrapper[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n  margin-left: 100px;\n  max-width: calc(100% - 470px); }\n  .block-info-wrapper.no-image[_ngcontent-%COMP%] {\n    margin-left: 0; }\n  @media (max-width: 1023px) {\n    .block-info-wrapper[_ngcontent-%COMP%] {\n      margin-left: 0;\n      max-width: none; } }\n  @media (max-width: 1023px) {\n  .block-info-position[_ngcontent-%COMP%] {\n    margin-top: 15px; } }\n  @media (max-width: 1023px) {\n  .block-info-name[_ngcontent-%COMP%] {\n    line-height: 1; } }\n  .block-info-paragraph[_ngcontent-%COMP%] {\n  margin: 20px 0 40px; }\n  .block-info-link[_ngcontent-%COMP%] {\n  text-transform: uppercase;\n  font-weight: 700;\n  color: #0f778b;\n  padding: 5px 0;\n  border-bottom: 2px solid #0f778b; }"];
 exports.styles = styles;
 
 
@@ -2882,6 +2979,96 @@ exports.OverviewAboutComponent = OverviewAboutComponent;
 
 /***/ }),
 
+/***/ "./src/app/pages/_index/components/overview-diplomas/overview-diplomas.component.ngfactory.js":
+/*!****************************************************************************************************!*\
+  !*** ./src/app/pages/_index/components/overview-diplomas/overview-diplomas.component.ngfactory.js ***!
+  \****************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./overview-diplomas.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/overview-diplomas/overview-diplomas.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ../diploma/diploma.component.ngfactory */ "./src/app/pages/_index/components/diploma/diploma.component.ngfactory.js");
+var i3 = __webpack_require__(/*! ../diploma/diploma.component */ "./src/app/pages/_index/components/diploma/diploma.component.ts");
+var i4 = __webpack_require__(/*! ../../services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
+var i5 = __webpack_require__(/*! ../../../../components/slider/slider.component.ngfactory */ "./src/app/components/slider/slider.component.ngfactory.js");
+var i6 = __webpack_require__(/*! ../../../../components/slider/slider.component */ "./src/app/components/slider/slider.component.ts");
+var i7 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i8 = __webpack_require__(/*! ./overview-diplomas.component */ "./src/app/pages/_index/components/overview-diplomas/overview-diplomas.component.ts");
+var i9 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var styles_OverviewDiplomasComponent = [i0.styles];
+var RenderType_OverviewDiplomasComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_OverviewDiplomasComponent, data: {} });
+exports.RenderType_OverviewDiplomasComponent = RenderType_OverviewDiplomasComponent;
+function View_OverviewDiplomasComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "swiper-slide-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "app-diploma", [], null, null, null, i2.View_DiplomaComponent_0, i2.RenderType_DiplomaComponent)), i1.ɵdid(2, 114688, null, 0, i3.DiplomaComponent, [i4.ModalService], { diploma: [0, "diploma"] }, null)], function (_ck, _v) { var currVal_0 = _v.context.slide; _ck(_v, 2, 0, currVal_0); }, null); }
+function View_OverviewDiplomasComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 5, "div", [["class", "overview-diploma-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h3", [["class", "overview-diploma-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Diplomas and certificates"])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "app-slider", [], null, null, null, i5.View_SliderComponent_0, i5.RenderType_SliderComponent)), i1.ɵdid(4, 114688, null, 0, i6.SliderComponent, [], { template: [0, "template"], slides: [1, "slides"], sideButtons: [2, "sideButtons"], sideButtonsMobile: [3, "sideButtonsMobile"] }, null), (_l()(), i1.ɵand(0, [["diplomasTpl", 2]], null, 0, null, View_OverviewDiplomasComponent_2))], function (_ck, _v) { var _co = _v.component; var currVal_0 = i1.ɵnov(_v, 5); var currVal_1 = _co.diplomas; var currVal_2 = true; var currVal_3 = false; _ck(_v, 4, 0, currVal_0, currVal_1, currVal_2, currVal_3); }, null); }
+function View_OverviewDiplomasComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵand(16777216, null, null, 1, null, View_OverviewDiplomasComponent_1)), i1.ɵdid(1, 16384, null, 0, i7.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.diplomas.length; _ck(_v, 1, 0, currVal_0); }, null); }
+exports.View_OverviewDiplomasComponent_0 = View_OverviewDiplomasComponent_0;
+function View_OverviewDiplomasComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-overview-diplomas", [], null, null, null, View_OverviewDiplomasComponent_0, RenderType_OverviewDiplomasComponent)), i1.ɵdid(1, 114688, null, 0, i8.OverviewDiplomasComponent, [i9.ActivatedRoute], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_OverviewDiplomasComponent_Host_0 = View_OverviewDiplomasComponent_Host_0;
+var OverviewDiplomasComponentNgFactory = i1.ɵccf("app-overview-diplomas", i8.OverviewDiplomasComponent, View_OverviewDiplomasComponent_Host_0, {}, {}, []);
+exports.OverviewDiplomasComponentNgFactory = OverviewDiplomasComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/pages/_index/components/overview-diplomas/overview-diplomas.component.scss.shim.ngstyle.js":
+/*!************************************************************************************************************!*\
+  !*** ./src/app/pages/_index/components/overview-diplomas/overview-diplomas.component.scss.shim.ngstyle.js ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [".overview-diploma-wrapper[_ngcontent-%COMP%] {\n  margin-top: 200px; }\n\n.overview-diploma-header[_ngcontent-%COMP%] {\n  width: 50%;\n  margin-bottom: -20px;\n  z-index: 2;\n  position: relative; }\n\n.overview-diploma-header[_ngcontent-%COMP%]:before {\n    content: '';\n    display: block;\n    background-image: url(/assets/diploma.svg);\n    background-size: 46px 46px;\n    height: 46px;\n    width: 46px;\n    margin: 0 0 25px 0; }\n\n@media (max-width: 1023px) {\n    .overview-diploma-header[_ngcontent-%COMP%] {\n      text-align: center;\n      margin: 0 auto -10px; }\n      .overview-diploma-header[_ngcontent-%COMP%]:before {\n        margin: 0 auto 25px; } }\n\n.swiper-slide-wrapper[_ngcontent-%COMP%] {\n  height: 466px;\n  width: calc(100% - 300px);\n  margin: 0 auto; }\n\n@media (max-width: 1023px) {\n    .swiper-slide-wrapper[_ngcontent-%COMP%] {\n      width: 100%;\n      height: auto; } }"];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/pages/_index/components/overview-diplomas/overview-diplomas.component.ts":
+/*!******************************************************************************************!*\
+  !*** ./src/app/pages/_index/components/overview-diplomas/overview-diplomas.component.ts ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var OverviewDiplomasComponent = /** @class */ (function () {
+    function OverviewDiplomasComponent(route) {
+        this.route = route;
+    }
+    OverviewDiplomasComponent.prototype.ngOnInit = function () {
+        this.diplomas = this.route.snapshot.data.pageBlocks[1];
+        console.log(this.diplomas);
+    };
+    return OverviewDiplomasComponent;
+}());
+exports.OverviewDiplomasComponent = OverviewDiplomasComponent;
+
+
+/***/ }),
+
 /***/ "./src/app/pages/_index/components/overview-reviews/overview-reviews.component.ngfactory.js":
 /*!**************************************************************************************************!*\
   !*** ./src/app/pages/_index/components/overview-reviews/overview-reviews.component.ngfactory.js ***!
@@ -2896,7 +3083,7 @@ exports.OverviewAboutComponent = OverviewAboutComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./overview-reviews.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/overview-reviews/overview-reviews.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -2971,7 +3158,7 @@ exports.OverviewReviewsComponentNgFactory = OverviewReviewsComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".reviews-wrapper[_ngcontent-%COMP%] {\n  margin-top: 130px; }\n  .reviews-wrapper[_ngcontent-%COMP%]   .no-reviews[_ngcontent-%COMP%] {\n    text-align: center;\n    padding: 75px 150px; }\n  .reviews-wrapper[_ngcontent-%COMP%]   .no-reviews-text[_ngcontent-%COMP%] {\n      padding: 75px;\n      box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.15); }\n  @media (max-width: 1023px) {\n      .reviews-wrapper[_ngcontent-%COMP%]   .no-reviews[_ngcontent-%COMP%] {\n        padding: 50px 0; }\n        .reviews-wrapper[_ngcontent-%COMP%]   .no-reviews-text[_ngcontent-%COMP%] {\n          padding: 0 20px 100px;\n          box-shadow: none; } }\n  .reviews-header[_ngcontent-%COMP%] {\n  text-align: center; }\n  .reviews-header[_ngcontent-%COMP%]:before {\n    content: '';\n    display: block;\n    background-image: url(/assets/reviews.svg);\n    background-size: 46px 46px;\n    height: 46px;\n    width: 46px;\n    margin: 0 auto 25px; }\n  .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-component-wrapper[_ngcontent-%COMP%] {\n  position: relative; }\n  .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-component-wrapper[_ngcontent-%COMP%]   .slide-number[_ngcontent-%COMP%] {\n    position: absolute;\n    right: 165px;\n    top: 90px; }\n  .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-component-wrapper[_ngcontent-%COMP%]   .slide-number[_ngcontent-%COMP%]   .current[_ngcontent-%COMP%] {\n      font-weight: 700;\n      color: #0f778b; }\n  @media (max-width: 1023px) {\n    .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-component-wrapper[_ngcontent-%COMP%]   .slide-number[_ngcontent-%COMP%] {\n      -webkit-transform: translateX(-50%);\n              transform: translateX(-50%);\n      left: 50%;\n      right: 0;\n      top: 0;\n      text-align: center; } }\n  .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%] {\n  padding-top: 75px;\n  padding-bottom: 75px; }\n  .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%] {\n    width: calc(100% - 300px);\n    height: 550px;\n    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.15);\n    margin: 0 auto;\n    position: relative;\n    overflow-y: auto; }\n  .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-bg[_ngcontent-%COMP%] {\n      position: absolute;\n      height: 100%;\n      width: 285px;\n      -webkit-transform: translateX(-33.333%);\n              transform: translateX(-33.333%);\n      left: 33.333%;\n      top: 0;\n      background-color: #0f778b;\n      background: linear-gradient(135deg, #0f778b, #8b230f 25%, #8b230f);\n      opacity: .1;\n      z-index: -1; }\n  .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-qoutes[_ngcontent-%COMP%] {\n      position: absolute;\n      bottom: 20px;\n      right: 20px;\n      opacity: .1; }\n  .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-text[_ngcontent-%COMP%] {\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n      height: 100%; }\n  .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-text[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n        width: 33.333%;\n        text-align: right;\n        padding-right: 130px; }\n  .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-text[_ngcontent-%COMP%]   .text[_ngcontent-%COMP%] {\n        width: 66.667%;\n        align-items: flex-start; }\n  .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-text[_ngcontent-%COMP%]   .text[_ngcontent-%COMP%]   img[_ngcontent-%COMP%] {\n          height: 1rem; }\n  .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-text[_ngcontent-%COMP%]   .text[_ngcontent-%COMP%]   .paragraph[_ngcontent-%COMP%] {\n          margin-top: 15px;\n          padding-right: 50px; }\n  @media (max-width: 1023px) {\n      .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%] {\n        width: 100%;\n        padding-top: 50px;\n        box-shadow: none; }\n        .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-bg[_ngcontent-%COMP%] {\n          width: 100%;\n          -webkit-transform: translateX(-50%);\n                  transform: translateX(-50%);\n          left: 50%;\n          display: none; }\n        .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-qoutes[_ngcontent-%COMP%] {\n          display: none; }\n        .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-text[_ngcontent-%COMP%] {\n          flex-direction: column;\n          justify-content: center;\n          height: auto; }\n          .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-text[_ngcontent-%COMP%]   .name[_ngcontent-%COMP%] {\n            padding-right: 0;\n            text-align: center; }\n          .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-text[_ngcontent-%COMP%]   .text[_ngcontent-%COMP%] {\n            justify-content: center;\n            text-align: center;\n            padding-right: 0; }\n            .reviews-slider-wrapper[_ngcontent-%COMP%]   .swiper-slide-wrapper[_ngcontent-%COMP%]   .slide-inner[_ngcontent-%COMP%]   .slide-text[_ngcontent-%COMP%]   .text[_ngcontent-%COMP%]   .paragraph[_ngcontent-%COMP%] {\n              padding-right: 0; } }\n  .reviews-button[_ngcontent-%COMP%] {\n  height: 70px;\n  background-color: #0f778b;\n  color: #ffffff;\n  border: none;\n  text-transform: uppercase;\n  font-weight: 700;\n  padding: 0 50px;\n  font-family: 'Montserrat', sans-serif;\n  cursor: pointer;\n  position: relative;\n  -webkit-transform: perspective(1px) translateZ(0);\n          transform: perspective(1px) translateZ(0);\n  transition: color .3s ease;\n  font-size: .8rem; }\n  .reviews-button-wrapper[_ngcontent-%COMP%] {\n    margin-top: -75px;\n    position: relative; }\n  .reviews-button-absolute-wrapper[_ngcontent-%COMP%] {\n    position: absolute;\n    right: 150px;\n    top: 0;\n    z-index: 5; }\n  @media (max-width: 1023px) {\n    .reviews-button[_ngcontent-%COMP%] {\n      width: 100%; }\n      .reviews-button-wrapper[_ngcontent-%COMP%] {\n        margin-top: -123px;\n        margin-bottom: 160px; }\n      .reviews-button-absolute-wrapper[_ngcontent-%COMP%] {\n        right: 0;\n        width: 100%; } }\n  .reviews-button[_ngcontent-%COMP%]:before {\n    content: '';\n    background-color: #8b230f;\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 100%;\n    bottom: 0;\n    z-index: -1;\n    transition: right .3s ease; }\n  .reviews-button[_ngcontent-%COMP%]:hover:before {\n    right: 0;\n    transition: right .3s ease; }\n  .review-form[_ngcontent-%COMP%]   .header[_ngcontent-%COMP%] {\n  text-align: center; }\n  .review-form[_ngcontent-%COMP%]   .recaptcha[_ngcontent-%COMP%] {\n  margin: 20px 0;\n  display: flex;\n  justify-content: center; }\n  .review-form[_ngcontent-%COMP%]   .submit-button[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 70px;\n  width: 100%;\n  border: none;\n  background-color: #0f778b;\n  color: #ffffff;\n  position: relative;\n  font-size: 1rem;\n  text-transform: uppercase;\n  cursor: pointer; }\n  .review-form[_ngcontent-%COMP%]   .submit-button[disabled][_ngcontent-%COMP%] {\n    background-color: #e5e5e5;\n    cursor: pointer; }\n  .review-form[_ngcontent-%COMP%]   .submit-button[_ngcontent-%COMP%]   .loader[_ngcontent-%COMP%] {\n    width: 20px;\n    height: 20px;\n    background-color: rgba(255, 255, 255, 0.5);\n    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);\n    -webkit-animation: submitting 1s ease infinite;\n            animation: submitting 1s ease infinite;\n    right: 50px;\n    position: absolute; }\n  .review-form[_ngcontent-%COMP%]   .explanation[_ngcontent-%COMP%] {\n  margin-top: 11px;\n  line-height: 16px;\n  font-size: 14px; }\n  .review-form[_ngcontent-%COMP%]   .explanation-p[_ngcontent-%COMP%] {\n    margin-bottom: 10px; }\n  .review-form[_ngcontent-%COMP%]   .explanation-p[_ngcontent-%COMP%]:last-child {\n      margin-bottom: 0; }\n  .review-form[_ngcontent-%COMP%]   .explanation.uniq-field-err[_ngcontent-%COMP%] {\n    margin-top: 0;\n    color: #8b230f; }\n  @-webkit-keyframes submitting {\n  0% {\n    opacity: 0; }\n  66.667% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n  @keyframes submitting {\n  0% {\n    opacity: 0; }\n  66.667% {\n    opacity: 1; }\n  100% {\n    opacity: 0; } }"];
 exports.styles = styles;
@@ -3090,7 +3277,7 @@ exports.OverviewReviewsComponent = OverviewReviewsComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! ./index.module */ "./src/app/pages/_index/index.module.ts");
@@ -3346,9 +3533,10 @@ var ModalService = /** @class */ (function () {
         enumerable: true,
         configurable: true
     });
-    ModalService.prototype.openModal = function (name, tpl, ctx, closeWithBackdrop) {
-        if (closeWithBackdrop === void 0) { closeWithBackdrop = true; }
-        this.closeWithBackdrop = closeWithBackdrop;
+    ModalService.prototype.openModal = function (name, tpl, ctx, options) {
+        if (options === void 0) { options = {}; }
+        this.closeWithBackdrop = options.closeWithBackdrop !== false;
+        this.isFullScreen = options.fullScreen;
         this._modalEvent.next({ name: name, type: 'open', success: true, template: tpl, context: ctx });
     };
     ModalService.prototype.closeModal = function (name, type, data) {
@@ -3451,14 +3639,14 @@ var ResolveMainPageService = /** @class */ (function () {
     }
     ResolveMainPageService.prototype.resolve = function (route, state) {
         var lang = this.languageGuard.selectedLang;
-        var aboutPage$;
-        aboutPage$ = this.httpClient.get('interface', {
+        var aboutPage$ = this.httpClient.get('interface', {
             params: {
                 lang: lang,
                 id: ['about', 'review', '[modal] review']
             }
         });
-        return rxjs_1.combineLatest([aboutPage$]);
+        var diploma$ = this.httpClient.get('diploma');
+        return rxjs_1.combineLatest([aboutPage$, diploma$]);
     };
     ResolveMainPageService.ngInjectableDef = i0.defineInjectable({ factory: function ResolveMainPageService_Factory() { return new ResolveMainPageService(i0.inject(i1.LanguageGuardService), i0.inject(i2.HttpClient)); }, token: ResolveMainPageService, providedIn: "root" });
     return ResolveMainPageService;
@@ -3562,7 +3750,7 @@ exports.ResolveServicesService = ResolveServicesService;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! ./page404.module */ "./src/app/pages/_page404/page404.module.ts");
@@ -3607,7 +3795,7 @@ exports.Page404Module = Page404Module;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! ./about.module */ "./src/app/pages/about/about.module.ts");
@@ -3662,7 +3850,7 @@ exports.AboutModule = AboutModule;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./about.component.scss.shim.ngstyle */ "./src/app/pages/about/components/about/about.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -3701,7 +3889,7 @@ exports.AboutComponentNgFactory = AboutComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".content[_ngcontent-%COMP%] {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-columns: 45% 55%;\n  grid-template-columns: 45% 55%;\n  -ms-grid-rows: auto 1fr;\n  grid-template-rows: auto 0fr; }\n  .content-wrapper[_ngcontent-%COMP%] {\n    width: 80%;\n    margin: 0 auto; }\n  @media (max-width: 1023px) {\n    .content[_ngcontent-%COMP%] {\n      -ms-grid-columns: 100%;\n      grid-template-columns: 100%;\n      -ms-grid-rows: auto auto auto;\n      grid-template-rows: auto auto auto; }\n      .content-wrapper[_ngcontent-%COMP%] {\n        width: 100%; } }\n  .text-wrapper[_ngcontent-%COMP%] {\n  -ms-grid-column: 2;\n  grid-column: 2;\n  -ms-grid-row: 1;\n  -ms-grid-row-span: 2;\n  grid-row: 1 /span 2;\n  padding-left: 100px;\n  overflow: auto; }\n  @media (max-width: 1023px) {\n    .text-wrapper[_ngcontent-%COMP%] {\n      padding: 0 20px;\n      -ms-grid-column: 1;\n      grid-column: 1;\n      -ms-grid-row: 3;\n      -ms-grid-row-span: 1;\n      grid-row: 3; } }\n  .text-paragraph[_ngcontent-%COMP%] {\n  margin-top: 15px; }\n  .text-paragraph[_ngcontent-%COMP%]:first-child {\n    margin-top: 0; }\n  .header-wrapper[_ngcontent-%COMP%] {\n  -ms-grid-column: 1;\n  grid-column: 1;\n  -ms-grid-row: 1;\n  grid-row: 1;\n  text-align: right;\n  margin-left: auto;\n  padding-bottom: 100px; }\n  @media (max-width: 1023px) {\n    .header-wrapper[_ngcontent-%COMP%] {\n      padding: 0 20px 20px;\n      margin: 0;\n      margin-right: auto;\n      text-align: left;\n      -ms-grid-row: 2;\n      grid-row: 2; } }\n  .swiper-wrapper[_ngcontent-%COMP%] {\n  -ms-grid-column: 1;\n  grid-column: 1;\n  -ms-grid-row: 2;\n  grid-row: 2; }\n  @media (max-width: 1023px) {\n    .swiper-wrapper[_ngcontent-%COMP%] {\n      -ms-grid-row: 1;\n      grid-row: 1; } }\n  .swiper-component-wrapper[_ngcontent-%COMP%] {\n  width: 600px;\n  margin-left: auto; }\n  @media (max-width: 1023px) {\n    .swiper-component-wrapper[_ngcontent-%COMP%] {\n      width: 100%; } }\n  .image[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 800px;\n  background-position: center center;\n  background-size: cover;\n  background-repeat: no-repeat; }\n  .image-wrapper[_ngcontent-%COMP%] {\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  overflow: hidden; }\n  [_ngcontent-%COMP%]::-webkit-scrollbar-thumb {\n  border-radius: 0;\n  background-color: #0f778b; }\n  [_ngcontent-%COMP%]::-webkit-scrollbar-thumb:hover {\n  background-color: #56999f;\n  transition: background-color ease .3s; }\n  [_ngcontent-%COMP%]::-webkit-scrollbar {\n  width: 4px; }"];
 exports.styles = styles;
@@ -3752,7 +3940,7 @@ exports.AboutComponent = AboutComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! ./article.module */ "./src/app/pages/article/article.module.ts");
@@ -3801,7 +3989,7 @@ exports.ArticleModule = ArticleModule;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./article.component.scss.shim.ngstyle */ "./src/app/pages/article/components/article/article.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -3833,7 +4021,7 @@ exports.ArticleComponentNgFactory = ArticleComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [""];
 exports.styles = styles;
@@ -3878,7 +4066,7 @@ exports.ArticleComponent = ArticleComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! ./articles.module */ "./src/app/pages/articles/articles.module.ts");
@@ -3927,7 +4115,7 @@ exports.ArticlesModule = ArticlesModule;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./articles.component.scss.shim.ngstyle */ "./src/app/pages/articles/components/articles/articles.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -3959,7 +4147,7 @@ exports.ArticlesComponentNgFactory = ArticlesComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [""];
 exports.styles = styles;
@@ -4004,7 +4192,7 @@ exports.ArticlesComponent = ArticlesComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./diplomas.component.scss.shim.ngstyle */ "./src/app/pages/diplomas/components/diplomas/diplomas.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -4036,7 +4224,7 @@ exports.DiplomasComponentNgFactory = DiplomasComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [""];
 exports.styles = styles;
@@ -4081,7 +4269,7 @@ exports.DiplomasComponent = DiplomasComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! ./diplomas.module */ "./src/app/pages/diplomas/diplomas.module.ts");
@@ -4130,7 +4318,7 @@ exports.DiplomasModule = DiplomasModule;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./service.component.scss.shim.ngstyle */ "./src/app/pages/services/components/service/service.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -4173,7 +4361,7 @@ exports.ServiceComponentNgFactory = ServiceComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".service-wrapper[_ngcontent-%COMP%] {\n  display: -ms-grid;\n  display: grid;\n  -ms-grid-rows: 4.5rem auto 3.5rem 95px;\n  grid-template-rows: 4.5rem auto 3.5rem 95px;\n  -ms-grid-columns: 270px auto;\n  grid-template-columns: 270px auto;\n  height: 100%; }\n  @media (max-width: 767px) {\n    .service-wrapper[_ngcontent-%COMP%] {\n      -ms-grid-rows: auto auto auto auto 95px;\n      grid-template-rows: auto auto auto auto 95px;\n      -ms-grid-columns: auto;\n      grid-template-columns: auto; } }\n  .service-image[_ngcontent-%COMP%] {\n  -ms-grid-row: 1;\n  -ms-grid-row-span: 3;\n  grid-row: 1 /span 3; }\n  @media (max-width: 767px) {\n    .service-image[_ngcontent-%COMP%] {\n      -ms-grid-row: 1;\n      -ms-grid-row-span: 1;\n      grid-row: 1; }\n      .service-image[_ngcontent-%COMP%]   .image[_ngcontent-%COMP%] {\n        min-width: 100%;\n        max-width: 100%; } }\n  .service-description-header[_ngcontent-%COMP%] {\n  -ms-grid-column: 2;\n  grid-column: 2;\n  -ms-grid-row: 1;\n  grid-row: 1;\n  padding-left: 15px;\n  font-weight: bold; }\n  @media (max-width: 767px) {\n    .service-description-header[_ngcontent-%COMP%] {\n      -ms-grid-column: 1;\n      grid-column: 1;\n      -ms-grid-row: 2;\n      grid-row: 2;\n      padding-left: 0;\n      padding-top: 15px; } }\n  .service-description-description[_ngcontent-%COMP%] {\n  -ms-grid-column: 2;\n  grid-column: 2;\n  -ms-grid-row: 2;\n  grid-row: 2;\n  padding-left: 15px; }\n  @media (max-width: 767px) {\n    .service-description-description[_ngcontent-%COMP%] {\n      -ms-grid-column: 1;\n      grid-column: 1;\n      -ms-grid-row: 3;\n      grid-row: 3;\n      padding-left: 0;\n      padding-top: 15px; } }\n  .service-description-price[_ngcontent-%COMP%] {\n  -ms-grid-column: 2;\n  grid-column: 2;\n  -ms-grid-row: 3;\n  grid-row: 3;\n  padding-left: 15px;\n  -ms-grid-row-align: center;\n      align-self: center; }\n  .service-description-price[_ngcontent-%COMP%]   .value[_ngcontent-%COMP%] {\n    font-weight: 700; }\n  @media (max-width: 767px) {\n    .service-description-price[_ngcontent-%COMP%] {\n      -ms-grid-column: 1;\n      grid-column: 1;\n      -ms-grid-row: 4;\n      grid-row: 4;\n      padding-left: 0;\n      padding-top: 15px; } }\n  .service-attend-button-wrapper[_ngcontent-%COMP%] {\n  -ms-grid-column: 2;\n  grid-column: 2;\n  -ms-grid-row: 4;\n  grid-row: 4;\n  padding-left: 15px;\n  padding-top: 15px; }\n  @media (max-width: 767px) {\n    .service-attend-button-wrapper[_ngcontent-%COMP%] {\n      -ms-grid-column: 1;\n      grid-column: 1;\n      -ms-grid-row: 5;\n      grid-row: 5;\n      padding-left: 0; } }"];
 exports.styles = styles;
@@ -4218,7 +4406,7 @@ exports.ServiceComponent = ServiceComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./services.component.scss.shim.ngstyle */ "./src/app/pages/services/components/services/services.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -4255,7 +4443,7 @@ exports.ServicesComponentNgFactory = ServicesComponentNgFactory;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var styles = [".services-wrapper[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between; }\n  @media (max-width: 1279px) {\n    .services-wrapper[_ngcontent-%COMP%] {\n      flex-direction: column; } }\n  @media (max-width: 767px) and (orientation: landscape) {\n    .services-wrapper[_ngcontent-%COMP%] {\n      flex-direction: row; } }\n  .services-item[_ngcontent-%COMP%] {\n  width: calc(50% - 10px);\n  flex-grow: 0;\n  flex-shrink: 0;\n  display: flex; }\n  @media (max-width: 1279px) {\n    .services-item[_ngcontent-%COMP%] {\n      width: 100%;\n      margin-bottom: 50px; } }\n  @media (max-width: 767px) and (orientation: landscape) {\n    .services-item[_ngcontent-%COMP%] {\n      width: calc(50% - 10px); } }\n  @media (max-width: 767px) and (orientation: landscape) {\n  app-service[_ngcontent-%COMP%] {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between; } }"];
 exports.styles = styles;
@@ -4303,7 +4491,7 @@ exports.ServicesComponent = ServicesComponent;
  *
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
- */
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! ./services.module */ "./src/app/pages/services/services.module.ts");
