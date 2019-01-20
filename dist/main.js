@@ -4669,7 +4669,7 @@ exports.I18nService = I18nService;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.environment = {
     production: false,
-    api: 'http://localhost:3000/api/'
+    api: 'https://romanenkova.herokuapp.com/api/'
 };
 
 
