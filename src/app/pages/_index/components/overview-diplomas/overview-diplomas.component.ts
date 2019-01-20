@@ -14,7 +14,5 @@ export class OverviewDiplomasComponent implements OnInit {
 
   ngOnInit() {
     this.diplomas = this.route.snapshot.data.pageBlocks[1];
-    console.log(this.diplomas);
   }
-
 }

@@ -1,3 +1,8 @@
-<p>
-  diplomas works!
-</p>
+<div class="container">
+  <div class="diplomas-wrapper">
+    <div class="diplomas-item" *ngFor="let diploma of diplomas">
+      <app-diploma [diploma]="diploma" [onPage]="true"></app-diploma>
+    </div>
+  </div>
+</div>
+

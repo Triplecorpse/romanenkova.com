@@ -10,6 +10,7 @@ import {DateInputComponent} from './date-input/date-input.component';
 import {SelectComponent} from './select/select.component';
 import {AttendButtonComponent} from './attend-button/attend-button.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
+import {DiplomaComponent} from "./diploma/diploma.component";
 
 @NgModule({
   imports: [
@@ -22,9 +23,9 @@ import {NgxCaptchaModule} from 'ngx-captcha';
       reCaptcha2SiteKey: '6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil'
     })
   ],
-  declarations: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent],
+  declarations: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent, DiplomaComponent],
   exports: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent,
-    ClickOutsideModule]
+    ClickOutsideModule, DiplomaComponent]
 })
 export class ComponentsModule {
 }

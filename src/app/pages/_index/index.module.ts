@@ -24,7 +24,7 @@ import {PipesModule} from '../../pipes/pipes.module';
 import { OverviewReviewsComponent } from './components/overview-reviews/overview-reviews.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
 import { OverviewDiplomasComponent } from './components/overview-diplomas/overview-diplomas.component';
-import { DiplomaComponent } from './components/diploma/diploma.component';
+import { DiplomaComponent } from '../../components/diploma/diploma.component';
 
 @NgModule({
   imports: [
@@ -88,13 +88,13 @@ import { DiplomaComponent } from './components/diploma/diploma.component';
     ModalComponent,
     OverviewAboutComponent,
     OverviewReviewsComponent,
-    OverviewDiplomasComponent,
-    DiplomaComponent
+    OverviewDiplomasComponent
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: InterceptResponseService, multi: true}
-  ]
+  ],
+  exports: []
 })
 export class IndexModule {
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {IDiploma} from "../../../../interfaces/IDiploma";
 
 @Component({
   selector: 'app-diplomas',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./diplomas.component.scss']
 })
 export class DiplomasComponent implements OnInit {
-
-  constructor() { }
+  diplomas: Array<IDiploma>;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.diplomas = this.route.snapshot.data.pageData.pageData;
+    console.log(this.diplomas);
   }
-
 }
