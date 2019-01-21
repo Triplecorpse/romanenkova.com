@@ -30,6 +30,9 @@
 <loc>https://www.romanenkova.com/ru/services/</loc>
 <priority>0.8</priority>
 </url><url>
+<loc>https://www.romanenkova.com/ru/diplomas/</loc>
+<priority>0.8</priority>
+</url><url>
 <loc>https://www.romanenkova.com/uk/</loc>
 <priority>0.9</priority>
 </url><url>
@@ -37,6 +40,9 @@
 <priority>0.8</priority>
 </url><url>
 <loc>https://www.romanenkova.com/uk/services/</loc>
+<priority>0.8</priority>
+</url><url>
+<loc>https://www.romanenkova.com/uk/diplomas/</loc>
 <priority>0.8</priority>
 </url><url>
 <loc>https://www.romanenkova.com/en/</loc>
@@ -48,6 +54,9 @@
 <loc>https://www.romanenkova.com/en/services/</loc>
 <priority>0.8</priority>
 </url><url>
+<loc>https://www.romanenkova.com/en/diplomas/</loc>
+<priority>0.8</priority>
+</url><url>
 <loc>https://www.romanenkova.com/fr/</loc>
 <priority>0.9</priority>
 </url><url>
@@ -55,6 +64,9 @@
 <priority>0.8</priority>
 </url><url>
 <loc>https://www.romanenkova.com/fr/services/</loc>
+<priority>0.8</priority>
+</url><url>
+<loc>https://www.romanenkova.com/fr/diplomas/</loc>
 <priority>0.8</priority>
 </url>
 </urlset>
