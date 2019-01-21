@@ -46,7 +46,7 @@
         transition: .3s opacity ease;
       }
 
-      @include mobile-breakpoint {
+      @include tablet-breakpoint {
         width: 100%;
         height: 342px;
       }
@@ -60,6 +60,11 @@
     &.low-padding {
       height: calc(100% - 120px);
       width: calc(100% - 120px);
+    }
+
+    @include desktop-sm-breakpoint {
+      height: calc(100% - 130px);
+      width: calc(100% - 30px);
     }
 
     @include tablet-breakpoint {
@@ -83,10 +88,6 @@
         .diploma-description {
           margin-left: 15px;
         }
-      }
-
-      @include desktop-sm-breakpoint {
-        display: none;
       }
     }
     @include tablet-breakpoint {
@@ -128,7 +129,7 @@
     margin-top: 30px;
     display: inline;
 
-    @include mobile-breakpoint {
+    @include tablet-breakpoint {
       width: calc(100% - 30px);
       margin: 30px 15px;
     }

@@ -41,7 +41,7 @@ router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunc
 router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
     let name: string;
     // continue routing if language is not acceptable
-    if (req.params.lang && languages.indexOf(req.params.lang) === -1) {
+    if (req.params.lang && languages.indexOf(req.params.lang) === -1 && req.params.lang !== '404') {
         return next();
     }
 
@@ -68,7 +68,7 @@ router.use('/api', api);
 
 // todo: decide either to do page 404 or redirect to /:lang
 router.get('*', (req: IRequest, res: Response) => {
-  res.status(404).render(join(process.cwd(), 'front', 'index.html'), {req});
+  res.status(404).redirect(`${req.baseUrl}/404`);
 });
 
 export default router;

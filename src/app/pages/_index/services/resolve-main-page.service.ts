@@ -15,13 +15,11 @@ export class ResolveMainPageService implements Resolve<Array<any>> {
     const aboutPage$ = this.httpClient.get<IPage<string>>('interface', {
       params: {
         lang,
-        id: ['about', 'review', '[modal] review']
+        id: ['about', 'review', '[modal] review', 'diploma']
       }
     });
 
-    const diploma$ = this.httpClient.get<IDiploma>('diploma');
-
-    return combineLatest([aboutPage$, diploma$]);
+    return combineLatest([aboutPage$]);
   }
 
   constructor(private languageGuard: LanguageGuardService,

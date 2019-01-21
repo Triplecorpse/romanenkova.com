@@ -12,8 +12,8 @@ export function getReviewPageData(): Promise<Array<IPage>> {
             header: 'Feedback',
             language: 'en',
             pageData: {
-                submit: 'Add a feedback...',
-                noReviews: 'There are no feedback left from the English version of the site. Be the first one!',
+                submit: 'Leave feedback...',
+                noReviews: 'There is no feedback left from the English version of the site. Why not be the first one?',
                 anon: 'Anonymous'
             }
         }, {

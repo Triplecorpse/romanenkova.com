@@ -26,9 +26,29 @@ export default {
       instructions: 'Required fields: name and any contact information.',
       explanation: 'The date and time of the first trial consultation are indicative and may change by mutual agreement.\nNo personal data entered in this form is stored on the site or transmitted to third parties for promotional purposes.\nContact information is used only for contact with you and is saved only in my personal mail box.',
       selectClear: 'Clear selection'
+    },
+    addReview: {},
+    diplomas: {
+      header: 'Diplomas and certificates',
+      button: 'View All'
     }
   },
-  ru: {},
-  uk: {},
-  fr: {}
+  ru: {
+    diplomas: {
+      header: 'Дипломы и сертификаты',
+      button: 'Посмотреть все'
+    }
+  },
+  uk: {
+    diplomas: {
+      header: 'Дипломи та сертифікати',
+      button: 'Подивитися усі'
+    }
+  },
+  fr: {
+    diplomas: {
+      header: 'Diplômes et certificats',
+      button: 'Voir tout'
+    }
+  }
 };

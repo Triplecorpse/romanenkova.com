@@ -1,19 +1,20 @@
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {IService} from '../../../interfaces/IService';
 import {IModalAppointment} from "../../../interfaces/iModalAppointment";
 import * as moment from 'moment-timezone';
 import IPage from "../../../interfaces/iPage";
 import {ISchedule} from "../../../interfaces/iSchedule";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class InterceptResponseService implements HttpInterceptor {
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

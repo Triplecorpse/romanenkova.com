@@ -8,11 +8,17 @@ import {IDiploma} from "../../../../interfaces/IDiploma";
   styleUrls: ['./diplomas.component.scss']
 })
 export class DiplomasComponent implements OnInit {
-  diplomas: Array<IDiploma>;
+  public diplomas: Array<IDiploma> = [];
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.diplomas = this.route.snapshot.data.pageData.pageData;
-    console.log(this.diplomas);
+    const pageData = this.route.snapshot.data.pageData.pageData;
+    delete pageData.overview;
+    for (let i in pageData) {
+      if (pageData.hasOwnProperty(i)) {
+        this.diplomas.push(pageData[i]);
+      }
+    }
   }
 }

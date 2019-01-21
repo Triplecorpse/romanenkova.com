@@ -2,8 +2,7 @@ import {Diploma, IDiploma} from "../../models/diploma";
 
 export function readDiploma(typeId?: string, isAdmin = false): Promise<Array<IDiploma>> {
   return Diploma.find({typeId: typeId})
-    .then((diplomaItems: any) => {
-      return diplomaItems.map((diplomaItem: IDiploma): IDiploma => {
+    .then((diplomaItems: any) => diplomaItems.map((diplomaItem: IDiploma): IDiploma => {
         if (isAdmin) {
           return {
             description: diplomaItem.description,
@@ -17,29 +16,31 @@ export function readDiploma(typeId?: string, isAdmin = false): Promise<Array<IDi
           }
         }
 
-        return {
+      return {
           description: diplomaItem.description,
           header: diplomaItem.header,
           graduateYear: diplomaItem.graduateYear,
-          picture: diplomaItem.picture
+          picture: diplomaItem.picture,
+          entityId: diplomaItem.entityId
         }
-      });
-    });
+      })
+    );
 }
 
 export function createDiploma(diploma: IDiploma): Promise<IDiploma> {
   return Diploma.create(diploma)
     .then(() => diploma)
-    .catch(err => {throw new Error(err.message)})
+    .catch(err => {throw new Error(err.message)});
 }
 
 export function updateDiploma(id: string, newDiploma: IDiploma): Promise<IDiploma> {
   return Diploma.updateOne(id, newDiploma)
-    .then(() => newDiploma);
+    .then(() => newDiploma)
+    .catch(err => {throw new Error(err.message)});
 }
 
 export function removeDiploma(_id: string): Promise<any> {
-  console.log(_id);
   return Diploma.findOneAndDelete({_id})
-    .then(result => result);
+    .then(result => result)
+    .catch(err => {throw new Error(err.message)});
 }

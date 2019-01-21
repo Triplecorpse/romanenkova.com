@@ -8,13 +8,13 @@ export function getServiceItemData(): Promise<Array<IService>> {
             currency: 'EUR',
             header: 'Individual counseling',
             language: 'en',
-            description: 'I work mostly with adults, but I also have experience working with children and teenagers. I am often approached by parents who face difficulties in raising children.',
+            description: 'For those who need my full personal one-on-one support and guidance. In this format, I will dedicate myself purely and solely for you.',
             image: '0',
             price: 30,
             priceLabel: 'Cost',
             entityId: '[counseling] individual',
             title: 'Individual counselling',
-            period: 'hour'
+            period: 'hr'
         }, {
             currency: 'EUR',
             header: 'Индивидуальные консультации',
@@ -25,7 +25,7 @@ export function getServiceItemData(): Promise<Array<IService>> {
             priceLabel: 'Стоимость',
             entityId: '[counseling] individual',
             title: 'Individual counselling',
-            period: 'час'
+            period: 'ч'
         }, {
             currency: 'EUR',
             header: 'Індивідуальні консультації',
@@ -52,12 +52,13 @@ export function getServiceItemData(): Promise<Array<IService>> {
         {
             header: 'Group counseling',
             language: 'en',
-            description: 'Conducted as a set of groups. If you are interested in this service, you can leave a request and I will contact you when the group is recruited. In this format, I work in co-therapy (with a colleague).',
+            description: 'For those who would like to be apart of a supportive group. If you are interested in this service, you can leave a request and I will contact you as soon as a group is put together. In this format, I work in co-therapy.',
             image: '1',
             priceLabel: 'Cost',
             entityId: '[counseling] group',
             title: 'Group counselling',
-            noPriceValue: 'calculated for each group'
+            noPriceValue: 'calculated',
+            period: 'per group'
         }, {
             header: 'Груповые консультации',
             language: 'ru',

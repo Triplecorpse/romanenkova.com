@@ -4,7 +4,7 @@ import log from "../server/services/log-service";
 export function getContactsPageData(): Promise<Array<IPage>> {
     const contacts = [{
         entityId: 'contacts',
-        header: 'Contacts',
+        header: 'Contact',
         pageData: [
             {
                 name: 'Telegram',

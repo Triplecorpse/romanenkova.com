@@ -11,6 +11,7 @@ import {SelectComponent} from './select/select.component';
 import {AttendButtonComponent} from './attend-button/attend-button.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
 import {DiplomaComponent} from "./diploma/diploma.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import {DiplomaComponent} from "./diploma/diploma.component";
     FormsModule,
     ReactiveFormsModule,
     ClickOutsideModule,
+    RouterModule,
     NgxCaptchaModule.forRoot({
       reCaptcha2SiteKey: '6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil'
     })

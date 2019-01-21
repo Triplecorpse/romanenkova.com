@@ -378,7 +378,7 @@ var i33 = __webpack_require__(/*! ngx-captcha */ "ngx-captcha");
 var i34 = __webpack_require__(/*! ./components/components.module */ "./src/app/components/components.module.ts");
 var i35 = __webpack_require__(/*! ./pipes/pipes.module */ "./src/app/pipes/pipes.module.ts");
 var i36 = __webpack_require__(/*! ./app.module */ "./src/app/app.module.ts");
-var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.IndexComponentNgFactory, i5.MainComponentNgFactory, i6.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_k, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_i, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(4608, i8.DomSanitizer, i8.ɵDomSanitizerImpl, [i7.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i8.DomSanitizer]), i0.ɵmpd(4608, i8.HAMMER_GESTURE_CONFIG, i8.HammerGestureConfig, []), i0.ɵmpd(5120, i8.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p2_3, p3_0) { return [new i8.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i8.ɵKeyEventsPlugin(p1_0), new i8.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2, p2_3), new i9.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i7.DOCUMENT, i0.NgZone, i0.PLATFORM_ID, i7.DOCUMENT, i7.DOCUMENT, i8.HAMMER_GESTURE_CONFIG, i0.ɵConsole, [2, i8.HAMMER_LOADER], i8.DOCUMENT]), i0.ɵmpd(4608, i8.EventManager, i8.EventManager, [i8.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i8.ɵDomSharedStylesHost, i8.ɵDomSharedStylesHost, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.ɵDomRendererFactory2, i8.ɵDomRendererFactory2, [i8.EventManager, i8.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i9.ɵangular_packages_platform_server_platform_server_c, i9.ɵangular_packages_platform_server_platform_server_c, [i8.DOCUMENT, [2, i8.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i8.ɵSharedStylesHost, null, [i9.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i9.ɵServerRendererFactory2, i9.ɵServerRendererFactory2, [i8.EventManager, i0.NgZone, i8.DOCUMENT, i8.ɵSharedStylesHost]), i0.ɵmpd(4608, i10.AnimationDriver, i10.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i10.ɵAnimationStyleNormalizer, i11.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i10.ɵAnimationEngine, i11.ɵangular_packages_platform_browser_animations_animations_a, [i7.DOCUMENT, i10.AnimationDriver, i10.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i9.ɵangular_packages_platform_server_platform_server_a, [i9.ɵServerRendererFactory2, i10.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(5120, i12.ActivatedRoute, i12.ɵangular_packages_router_router_g, [i12.Router]), i0.ɵmpd(4608, i12.NoPreloading, i12.NoPreloading, []), i0.ɵmpd(6144, i12.PreloadingStrategy, null, [i12.NoPreloading]), i0.ɵmpd(135680, i12.RouterPreloader, i12.RouterPreloader, [i12.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i12.PreloadingStrategy]), i0.ɵmpd(4608, i12.PreloadAllModules, i12.PreloadAllModules, []), i0.ɵmpd(4608, i7.ViewportScroller, i7.ɵNullViewportScroller, []), i0.ɵmpd(5120, i12.ɵangular_packages_router_router_n, i12.ɵangular_packages_router_router_c, [i12.Router, i7.ViewportScroller, i12.ROUTER_CONFIGURATION]), i0.ɵmpd(5120, i12.ROUTER_INITIALIZER, i12.ɵangular_packages_router_router_j, [i12.ɵangular_packages_router_router_h]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i12.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i13.HttpXsrfTokenExtractor, i13.ɵangular_packages_common_http_http_g, [i7.DOCUMENT, i0.PLATFORM_ID, i13.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i13.ɵangular_packages_common_http_http_h, i13.ɵangular_packages_common_http_http_h, [i13.HttpXsrfTokenExtractor, i13.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i13.HTTP_INTERCEPTORS, function (p0_0, p1_0) { return [p0_0, new i14.InterceptorService(p1_0), new i15.InterceptResponseService()]; }, [i13.ɵangular_packages_common_http_http_h, i16.LanguageGuardService]), i0.ɵmpd(4608, i13.XhrFactory, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i13.HttpXhrBackend, i13.HttpXhrBackend, [i13.XhrFactory]), i0.ɵmpd(6144, i13.HttpBackend, null, [i13.HttpXhrBackend]), i0.ɵmpd(5120, i13.HttpHandler, i9.ɵangular_packages_platform_server_platform_server_h, [i13.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i13.HttpClient, i13.HttpClient, [i13.HttpHandler]), i0.ɵmpd(4608, i13.ɵangular_packages_common_http_http_d, i13.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i17.ɵangular_packages_forms_forms_i, i17.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i17.FormBuilder, i17.FormBuilder, []), i0.ɵmpd(4608, i18.ScrollToService, i18.ScrollToService, [i7.DOCUMENT, i0.PLATFORM_ID]), i0.ɵmpd(4608, i19.AnimationBuilder, i11.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i8.DOCUMENT]), i0.ɵmpd(4608, i8.TransferState, i8.TransferState, []), i0.ɵmpd(4608, i20.BrowserXhr, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i20.ResponseOptions, i20.BaseResponseOptions, []), i0.ɵmpd(4608, i20.XSRFStrategy, i9.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i20.XHRBackend, i20.XHRBackend, [i20.BrowserXhr, i20.ResponseOptions, i20.XSRFStrategy]), i0.ɵmpd(4608, i20.RequestOptions, i20.BaseRequestOptions, []), i0.ɵmpd(5120, i20.Http, i9.ɵangular_packages_platform_server_platform_server_g, [i20.XHRBackend, i20.RequestOptions]), i0.ɵmpd(5120, i9.BEFORE_APP_SERIALIZED, function (p0_0, p0_1, p0_2) { return [i9.ɵangular_packages_platform_server_platform_server_b(p0_0, p0_1, p0_2)]; }, [i8.DOCUMENT, i0.APP_ID, i8.TransferState]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i8.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i12.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i12.ɵangular_packages_router_router_h, i12.ɵangular_packages_router_router_h, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "romanenkova", []), i0.ɵmpd(2048, i8.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i8.ɵangular_packages_platform_browser_platform_browser_j(p0_0), i12.ɵangular_packages_router_router_i(p1_0), i8.ɵangular_packages_platform_browser_platform_browser_h(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i12.ɵangular_packages_router_router_h, i8.ɵTRANSITION_ID, i7.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i8.BrowserModule, i8.BrowserModule, [[3, i8.BrowserModule]]), i0.ɵmpd(1024, i12.ɵangular_packages_router_router_a, i12.ɵangular_packages_router_router_e, [[3, i12.Router]]), i0.ɵmpd(512, i12.UrlSerializer, i12.DefaultUrlSerializer, []), i0.ɵmpd(512, i12.ChildrenOutletContexts, i12.ChildrenOutletContexts, []), i0.ɵmpd(256, i12.ROUTER_CONFIGURATION, { initialNavigation: "enabled" }, []), i0.ɵmpd(1024, i7.LocationStrategy, i12.ɵangular_packages_router_router_d, [i7.PlatformLocation, [2, i7.APP_BASE_HREF], i12.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i7.Location, i7.Location, [i7.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i21.ModuleMapNgFactoryLoader, [i0.Compiler, i21.MODULE_MAP]), i0.ɵmpd(1024, i12.ROUTES, function () { return [[{ path: ":lang", loadChildren: "./pages/_index/index.module#IndexModule", canActivate: [i16.LanguageGuardService], resolve: { headerData: i22.ResolveIndexService, schedule: i23.ResolveScheduleService, services: i24.ResolveServicesService }, component: i25.IndexComponent, outlet: "primary" }, { path: "404", loadChildren: "./pages/_page404/page404.module#Page404Module", outlet: "primary" }, { path: "", component: i25.IndexComponent, outlet: "primary", canActivate: [i16.LanguageGuardService] }, { path: "**", redirectTo: "404", pathMatch: "full", outlet: "primary" }], [{ path: "about", loadChildren: "./../about/about.module#AboutModule", data: i26.ɵ0, resolve: { pageData: i27.ResolvePageService } }, { path: "articles", loadChildren: "./../articles/articles.module#ArticlesModule", data: i26.ɵ1, resolve: { pageData: i27.ResolvePageService } }, { path: "services", loadChildren: "./../services/services.module#ServicesModule", data: i26.ɵ2, resolve: { pageData: i27.ResolvePageService } }, { path: "diplomas", loadChildren: "./../diplomas/diplomas.module#DiplomasModule", data: i26.ɵ3, resolve: { pageData: i27.ResolvePageService } }, { path: "article/:id", loadChildren: "./../article/article.module#ArticleModule", data: i26.ɵ4, resolve: { pageData: i27.ResolvePageService } }, { path: "", component: i28.MainComponent, data: i26.ɵ5, resolve: { pageData: i27.ResolvePageService, pageBlocks: i29.ResolveMainPageService, services: i24.ResolveServicesService } }]]; }, []), i0.ɵmpd(1024, i12.Router, i12.ɵangular_packages_router_router_f, [i0.ApplicationRef, i12.UrlSerializer, i12.ChildrenOutletContexts, i7.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i12.ROUTES, i12.ROUTER_CONFIGURATION, [2, i12.UrlHandlingStrategy], [2, i12.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i12.RouterModule, i12.RouterModule, [[2, i12.ɵangular_packages_router_router_a], [2, i12.Router]]), i0.ɵmpd(1073742336, i30.AppRoutingModule, i30.AppRoutingModule, []), i0.ɵmpd(1073742336, i13.HttpClientXsrfModule, i13.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i13.HttpClientModule, i13.HttpClientModule, []), i0.ɵmpd(1073742336, i17.ɵangular_packages_forms_forms_bb, i17.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i17.FormsModule, i17.FormsModule, []), i0.ɵmpd(1073742336, i31.SwiperModule, i31.SwiperModule, []), i0.ɵmpd(1073742336, i17.ReactiveFormsModule, i17.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i32.ClickOutsideModule, i32.ClickOutsideModule, []), i0.ɵmpd(1073742336, i33.NgxCaptchaModule, i33.NgxCaptchaModule, []), i0.ɵmpd(1073742336, i34.ComponentsModule, i34.ComponentsModule, []), i0.ɵmpd(1073742336, i18.ScrollToModule, i18.ScrollToModule, []), i0.ɵmpd(1073742336, i35.PipesModule, i35.PipesModule, []), i0.ɵmpd(1073742336, i26.IndexModule, i26.IndexModule, []), i0.ɵmpd(1073742336, i11.BrowserAnimationsModule, i11.BrowserAnimationsModule, []), i0.ɵmpd(1073742336, i8.BrowserTransferStateModule, i8.BrowserTransferStateModule, []), i0.ɵmpd(1073742336, i36.AppModule, i36.AppModule, []), i0.ɵmpd(1073742336, i20.HttpModule, i20.HttpModule, []), i0.ɵmpd(1073742336, i11.NoopAnimationsModule, i11.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i9.ServerModule, i9.ServerModule, []), i0.ɵmpd(1073742336, i21.ModuleMapLoaderModule, i21.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i9.ServerTransferStateModule, i9.ServerTransferStateModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i13.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i13.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i33.NgxCaptchaConfig, { reCaptcha2SiteKey: "6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil" }, []), i0.ɵmpd(256, i11.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
+var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.IndexComponentNgFactory, i5.MainComponentNgFactory, i6.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_k, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_i, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(4608, i8.DomSanitizer, i8.ɵDomSanitizerImpl, [i7.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i8.DomSanitizer]), i0.ɵmpd(4608, i8.HAMMER_GESTURE_CONFIG, i8.HammerGestureConfig, []), i0.ɵmpd(5120, i8.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p2_3, p3_0) { return [new i8.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i8.ɵKeyEventsPlugin(p1_0), new i8.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2, p2_3), new i9.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i7.DOCUMENT, i0.NgZone, i0.PLATFORM_ID, i7.DOCUMENT, i7.DOCUMENT, i8.HAMMER_GESTURE_CONFIG, i0.ɵConsole, [2, i8.HAMMER_LOADER], i8.DOCUMENT]), i0.ɵmpd(4608, i8.EventManager, i8.EventManager, [i8.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i8.ɵDomSharedStylesHost, i8.ɵDomSharedStylesHost, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.ɵDomRendererFactory2, i8.ɵDomRendererFactory2, [i8.EventManager, i8.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i9.ɵangular_packages_platform_server_platform_server_c, i9.ɵangular_packages_platform_server_platform_server_c, [i8.DOCUMENT, [2, i8.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i8.ɵSharedStylesHost, null, [i9.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i9.ɵServerRendererFactory2, i9.ɵServerRendererFactory2, [i8.EventManager, i0.NgZone, i8.DOCUMENT, i8.ɵSharedStylesHost]), i0.ɵmpd(4608, i10.AnimationDriver, i10.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i10.ɵAnimationStyleNormalizer, i11.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i10.ɵAnimationEngine, i11.ɵangular_packages_platform_browser_animations_animations_a, [i7.DOCUMENT, i10.AnimationDriver, i10.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i9.ɵangular_packages_platform_server_platform_server_a, [i9.ɵServerRendererFactory2, i10.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(5120, i12.ActivatedRoute, i12.ɵangular_packages_router_router_g, [i12.Router]), i0.ɵmpd(4608, i12.NoPreloading, i12.NoPreloading, []), i0.ɵmpd(6144, i12.PreloadingStrategy, null, [i12.NoPreloading]), i0.ɵmpd(135680, i12.RouterPreloader, i12.RouterPreloader, [i12.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i12.PreloadingStrategy]), i0.ɵmpd(4608, i12.PreloadAllModules, i12.PreloadAllModules, []), i0.ɵmpd(4608, i7.ViewportScroller, i7.ɵNullViewportScroller, []), i0.ɵmpd(5120, i12.ɵangular_packages_router_router_n, i12.ɵangular_packages_router_router_c, [i12.Router, i7.ViewportScroller, i12.ROUTER_CONFIGURATION]), i0.ɵmpd(5120, i12.ROUTER_INITIALIZER, i12.ɵangular_packages_router_router_j, [i12.ɵangular_packages_router_router_h]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i12.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i13.HttpXsrfTokenExtractor, i13.ɵangular_packages_common_http_http_g, [i7.DOCUMENT, i0.PLATFORM_ID, i13.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i13.ɵangular_packages_common_http_http_h, i13.ɵangular_packages_common_http_http_h, [i13.HttpXsrfTokenExtractor, i13.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i13.HTTP_INTERCEPTORS, function (p0_0, p1_0, p2_0) { return [p0_0, new i14.InterceptorService(p1_0), new i15.InterceptResponseService(p2_0)]; }, [i13.ɵangular_packages_common_http_http_h, i16.LanguageGuardService, i12.Router]), i0.ɵmpd(4608, i13.XhrFactory, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i13.HttpXhrBackend, i13.HttpXhrBackend, [i13.XhrFactory]), i0.ɵmpd(6144, i13.HttpBackend, null, [i13.HttpXhrBackend]), i0.ɵmpd(5120, i13.HttpHandler, i9.ɵangular_packages_platform_server_platform_server_h, [i13.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i13.HttpClient, i13.HttpClient, [i13.HttpHandler]), i0.ɵmpd(4608, i13.ɵangular_packages_common_http_http_d, i13.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i17.ɵangular_packages_forms_forms_i, i17.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i17.FormBuilder, i17.FormBuilder, []), i0.ɵmpd(4608, i18.ScrollToService, i18.ScrollToService, [i7.DOCUMENT, i0.PLATFORM_ID]), i0.ɵmpd(4608, i19.AnimationBuilder, i11.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i8.DOCUMENT]), i0.ɵmpd(4608, i8.TransferState, i8.TransferState, []), i0.ɵmpd(4608, i20.BrowserXhr, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i20.ResponseOptions, i20.BaseResponseOptions, []), i0.ɵmpd(4608, i20.XSRFStrategy, i9.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i20.XHRBackend, i20.XHRBackend, [i20.BrowserXhr, i20.ResponseOptions, i20.XSRFStrategy]), i0.ɵmpd(4608, i20.RequestOptions, i20.BaseRequestOptions, []), i0.ɵmpd(5120, i20.Http, i9.ɵangular_packages_platform_server_platform_server_g, [i20.XHRBackend, i20.RequestOptions]), i0.ɵmpd(5120, i9.BEFORE_APP_SERIALIZED, function (p0_0, p0_1, p0_2) { return [i9.ɵangular_packages_platform_server_platform_server_b(p0_0, p0_1, p0_2)]; }, [i8.DOCUMENT, i0.APP_ID, i8.TransferState]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i8.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i12.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i12.ɵangular_packages_router_router_h, i12.ɵangular_packages_router_router_h, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "romanenkova", []), i0.ɵmpd(2048, i8.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i8.ɵangular_packages_platform_browser_platform_browser_j(p0_0), i12.ɵangular_packages_router_router_i(p1_0), i8.ɵangular_packages_platform_browser_platform_browser_h(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i12.ɵangular_packages_router_router_h, i8.ɵTRANSITION_ID, i7.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i8.BrowserModule, i8.BrowserModule, [[3, i8.BrowserModule]]), i0.ɵmpd(1024, i12.ɵangular_packages_router_router_a, i12.ɵangular_packages_router_router_e, [[3, i12.Router]]), i0.ɵmpd(512, i12.UrlSerializer, i12.DefaultUrlSerializer, []), i0.ɵmpd(512, i12.ChildrenOutletContexts, i12.ChildrenOutletContexts, []), i0.ɵmpd(256, i12.ROUTER_CONFIGURATION, { initialNavigation: "enabled" }, []), i0.ɵmpd(1024, i7.LocationStrategy, i12.ɵangular_packages_router_router_d, [i7.PlatformLocation, [2, i7.APP_BASE_HREF], i12.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i7.Location, i7.Location, [i7.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i21.ModuleMapNgFactoryLoader, [i0.Compiler, i21.MODULE_MAP]), i0.ɵmpd(1024, i12.ROUTES, function () { return [[{ path: ":lang", loadChildren: "./pages/_index/index.module#IndexModule", canActivate: [i16.LanguageGuardService], resolve: { headerData: i22.ResolveIndexService, schedule: i23.ResolveScheduleService, services: i24.ResolveServicesService }, component: i25.IndexComponent, outlet: "primary" }, { path: "404", loadChildren: "./pages/_page404/page404.module#Page404Module", outlet: "primary" }, { path: "", component: i25.IndexComponent, outlet: "primary", canActivate: [i16.LanguageGuardService] }, { path: "**", redirectTo: "404", pathMatch: "full", outlet: "primary" }], [{ path: "about", loadChildren: "./../about/about.module#AboutModule", data: i26.ɵ0, resolve: { pageData: i27.ResolvePageService } }, { path: "articles", loadChildren: "./../articles/articles.module#ArticlesModule", data: i26.ɵ1, resolve: { pageData: i27.ResolvePageService } }, { path: "services", loadChildren: "./../services/services.module#ServicesModule", data: i26.ɵ2, resolve: { pageData: i27.ResolvePageService } }, { path: "diplomas", loadChildren: "./../diplomas/diplomas.module#DiplomasModule", data: i26.ɵ3, resolve: { pageData: i27.ResolvePageService } }, { path: "article/:id", loadChildren: "./../article/article.module#ArticleModule", data: i26.ɵ4, resolve: { pageData: i27.ResolvePageService } }, { path: "", component: i28.MainComponent, data: i26.ɵ5, resolve: { pageData: i27.ResolvePageService, pageBlocks: i29.ResolveMainPageService, services: i24.ResolveServicesService } }]]; }, []), i0.ɵmpd(1024, i12.Router, i12.ɵangular_packages_router_router_f, [i0.ApplicationRef, i12.UrlSerializer, i12.ChildrenOutletContexts, i7.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i12.ROUTES, i12.ROUTER_CONFIGURATION, [2, i12.UrlHandlingStrategy], [2, i12.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i12.RouterModule, i12.RouterModule, [[2, i12.ɵangular_packages_router_router_a], [2, i12.Router]]), i0.ɵmpd(1073742336, i30.AppRoutingModule, i30.AppRoutingModule, []), i0.ɵmpd(1073742336, i13.HttpClientXsrfModule, i13.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i13.HttpClientModule, i13.HttpClientModule, []), i0.ɵmpd(1073742336, i17.ɵangular_packages_forms_forms_bb, i17.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i17.FormsModule, i17.FormsModule, []), i0.ɵmpd(1073742336, i31.SwiperModule, i31.SwiperModule, []), i0.ɵmpd(1073742336, i17.ReactiveFormsModule, i17.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i32.ClickOutsideModule, i32.ClickOutsideModule, []), i0.ɵmpd(1073742336, i33.NgxCaptchaModule, i33.NgxCaptchaModule, []), i0.ɵmpd(1073742336, i34.ComponentsModule, i34.ComponentsModule, []), i0.ɵmpd(1073742336, i18.ScrollToModule, i18.ScrollToModule, []), i0.ɵmpd(1073742336, i35.PipesModule, i35.PipesModule, []), i0.ɵmpd(1073742336, i26.IndexModule, i26.IndexModule, []), i0.ɵmpd(1073742336, i11.BrowserAnimationsModule, i11.BrowserAnimationsModule, []), i0.ɵmpd(1073742336, i8.BrowserTransferStateModule, i8.BrowserTransferStateModule, []), i0.ɵmpd(1073742336, i36.AppModule, i36.AppModule, []), i0.ɵmpd(1073742336, i20.HttpModule, i20.HttpModule, []), i0.ɵmpd(1073742336, i11.NoopAnimationsModule, i11.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i9.ServerModule, i9.ServerModule, []), i0.ɵmpd(1073742336, i21.ModuleMapLoaderModule, i21.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i9.ServerTransferStateModule, i9.ServerTransferStateModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i13.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i13.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i33.NgxCaptchaConfig, { reCaptcha2SiteKey: "6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil" }, []), i0.ɵmpd(256, i11.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
 exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
 
 
@@ -1030,6 +1030,95 @@ var DateInputComponent = /** @class */ (function () {
     return DateInputComponent;
 }());
 exports.DateInputComponent = DateInputComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/components/diploma/diploma.component.ngfactory.js":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/diploma/diploma.component.ngfactory.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var i0 = __webpack_require__(/*! ./diploma.component.scss.shim.ngstyle */ "./src/app/components/diploma/diploma.component.scss.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i3 = __webpack_require__(/*! ./diploma.component */ "./src/app/components/diploma/diploma.component.ts");
+var i4 = __webpack_require__(/*! ../../pages/_index/services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
+var styles_DiplomaComponent = [i0.styles];
+var RenderType_DiplomaComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_DiplomaComponent, data: {} });
+exports.RenderType_DiplomaComponent = RenderType_DiplomaComponent;
+function View_DiplomaComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "a", [["routerLink", "diplomas"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "button", [["class", "diploma-button"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["View All"]))], null, null); }
+function View_DiplomaComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "img-contents"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "a", [["class", "img-wrapper"], ["target", "_blank"]], [[8, "href", 4]], null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 0, "img", [["alt", ""], ["class", "img"]], [[8, "src", 4]], null, null, null, null))], null, function (_ck, _v) { var currVal_0 = _v.context.modalData; _ck(_v, 1, 0, currVal_0); var currVal_1 = _v.context.modalData; _ck(_v, 2, 0, currVal_1); }); }
+function View_DiplomaComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1, { pictureTpl: 0 }), (_l()(), i1.ɵeld(1, 0, null, null, 10, "div", [["class", "diploma-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "div", [["class", "diploma-photo-wrapper"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.showBigPicture() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 0, "div", [["class", "diploma-photo"]], [[2, "low-padding", null], [4, "background-image", null]], null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 7, "div", [["class", "diploma-description-wrapper"]], [[2, "align-left", null]], null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 6, "div", [["class", "diploma-description"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "h4", [["class", "diploma-description-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", ""])), (_l()(), i1.ɵeld(8, 0, null, null, 1, "p", [["class", "diploma-description-graduate"]], null, null, null, null, null)), (_l()(), i1.ɵted(9, null, ["", ""])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_DiplomaComponent_1)), i1.ɵdid(11, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(0, [[1, 2], ["pictureTpl", 2]], null, 0, null, View_DiplomaComponent_2))], function (_ck, _v) { var _co = _v.component; var currVal_5 = !_co.onPage; _ck(_v, 11, 0, currVal_5); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.onPage; var currVal_1 = (("url(" + _co.diploma.picture) + ")"); _ck(_v, 3, 0, currVal_0, currVal_1); var currVal_2 = _co.onPage; _ck(_v, 4, 0, currVal_2); var currVal_3 = _co.diploma.header; _ck(_v, 7, 0, currVal_3); var currVal_4 = _co.diploma.graduateYear; _ck(_v, 9, 0, currVal_4); }); }
+exports.View_DiplomaComponent_0 = View_DiplomaComponent_0;
+function View_DiplomaComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-diploma", [], null, null, null, View_DiplomaComponent_0, RenderType_DiplomaComponent)), i1.ɵdid(1, 114688, null, 0, i3.DiplomaComponent, [i4.ModalService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_DiplomaComponent_Host_0 = View_DiplomaComponent_Host_0;
+var DiplomaComponentNgFactory = i1.ɵccf("app-diploma", i3.DiplomaComponent, View_DiplomaComponent_Host_0, { diploma: "diploma", onPage: "onPage" }, {}, []);
+exports.DiplomaComponentNgFactory = DiplomaComponentNgFactory;
+
+
+/***/ }),
+
+/***/ "./src/app/components/diploma/diploma.component.scss.shim.ngstyle.js":
+/*!***************************************************************************!*\
+  !*** ./src/app/components/diploma/diploma.component.scss.shim.ngstyle.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [".diploma-wrapper[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  display: flex; }\n  @media (max-width: 1023px) {\n    .diploma-wrapper[_ngcontent-%COMP%] {\n      flex-direction: column; } }\n  .diploma-photo[_ngcontent-%COMP%] {\n  height: calc(100% - 200px);\n  width: calc(100% - 200px);\n  background-repeat: no-repeat;\n  background-size: cover; }\n  .diploma-photo-wrapper[_ngcontent-%COMP%] {\n    height: 100%;\n    width: 50%;\n    flex-grow: 0;\n    flex-shrink: 0;\n    background-color: #f8f8f8;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    position: relative;\n    cursor: pointer; }\n  .diploma-photo-wrapper[_ngcontent-%COMP%]:after {\n      content: '';\n      position: absolute;\n      width: 40px;\n      height: 40px;\n      top: 20px;\n      right: 20px;\n      background-image: url(/assets/lens.svg);\n      background-size: contain;\n      transition: .3s opacity ease; }\n  @media (max-width: 1023px) {\n        .diploma-photo-wrapper[_ngcontent-%COMP%]:after {\n          top: 10px; } }\n  .diploma-photo-wrapper[_ngcontent-%COMP%]:hover:after {\n      opacity: .5;\n      transition: .3s opacity ease; }\n  @media (max-width: 1023px) {\n      .diploma-photo-wrapper[_ngcontent-%COMP%] {\n        width: 100%;\n        height: 342px; } }\n  .diploma-photo.low-padding[_ngcontent-%COMP%] {\n    height: calc(100% - 120px);\n    width: calc(100% - 120px); }\n  @media (max-width: 1279px) {\n    .diploma-photo[_ngcontent-%COMP%] {\n      height: calc(100% - 130px);\n      width: calc(100% - 30px); } }\n  @media (max-width: 1023px) {\n    .diploma-photo[_ngcontent-%COMP%] {\n      height: calc(100% - 120px);\n      width: calc(100% - 40px); } }\n  .diploma-description-wrapper[_ngcontent-%COMP%] {\n  width: 50%;\n  flex-grow: 0;\n  flex-shrink: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  .diploma-description-wrapper.align-left[_ngcontent-%COMP%] {\n    justify-content: flex-start; }\n  .diploma-description-wrapper.align-left[_ngcontent-%COMP%]   .diploma-description[_ngcontent-%COMP%] {\n      margin-left: 15px; }\n  @media (max-width: 1023px) {\n  .diploma-description[_ngcontent-%COMP%] {\n    width: 100%; }\n    .diploma-description-wrapper[_ngcontent-%COMP%] {\n      width: 100%; } }\n  @media (max-width: 1023px) {\n  .diploma-description-header[_ngcontent-%COMP%] {\n    background-color: #f8f8f8;\n    padding: 0 15px; } }\n  @media (max-width: 1023px) {\n  .diploma-description-graduate[_ngcontent-%COMP%] {\n    padding: 0 15px; } }\n  .diploma-button[_ngcontent-%COMP%] {\n  height: 70px;\n  background-color: #fff;\n  border: none;\n  text-transform: uppercase;\n  font-weight: 700;\n  padding: 0 50px;\n  font-family: 'Montserrat', sans-serif;\n  cursor: pointer;\n  position: relative;\n  -webkit-transform: perspective(1px) translateZ(0);\n          transform: perspective(1px) translateZ(0);\n  transition: color .3s ease;\n  font-size: .8rem;\n  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.15);\n  margin-top: 30px;\n  display: inline; }\n  @media (max-width: 1023px) {\n    .diploma-button[_ngcontent-%COMP%] {\n      width: calc(100% - 30px);\n      margin: 30px 15px; } }\n  .diploma-button[_ngcontent-%COMP%]:before {\n    content: '';\n    background-color: #0f778b;\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 100%;\n    bottom: 0;\n    z-index: -1;\n    transition: right .3s ease; }\n  .diploma-button[_ngcontent-%COMP%]:hover {\n    color: #ffffff;\n    transition: color .3s ease; }\n  .diploma-button[_ngcontent-%COMP%]:hover:before {\n      right: 0;\n      transition: right .3s ease; }\n  .img[_ngcontent-%COMP%] {\n  display: inline;\n  max-height: 100%;\n  max-width: 100%; }\n  .img-wrapper[_ngcontent-%COMP%] {\n    height: 100%; }\n  .img-contents[_ngcontent-%COMP%] {\n    height: 100%;\n    text-align: center; }\n  @media (max-width: 1023px) {\n    .img-wrapper[_ngcontent-%COMP%] {\n      width: 100%;\n      height: auto;\n      -webkit-transform: translate(-50%, -50%);\n              transform: translate(-50%, -50%);\n      top: 50%;\n      left: 50%;\n      position: absolute; }\n    .img-contents[_ngcontent-%COMP%] {\n      height: 100%;\n      position: relative;\n      text-align: center; } }"];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/components/diploma/diploma.component.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/components/diploma/diploma.component.ts ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var modal_service_1 = __webpack_require__(/*! ../../pages/_index/services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
+var DiplomaComponent = /** @class */ (function () {
+    function DiplomaComponent(modalService) {
+        this.modalService = modalService;
+    }
+    DiplomaComponent.prototype.ngOnInit = function () {
+    };
+    DiplomaComponent.prototype.showBigPicture = function () {
+        this.modalService.openModal('lightbox', this.pictureTpl, this.diploma.picture, { fullScreen: true });
+    };
+    return DiplomaComponent;
+}());
+exports.DiplomaComponent = DiplomaComponent;
 
 
 /***/ }),
@@ -1805,98 +1894,6 @@ var ContactsComponent = /** @class */ (function () {
     return ContactsComponent;
 }());
 exports.ContactsComponent = ContactsComponent;
-
-
-/***/ }),
-
-/***/ "./src/app/pages/_index/components/diploma/diploma.component.ngfactory.js":
-/*!********************************************************************************!*\
-  !*** ./src/app/pages/_index/components/diploma/diploma.component.ngfactory.js ***!
-  \********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-/**
- * @fileoverview This file was generated by the Angular template compiler. Do not edit.
- *
- * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
- * tslint:disable
- */ 
-Object.defineProperty(exports, "__esModule", { value: true });
-var i0 = __webpack_require__(/*! ./diploma.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/diploma/diploma.component.scss.shim.ngstyle.js");
-var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i3 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i4 = __webpack_require__(/*! ./diploma.component */ "./src/app/pages/_index/components/diploma/diploma.component.ts");
-var i5 = __webpack_require__(/*! ../../services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
-var styles_DiplomaComponent = [i0.styles];
-var RenderType_DiplomaComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_DiplomaComponent, data: {} });
-exports.RenderType_DiplomaComponent = RenderType_DiplomaComponent;
-function View_DiplomaComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "img-contents"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "a", [["class", "img-wrapper"], ["target", "_blank"]], [[8, "href", 4]], null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 0, "img", [["alt", ""], ["class", "img"]], [[8, "src", 4]], null, null, null, null))], null, function (_ck, _v) { var currVal_0 = _v.context.modalData; _ck(_v, 1, 0, currVal_0); var currVal_1 = _v.context.modalData; _ck(_v, 2, 0, currVal_1); }); }
-function View_DiplomaComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1, { pictureTpl: 0 }), (_l()(), i1.ɵeld(1, 0, null, null, 12, "div", [["class", "diploma-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "div", [["class", "diploma-photo-wrapper"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.showBigPicture() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 0, "div", [["class", "diploma-photo"]], [[4, "background-image", null]], null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 9, "div", [["class", "diploma-description-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 8, "div", [["class", "diploma-description"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "h4", [["class", "diploma-description-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", ""])), (_l()(), i1.ɵeld(8, 0, null, null, 1, "p", [["CLASS", "diploma-description-graduate"]], null, null, null, null, null)), (_l()(), i1.ɵted(9, null, ["", ""])), (_l()(), i1.ɵeld(10, 0, null, null, 3, "a", [["routerLink", "diplomas"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 11).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(11, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵeld(12, 0, null, null, 1, "button", [["class", "diploma-button"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["View All"])), (_l()(), i1.ɵand(0, [[1, 2], ["pictureTpl", 2]], null, 0, null, View_DiplomaComponent_1))], function (_ck, _v) { var currVal_5 = "diplomas"; _ck(_v, 11, 0, currVal_5); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = (("url(" + _co.diploma.picture) + ")"); _ck(_v, 3, 0, currVal_0); var currVal_1 = _co.diploma.header; _ck(_v, 7, 0, currVal_1); var currVal_2 = _co.diploma.graduateYear; _ck(_v, 9, 0, currVal_2); var currVal_3 = i1.ɵnov(_v, 11).target; var currVal_4 = i1.ɵnov(_v, 11).href; _ck(_v, 10, 0, currVal_3, currVal_4); }); }
-exports.View_DiplomaComponent_0 = View_DiplomaComponent_0;
-function View_DiplomaComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-diploma", [], null, null, null, View_DiplomaComponent_0, RenderType_DiplomaComponent)), i1.ɵdid(1, 114688, null, 0, i4.DiplomaComponent, [i5.ModalService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
-exports.View_DiplomaComponent_Host_0 = View_DiplomaComponent_Host_0;
-var DiplomaComponentNgFactory = i1.ɵccf("app-diploma", i4.DiplomaComponent, View_DiplomaComponent_Host_0, { diploma: "diploma" }, {}, []);
-exports.DiplomaComponentNgFactory = DiplomaComponentNgFactory;
-
-
-/***/ }),
-
-/***/ "./src/app/pages/_index/components/diploma/diploma.component.scss.shim.ngstyle.js":
-/*!****************************************************************************************!*\
-  !*** ./src/app/pages/_index/components/diploma/diploma.component.scss.shim.ngstyle.js ***!
-  \****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-/**
- * @fileoverview This file was generated by the Angular template compiler. Do not edit.
- *
- * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
- * tslint:disable
- */ 
-Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [".diploma-wrapper[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100%;\n  display: flex; }\n  @media (max-width: 1023px) {\n    .diploma-wrapper[_ngcontent-%COMP%] {\n      flex-direction: column; } }\n  .diploma-photo[_ngcontent-%COMP%] {\n  height: calc(100% - 200px);\n  width: calc(100% - 200px);\n  background-repeat: no-repeat;\n  background-size: cover; }\n  .diploma-photo-wrapper[_ngcontent-%COMP%] {\n    height: 100%;\n    width: 50%;\n    flex-grow: 0;\n    flex-shrink: 0;\n    background-color: #f8f8f8;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    position: relative;\n    cursor: pointer; }\n  .diploma-photo-wrapper[_ngcontent-%COMP%]:after {\n      content: '';\n      position: absolute;\n      width: 40px;\n      height: 40px;\n      top: 20px;\n      right: 20px;\n      background-image: url(/assets/lens.svg);\n      background-size: contain;\n      transition: .3s opacity ease; }\n  @media (max-width: 1023px) {\n        .diploma-photo-wrapper[_ngcontent-%COMP%]:after {\n          top: 10px; } }\n  .diploma-photo-wrapper[_ngcontent-%COMP%]:hover:after {\n      opacity: .5;\n      transition: .3s opacity ease; }\n  @media (max-width: 767px) {\n      .diploma-photo-wrapper[_ngcontent-%COMP%] {\n        width: 100%;\n        height: 342px; } }\n  @media (max-width: 1023px) {\n    .diploma-photo[_ngcontent-%COMP%] {\n      height: calc(100% - 120px);\n      width: calc(100% - 40px); } }\n  .diploma-description-wrapper[_ngcontent-%COMP%] {\n  width: 50%;\n  flex-grow: 0;\n  flex-shrink: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center; }\n  @media (max-width: 1023px) {\n  .diploma-description[_ngcontent-%COMP%] {\n    width: 100%; }\n    .diploma-description-wrapper[_ngcontent-%COMP%] {\n      width: 100%; } }\n  @media (max-width: 1023px) {\n  .diploma-description-header[_ngcontent-%COMP%] {\n    background-color: #f8f8f8;\n    padding: 0 15px; } }\n  @media (max-width: 1023px) {\n  .diploma-description-graduate[_ngcontent-%COMP%] {\n    padding: 0 15px; } }\n  .diploma-button[_ngcontent-%COMP%] {\n  height: 70px;\n  background-color: #fff;\n  border: none;\n  text-transform: uppercase;\n  font-weight: 700;\n  padding: 0 50px;\n  font-family: 'Montserrat', sans-serif;\n  cursor: pointer;\n  position: relative;\n  -webkit-transform: perspective(1px) translateZ(0);\n          transform: perspective(1px) translateZ(0);\n  transition: color .3s ease;\n  font-size: .8rem;\n  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.15);\n  margin-top: 30px;\n  display: inline; }\n  @media (max-width: 767px) {\n    .diploma-button[_ngcontent-%COMP%] {\n      width: calc(100% - 30px);\n      margin: 30px 15px; } }\n  .diploma-button[_ngcontent-%COMP%]:before {\n    content: '';\n    background-color: #0f778b;\n    display: block;\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 100%;\n    bottom: 0;\n    z-index: -1;\n    transition: right .3s ease; }\n  .diploma-button[_ngcontent-%COMP%]:hover {\n    color: #ffffff;\n    transition: color .3s ease; }\n  .diploma-button[_ngcontent-%COMP%]:hover:before {\n      right: 0;\n      transition: right .3s ease; }\n  .img[_ngcontent-%COMP%] {\n  display: inline;\n  max-height: 100%;\n  max-width: 100%; }\n  .img-wrapper[_ngcontent-%COMP%] {\n    height: 100%; }\n  .img-contents[_ngcontent-%COMP%] {\n    height: 100%;\n    text-align: center; }"];
-exports.styles = styles;
-
-
-/***/ }),
-
-/***/ "./src/app/pages/_index/components/diploma/diploma.component.ts":
-/*!**********************************************************************!*\
-  !*** ./src/app/pages/_index/components/diploma/diploma.component.ts ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var modal_service_1 = __webpack_require__(/*! ../../services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
-var DiplomaComponent = /** @class */ (function () {
-    function DiplomaComponent(modalService) {
-        this.modalService = modalService;
-    }
-    DiplomaComponent.prototype.ngOnInit = function () {
-    };
-    DiplomaComponent.prototype.showBigPicture = function () {
-        this.modalService.openModal('lightbox', this.pictureTpl, this.diploma.picture, { fullScreen: true });
-    };
-    return DiplomaComponent;
-}());
-exports.DiplomaComponent = DiplomaComponent;
 
 
 /***/ }),
@@ -2997,8 +2994,8 @@ exports.OverviewAboutComponent = OverviewAboutComponent;
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./overview-diplomas.component.scss.shim.ngstyle */ "./src/app/pages/_index/components/overview-diplomas/overview-diplomas.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! ../diploma/diploma.component.ngfactory */ "./src/app/pages/_index/components/diploma/diploma.component.ngfactory.js");
-var i3 = __webpack_require__(/*! ../diploma/diploma.component */ "./src/app/pages/_index/components/diploma/diploma.component.ts");
+var i2 = __webpack_require__(/*! ../../../../components/diploma/diploma.component.ngfactory */ "./src/app/components/diploma/diploma.component.ngfactory.js");
+var i3 = __webpack_require__(/*! ../../../../components/diploma/diploma.component */ "./src/app/components/diploma/diploma.component.ts");
 var i4 = __webpack_require__(/*! ../../services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
 var i5 = __webpack_require__(/*! ../../../../components/slider/slider.component.ngfactory */ "./src/app/components/slider/slider.component.ngfactory.js");
 var i6 = __webpack_require__(/*! ../../../../components/slider/slider.component */ "./src/app/components/slider/slider.component.ts");
@@ -3059,7 +3056,7 @@ var OverviewDiplomasComponent = /** @class */ (function () {
         this.route = route;
     }
     OverviewDiplomasComponent.prototype.ngOnInit = function () {
-        this.diplomas = this.route.snapshot.data.pageBlocks[1];
+        this.diplomas = this.route.snapshot.data.pageBlocks[0].find(function (pageBlock) { return pageBlock.entityId === 'diploma'; }).pageData;
         console.log(this.diplomas);
     };
     return OverviewDiplomasComponent;
@@ -3290,17 +3287,17 @@ var i7 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http")
 var i8 = __webpack_require__(/*! ./services/interceptor.service */ "./src/app/pages/_index/services/interceptor.service.ts");
 var i9 = __webpack_require__(/*! ./services/intercept-response.service */ "./src/app/pages/_index/services/intercept-response.service.ts");
 var i10 = __webpack_require__(/*! ../../language-guard.service */ "./src/app/language-guard.service.ts");
-var i11 = __webpack_require__(/*! ngx-swiper-wrapper */ "ngx-swiper-wrapper");
-var i12 = __webpack_require__(/*! ng4-click-outside/lib/click-outside.module */ "ng4-click-outside/lib/click-outside.module");
-var i13 = __webpack_require__(/*! ngx-captcha */ "ngx-captcha");
-var i14 = __webpack_require__(/*! ../../components/components.module */ "./src/app/components/components.module.ts");
-var i15 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i11 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i12 = __webpack_require__(/*! ngx-swiper-wrapper */ "ngx-swiper-wrapper");
+var i13 = __webpack_require__(/*! ng4-click-outside/lib/click-outside.module */ "ng4-click-outside/lib/click-outside.module");
+var i14 = __webpack_require__(/*! ngx-captcha */ "ngx-captcha");
+var i15 = __webpack_require__(/*! ../../components/components.module */ "./src/app/components/components.module.ts");
 var i16 = __webpack_require__(/*! ../../pipes/pipes.module */ "./src/app/pipes/pipes.module.ts");
 var i17 = __webpack_require__(/*! ./services/resolve-page.service */ "./src/app/pages/_index/services/resolve-page.service.ts");
 var i18 = __webpack_require__(/*! ./components/main/main.component */ "./src/app/pages/_index/components/main/main.component.ts");
 var i19 = __webpack_require__(/*! ./services/resolve-main-page.service */ "./src/app/pages/_index/services/resolve-main-page.service.ts");
 var i20 = __webpack_require__(/*! ./services/resolve-services.service */ "./src/app/pages/_index/services/resolve-services.service.ts");
-var IndexModuleNgFactory = i0.ɵcmf(i1.IndexModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.MainComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i4.NgLocalization, i4.NgLocaleLocalization, [i0.LOCALE_ID, [2, i4.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i5.ɵangular_packages_forms_forms_i, i5.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i5.FormBuilder, i5.FormBuilder, []), i0.ɵmpd(4608, i6.ScrollToService, i6.ScrollToService, [i4.DOCUMENT, i0.PLATFORM_ID]), i0.ɵmpd(5120, i7.HTTP_INTERCEPTORS, function (p0_0) { return [new i8.InterceptorService(p0_0), new i9.InterceptResponseService()]; }, [i10.LanguageGuardService]), i0.ɵmpd(1073742336, i4.CommonModule, i4.CommonModule, []), i0.ɵmpd(1073742336, i5.ɵangular_packages_forms_forms_bb, i5.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i5.FormsModule, i5.FormsModule, []), i0.ɵmpd(1073742336, i11.SwiperModule, i11.SwiperModule, []), i0.ɵmpd(1073742336, i5.ReactiveFormsModule, i5.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i12.ClickOutsideModule, i12.ClickOutsideModule, []), i0.ɵmpd(1073742336, i13.NgxCaptchaModule, i13.NgxCaptchaModule, []), i0.ɵmpd(1073742336, i14.ComponentsModule, i14.ComponentsModule, []), i0.ɵmpd(1073742336, i15.RouterModule, i15.RouterModule, [[2, i15.ɵangular_packages_router_router_a], [2, i15.Router]]), i0.ɵmpd(1073742336, i6.ScrollToModule, i6.ScrollToModule, []), i0.ɵmpd(1073742336, i16.PipesModule, i16.PipesModule, []), i0.ɵmpd(1073742336, i1.IndexModule, i1.IndexModule, []), i0.ɵmpd(256, i13.NgxCaptchaConfig, { reCaptcha2SiteKey: "6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil" }, []), i0.ɵmpd(1024, i15.ROUTES, function () { return [[{ path: "about", loadChildren: "./../about/about.module#AboutModule", data: i1.ɵ0, resolve: { pageData: i17.ResolvePageService } }, { path: "articles", loadChildren: "./../articles/articles.module#ArticlesModule", data: i1.ɵ1, resolve: { pageData: i17.ResolvePageService } }, { path: "services", loadChildren: "./../services/services.module#ServicesModule", data: i1.ɵ2, resolve: { pageData: i17.ResolvePageService } }, { path: "diplomas", loadChildren: "./../diplomas/diplomas.module#DiplomasModule", data: i1.ɵ3, resolve: { pageData: i17.ResolvePageService } }, { path: "article/:id", loadChildren: "./../article/article.module#ArticleModule", data: i1.ɵ4, resolve: { pageData: i17.ResolvePageService } }, { path: "", component: i18.MainComponent, data: i1.ɵ5, resolve: { pageData: i17.ResolvePageService, pageBlocks: i19.ResolveMainPageService, services: i20.ResolveServicesService } }]]; }, [])]); });
+var IndexModuleNgFactory = i0.ɵcmf(i1.IndexModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.MainComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i4.NgLocalization, i4.NgLocaleLocalization, [i0.LOCALE_ID, [2, i4.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i5.ɵangular_packages_forms_forms_i, i5.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i5.FormBuilder, i5.FormBuilder, []), i0.ɵmpd(4608, i6.ScrollToService, i6.ScrollToService, [i4.DOCUMENT, i0.PLATFORM_ID]), i0.ɵmpd(5120, i7.HTTP_INTERCEPTORS, function (p0_0, p1_0) { return [new i8.InterceptorService(p0_0), new i9.InterceptResponseService(p1_0)]; }, [i10.LanguageGuardService, i11.Router]), i0.ɵmpd(1073742336, i4.CommonModule, i4.CommonModule, []), i0.ɵmpd(1073742336, i5.ɵangular_packages_forms_forms_bb, i5.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i5.FormsModule, i5.FormsModule, []), i0.ɵmpd(1073742336, i12.SwiperModule, i12.SwiperModule, []), i0.ɵmpd(1073742336, i5.ReactiveFormsModule, i5.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i13.ClickOutsideModule, i13.ClickOutsideModule, []), i0.ɵmpd(1073742336, i14.NgxCaptchaModule, i14.NgxCaptchaModule, []), i0.ɵmpd(1073742336, i15.ComponentsModule, i15.ComponentsModule, []), i0.ɵmpd(1073742336, i11.RouterModule, i11.RouterModule, [[2, i11.ɵangular_packages_router_router_a], [2, i11.Router]]), i0.ɵmpd(1073742336, i6.ScrollToModule, i6.ScrollToModule, []), i0.ɵmpd(1073742336, i16.PipesModule, i16.PipesModule, []), i0.ɵmpd(1073742336, i1.IndexModule, i1.IndexModule, []), i0.ɵmpd(256, i14.NgxCaptchaConfig, { reCaptcha2SiteKey: "6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil" }, []), i0.ɵmpd(1024, i11.ROUTES, function () { return [[{ path: "about", loadChildren: "./../about/about.module#AboutModule", data: i1.ɵ0, resolve: { pageData: i17.ResolvePageService } }, { path: "articles", loadChildren: "./../articles/articles.module#ArticlesModule", data: i1.ɵ1, resolve: { pageData: i17.ResolvePageService } }, { path: "services", loadChildren: "./../services/services.module#ServicesModule", data: i1.ɵ2, resolve: { pageData: i17.ResolvePageService } }, { path: "diplomas", loadChildren: "./../diplomas/diplomas.module#DiplomasModule", data: i1.ɵ3, resolve: { pageData: i17.ResolvePageService } }, { path: "article/:id", loadChildren: "./../article/article.module#ArticleModule", data: i1.ɵ4, resolve: { pageData: i17.ResolvePageService } }, { path: "", component: i18.MainComponent, data: i1.ɵ5, resolve: { pageData: i17.ResolvePageService, pageBlocks: i19.ResolveMainPageService, services: i20.ResolveServicesService } }]]; }, [])]); });
 exports.IndexModuleNgFactory = IndexModuleNgFactory;
 
 
@@ -3352,11 +3349,15 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var http_1 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
+var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
 var operators_1 = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
 var moment = __webpack_require__(/*! moment-timezone */ "moment-timezone");
+var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i1 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var InterceptResponseService = /** @class */ (function () {
-    function InterceptResponseService() {
+    function InterceptResponseService(router) {
+        this.router = router;
     }
     InterceptResponseService.prototype.intercept = function (req, next) {
         var _this = this;
@@ -3435,7 +3436,7 @@ var InterceptResponseService = /** @class */ (function () {
         }
         return data;
     };
-    InterceptResponseService.ngInjectableDef = i0.defineInjectable({ factory: function InterceptResponseService_Factory() { return new InterceptResponseService(); }, token: InterceptResponseService, providedIn: "root" });
+    InterceptResponseService.ngInjectableDef = i0.defineInjectable({ factory: function InterceptResponseService_Factory() { return new InterceptResponseService(i0.inject(i1.Router)); }, token: InterceptResponseService, providedIn: "root" });
     return InterceptResponseService;
 }());
 exports.InterceptResponseService = InterceptResponseService;
@@ -3642,11 +3643,10 @@ var ResolveMainPageService = /** @class */ (function () {
         var aboutPage$ = this.httpClient.get('interface', {
             params: {
                 lang: lang,
-                id: ['about', 'review', '[modal] review']
+                id: ['about', 'review', '[modal] review', 'diploma']
             }
         });
-        var diploma$ = this.httpClient.get('diploma');
-        return rxjs_1.combineLatest([aboutPage$, diploma$]);
+        return rxjs_1.combineLatest([aboutPage$]);
     };
     ResolveMainPageService.ngInjectableDef = i0.defineInjectable({ factory: function ResolveMainPageService_Factory() { return new ResolveMainPageService(i0.inject(i1.LanguageGuardService), i0.inject(i2.HttpClient)); }, token: ResolveMainPageService, providedIn: "root" });
     return ResolveMainPageService;
@@ -4196,15 +4196,21 @@ exports.ArticlesComponent = ArticlesComponent;
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./diplomas.component.scss.shim.ngstyle */ "./src/app/pages/diplomas/components/diplomas/diplomas.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! ./diplomas.component */ "./src/app/pages/diplomas/components/diplomas/diplomas.component.ts");
+var i2 = __webpack_require__(/*! ../../../../components/diploma/diploma.component.ngfactory */ "./src/app/components/diploma/diploma.component.ngfactory.js");
+var i3 = __webpack_require__(/*! ../../../../components/diploma/diploma.component */ "./src/app/components/diploma/diploma.component.ts");
+var i4 = __webpack_require__(/*! ../../../_index/services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
+var i5 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i6 = __webpack_require__(/*! ./diplomas.component */ "./src/app/pages/diplomas/components/diplomas/diplomas.component.ts");
+var i7 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var styles_DiplomasComponent = [i0.styles];
 var RenderType_DiplomasComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_DiplomasComponent, data: {} });
 exports.RenderType_DiplomasComponent = RenderType_DiplomasComponent;
-function View_DiplomasComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" diplomas works!\n"]))], null, null); }
+function View_DiplomasComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "diplomas-item"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "app-diploma", [], null, null, null, i2.View_DiplomaComponent_0, i2.RenderType_DiplomaComponent)), i1.ɵdid(2, 114688, null, 0, i3.DiplomaComponent, [i4.ModalService], { diploma: [0, "diploma"], onPage: [1, "onPage"] }, null)], function (_ck, _v) { var currVal_0 = _v.context.$implicit; var currVal_1 = true; _ck(_v, 2, 0, currVal_0, currVal_1); }, null); }
+function View_DiplomasComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 3, "div", [["class", "container"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 2, "div", [["class", "diplomas-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_DiplomasComponent_1)), i1.ɵdid(3, 278528, null, 0, i5.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.diplomas; _ck(_v, 3, 0, currVal_0); }, null); }
 exports.View_DiplomasComponent_0 = View_DiplomasComponent_0;
-function View_DiplomasComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-diplomas", [], null, null, null, View_DiplomasComponent_0, RenderType_DiplomasComponent)), i1.ɵdid(1, 114688, null, 0, i2.DiplomasComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_DiplomasComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-diplomas", [], null, null, null, View_DiplomasComponent_0, RenderType_DiplomasComponent)), i1.ɵdid(1, 114688, null, 0, i6.DiplomasComponent, [i7.ActivatedRoute], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_DiplomasComponent_Host_0 = View_DiplomasComponent_Host_0;
-var DiplomasComponentNgFactory = i1.ɵccf("app-diplomas", i2.DiplomasComponent, View_DiplomasComponent_Host_0, {}, {}, []);
+var DiplomasComponentNgFactory = i1.ɵccf("app-diplomas", i6.DiplomasComponent, View_DiplomasComponent_Host_0, {}, {}, []);
 exports.DiplomasComponentNgFactory = DiplomasComponentNgFactory;
 
 
@@ -4226,7 +4232,7 @@ exports.DiplomasComponentNgFactory = DiplomasComponentNgFactory;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [""];
+var styles = [".diplomas-wrapper[_ngcontent-%COMP%] {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  width: 100%; }\n  @media (max-width: 1279px) {\n    .diplomas-wrapper[_ngcontent-%COMP%] {\n      flex-direction: column; } }\n  @media (max-width: 767px) and (orientation: landscape) {\n    .diplomas-wrapper[_ngcontent-%COMP%] {\n      flex-direction: row; } }\n  .diplomas-item[_ngcontent-%COMP%] {\n  width: calc(50% - 10px);\n  height: 330px;\n  flex-grow: 0;\n  flex-shrink: 0; }\n  @media (max-width: 1279px) {\n    .diplomas-item[_ngcontent-%COMP%] {\n      width: 100%;\n      margin-bottom: 50px; } }\n  @media (max-width: 767px) and (orientation: landscape) {\n    .diplomas-item[_ngcontent-%COMP%] {\n      width: calc(50% - 10px); } }\n  @media (max-width: 767px) and (orientation: landscape) {\n  app-service[_ngcontent-%COMP%] {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between; } }"];
 exports.styles = styles;
 
 
@@ -4243,10 +4249,14 @@ exports.styles = styles;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var DiplomasComponent = /** @class */ (function () {
-    function DiplomasComponent() {
+    function DiplomasComponent(route) {
+        this.route = route;
     }
     DiplomasComponent.prototype.ngOnInit = function () {
+        this.diplomas = this.route.snapshot.data.pageData.pageData;
+        console.log(this.diplomas);
     };
     return DiplomasComponent;
 }());
@@ -4276,9 +4286,14 @@ var i1 = __webpack_require__(/*! ./diplomas.module */ "./src/app/pages/diplomas/
 var i2 = __webpack_require__(/*! ../../../../node_modules/@angular/router/router.ngfactory */ "./node_modules/@angular/router/router.ngfactory.js");
 var i3 = __webpack_require__(/*! ./components/diplomas/diplomas.component.ngfactory */ "./src/app/pages/diplomas/components/diplomas/diplomas.component.ngfactory.js");
 var i4 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i5 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i6 = __webpack_require__(/*! ./components/diplomas/diplomas.component */ "./src/app/pages/diplomas/components/diplomas/diplomas.component.ts");
-var DiplomasModuleNgFactory = i0.ɵcmf(i1.DiplomasModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.DiplomasComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i4.NgLocalization, i4.NgLocaleLocalization, [i0.LOCALE_ID, [2, i4.ɵangular_packages_common_common_a]]), i0.ɵmpd(1073742336, i4.CommonModule, i4.CommonModule, []), i0.ɵmpd(1073742336, i5.RouterModule, i5.RouterModule, [[2, i5.ɵangular_packages_router_router_a], [2, i5.Router]]), i0.ɵmpd(1073742336, i1.DiplomasModule, i1.DiplomasModule, []), i0.ɵmpd(1024, i5.ROUTES, function () { return [[{ path: "**", component: i6.DiplomasComponent }]]; }, [])]); });
+var i5 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
+var i6 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i7 = __webpack_require__(/*! ngx-swiper-wrapper */ "ngx-swiper-wrapper");
+var i8 = __webpack_require__(/*! ng4-click-outside/lib/click-outside.module */ "ng4-click-outside/lib/click-outside.module");
+var i9 = __webpack_require__(/*! ngx-captcha */ "ngx-captcha");
+var i10 = __webpack_require__(/*! ../../components/components.module */ "./src/app/components/components.module.ts");
+var i11 = __webpack_require__(/*! ./components/diplomas/diplomas.component */ "./src/app/pages/diplomas/components/diplomas/diplomas.component.ts");
+var DiplomasModuleNgFactory = i0.ɵcmf(i1.DiplomasModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.DiplomasComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i4.NgLocalization, i4.NgLocaleLocalization, [i0.LOCALE_ID, [2, i4.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i5.ɵangular_packages_forms_forms_i, i5.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i5.FormBuilder, i5.FormBuilder, []), i0.ɵmpd(1073742336, i4.CommonModule, i4.CommonModule, []), i0.ɵmpd(1073742336, i6.RouterModule, i6.RouterModule, [[2, i6.ɵangular_packages_router_router_a], [2, i6.Router]]), i0.ɵmpd(1073742336, i7.SwiperModule, i7.SwiperModule, []), i0.ɵmpd(1073742336, i5.ɵangular_packages_forms_forms_bb, i5.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i5.FormsModule, i5.FormsModule, []), i0.ɵmpd(1073742336, i5.ReactiveFormsModule, i5.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i8.ClickOutsideModule, i8.ClickOutsideModule, []), i0.ɵmpd(1073742336, i9.NgxCaptchaModule, i9.NgxCaptchaModule, []), i0.ɵmpd(1073742336, i10.ComponentsModule, i10.ComponentsModule, []), i0.ɵmpd(1073742336, i1.DiplomasModule, i1.DiplomasModule, []), i0.ɵmpd(256, i9.NgxCaptchaConfig, { reCaptcha2SiteKey: "6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil" }, []), i0.ɵmpd(1024, i6.ROUTES, function () { return [[{ path: "**", component: i11.DiplomasComponent }]]; }, [])]); });
 exports.DiplomasModuleNgFactory = DiplomasModuleNgFactory;
 
 
@@ -4669,7 +4684,7 @@ exports.I18nService = I18nService;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.environment = {
     production: false,
-    api: 'https://romanenkova.herokuapp.com/api/'
+    api: 'http://localhost:3000/api/'
 };
 
 
@@ -4708,7 +4723,7 @@ exports.LAZY_MODULE_MAP = { "./pages/_index/index.module#IndexModule": __lazy_0_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\eldar\WebstormProjects\romanenkova\src\main.server.ts */"./src/main.server.ts");
+module.exports = __webpack_require__(/*! /Users/triplecorpse/WebstormProjects/romanenkova/src/main.server.ts */"./src/main.server.ts");
 
 
 /***/ }),

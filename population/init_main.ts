@@ -6,22 +6,22 @@ export function getMainPageData(): Promise<Array<IPage>> {
     const data = [
         {
             entityId: 'main',
-            header: 'Online consult of psychologist',
+            header: 'Online Counseling & Therapy',
             language: 'en',
             pageData: indexData.en
         }, {
             entityId: 'main',
-            header: 'Онлайн консультации психолога',
+            header: 'Онлайн консультации и терапия',
             language: 'ru',
             pageData: indexData.ru
         }, {
             entityId: 'main',
-            header: 'Онлайн консультації психолога',
+            header: 'Онлайн консультації та терапія',
             language: 'uk',
             pageData: indexData.uk
         }, {
             entityId: 'main',
-            header: 'Psychologue en ligne',
+            header: 'Counselling et thérapie en ligne',
             language: 'fr',
             pageData: indexData.fr
         }

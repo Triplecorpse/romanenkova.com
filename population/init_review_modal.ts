@@ -16,7 +16,7 @@ export function getReviewModalPageData(): Promise<Array<IPage>> {
                 email: 'Email',
                 emailsubscr: 'Is not published',
                 review: 'Feedback',
-                submit: 'Submit a feedback',
+                submit: 'Submit feedback',
                 explanation: 'The email field is not published and is not stored in the site database. However, it can be stored in my personal mailbox and will be used only for possible communication with you.\nYour name will be displayed on the website in the "Reviews" block exactly as it was entered by you. If you wish to remain incognito, leave the field blank or enter your nickname.',
             },
             language: 'en'
@@ -40,7 +40,7 @@ export function getReviewModalPageData(): Promise<Array<IPage>> {
                 name: 'Ім\'я та прізвище',
                 namesubscr: 'Якщо ви не хочете публікувати свлє ім\'я, залиште це поле порожнім або введіть ваш нік',
                 email: 'Email',
-                emailsubscr: 'Не публікуєтся',
+                emailsubscr: 'Не буде опубліковано',
                 review: 'Відгук',
                 submit: 'Залишити відгук',
                 explanation: 'Поле email не буде опубліковано і не буде збережено у базі даних сайту. Однак, може бути збережено в моїй особистій поштовій скринці і буде використовуватися тільки для можливого зв\'язку з вами.\nВаше ім\'я буде відображатися на сайті в блоці "Відгуки" точно так, як воно було введено вами. Якщо ви бажаєте залишатися інкогніто, залиште поле порожнім або введіть ваш нік.',

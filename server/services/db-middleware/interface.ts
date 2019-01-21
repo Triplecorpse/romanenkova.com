@@ -22,31 +22,27 @@ export function readInterface(entityId: string | Array<string>, language: string
 
   return Page.find({entityId, language})
     .then((pages: any) => {
-      if (hasServicePage) {
-        return Promise.all([pages, readService(language as TLanguage) as any]);
-      }
+      const services = hasServicePage && readService(language as TLanguage);
+      const reviews = hasReviewPage && getReviews(5, {random: true, language: language as TLanguage});
+      const diplomas = hasDiplomaPage && readDiploma();
 
-      if (hasReviewPage) {
-        return Promise.all([pages, getReviews(5, {random: true, language: language as TLanguage}) as any]);
-      }
-
-      if (hasDiplomaPage) {
-        return Promise.all([pages, readDiploma()]);
-      }
-
-      return Promise.all([pages, null]);
+      return Promise.all([pages, services, reviews, diplomas]);
     })
-    .then((result: any) => {
-        return result[0].map((page: IPage): IPage => {
+    .then((results: any) => {
+        return results[0].map((page: IPage): IPage => {
           let pageBody = page.pageData || {};
           let pageLanguage: TLanguage = page.language as TLanguage;
 
-          if ((page.entityId === 'service' || page.entityId === 'review' || page.entityId === 'diploma') && result[1]) {
-            if (Object.keys(pageBody).length) {
-              pageBody = {...pageBody, ...result[1]}
-            } else {
-              pageBody = result[1];
-            }
+          if ((page.entityId === 'service') && results[1]) {
+            pageBody = getPageBody(pageBody, 1);
+          }
+
+          if ((page.entityId === 'review') && results[2]) {
+            pageBody = getPageBody(pageBody, 2);
+          }
+
+          if (page.entityId === 'diploma' && results[3]) {
+            pageBody = getPageBody(pageBody, 3);
           }
 
           return {
@@ -55,10 +51,17 @@ export function readInterface(entityId: string | Array<string>, language: string
             pageData: pageBody,
             language: pageLanguage,
             images: page.images
+          };
+
+          function getPageBody(pageBody: any, index: number) {
+            if (Object.keys(pageBody).length) {
+              return {...pageBody, ...results[index]}
+            }
+
+            return results[1];
           }
         })
-      }
-    );
+      });
 }
 
 export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<IPage>> {

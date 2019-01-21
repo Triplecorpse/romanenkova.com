@@ -7,7 +7,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
     const data = [
         {
             pageData: [
-                {name: ["Online", "psychology"], anchor: "main"},
+                {name: ["Online", "psychologist"], anchor: "main"},
                 {name: "Make an appointment", anchor: "appointment"},
                 {name: ["Psychologist", "Irina", "Romanenkova"], anchor: "name"},
                 {name: "About me", anchor: "about"},
@@ -22,7 +22,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
         },
         {
             pageData: [
-                {name: ["Онлайн", "психология"], anchor: "main"},
+                {name: ["Онлайн", "психолог"], anchor: "main"},
                 {name: "Записаться на приём", anchor: "appointment"},
                 {name: ["Психолог", "Ирина", "Романенкова"], anchor: "name"},
                 {name: "Обо мне", anchor: "about"},
@@ -37,7 +37,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
         },
         {
             pageData: [
-                {name: ["Онлайн", "психологія"], anchor: "main"},
+                {name: ["Онлайн", "психолог"], anchor: "main"},
                 {name: "Записатися на прийом", anchor: "appointment"},
                 {name: ["Психолог", "Ірина", "Романенкова"], anchor: "name"},
                 {name: "Про мене", anchor: "about"},
@@ -52,7 +52,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
         },
         {
             pageData: [
-                {name: ["En ligne", "Psychologie"], anchor: "main"},
+                {name: ["En ligne", "Psychologue"], anchor: "main"},
                 {name: "Prendre rendez-vous", anchor: "appointment"},
                 {name: ["Psychologue", "Irina", "Romanenkova"], anchor: "name"},
                 {name: "Sur moi", anchor: "about"},
