@@ -5,3 +5,9 @@
     <ng-container *ngTemplateOutlet="template; context: {modalData: context, events: events$}"></ng-container>
   </div>
 </div>
+
+<ng-template #lightboxTpl let-modalData="modalData">
+  <div class="lightbox-wrapper">
+    <img class="lightbox-image" src="{{modalData}}" alt="photo" (click)="openPicture(modalData)">
+  </div>
+</ng-template>

@@ -37,6 +37,16 @@ export class ModalService {
     this._modalEvent.next({name, type: 'open', success: true, template: tpl, context: ctx});
   }
 
+  public openLightbox(src) {
+    this.isFullScreen = true;
+    this.closeWithBackdrop = true;
+    this._modalEvent.next({name: 'lightbox', type: 'open', success: true, context: src});
+  };
+
+  public alert(options: {header: string; body: string; type: 'warning' | 'error '}) {
+    this._modalEvent.next({name: 'alert', type: 'open', success: true, context: options});
+  };
+
   public closeModal(name: string, type: 'dismiss' | 'success', data: any) {
     this._modalEvent.next({name, type, success: type === 'success', resolve: data});
   }

@@ -105,9 +105,9 @@ export const successMessages: any = {
             fr: 'La demande de réception a été envoyée.'
         },
         body: {
-            ru: 'Пожалуйста, подождите, пока я не свяжусь с вами.',
-            en: 'Please wait until I will contact you.',
-            uk: 'Будь ласка, зачекайте, поки я зв\'яжусь з вами.',
+            ru: 'Спасибо за запись. Я с вами свяжусь при первой возможности.',
+            en: 'Thank you for reaching out to me, I’ll contact you very soon.',
+            uk: 'Дякую за запис. Я з вами зв\'яжуся якомога скоріше.',
             fr: 'Veuillez attendre que je vous contacte.'
         }
     },
@@ -120,7 +120,7 @@ export const successMessages: any = {
         },
         body: {
             ru: 'Отзыв появится на русскоязычной версии сайта, как только он будет проверен.',
-            en: 'Feedback will appear on the English version of the site as soon as it is verified.',
+            en: 'Your feedback will appear on the English version of the site as soon as it is verified.',
             uk: 'Відгук з\'явиться на україномовній версії сайту, як тільки він буде перевірений.',
             fr: 'Les commentaires apparaîtront sur la version française du site dès que celle-ci aura été vérifiée.'
         }
