@@ -59,14 +59,8 @@ export function readDir(path: string, options: object | string = 'UTF8'): Promis
     });
 }
 
-export function replaceTemplateVariables(template: string, configObj: any): Promise<string> {
-    return new Promise((resolve, reject) => {
-        resolve(_replaceRecursive(template, configObj));
-    });
-}
-
 export function generateSiteMap(): Promise<string> {
-    const routes = ['', 'about', 'services'];
+    const routes = ['', 'about', 'services', 'diplomas'];
     const urlTag = '<url>\n<loc>https://www.romanenkova.com/@content</loc>\n<priority>@priority</priority>\n</url>';
     return readFile('./static/sitemap.base.xml')
         .then((template: string): string => {
