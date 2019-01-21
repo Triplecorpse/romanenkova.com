@@ -1,4 +1,7 @@
-import {ChangeDetectorRef, Component, HostListener, OnInit, Renderer2, TemplateRef} from '@angular/core';
+import {
+  ChangeDetectorRef, Component, HostListener, OnInit, Renderer2, TemplateRef, ViewChild, PLATFORM_ID, Inject
+} from '@angular/core';
+import {isPlatformBrowser} from "@angular/common";
 import {ModalService} from '../../services/modal.service';
 import {IModalEvent} from '../../../../interfaces/iModalEvent';
 import {filter} from 'rxjs/operators';
@@ -20,6 +23,7 @@ export class ModalComponent implements OnInit {
   template: TemplateRef<any>;
   context: any;
   events$: Subject<any> = new Subject();
+  @ViewChild('lightboxTpl') public lightbox: TemplateRef<string>;
   @HostListener('window:scroll', ['$event'])
   private scrollListener($event) {
     if (this.isModalOpen) {
@@ -29,7 +33,8 @@ export class ModalComponent implements OnInit {
 
   constructor(private modalService: ModalService,
               private renderer: Renderer2,
-              private changeDetectorRef: ChangeDetectorRef) {
+              private changeDetectorRef: ChangeDetectorRef,
+              @Inject(PLATFORM_ID) private platformId: Object) {
   }
 
   public closeModal(status: 'dismiss' | 'success', resolve: any): void {
@@ -47,9 +52,17 @@ export class ModalComponent implements OnInit {
     this.modalService.modalEvent.pipe(
       filter((modalEvent: IModalEvent): boolean => modalEvent.type === 'open')
     ).subscribe((data: IModalEvent): void => {
+      let template: TemplateRef<any>;
+
+      if (data.name === 'lightbox') {
+        template = this.lightbox;
+      } else {
+        template = data.template;
+      }
+
       this.isModalOpen = true;
       this.openModalName = data.name;
-      this.template = data.template;
+      this.template = template;
       this.context = data.context;
       this.renderer.addClass(document.body, 'modal-overlay');
       this.isFullScreen = this.modalService.isFullScreen;
@@ -63,7 +76,11 @@ export class ModalComponent implements OnInit {
       this.openModalName = void 0;
       this.renderer.removeClass(document.body, 'modal-overlay');
     });
+  }
 
-    this.isFullScreen
+  public openPicture(src: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      window.open(src);
+    }
   }
 }

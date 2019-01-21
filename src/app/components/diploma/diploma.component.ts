@@ -18,6 +18,6 @@ export class DiplomaComponent implements OnInit {
   }
 
   showBigPicture() {
-    this.modalService.openModal('lightbox', this.pictureTpl, this.diploma.picture, {fullScreen: true});
+    this.modalService.openLightbox(this.diploma.picture);
   }
 }

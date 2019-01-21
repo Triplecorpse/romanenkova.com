@@ -40,7 +40,7 @@
   @include mobile-breakpoint {
     width: 100%;
     min-height: 100%;
-    padding: 20px;
+    padding: 50px 20px 20px;
   }
 }
 
@@ -52,4 +52,20 @@
   right: 20px;
   background-image: url(/assets/icons/close.svg);
   cursor: pointer;
+}
+
+.lightbox {
+  &-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-image {
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+  }
 }

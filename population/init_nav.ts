@@ -14,7 +14,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: "Services", anchor: "services"},
                 {name: "Diplomas", anchor: "diplomas"},
                 // {name: "Articles", anchor: "articles"},
-                {name: "Contacts", anchor: "contacts"}
+                {name: "Contact", anchor: "contacts"}
             ],
             language: 'en',
             entityId: 'nav',

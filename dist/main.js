@@ -1052,22 +1052,26 @@ exports.DateInputComponent = DateInputComponent;
 Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./diploma.component.scss.shim.ngstyle */ "./src/app/components/diploma/diploma.component.scss.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i3 = __webpack_require__(/*! ./diploma.component */ "./src/app/components/diploma/diploma.component.ts");
-var i4 = __webpack_require__(/*! ../../pages/_index/services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
+var i2 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i3 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i4 = __webpack_require__(/*! ./diploma.component */ "./src/app/components/diploma/diploma.component.ts");
+var i5 = __webpack_require__(/*! ../../pages/_index/services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
 var styles_DiplomaComponent = [i0.styles];
 var RenderType_DiplomaComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_DiplomaComponent, data: {} });
 exports.RenderType_DiplomaComponent = RenderType_DiplomaComponent;
-function View_DiplomaComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "a", [["routerLink", "diplomas"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "button", [["class", "diploma-button"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["View All"]))], null, null); }
+function View_DiplomaComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 3, "a", [["routerLink", "diplomas"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 1).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), i1.ɵdid(1, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵeld(2, 0, null, null, 1, "button", [["class", "diploma-button"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["View All"]))], function (_ck, _v) { var currVal_2 = "diplomas"; _ck(_v, 1, 0, currVal_2); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 1).target; var currVal_1 = i1.ɵnov(_v, 1).href; _ck(_v, 0, 0, currVal_0, currVal_1); }); }
 function View_DiplomaComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "img-contents"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "a", [["class", "img-wrapper"], ["target", "_blank"]], [[8, "href", 4]], null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 0, "img", [["alt", ""], ["class", "img"]], [[8, "src", 4]], null, null, null, null))], null, function (_ck, _v) { var currVal_0 = _v.context.modalData; _ck(_v, 1, 0, currVal_0); var currVal_1 = _v.context.modalData; _ck(_v, 2, 0, currVal_1); }); }
 function View_DiplomaComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1, { pictureTpl: 0 }), (_l()(), i1.ɵeld(1, 0, null, null, 10, "div", [["class", "diploma-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "div", [["class", "diploma-photo-wrapper"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.showBigPicture() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 0, "div", [["class", "diploma-photo"]], [[2, "low-padding", null], [4, "background-image", null]], null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 7, "div", [["class", "diploma-description-wrapper"]], [[2, "align-left", null]], null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 6, "div", [["class", "diploma-description"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "h4", [["class", "diploma-description-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", ""])), (_l()(), i1.ɵeld(8, 0, null, null, 1, "p", [["class", "diploma-description-graduate"]], null, null, null, null, null)), (_l()(), i1.ɵted(9, null, ["", ""])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_DiplomaComponent_1)), i1.ɵdid(11, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(0, [[1, 2], ["pictureTpl", 2]], null, 0, null, View_DiplomaComponent_2))], function (_ck, _v) { var _co = _v.component; var currVal_5 = !_co.onPage; _ck(_v, 11, 0, currVal_5); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.onPage; var currVal_1 = (("url(" + _co.diploma.picture) + ")"); _ck(_v, 3, 0, currVal_0, currVal_1); var currVal_2 = _co.onPage; _ck(_v, 4, 0, currVal_2); var currVal_3 = _co.diploma.header; _ck(_v, 7, 0, currVal_3); var currVal_4 = _co.diploma.graduateYear; _ck(_v, 9, 0, currVal_4); }); }
+    } return ad; }, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 0, "div", [["class", "diploma-photo"]], [[2, "low-padding", null], [4, "background-image", null]], null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 7, "div", [["class", "diploma-description-wrapper"]], [[2, "align-left", null]], null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 6, "div", [["class", "diploma-description"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "h4", [["class", "diploma-description-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", ""])), (_l()(), i1.ɵeld(8, 0, null, null, 1, "p", [["class", "diploma-description-graduate"]], null, null, null, null, null)), (_l()(), i1.ɵted(9, null, ["", ""])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_DiplomaComponent_1)), i1.ɵdid(11, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(0, [[1, 2], ["pictureTpl", 2]], null, 0, null, View_DiplomaComponent_2))], function (_ck, _v) { var _co = _v.component; var currVal_5 = !_co.onPage; _ck(_v, 11, 0, currVal_5); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.onPage; var currVal_1 = (("url(" + _co.diploma.picture) + ")"); _ck(_v, 3, 0, currVal_0, currVal_1); var currVal_2 = _co.onPage; _ck(_v, 4, 0, currVal_2); var currVal_3 = _co.diploma.header; _ck(_v, 7, 0, currVal_3); var currVal_4 = _co.diploma.graduateYear; _ck(_v, 9, 0, currVal_4); }); }
 exports.View_DiplomaComponent_0 = View_DiplomaComponent_0;
-function View_DiplomaComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-diploma", [], null, null, null, View_DiplomaComponent_0, RenderType_DiplomaComponent)), i1.ɵdid(1, 114688, null, 0, i3.DiplomaComponent, [i4.ModalService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_DiplomaComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-diploma", [], null, null, null, View_DiplomaComponent_0, RenderType_DiplomaComponent)), i1.ɵdid(1, 114688, null, 0, i4.DiplomaComponent, [i5.ModalService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_DiplomaComponent_Host_0 = View_DiplomaComponent_Host_0;
-var DiplomaComponentNgFactory = i1.ɵccf("app-diploma", i3.DiplomaComponent, View_DiplomaComponent_Host_0, { diploma: "diploma", onPage: "onPage" }, {}, []);
+var DiplomaComponentNgFactory = i1.ɵccf("app-diploma", i4.DiplomaComponent, View_DiplomaComponent_Host_0, { diploma: "diploma", onPage: "onPage" }, {}, []);
 exports.DiplomaComponentNgFactory = DiplomaComponentNgFactory;
 
 
@@ -3054,10 +3058,17 @@ var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var OverviewDiplomasComponent = /** @class */ (function () {
     function OverviewDiplomasComponent(route) {
         this.route = route;
+        this.diplomas = [];
     }
     OverviewDiplomasComponent.prototype.ngOnInit = function () {
-        this.diplomas = this.route.snapshot.data.pageBlocks[0].find(function (pageBlock) { return pageBlock.entityId === 'diploma'; }).pageData;
-        console.log(this.diplomas);
+        var pageData = this.route.snapshot.data.pageBlocks[0].find(function (pageBlock) { return pageBlock.entityId === 'diploma'; }).pageData;
+        this.overviewInterface = pageData.overview;
+        delete pageData.overview;
+        for (var i in pageData) {
+            if (pageData.hasOwnProperty(i)) {
+                this.diplomas.push(pageData[i]);
+            }
+        }
     };
     return OverviewDiplomasComponent;
 }());
@@ -3297,7 +3308,7 @@ var i17 = __webpack_require__(/*! ./services/resolve-page.service */ "./src/app/
 var i18 = __webpack_require__(/*! ./components/main/main.component */ "./src/app/pages/_index/components/main/main.component.ts");
 var i19 = __webpack_require__(/*! ./services/resolve-main-page.service */ "./src/app/pages/_index/services/resolve-main-page.service.ts");
 var i20 = __webpack_require__(/*! ./services/resolve-services.service */ "./src/app/pages/_index/services/resolve-services.service.ts");
-var IndexModuleNgFactory = i0.ɵcmf(i1.IndexModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.MainComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i4.NgLocalization, i4.NgLocaleLocalization, [i0.LOCALE_ID, [2, i4.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i5.ɵangular_packages_forms_forms_i, i5.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i5.FormBuilder, i5.FormBuilder, []), i0.ɵmpd(4608, i6.ScrollToService, i6.ScrollToService, [i4.DOCUMENT, i0.PLATFORM_ID]), i0.ɵmpd(5120, i7.HTTP_INTERCEPTORS, function (p0_0, p1_0) { return [new i8.InterceptorService(p0_0), new i9.InterceptResponseService(p1_0)]; }, [i10.LanguageGuardService, i11.Router]), i0.ɵmpd(1073742336, i4.CommonModule, i4.CommonModule, []), i0.ɵmpd(1073742336, i5.ɵangular_packages_forms_forms_bb, i5.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i5.FormsModule, i5.FormsModule, []), i0.ɵmpd(1073742336, i12.SwiperModule, i12.SwiperModule, []), i0.ɵmpd(1073742336, i5.ReactiveFormsModule, i5.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i13.ClickOutsideModule, i13.ClickOutsideModule, []), i0.ɵmpd(1073742336, i14.NgxCaptchaModule, i14.NgxCaptchaModule, []), i0.ɵmpd(1073742336, i15.ComponentsModule, i15.ComponentsModule, []), i0.ɵmpd(1073742336, i11.RouterModule, i11.RouterModule, [[2, i11.ɵangular_packages_router_router_a], [2, i11.Router]]), i0.ɵmpd(1073742336, i6.ScrollToModule, i6.ScrollToModule, []), i0.ɵmpd(1073742336, i16.PipesModule, i16.PipesModule, []), i0.ɵmpd(1073742336, i1.IndexModule, i1.IndexModule, []), i0.ɵmpd(256, i14.NgxCaptchaConfig, { reCaptcha2SiteKey: "6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil" }, []), i0.ɵmpd(1024, i11.ROUTES, function () { return [[{ path: "about", loadChildren: "./../about/about.module#AboutModule", data: i1.ɵ0, resolve: { pageData: i17.ResolvePageService } }, { path: "articles", loadChildren: "./../articles/articles.module#ArticlesModule", data: i1.ɵ1, resolve: { pageData: i17.ResolvePageService } }, { path: "services", loadChildren: "./../services/services.module#ServicesModule", data: i1.ɵ2, resolve: { pageData: i17.ResolvePageService } }, { path: "diplomas", loadChildren: "./../diplomas/diplomas.module#DiplomasModule", data: i1.ɵ3, resolve: { pageData: i17.ResolvePageService } }, { path: "article/:id", loadChildren: "./../article/article.module#ArticleModule", data: i1.ɵ4, resolve: { pageData: i17.ResolvePageService } }, { path: "", component: i18.MainComponent, data: i1.ɵ5, resolve: { pageData: i17.ResolvePageService, pageBlocks: i19.ResolveMainPageService, services: i20.ResolveServicesService } }]]; }, [])]); });
+var IndexModuleNgFactory = i0.ɵcmf(i1.IndexModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.MainComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i4.NgLocalization, i4.NgLocaleLocalization, [i0.LOCALE_ID, [2, i4.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i5.ɵangular_packages_forms_forms_i, i5.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i5.FormBuilder, i5.FormBuilder, []), i0.ɵmpd(4608, i6.ScrollToService, i6.ScrollToService, [i4.DOCUMENT, i0.PLATFORM_ID]), i0.ɵmpd(5120, i7.HTTP_INTERCEPTORS, function (p0_0, p1_0) { return [new i8.InterceptorService(p0_0), new i9.InterceptResponseService(p1_0)]; }, [i10.LanguageGuardService, i11.Router]), i0.ɵmpd(1073742336, i4.CommonModule, i4.CommonModule, []), i0.ɵmpd(1073742336, i5.ɵangular_packages_forms_forms_bb, i5.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i5.FormsModule, i5.FormsModule, []), i0.ɵmpd(1073742336, i12.SwiperModule, i12.SwiperModule, []), i0.ɵmpd(1073742336, i5.ReactiveFormsModule, i5.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i13.ClickOutsideModule, i13.ClickOutsideModule, []), i0.ɵmpd(1073742336, i11.RouterModule, i11.RouterModule, [[2, i11.ɵangular_packages_router_router_a], [2, i11.Router]]), i0.ɵmpd(1073742336, i14.NgxCaptchaModule, i14.NgxCaptchaModule, []), i0.ɵmpd(1073742336, i15.ComponentsModule, i15.ComponentsModule, []), i0.ɵmpd(1073742336, i6.ScrollToModule, i6.ScrollToModule, []), i0.ɵmpd(1073742336, i16.PipesModule, i16.PipesModule, []), i0.ɵmpd(1073742336, i1.IndexModule, i1.IndexModule, []), i0.ɵmpd(256, i14.NgxCaptchaConfig, { reCaptcha2SiteKey: "6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil" }, []), i0.ɵmpd(1024, i11.ROUTES, function () { return [[{ path: "about", loadChildren: "./../about/about.module#AboutModule", data: i1.ɵ0, resolve: { pageData: i17.ResolvePageService } }, { path: "articles", loadChildren: "./../articles/articles.module#ArticlesModule", data: i1.ɵ1, resolve: { pageData: i17.ResolvePageService } }, { path: "services", loadChildren: "./../services/services.module#ServicesModule", data: i1.ɵ2, resolve: { pageData: i17.ResolvePageService } }, { path: "diplomas", loadChildren: "./../diplomas/diplomas.module#DiplomasModule", data: i1.ɵ3, resolve: { pageData: i17.ResolvePageService } }, { path: "article/:id", loadChildren: "./../article/article.module#ArticleModule", data: i1.ɵ4, resolve: { pageData: i17.ResolvePageService } }, { path: "", component: i18.MainComponent, data: i1.ɵ5, resolve: { pageData: i17.ResolvePageService, pageBlocks: i19.ResolveMainPageService, services: i20.ResolveServicesService } }]]; }, [])]); });
 exports.IndexModuleNgFactory = IndexModuleNgFactory;
 
 
@@ -3805,12 +3816,12 @@ var i4 = __webpack_require__(/*! @angular/common */ "@angular/common");
 var i5 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
 var i6 = __webpack_require__(/*! ngx-swiper-wrapper */ "ngx-swiper-wrapper");
 var i7 = __webpack_require__(/*! ng4-click-outside/lib/click-outside.module */ "ng4-click-outside/lib/click-outside.module");
-var i8 = __webpack_require__(/*! ngx-captcha */ "ngx-captcha");
-var i9 = __webpack_require__(/*! ../../components/components.module */ "./src/app/components/components.module.ts");
-var i10 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i8 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i9 = __webpack_require__(/*! ngx-captcha */ "ngx-captcha");
+var i10 = __webpack_require__(/*! ../../components/components.module */ "./src/app/components/components.module.ts");
 var i11 = __webpack_require__(/*! ../../pipes/pipes.module */ "./src/app/pipes/pipes.module.ts");
 var i12 = __webpack_require__(/*! ./components/about/about.component */ "./src/app/pages/about/components/about/about.component.ts");
-var AboutModuleNgFactory = i0.ɵcmf(i1.AboutModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.AboutComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i4.NgLocalization, i4.NgLocaleLocalization, [i0.LOCALE_ID, [2, i4.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i5.ɵangular_packages_forms_forms_i, i5.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i5.FormBuilder, i5.FormBuilder, []), i0.ɵmpd(1073742336, i4.CommonModule, i4.CommonModule, []), i0.ɵmpd(1073742336, i6.SwiperModule, i6.SwiperModule, []), i0.ɵmpd(1073742336, i5.ɵangular_packages_forms_forms_bb, i5.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i5.FormsModule, i5.FormsModule, []), i0.ɵmpd(1073742336, i5.ReactiveFormsModule, i5.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i7.ClickOutsideModule, i7.ClickOutsideModule, []), i0.ɵmpd(1073742336, i8.NgxCaptchaModule, i8.NgxCaptchaModule, []), i0.ɵmpd(1073742336, i9.ComponentsModule, i9.ComponentsModule, []), i0.ɵmpd(1073742336, i10.RouterModule, i10.RouterModule, [[2, i10.ɵangular_packages_router_router_a], [2, i10.Router]]), i0.ɵmpd(1073742336, i11.PipesModule, i11.PipesModule, []), i0.ɵmpd(1073742336, i1.AboutModule, i1.AboutModule, []), i0.ɵmpd(256, i8.NgxCaptchaConfig, { reCaptcha2SiteKey: "6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil" }, []), i0.ɵmpd(1024, i10.ROUTES, function () { return [[{ path: "", component: i12.AboutComponent }]]; }, [])]); });
+var AboutModuleNgFactory = i0.ɵcmf(i1.AboutModule, [], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i2.ɵEmptyOutletComponentNgFactory, i3.AboutComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(4608, i4.NgLocalization, i4.NgLocaleLocalization, [i0.LOCALE_ID, [2, i4.ɵangular_packages_common_common_a]]), i0.ɵmpd(4608, i5.ɵangular_packages_forms_forms_i, i5.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(4608, i5.FormBuilder, i5.FormBuilder, []), i0.ɵmpd(1073742336, i4.CommonModule, i4.CommonModule, []), i0.ɵmpd(1073742336, i6.SwiperModule, i6.SwiperModule, []), i0.ɵmpd(1073742336, i5.ɵangular_packages_forms_forms_bb, i5.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i5.FormsModule, i5.FormsModule, []), i0.ɵmpd(1073742336, i5.ReactiveFormsModule, i5.ReactiveFormsModule, []), i0.ɵmpd(1073742336, i7.ClickOutsideModule, i7.ClickOutsideModule, []), i0.ɵmpd(1073742336, i8.RouterModule, i8.RouterModule, [[2, i8.ɵangular_packages_router_router_a], [2, i8.Router]]), i0.ɵmpd(1073742336, i9.NgxCaptchaModule, i9.NgxCaptchaModule, []), i0.ɵmpd(1073742336, i10.ComponentsModule, i10.ComponentsModule, []), i0.ɵmpd(1073742336, i11.PipesModule, i11.PipesModule, []), i0.ɵmpd(1073742336, i1.AboutModule, i1.AboutModule, []), i0.ɵmpd(256, i9.NgxCaptchaConfig, { reCaptcha2SiteKey: "6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil" }, []), i0.ɵmpd(1024, i8.ROUTES, function () { return [[{ path: "", component: i12.AboutComponent }]]; }, [])]); });
 exports.AboutModuleNgFactory = AboutModuleNgFactory;
 
 
@@ -4253,10 +4264,16 @@ var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var DiplomasComponent = /** @class */ (function () {
     function DiplomasComponent(route) {
         this.route = route;
+        this.diplomas = [];
     }
     DiplomasComponent.prototype.ngOnInit = function () {
-        this.diplomas = this.route.snapshot.data.pageData.pageData;
-        console.log(this.diplomas);
+        var pageData = this.route.snapshot.data.pageData.pageData;
+        delete pageData.overview;
+        for (var i in pageData) {
+            if (pageData.hasOwnProperty(i)) {
+                this.diplomas.push(pageData[i]);
+            }
+        }
     };
     return DiplomasComponent;
 }());
@@ -4723,7 +4740,7 @@ exports.LAZY_MODULE_MAP = { "./pages/_index/index.module#IndexModule": __lazy_0_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/triplecorpse/WebstormProjects/romanenkova/src/main.server.ts */"./src/main.server.ts");
+module.exports = __webpack_require__(/*! C:\Users\eldar\WebstormProjects\romanenkova\src\main.server.ts */"./src/main.server.ts");
 
 
 /***/ }),
