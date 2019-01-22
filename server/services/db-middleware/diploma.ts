@@ -12,7 +12,8 @@ export function readDiploma(typeId?: string, isAdmin = false): Promise<Array<IDi
             graduateYear: diplomaItem.graduateYear,
             picture: diplomaItem.picture,
             isPublished: diplomaItem.isPublished,
-            _id: diplomaItem._id
+            _id: diplomaItem._id,
+            order: diplomaItem.order
           }
         }
 
@@ -21,7 +22,8 @@ export function readDiploma(typeId?: string, isAdmin = false): Promise<Array<IDi
           header: diplomaItem.header,
           graduateYear: diplomaItem.graduateYear,
           picture: diplomaItem.picture,
-          entityId: diplomaItem.entityId
+          entityId: diplomaItem.entityId,
+          order: diplomaItem.order
         }
       })
     );
@@ -33,9 +35,12 @@ export function createDiploma(diploma: IDiploma): Promise<IDiploma> {
     .catch(err => {throw new Error(err.message)});
 }
 
-export function updateDiploma(id: string, newDiploma: IDiploma): Promise<IDiploma> {
-  return Diploma.updateOne(id, newDiploma)
-    .then(() => newDiploma)
+export function updateDiploma(_id: string, newDiploma: IDiploma): Promise<IDiploma> {
+  return Diploma.findByIdAndUpdate(_id, newDiploma)
+    .then((w:any) => {
+      console.log(_id, newDiploma, w);
+      return newDiploma
+    })
     .catch(err => {throw new Error(err.message)});
 }
 

@@ -20,7 +20,7 @@ router
       res.sendStatus(401);
     }
 
-    const diploma = await updateDiploma(req.params.id, req.body).catch(e => res.sendStatus(400).json(e));
+    const diploma = await updateDiploma(req.body._id, req.body).catch(e => res.sendStatus(400).json(e));
     res.json(diploma);
   })
   .get(async function (req: IRequest, res: Response) {

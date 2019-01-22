@@ -23,9 +23,45 @@ export class InterceptResponseService implements HttpInterceptor {
         data = this.modifyServices(data);
         data = this.modifyAppointmentModal(data);
         data = this.modifySchedule(data);
+        data = this.modifyDiplomas(data);
         return data;
       })
     );
+  }
+
+  private modifyDiplomas(data: HttpEvent<any>): HttpEvent<any> {
+    if (data instanceof HttpResponse && data.url.indexOf('diploma') > -1) {
+      return data.clone({
+        body: map(data.body)
+      });
+    }
+
+    function map(page: IPage<any>) {
+      let items = [];
+      const pageInterface = {};
+      let pageData = page.pageData || page[0].pageData;
+
+      for (let i in pageData) {
+        if (!pageData.hasOwnProperty(i)) {
+          continue;
+        }
+
+        if (isNaN(+i)) {
+          pageInterface[i] = pageData[i];
+        } else {
+          items.push(pageData[i]);
+        }
+      }
+
+      items = items.sort((a, b) => a.order - b.order);
+      pageData = {...items, ...pageInterface};
+
+      page.pageData ? page.pageData = pageData : page[0].pageData = pageData;
+
+      return page;
+    }
+
+    return data;
   }
 
   private modifySchedule(data: HttpEvent<any>): HttpEvent<any> {

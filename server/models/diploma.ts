@@ -10,6 +10,7 @@ export interface IDiploma extends IMongooseSchema {
   itemId?: string;
   entityId?: TPageId;
   isPublished?: boolean;
+  order: number;
 }
 
 const schema = new mongoose.Schema({
@@ -19,7 +20,8 @@ const schema = new mongoose.Schema({
   graduateYear: {type: Number, required: true},
   description: {type: String, required: false},
   isPublished: {type: Boolean, required: true, default: true},
-  entityId: {type: String, required: false}
+  entityId: {type: String, required: false},
+  order: {type: Number, required: false}
 });
 
 export const Diploma = mongoose.model('Diploma', schema);
