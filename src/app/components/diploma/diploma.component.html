@@ -6,8 +6,8 @@
     <div class="diploma-description">
       <h4 class="diploma-description-header">{{diploma.header}}</h4>
       <p class="diploma-description-graduate">{{diploma.graduateYear}}</p>
-      <a routerLink="diplomas" *ngIf="!onPage">
-        <button class="diploma-button">View All</button>
+      <a routerLink="diplomas" *ngIf="!onPage && buttonText">
+        <button class="diploma-button">{{buttonText}}</button>
       </a>
     </div>
   </div>

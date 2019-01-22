@@ -9,6 +9,7 @@ import {ModalService} from "../../pages/_index/services/modal.service";
 })
 export class DiplomaComponent implements OnInit {
   @Input() diploma: IDiploma;
+  @Input() buttonText?: string;
   @Input() onPage: boolean;
   @ViewChild('pictureTpl') pictureTpl: TemplateRef<any>;
 

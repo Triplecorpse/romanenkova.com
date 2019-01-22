@@ -1,10 +1,10 @@
 <div class="overview-diploma-wrapper" *ngIf="diplomas.length">
-  <h3 class="overview-diploma-header">Diplomas and certificates</h3>
+  <h3 class="overview-diploma-header">{{overviewInterface.header}}</h3>
   <app-slider [template]="diplomasTpl" [slides]="diplomas" [sideButtons]="true" [sideButtonsMobile]="false"></app-slider>
 
   <ng-template #diplomasTpl let-source="slide">
     <div class="swiper-slide-wrapper">
-      <app-diploma [diploma]="source"></app-diploma>
+      <app-diploma [diploma]="source" [buttonText]="overviewInterface.button"></app-diploma>
     </div>
   </ng-template>
 </div>
