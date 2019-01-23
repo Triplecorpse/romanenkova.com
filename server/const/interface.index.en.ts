@@ -1,3 +1,6 @@
+///<reference path="../../_interface/IIndexPage.ts"/>
+import {IIndexPage} from "../../_interface/IIndexPage";
+
 export default {
   nav: [
     {name: 'Online|psychology', anchor: 'main'},
@@ -20,7 +23,7 @@ export default {
     rootPageTitle: 'Main'
   },
   appointment: {
-    header: 'Make an appointment',
+    header: 'Make an appointment...',
     name: 'First and last names',
     phone: 'Phone',
     phoneOption: 'Phone (any messenger)',
@@ -36,7 +39,7 @@ export default {
     checkbox: 'Mark this checkbox',
     submit: 'OK',
     instructions: 'Required fields: name and any contact information.',
-    explanation: 'The date and time of the first trial consultation are indicative and may change by mutual agreement.\nNo personal data entered in this form is stored on the site or transmitted to third parties for promotional purposes.\nContact information is used only for contact with you and is saved only in my personal mail box.',
+    explanation: 'The date and time of the first trial consultation are indicative and may change by mutual agreement.\nNo personal data entered in this form is stored on the site or transmitted to third parties for promotional purposes.\nContact information is used only for contacting you and is saved only in my personal mailbox.',
     selectClear: 'Clear selection'
   },
   diplomas: {
@@ -45,16 +48,24 @@ export default {
   },
   about: {
     header: '',
-    text: '',
-    link: ''
+    button: 'About me'
   },
   review: {
     header: 'Feedback',
-    add: 'Add Feedback...',
+    button: 'Add Feedback...',
   },
   contact: {
     header: 'Contact',
-    phone: 'Phone'
+    phoneLabel: 'Phone'
   },
-  reviewModal: {},
-}
+  reviewModal: {
+    header: 'Leave Feedback',
+    name: 'Full name',
+    namesubscr: 'If you don\'t want to publish your name, leave it blank or enter your nickname',
+    email: 'Email',
+    emailsubscr: 'Is not published',
+    review: 'Feedback',
+    submit: 'Submit feedback',
+    explanation: 'The email field is not published and is not stored on the site database. However, it can be stored in my personal mailbox and will be used only for communicating with you.\nYour name will be displayed on the website in the Reviews section exactly as it is entered by you. If you wish to remain anonymous, leave the field blank or simply enter your nickname.',
+  },
+} as IIndexPage;

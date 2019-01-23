@@ -45,7 +45,7 @@ export function getDiplomasItems(): Promise<Array<IDiploma>> {
             })
             .then((cloudinaries: Array<ICloudinaryResponse>) => {
                 data.forEach((item, index) => {
-                  item.picture = cloudinaries[index].url;
+                  item.picture = cloudinaries[index].secure_url;
                 });
                 return Diploma.deleteMany({})
             })

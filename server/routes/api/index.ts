@@ -89,7 +89,7 @@ router.post('/upload', upload.array("upload"), (req: IRequest, res: Response, ne
 
   Promise.all(cloudinaryQ)
     .then((data: Array<ICloudinaryResponse>) => {
-      res.send(data.map((s: ICloudinaryResponse): { url: string } => ({url: s.url})));
+      res.send(data.map((s: ICloudinaryResponse): { url: string } => ({url: s.secure_url})));
     })
     .catch((err: any) => {
       res.status(500).send(err);
