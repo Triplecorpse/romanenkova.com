@@ -5,3 +5,5 @@ Disallow:
 Disallow: /cgi-bin/
 Disallow: /admin/
 Disallow: /api/
+Disallow: /apiv2/
+Disallow: /apiv2se/
