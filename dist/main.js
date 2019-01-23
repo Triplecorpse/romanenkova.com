@@ -4764,8 +4764,8 @@ exports.I18nService = I18nService;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.environment = {
-    production: false,
-    api: 'https://romanenkova.herokuapp.com/api/'
+    production: true,
+    api: 'https://www.romanenkova.com/api/'
 };
 
 
@@ -4804,7 +4804,7 @@ exports.LAZY_MODULE_MAP = { "./pages/_index/index.module#IndexModule": __lazy_0_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/triplecorpse/WebstormProjects/romanenkova/src/main.server.ts */"./src/main.server.ts");
+module.exports = __webpack_require__(/*! C:\Users\eldar\WebstormProjects\romanenkova\src\main.server.ts */"./src/main.server.ts");
 
 
 /***/ }),
