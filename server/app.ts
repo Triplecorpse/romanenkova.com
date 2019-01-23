@@ -8,6 +8,7 @@ import log from './services/log-service';
 import mongoose = require('mongoose');
 import {generateSiteMap} from "./services/file-service";
 import {getMilliseconds} from "./services/base";
+const cluster = require('cluster');
 
 require('dotenv').config();
 
@@ -18,7 +19,25 @@ mongoose.connect(process.env.MONGODB_URI as string)
 
 generateSiteMap();
 
-app.listen(port, () => {
+const numCPUs = require('os').cpus().length;
+
+if (cluster.isMaster) {
+  console.log(`Master ${process.pid} is running`);
+
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on('exit', (worker: any, code: any, signal: any) => {
+    console.log(`worker ${worker.process.pid} died`);
+  });
+} else {
+  app.listen(port, () => {
     console.log(`Listening on port ${port}`);
     log.info(`Server started on port ${port}`);
-});
+  });
+
+  console.log(`Worker ${process.pid} started`);
+}
+
+

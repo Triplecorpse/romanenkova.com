@@ -55,11 +55,11 @@ export function getNavPageData(): Promise<Array<IPage>> {
                 {name: ["En ligne", "Psychologue"], anchor: "main"},
                 {name: "Prendre rendez-vous", anchor: "appointment"},
                 {name: ["Psychologue", "Irina", "Romanenkova"], anchor: "name"},
-                {name: "Sur moi", anchor: "about"},
+                {name: "A propos de moi", anchor: "about"},
                 {name: "Services", anchor: "services"},
                 {name: "Diplômes", anchor: "diplomas"},
                 // {name: "Articles", anchor: "articles"},
-                {name: "Contacts", anchor: "contacts"}
+                {name: "Contactez-moi", anchor: "contacts"}
             ],
             language: 'fr',
             entityId: 'nav',
@@ -70,7 +70,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
     return new Promise((resolve: any, reject: any) => {
         Page.deleteMany({entityId: 'nav'})
             .then((result: any) => {
-                log.warning('\x1b[31m', 'DELETED: nav', result.n, 'pages', data);
+                log.warning('\x1b[31m', 'DELETED: nav', result.n, 'pages');
                 resolve(data);
             })
             .catch((err: any) => {

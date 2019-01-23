@@ -1,7 +1,7 @@
 import {TLanguage} from "../../types/types";
 import {IService, Service} from "../../models/service";
 
-export function readService(lang?: TLanguage): Promise<Array<IService>> {
+export function readService(lang: TLanguage): Promise<Array<IService>> {
     return new Promise<Array<IService>>((resolve: any, reject: any) => {
         Service.find({language: lang})
             .then((serviceItems: any) => {

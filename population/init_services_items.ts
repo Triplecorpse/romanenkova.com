@@ -39,15 +39,15 @@ export function getServiceItemData(): Promise<Array<IService>> {
             period: 'год'
         }, {
             currency: 'EUR',
-            header: 'Personnalisé conseil',
+            header: 'Conseil individuel',
             language: 'fr',
-            description: 'Je travaille principalement avec des adultes, mais j\'ai aussi de l\'expérience avec des enfants et des adolescents. Je suis souvent approché par des parents qui ont des difficultés à élever leurs enfants.',
+            description: 'Pour ceux qui ont besoin de mon soutien et de mes conseils personnalisés . Dans ce format, je me consacrerai purement et uniquement à vous.',
             image: '0',
             price: 30,
-            priceLabel: 'Coût de',
+            priceLabel: 'Coût',
             entityId: '[counseling] individual',
             title: 'Individual counselling',
-            period: 'heure'
+            period: 'hr'
         },
         {
             header: 'Group counseling',
@@ -80,12 +80,13 @@ export function getServiceItemData(): Promise<Array<IService>> {
         }, {
             header: 'Conseil de groupe',
             language: 'fr',
-            description: 'Réalisé comme un ensemble de groupes. Si vous êtes intéressé par ce service, vous pouvez laisser une demande et je vous contacterai lorsque le groupe sera recruté. Dans ce format, je travaille en co-thérapie (avec un collègue).',
+            description: 'Pour ceux qui voudraient faire partie d\'un groupe de soutien. Si vous êtes intéressé par ce service, vous pouvez laisser une demande et je vous contacterai dès qu\'un groupe sera constitué. Dans ce format, je travaille en co-thérapie.',
             image: '1',
             priceLabel: 'Coût de',
             entityId: '[counseling] group',
             title: 'Group counselling',
-            noPriceValue: 'calculé pour chaque groupe'
+            noPriceValue: 'calculé',
+            period: 'par groupe'
         }
     ];
 
@@ -96,7 +97,7 @@ export function getServiceItemData(): Promise<Array<IService>> {
             .then((services: Array<any>) => {
                 const differentServices = services.filter((service: IService): boolean => service.language === 'en');
                 if (!differentServices.length) {
-                    return Promise.all([uploadImage('./population/assets/individualServices.png'), uploadImage('./population/assets/groupServices.png')]);
+                    return Promise.all([uploadImage('./population/assets/single-leaf.png'), uploadImage('./population/assets/multiple-leaf.png')]);
                 }
                 differentServices.forEach((service: IService): void => {
                     images.push(service.image);

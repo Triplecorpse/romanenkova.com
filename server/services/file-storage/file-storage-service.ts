@@ -14,3 +14,15 @@ export function uploadImage(path: string): Promise<ICloudinaryResponse> {
         });
     });
 }
+
+export function getImageList(): Promise<any> {
+  return new Promise((resolve, reject) => {
+    cloudinary.v2.api.resources(function(error: any, result: any) {
+      if (error) {
+        return reject(error);
+      }
+
+      return resolve(result);
+    });
+  });
+}

@@ -127,7 +127,7 @@ export function getContactsPageData(): Promise<Array<IPage>> {
         language: 'uk'
     }, {
         entityId: 'contacts',
-        header: 'Contacts',
+        header: 'Contactez-moi',
         pageData: [
             {
                 name: 'Telegram',

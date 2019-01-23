@@ -11,7 +11,7 @@
     "build:ssr": "webpack --config webpack.server.config.js --progress --colors --mode production",
     "dbconnect": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod",
     "dbconsole": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongo",
-    "dbinit": "tsc --project population && node population/init -- about contacts main nav modalappointment diploma article schedule service serviceItem review modalreview",
+    "dbinit": "tsc --project population && node population/init -- about contacts main nav modalappointment diploma article schedule service serviceItem review modalreview diplomaItem",
     "dbreview": "tsc --project population && node population/init -- review",
     "dbreviewmodal": "tsc --project population && node population/init -- modalreview",
     "dbrecreateadmin": "tsc --project population && node population/init -- users",
@@ -28,10 +28,10 @@
     "start:development": "npm run build:development && npm run start:server",
     "start:staging": "npm run build:staging && npm run start:server",
     "start:server": "npm run build && node server/app.js",
-    "build:local": "ng run front:server:local && npm run build && npm run build:ssr && ng build --configuration=local --aot",
-    "build:development": "ng run front:server:qa && npm run build && npm run build:ssr && ng build --configuration=qa --aot && git add dist/. && git add front/.",
-    "build:staging": "ng run front:server:staging && npm run build && npm run build:ssr && ng build --configuration=staging --aot && git add dist/. && git add front/.",
-    "build:production": "ng run front:server:production && npm run build && npm run build:ssr && ng build --configuration=production --aot --prod && git add dist/. && git add front/."
+    "build:local": "node .env.copy.development && ng run front:server:local && npm run build && npm run build:ssr && ng build --configuration=local --aot",
+    "build:development": "node .env.copy.development && ng run front:server:qa && npm run build && npm run build:ssr && ng build --configuration=qa --aot && git add dist/. && git add front/.",
+    "build:staging": "node .env.copy.development && ng run front:server:staging && npm run build && npm run build:ssr && ng build --configuration=staging --aot && git add dist/. && git add front/.",
+    "build:production": "node .env.copy.production && ng run front:server:production && npm run build && npm run build:ssr && ng build --configuration=production --aot --prod && git add dist/. && git add front/."
   },
   "repository": {
     "type": "git",

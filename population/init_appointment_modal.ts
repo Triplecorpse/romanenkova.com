@@ -118,7 +118,7 @@ export function getAppointmentModalPageData(): Promise<Array<IPage>> {
                 checkbox: 'Je lis les règles du site',
                 submit: 'S\'inscrire',
                 instructions: 'Champs obligatoires: nom et informations de contact.',
-                explanation: 'La date et l\'heure de la première consultation d\'essai sont indicatives et peuvent changer d\'un commun accord.\nAucune donnée personnelle saisie dans ce formulaire n\'est stockée sur le site ou transmise à des tiers à des fins promotionnelles.\nLes informations de contact ne sont utilisées que pour vous contacter et sont enregistrées uniquement dans ma boîte aux lettres personnelle.',
+                explanation: 'La date et l\'heure de la première consultation d\'essai sont indicatives et peuvent changer avec accord mutuel.\nAucune donnée personnelle entrée dans ce formulaire n\'est stockée sur le site ou transmise à des tiers ou à des fins promotionnelles.\nLes informations de contact sont utilisées uniquement pour vous contacter et sont enregistrées uniquement dans ma boîte aux lettres personnelle.',
                 tooltips: {
                     name: 'Required.',
                     phone: '',

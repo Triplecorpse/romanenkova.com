@@ -6,9 +6,7 @@ export function readDiploma(typeId?: string, isAdmin = false): Promise<Array<IDi
         if (isAdmin) {
           return {
             description: diplomaItem.description,
-            itemId: diplomaItem.itemId,
             header: diplomaItem.header,
-            entityId: diplomaItem.entityId,
             graduateYear: diplomaItem.graduateYear,
             picture: diplomaItem.picture,
             isPublished: diplomaItem.isPublished,
@@ -22,7 +20,6 @@ export function readDiploma(typeId?: string, isAdmin = false): Promise<Array<IDi
           header: diplomaItem.header,
           graduateYear: diplomaItem.graduateYear,
           picture: diplomaItem.picture,
-          entityId: diplomaItem.entityId,
           order: diplomaItem.order
         }
       })
@@ -38,7 +35,6 @@ export function createDiploma(diploma: IDiploma): Promise<IDiploma> {
 export function updateDiploma(_id: string, newDiploma: IDiploma): Promise<IDiploma> {
   return Diploma.findByIdAndUpdate(_id, newDiploma)
     .then((w:any) => {
-      console.log(_id, newDiploma, w);
       return newDiploma
     })
     .catch(err => {throw new Error(err.message)});

@@ -102,13 +102,13 @@ export const successMessages: any = {
             ru: 'Запись на приём отправлена.',
             en: 'Appointment requested.',
             uk: 'Запис на прийом відправлено.',
-            fr: 'La demande de réception a été envoyée.'
+            fr: 'Rendez-vous demandé.'
         },
         body: {
             ru: 'Спасибо за запись. Я с вами свяжусь при первой возможности.',
             en: 'Thank you for reaching out to me, I’ll contact you very soon.',
             uk: 'Дякую за запис. Я з вами зв\'яжуся якомога скоріше.',
-            fr: 'Veuillez attendre que je vous contacte.'
+            fr: 'Merci de me contacter, je vous contacterai très bientôt.'
         }
     },
     review: {
@@ -122,7 +122,7 @@ export const successMessages: any = {
             ru: 'Отзыв появится на русскоязычной версии сайта, как только он будет проверен.',
             en: 'Your feedback will appear on the English version of the site as soon as it is verified.',
             uk: 'Відгук з\'явиться на україномовній версії сайту, як тільки він буде перевірений.',
-            fr: 'Les commentaires apparaîtront sur la version française du site dès que celle-ci aura été vérifiée.'
+            fr: 'Vos commentaires apparaîtront sur la version française du site dès qu\'ils auront été vérifiés.'
         }
     }
 };

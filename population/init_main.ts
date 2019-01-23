@@ -21,7 +21,7 @@ export function getMainPageData(): Promise<Array<IPage>> {
             pageData: indexData.uk
         }, {
             entityId: 'main',
-            header: 'Counselling et thérapie en ligne',
+            header: 'Consultation et thérapie en ligne',
             language: 'fr',
             pageData: indexData.fr
         }

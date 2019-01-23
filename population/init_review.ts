@@ -39,8 +39,8 @@ export function getReviewPageData(): Promise<Array<IPage>> {
             header: 'Retour d\'information',
             language: 'fr',
             pageData: {
-                submit: 'Ajouter un commentaire...',
-                noReviews: 'Il n\'y a plus de commentaires de la version française du site. Soyez le premier!',
+                submit: 'Laisser un commentaire...',
+                noReviews: 'Il n\'y a pas de commentaires laissés par la version française du site. Pourquoi ne pas être le premier?',
                 anon: 'Anonymous'
             }
         }
