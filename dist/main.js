@@ -4804,7 +4804,7 @@ exports.LAZY_MODULE_MAP = { "./pages/_index/index.module#IndexModule": __lazy_0_
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/triplecorpse/WebstormProjects/romanenkova/src/main.server.ts */"./src/main.server.ts");
+module.exports = __webpack_require__(/*! C:\Users\eldar\WebstormProjects\romanenkova\src\main.server.ts */"./src/main.server.ts");
 
 
 /***/ }),

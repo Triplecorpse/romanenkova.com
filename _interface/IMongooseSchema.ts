@@ -5,6 +5,7 @@ export namespace Database {
     _id?: string;
     __v?: string;
     language?: TLanguage;
+    isPublished?: boolean;
   }
 
   export interface IContact extends IMongooseSchema {
@@ -27,8 +28,8 @@ export namespace Database {
     price?: number;
     currency?: string;
     priceLabel: string;
-    entityId: string;
-    title: string;
+    entityId?: string;
+    title?: string;
     period: string;
     noPriceValue?: string;
   }
@@ -36,8 +37,8 @@ export namespace Database {
   export interface IReview extends IMongooseSchema {
     name: string;
     review: string;
-    email: string;
-    isPublished: boolean;
+    email?: string;
+    isPublished?: boolean;
   }
 
   export interface IUser extends IMongooseSchema {

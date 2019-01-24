@@ -1,5 +1,7 @@
 import {IReviewOptions} from "../../interfaces/iReviewOptions";
 import {IReview, Review} from "../../models/review";
+import {Database} from "../../../_interface/IMongooseSchema";
+import {TLanguage} from "../../types/types";
 
 export function getReviews(count: number = 0, options: IReviewOptions = {}): Promise<Array<IReview>> {
     const query: any = {
@@ -79,4 +81,36 @@ function pubUnpubReview(id: string, value: boolean): Promise<IReview> {
             isPublished: result.isPublished,
             email: result.isPublished
         }));
+}
+
+
+export function createReview() {
+
+}
+
+export function readReview(language: TLanguage, isAdmin: boolean = false): Promise<Array<Database.IReview>> {
+  const opts = {
+    isPublished: true,
+    language
+  };
+  if (isAdmin) {
+    delete opts.isPublished;
+  }
+  return Review.find(opts).then((r: Array<any>) => r.map((review: Database.IReview): Database.IReview => {
+    if (!isAdmin) {
+      return {
+        review: review.review,
+        name: name
+      }
+    }
+
+    return review;
+  }));
+}
+export function updateReview() {
+
+}
+
+export function deleteReview() {
+
 }

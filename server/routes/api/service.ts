@@ -4,12 +4,13 @@ import {IService, Service} from "../../models/service";
 import IRequest from "../../interfaces/iRequest";
 import {readService} from "../../services/db-middleware/service";
 import {TLanguage} from "../../types/types";
+import {Database} from "../../../_interface/IMongooseSchema";
 
 const router = express.Router();
 
 router.get('/', (req: IRequest, res: Response) => {
     readService(req.language as TLanguage)
-        .then((services: Array<IService>) => {
+        .then((services: Array<Database.IService>) => {
             res.json(services);
         })
         .catch((err: any) => {

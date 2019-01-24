@@ -6,6 +6,8 @@ import interfaceIndexFr from "./interface.index.fr";
 import interfaceIndexRu from "./interface.index.ru";
 import interfaceIndexUk from "./interface.index.uk";
 import {ILanguageObject} from "../../../_interface/ILanguageObject";
+import {Database} from "../../../_interface/IMongooseSchema";
+import {readContact} from "../../services/db-middleware/contact";
 import {readService} from "../../services/db-middleware/service";
 
 const availableLanguages: Array<ILanguageObject> = [
@@ -41,8 +43,8 @@ export const configObj = {
 export async function getIndexInterface(lang: TLanguage) {
   let interfaceObj: any = configObj[lang];
 
-  const contact: any = await readInterface('contacts', lang);
-  const services = await readService(lang);
+  const contact: Array<Database.IContact> = await readContact();
+  const services: Array<Database.IService> = await readService(lang);
 
   interfaceObj = {
     ...interfaceObj,
@@ -50,7 +52,7 @@ export async function getIndexInterface(lang: TLanguage) {
     services,
     contact: {
       ...interfaceObj.contact,
-      items: contact[0].pageData
+      items: contact
     }
   };
 

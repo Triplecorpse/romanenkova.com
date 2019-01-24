@@ -40,7 +40,8 @@ const schema = new mongoose.Schema({
     title: {type: String, required: true, set: secureHtmlString},
     period: {type: String, required: false, set: secureHtmlString},
     noPriceValue: {type: String, required: false, set: secureHtmlString},
-    priceLabel: {type: String, required: true, set: secureHtmlString}
+    priceLabel: {type: String, required: true, set: secureHtmlString},
+    isPublished: {type: Boolean, default: true, required: false}
 });
 
 
