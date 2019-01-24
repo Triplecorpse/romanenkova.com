@@ -5,7 +5,7 @@ import {IAppointmentModal} from "./IAppointmenntModal";
 import {IContactBlock} from "./IContactBlock";
 import {Database} from "./IMongooseSchema";
 
-export interface IIndexPage {
+export interface IIndexData {
   nav: Array<INavItem>,
   language: ILanguageObject,
   pageMetadata: IPageMetadata,

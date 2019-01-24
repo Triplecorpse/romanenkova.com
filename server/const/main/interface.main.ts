@@ -1,12 +1,12 @@
-import {TLanguage} from "../types/types";
-import {readInterface} from "../services/db-middleware/interface";
+import {TLanguage} from "../../types/types";
+import {readInterface} from "../../services/db-middleware/interface";
 
 import interfaceMainEn from "./interface.main.en";
 import interfaceMainFr from "./interface.main.fr";
 import interfaceMainRu from "./interface.main.ru";
 import interfaceMainUk from "./interface.main.uk";
-import {readDiploma} from "../services/db-middleware/diploma";
-import {getReviews} from "../services/db-middleware/review";
+import {readDiploma} from "../../services/db-middleware/diploma";
+import {getReviews} from "../../services/db-middleware/review";
 
 export const configObj = {
   en: interfaceMainEn,

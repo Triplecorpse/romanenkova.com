@@ -1,8 +1,7 @@
-///<reference path="../../_interface/IIndexPage.ts"/>
-import {IIndexPage} from "../../_interface/IIndexPage";
-import {IMainPage} from "../../_interface/IMainPage";
+import {Page} from "../../../_interface/IPage";
 
 export default {
+  header: 'Online Counseling & Therapy',
   diploma: {
     header: 'Diplomas and certificates',
     button: 'View All'
@@ -25,4 +24,4 @@ export default {
     submit: 'Submit feedback',
     explanation: 'The email field is not published and is not stored on the site database. However, it can be stored in my personal mailbox and will be used only for communicating with you.\nYour name will be displayed on the website in the Reviews section exactly as it is entered by you. If you wish to remain anonymous, leave the field blank or simply enter your nickname.'
   }
-} as IMainPage;
+} as Page.IMainPage;

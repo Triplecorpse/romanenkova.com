@@ -1,5 +1,4 @@
-///<reference path="../../_interface/IIndexPage.ts"/>
-import {IIndexPage} from "../../_interface/IIndexPage";
+import {IIndexData} from "../../../_interface/IIndexData";
 
 export default {
   nav: [
@@ -47,4 +46,4 @@ export default {
     phoneLabel: 'Phone'
   },
   services: []
-} as IIndexPage;
+} as IIndexData;

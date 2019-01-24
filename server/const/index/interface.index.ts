@@ -1,12 +1,12 @@
-import {TLanguage} from "../types/types";
-import {readInterface} from "../services/db-middleware/interface";
+import {TLanguage} from "../../types/types";
+import {readInterface} from "../../services/db-middleware/interface";
 
 import interfaceIndexEn from "./interface.index.en";
 import interfaceIndexFr from "./interface.index.fr";
 import interfaceIndexRu from "./interface.index.ru";
 import interfaceIndexUk from "./interface.index.uk";
-import {ILanguageObject} from "../../_interface/ILanguageObject";
-import {readService} from "../services/db-middleware/service";
+import {ILanguageObject} from "../../../_interface/ILanguageObject";
+import {readService} from "../../services/db-middleware/service";
 
 const availableLanguages: Array<ILanguageObject> = [
   {

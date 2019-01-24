@@ -1,4 +1,4 @@
-import {IIndexPage} from "../../_interface/IIndexPage";
+import {IIndexData} from "../../../_interface/IIndexData";
 
 export default {
   nav: [
@@ -46,4 +46,4 @@ export default {
     phoneLabel: 'Телефон'
   },
   services: []
-} as IIndexPage;
+} as IIndexData;
