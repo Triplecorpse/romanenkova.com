@@ -1,8 +1,8 @@
 import express = require('express');
-import getInterface from "./interface";
+import getInterfaceRouter from "./interface";
 
 const router = express.Router();
 
-router.use('/interface', getInterface(router));
+router.use('/interface', getInterfaceRouter(router));
 
 export default router;

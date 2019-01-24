@@ -24,14 +24,14 @@ export function getDiplomasItems(): Promise<Array<IDiploma>> {
         order: 3,
         description: '',
         graduateYear: 2017,
-        header: 'European Association for Transactional Analysis - Українська асоціація транзакційного аналізу',
+        header: 'European Association for Transactional Analysis',
         isPublished: true,
         picture: 'v423mum9ulmzaukezdrm.jpg'
       }, {
         order: 4,
         description: '',
         graduateYear: 2018,
-        header: 'European Association for Transactional Analysis - Українська асоціація транзакційного аналізу',
+        header: 'European Association for Transactional Analysis',
         isPublished: true,
         picture: 'eupxoexyhmtzxl74lgvy.jpg'
       }

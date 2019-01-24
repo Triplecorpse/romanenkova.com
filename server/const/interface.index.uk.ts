@@ -39,22 +39,9 @@ export default {
     explanation: 'The date and time of the first trial consultation are indicative and may change by mutual agreement.\nNo personal data entered in this form is stored on the site or transmitted to third parties for promotional purposes.\nContact information is used only for contact with you and is saved only in my personal mail box.',
     selectClear: 'Clear selection'
   },
-  diplomas: {
-    header: 'Diplomas and certificates',
-    button: 'View All'
-  },
-  about: {
-    header: '',
-    text: '',
-    link: ''
-  },
-  review: {
-    header: 'Feedback',
-    add: 'Add Feedback...',
-  },
   contact: {
     header: 'Contact',
     phone: 'Phone'
   },
-  reviewModal: {},
+  services: []
 }

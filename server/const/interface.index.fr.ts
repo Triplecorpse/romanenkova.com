@@ -43,18 +43,5 @@ export default {
     header: 'Diplomas and certificates',
     button: 'View All'
   },
-  about: {
-    header: '',
-    text: '',
-    link: ''
-  },
-  review: {
-    header: 'Feedback',
-    add: 'Add Feedback...',
-  },
-  contact: {
-    header: 'Contact',
-    phone: 'Phone'
-  },
-  reviewModal: {},
+  services: []
 }

@@ -6,6 +6,7 @@ import interfaceIndexFr from "./interface.index.fr";
 import interfaceIndexRu from "./interface.index.ru";
 import interfaceIndexUk from "./interface.index.uk";
 import {ILanguageObject} from "../../_interface/ILanguageObject";
+import {readService} from "../services/db-middleware/service";
 
 const availableLanguages: Array<ILanguageObject> = [
   {
@@ -39,12 +40,11 @@ export const configObj = {
 
 export async function getIndexInterface(lang: TLanguage) {
   let interfaceObj: any = configObj[lang];
-  interfaceObj.about.position = interfaceObj.pageMetadata.position;
-  interfaceObj.about.fullName = `${interfaceObj.pageMetadata.firstName} ${interfaceObj.pageMetadata.lastName}`;
 
   const contact = await readInterface(['contacts', 'about'], lang);
+  const services = await readService(lang);
 
-  interfaceObj = {...interfaceObj, contact, availableLanguages};
+  interfaceObj = {...interfaceObj, contact, availableLanguages, services};
 
   return interfaceObj;
 }
