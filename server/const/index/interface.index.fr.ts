@@ -1,47 +1,49 @@
+import {IIndexData} from "../../../_interface/IIndexData";
+
 export default {
   nav: [
-    {name: 'Online|psychology', anchor: 'main'},
-    {name: 'About me', anchor: 'about'},
+    {name: 'En ligne|psychologue', anchor: 'main'},
+    {name: 'A propos de moi', anchor: 'about'},
     {name: 'Services', anchor: 'services'},
-    {name: 'Diplomas', anchor: 'diplomas'},
-    {name: 'Articles', anchor: 'articles'},
-    {name: 'Contacts', anchor: 'contacts'}
+    {name: 'Diplômes', anchor: 'diplomas'},
+    // {name: 'Articles', anchor: 'articles'},
+    {name: 'Contactez-moi', anchor: 'contacts'}
   ],
   language: {
-    codeISO2: 'en',
-    locale: 'GB',
-    languageName: 'English'
+    codeISO2: 'fr',
+    locale: 'FR',
+    languageName: 'Français'
   },
   pageMetadata: {
-    description: 'Personal website of online psychologist',
-    position: 'Psychologist',
+    description: 'Consultation et thérapie en ligne',
+    position: 'Psychologue',
     firstName: 'Irina',
     lastName: 'Romanenkova',
-    rootPageTitle: 'Main'
+    rootPageTitle: 'Accueil'
   },
   appointment: {
-    header: 'Make an appointment',
-    name: 'First and last names',
-    phone: 'Phone',
-    phoneOption: 'Phone (any messenger)',
+    header: 'Prendre rendez-vous',
+    name: 'Nom et prénom',
+    phone: 'Téléphone',
+    phoneOption: 'Téléphone (n\'importe quel messager)',
     contact: 'Contact',
-    nickname: 'Nickname',
-    contactOption: 'Phone / nickname',
+    nickname: 'Surnom',
+    contactOption: 'Téléphone / surnom',
     email: 'Email',
     date: 'Date',
-    datesubscr: 'Approximate',
-    time: 'Local time',
-    service: 'Service',
-    message: 'Message',
-    checkbox: 'Mark this checkbox',
-    submit: 'OK',
-    instructions: 'Required fields: name and any contact information.',
-    explanation: 'The date and time of the first trial consultation are indicative and may change by mutual agreement.\nNo personal data entered in this form is stored on the site or transmitted to third parties for promotional purposes.\nContact information is used only for contact with you and is saved only in my personal mail box.',
-    selectClear: 'Clear selection'
+    datesubscr: 'Approximative',
+    time: 'Heure locale',
+    service: 'Type de consultation',
+    message: 'Votre message',
+    checkbox: 'Je lis les règles du site',
+    submit: 'S\'inscrire',
+    instructions: 'Champs obligatoires: nom et informations de contact.',
+    explanation: 'La date et l\'heure de la première consultation d\'essai sont indicatives et peuvent changer avec accord mutuel.\nAucune donnée personnelle entrée dans ce formulaire n\'est stockée sur le site ou transmise à des tiers ou à des fins promotionnelles.\nLes informations de contact sont utilisées uniquement pour vous contacter et sont enregistrées uniquement dans ma boîte aux lettres personnelle.',
+    selectClear: 'Effacer la sélection'
   },
-  diplomas: {
-    header: 'Diplomas and certificates',
-    button: 'View All'
+  contact: {
+    header: 'Contactez-moi',
+    phoneLabel: 'Téléphone'
   },
   services: []
-}
+} as IIndexData;

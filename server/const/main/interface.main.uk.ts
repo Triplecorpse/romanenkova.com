@@ -1,27 +1,29 @@
 import {Page} from "../../../_interface/IPage";
 
 export default {
-  header: 'Online Counseling & Therapy',
+  header: 'Онлайн консультація та терапія',
   diploma: {
-    header: 'Diplomas and certificates',
-    button: 'View All'
+    header: 'Дипломи та сертифікати',
+    button: 'Подивитися усі'
   },
   about: {
-    header: 'Psychologist|Irina Romanenkova',
-    button: 'About me'
+    header: 'Психолог|Ірина Романенкова',
+    button: 'Про мене'
   },
   review: {
-    header: 'Feedback',
-    button: 'Add Feedback...'
+    header: 'Відгуки',
+    button: 'Додати відгук...',
+    noReviews: 'Поки що немає відгуків, залишених з української версії сайту. Чому б не написати перший?',
+    anonymous: 'Анонімно'
   },
   reviewModal: {
-    header: 'Leave Feedback',
-    name: 'Full name',
-    namesubscr: 'If you don\'t want to publish your name, leave it blank or enter your nickname',
+    header: 'Написати відгук',
+    name: 'Ім\'я та прізвище',
+    namesubscr: 'Якщо ви не хочете публікувати свлє ім\'я, залиште це поле порожнім або введіть ваш нік',
     email: 'Email',
-    emailsubscr: 'Is not published',
-    review: 'Feedback',
-    submit: 'Submit feedback',
-    explanation: 'The email field is not published and is not stored on the site database. However, it can be stored in my personal mailbox and will be used only for communicating with you.\nYour name will be displayed on the website in the Feedback section exactly as it is entered by you. If you wish to remain anonymous, leave the field blank or simply enter your nickname.'
+    emailsubscr: 'Не буде опубліковано',
+    review: 'Відгук',
+    submit: 'Залишити відгук',
+    explanation: 'Поле email не буде опубліковано і не буде збережено у базі даних сайту. Однак, може бути збережено в моїй особистій поштовій скринці і буде використовуватися тільки для можливого зв\'язку з вами.\nВаше ім\'я буде відображатися на сайті в блоці "Відгуки" точно так, як воно було введено вами. Якщо ви бажаєте залишатися інкогніто, залиште поле порожнім або введіть ваш нік.'
   }
 } as Page.IMainPage;

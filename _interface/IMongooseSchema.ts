@@ -70,11 +70,4 @@ export namespace Database {
     url: string,
     entityId: string
   }
-
-  export interface IAboutPage {
-    body: string;
-    fullName: string;
-    position: string;
-    images: Array<string>;
-  }
 }

@@ -6,8 +6,8 @@ export default {
     {name: 'About me', anchor: 'about'},
     {name: 'Services', anchor: 'services'},
     {name: 'Diplomas', anchor: 'diplomas'},
-    {name: 'Articles', anchor: 'articles'},
-    {name: 'Contacts', anchor: 'contacts'}
+    // {name: 'Articles', anchor: 'articles'},
+    {name: 'Contact', anchor: 'contacts'}
   ],
   language: {
     codeISO2: 'en',
@@ -15,7 +15,7 @@ export default {
     languageName: 'English'
   },
   pageMetadata: {
-    description: 'Personal website of online psychologist',
+    description: 'Online Counseling & Therapy',
     position: 'Psychologist',
     firstName: 'Irina',
     lastName: 'Romanenkova',

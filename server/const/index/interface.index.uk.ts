@@ -1,47 +1,49 @@
+import {IIndexData} from "../../../_interface/IIndexData";
+
 export default {
   nav: [
-    {name: 'Online|psychology', anchor: 'main'},
-    {name: 'About me', anchor: 'about'},
-    {name: 'Services', anchor: 'services'},
-    {name: 'Diplomas', anchor: 'diplomas'},
-    {name: 'Articles', anchor: 'articles'},
-    {name: 'Contacts', anchor: 'contacts'}
+    {name: 'Онлайн|психолог', anchor: 'main'},
+    {name: 'Про мене', anchor: 'about'},
+    {name: 'Послуги', anchor: 'services'},
+    {name: 'Дипломи', anchor: 'diplomas'},
+    // {name: 'Статті', anchor: 'articles'},
+    {name: 'Контакти', anchor: 'contacts'}
   ],
   language: {
-    codeISO2: 'en',
-    locale: 'GB',
-    languageName: 'English'
+    codeISO2: 'uk',
+    locale: 'UA',
+    languageName: 'Українська'
   },
   pageMetadata: {
-    description: 'Personal website of online psychologist',
-    position: 'Psychologist',
-    firstName: 'Irina',
-    lastName: 'Romanenkova',
-    rootPageTitle: 'Main'
+    description: 'Особистий сайт онлайн-психолога',
+    position: 'Психолог',
+    firstName: 'Ірина',
+    lastName: 'Романенкова',
+    rootPageTitle: 'Головна'
   },
   appointment: {
-    header: 'Make an appointment',
-    name: 'First and last names',
-    phone: 'Phone',
-    phoneOption: 'Phone (any messenger)',
-    contact: 'Contact',
-    nickname: 'Nickname',
-    contactOption: 'Phone / nickname',
+    header: 'Записатися на прийом',
+    name: 'Ім\'я та прізвище',
+    phone: 'Телефон',
+    phoneOption: 'Телефон (будь-який месенджер)',
+    contact: 'Контакт',
+    nickname: 'Нік',
+    contactOption: 'Телефон / Нік',
     email: 'Email',
-    date: 'Date',
-    datesubscr: 'Approximate',
-    time: 'Local time',
-    service: 'Service',
-    message: 'Message',
-    checkbox: 'Mark this checkbox',
-    submit: 'OK',
-    instructions: 'Required fields: name and any contact information.',
-    explanation: 'The date and time of the first trial consultation are indicative and may change by mutual agreement.\nNo personal data entered in this form is stored on the site or transmitted to third parties for promotional purposes.\nContact information is used only for contact with you and is saved only in my personal mail box.',
-    selectClear: 'Clear selection'
+    date: 'Дата',
+    datesubscr: 'Орієнтовна',
+    time: 'Місцевий час',
+    service: 'Послуга',
+    message: 'Повідомлення',
+    checkbox: 'З правилами ознайомлений',
+    submit: 'Записатися',
+    instructions: 'Необхідні поля: ім\'я та будь-яка контактна інформація.',
+    explanation: 'Дата і час першої пробної консультації є орієнтовними і можуть змінитися за обопільною домовленістю.\nНіякі особисті дані, які були введені у цій формі, не зберігаються на сайті і не передаються третім особам у рекламних цілях.\nКонтактна інформація використовується тільки для контакта з вами і зберігається тільки у моїй особистій поштовій скринці.',
+    selectClear: 'Очистити вибір'
   },
   contact: {
-    header: 'Contact',
-    phone: 'Phone'
+    header: 'Контакти',
+    phoneLabel: 'Телефон'
   },
   services: []
-}
+} as IIndexData;

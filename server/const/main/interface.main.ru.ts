@@ -1,27 +1,29 @@
 import {Page} from "../../../_interface/IPage";
 
 export default {
-  header: 'Online Counseling & Therapy',
+  header: 'Онлайн консультация и терапия',
   diploma: {
-    header: 'Diplomas and certificates',
-    button: 'View All'
+    header: 'Дипломы и сертификаты',
+    button: 'Посмотреть все'
   },
   about: {
-    header: 'Psychologist|Irina Romanenkova',
-    button: 'About me'
+    header: 'Психолог|Ирина Романенкова',
+    button: 'Обо мне'
   },
   review: {
-    header: 'Feedback',
-    button: 'Add Feedback...'
+    header: 'Отзывы',
+    button: 'Добавить отзыв...',
+    noReviews: 'Пока что нет отзывов, оставленных с русской версии сайта. Почему бы не написать первый?',
+    anonymous: 'Анонимно'
   },
   reviewModal: {
-    header: 'Leave Feedback',
-    name: 'Full name',
-    namesubscr: 'If you don\'t want to publish your name, leave it blank or enter your nickname',
+    header: 'Написать отзыв',
+    name: 'Имя и фамилия',
+    namesubscr: 'Если вы не хотите публиковать имя, оставьте это полу пустым или введите ваш ник',
     email: 'Email',
-    emailsubscr: 'Is not published',
-    review: 'Feedback',
-    submit: 'Submit feedback',
-    explanation: 'The email field is not published and is not stored on the site database. However, it can be stored in my personal mailbox and will be used only for communicating with you.\nYour name will be displayed on the website in the Reviews section exactly as it is entered by you. If you wish to remain anonymous, leave the field blank or simply enter your nickname.'
+    emailsubscr: 'Не публикуется',
+    review: 'Отзыв',
+    submit: 'Отправить отзыв',
+    explanation: 'Поле email не публикуется и не сохраняется в базе данных сайта. Однако, может быть сохранено в моём личном почтовом ящике и будет использоваться только для возможной связи с вами.\nВаше имя будет отображаться на сайте в блоке "Отзывы" точно так, как оно было введено вами. Если вы желаете оставаться инкогнито, оставьте поле пустым или введите ваш ник.'
   }
 } as Page.IMainPage;

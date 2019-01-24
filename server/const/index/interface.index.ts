@@ -41,10 +41,18 @@ export const configObj = {
 export async function getIndexInterface(lang: TLanguage) {
   let interfaceObj: any = configObj[lang];
 
-  const contact = await readInterface(['contacts', 'about'], lang);
+  const contact: any = await readInterface('contacts', lang);
   const services = await readService(lang);
 
-  interfaceObj = {...interfaceObj, contact, availableLanguages, services};
+  interfaceObj = {
+    ...interfaceObj,
+    availableLanguages,
+    services,
+    contact: {
+      ...interfaceObj.contact,
+      items: contact[0].pageData
+    }
+  };
 
   return interfaceObj;
 }

@@ -43,7 +43,7 @@ export const langObjects: Array<ILanguageObject> = [
         locale: 'FR',
         languageName: 'Français',
         pageMetadata: {
-            description: 'Site personnel du psychologue en ligne',
+            description: 'Consultation et thérapie en ligne',
             position: 'Psychologue',
             firstName: 'Irina',
             lastName: 'Romanenkova',

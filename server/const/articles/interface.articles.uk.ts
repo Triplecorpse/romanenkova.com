@@ -1,6 +1,6 @@
 import {Page} from "../../../_interface/IPage";
 
 export default {
-  header: 'Articles',
+  header: 'Статті',
   items: []
 } as Page.IArticlesPage;

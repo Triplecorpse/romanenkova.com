@@ -12,7 +12,9 @@ export default {
   },
   review: {
     header: 'Feedback',
-    button: 'Add Feedback...'
+    button: 'Add Feedback...',
+    noReviews: 'There is no feedback left from the English version of the site. Why not be the first one?',
+    anonymous: 'Anonymous'
   },
   reviewModal: {
     header: 'Leave Feedback',

@@ -1,6 +1,6 @@
 import {Page} from "../../../_interface/IPage";
 
 export default {
-  header: 'Diplomas',
+  header: 'Дипломи',
   items: []
 } as Page.IDiplomaPage;

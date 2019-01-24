@@ -16,6 +16,7 @@ export const configObj = {
 
 export async function getAboutInterface(lang: TLanguage) {
   let interfaceObj: any = configObj[lang];
+  const aboutPage = await readInterface('about', lang);
 
   interfaceObj.items = await readService(lang);
 

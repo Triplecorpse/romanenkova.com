@@ -11,12 +11,12 @@ export function getMainPageData(): Promise<Array<IPage>> {
             pageData: indexData.en
         }, {
             entityId: 'main',
-            header: 'Онлайн консультации и терапия',
+            header: 'Онлайн консультация и терапия',
             language: 'ru',
             pageData: indexData.ru
         }, {
             entityId: 'main',
-            header: 'Онлайн консультації та терапія',
+            header: 'Онлайн консультація та терапія',
             language: 'uk',
             pageData: indexData.uk
         }, {

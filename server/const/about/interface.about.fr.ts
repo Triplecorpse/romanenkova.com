@@ -1,6 +1,7 @@
 import {Page} from "../../../_interface/IPage";
 
 export default {
-  header: 'Services',
-  items: []
+  header: 'A propos de moi',
+  items: [],
+  body: ''
 } as Page.IAboutPage;

@@ -1,27 +1,29 @@
 import {Page} from "../../../_interface/IPage";
 
 export default {
-  header: 'Online Counseling & Therapy',
+  header: 'Consultation et thérapie en ligne',
   diploma: {
-    header: 'Diplomas and certificates',
-    button: 'View All'
+    header: 'Diplômes et certificats',
+    button: 'Voir tout'
   },
   about: {
-    header: 'Psychologist|Irina Romanenkova',
-    button: 'About me'
+    header: 'Psychologue|Irina Romanenkova',
+    button: 'A propos de moi'
   },
   review: {
-    header: 'Feedback',
-    button: 'Add Feedback...'
+    header: 'Retour d\'information',
+    button: 'Ajouter un commentaire...',
+    noReviews: 'Il n\'y a pas de commentaires laissés par la version française du site. Pourquoi ne pas être le premier?',
+    anonymous: 'Anonymous'
   },
   reviewModal: {
-    header: 'Leave Feedback',
-    name: 'Full name',
-    namesubscr: 'If you don\'t want to publish your name, leave it blank or enter your nickname',
+    header: 'Laisser un commentaire',
+    name: 'Nom complet',
+    namesubscr: 'Si vous ne souhaitez pas publier votre nom, laissez-le vide ou entrez votre pseudo.',
     email: 'Email',
-    emailsubscr: 'Is not published',
-    review: 'Feedback',
-    submit: 'Submit feedback',
-    explanation: 'The email field is not published and is not stored on the site database. However, it can be stored in my personal mailbox and will be used only for communicating with you.\nYour name will be displayed on the website in the Reviews section exactly as it is entered by you. If you wish to remain anonymous, leave the field blank or simply enter your nickname.'
+    emailsubscr: 'N\'est pas publié',
+    review: 'Revue',
+    submit: 'Envoyer un commentaire',
+    explanation: 'Le champ email n\'est pas publié et n\'est pas stocké dans la base de données du site. Cependant, il peut être stocké dans ma boîte aux lettres personnelle et ne sera utilisé que pour communiquer avec vous.\nVotre nom sera affiché sur le site Web dans la section Avis exactement tel que vous l\'avez entré. Si vous souhaitez rester anonyme, laissez le champ vide ou entrez simplement votre pseudo.'
   }
 } as Page.IMainPage;
