@@ -8,7 +8,7 @@ import interfaceMainUk from "./interface.main.uk";
 import {readDiploma} from "../../services/db-middleware/diploma";
 import {getReviews} from "../../services/db-middleware/review";
 import {Page} from "../../../_interface/IPage";
-import IAboutPage = Page.IAboutPage;
+import IMainPage = Page.IMainPage;
 
 export const configObj = {
   en: interfaceMainEn,
@@ -24,7 +24,6 @@ export async function getMainInterface(lang: TLanguage) {
   interfaceObj.review.items = await getReviews(5, {language: lang});
 
   const about = await readInterface('about', lang);
-  console.log(about);
   const firstImage = about[0].images ? (about[0].images as Array<string>)[0] : null;
 
   interfaceObj.about.items = [];
@@ -34,7 +33,7 @@ export async function getMainInterface(lang: TLanguage) {
   }
 
   interfaceObj.about.fullName = 'Irina Romanenkova';
-  interfaceObj.about.fullName = 'Psychologist';
+  interfaceObj.about.position = 'Psychologist';
   interfaceObj.about.body = about[0].pageData.split('\n')[0];
 
   interfaceObj = {...interfaceObj};
