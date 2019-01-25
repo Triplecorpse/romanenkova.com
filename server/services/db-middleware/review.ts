@@ -83,9 +83,10 @@ function pubUnpubReview(id: string, value: boolean): Promise<IReview> {
         }));
 }
 
+/////////////////////////////////////////////////
 
-export function createReview() {
-
+export function createReview(review: IReview) {
+  return Review.create(review);
 }
 
 export function readReview(language: TLanguage, isAdmin: boolean = false): Promise<Array<Database.IReview>> {
@@ -93,13 +94,15 @@ export function readReview(language: TLanguage, isAdmin: boolean = false): Promi
     isPublished: true,
     language
   };
+
   if (isAdmin) {
     delete opts.isPublished;
   }
+
   return Review.find(opts).then((r: Array<any>) => r.map((review: Database.IReview): Database.IReview => {
     if (!isAdmin) {
       return {
-        review: review.review,
+        body: review.body,
         name: name
       }
     }
@@ -107,10 +110,11 @@ export function readReview(language: TLanguage, isAdmin: boolean = false): Promi
     return review;
   }));
 }
-export function updateReview() {
 
+export function updateReview(_id: string, review: IReview): Promise<any> {
+  return Review.findByIdAndUpdate(_id, review).then();
 }
 
-export function deleteReview() {
-
+export function deleteReview(_id: string): Promise<any> {
+  return Review.findByIdAndDelete(_id).then();
 }

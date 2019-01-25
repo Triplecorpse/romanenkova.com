@@ -1,9 +1,9 @@
 import {Service} from "../../models/service";
 import {Database} from "../../../_interface/IMongooseSchema";
-import {TLanguage} from "../../types/types";
+import {TLanguage} from "../../types/types"
 
-export function createService() {
-
+export function createService(service: Database.IService): Promise<any> {
+  return Service.create(service);
 }
 
 export function readService(language: TLanguage, isAdmin: boolean = false): Promise<Array<Database.IService>> {
@@ -11,12 +11,12 @@ export function readService(language: TLanguage, isAdmin: boolean = false): Prom
     isPublished: true,
     language
   };
+
   if (isAdmin) {
     delete opts.isPublished;
   }
-  console.log('read serive', opts);
+
   return Service.find(opts).then((s: Array<any>) => s.map((service: Database.IService): Database.IService => {
-    console.log('service', s, service, opts);
     if (!isAdmin) {
       return {
         currency: service.currency,
@@ -34,10 +34,10 @@ export function readService(language: TLanguage, isAdmin: boolean = false): Prom
   }))
 }
 
-export function updateService() {
-
+export function updateService(_id: string, service: Database.IService): Promise<any> {
+  return Service.findByIdAndUpdate(_id, service).then();
 }
 
-export function deleteService() {
-
+export function deleteService(_id: string): Promise<any> {
+  return Service.findByIdAndDelete(_id).then();
 }

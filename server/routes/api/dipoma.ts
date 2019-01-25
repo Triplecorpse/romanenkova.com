@@ -24,7 +24,7 @@ router
     res.json(diploma);
   })
   .get(async function (req: IRequest, res: Response) {
-    const diplomas = await readDiploma(undefined, req.isTokenValid).catch(e => res.sendStatus(400).json(e));
+    const diplomas = await readDiploma(req.isTokenValid).catch((e: any) => res.sendStatus(400).json(e));
     res.json(diplomas);
   })
   .delete(async function (req: IRequest, res: Response) {

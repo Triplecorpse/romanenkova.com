@@ -1,4 +1,5 @@
 import {IUser, User} from "../../models/user";
+import {Database} from "../../../_interface/IMongooseSchema";
 
 export function createNewUser(userToAdd: IUser): Promise<IUser> {
     return getUsers()
@@ -79,11 +80,6 @@ export function updateUser(nickName: string, newUser: IUser): Promise<IUser> {
         });
 }
 
-export function deleteUser(nickName: string): Promise<boolean> {
-    return User.deleteOne({nickName})
-        .then((result: boolean) => result);
-}
-
 export function checkUser(nickName: string, passwordStr: string): Promise<IUser> {
     return User.findOne({nickName: nickName, password: passwordStr})
         .then((user: any) => {
@@ -110,4 +106,20 @@ export function checkUser(nickName: string, passwordStr: string): Promise<IUser>
         .catch((err: any) => {
             throw new Error(err.message || 'Error in checkUser method');
         });
+}
+
+export function createUser(user: Database.IUser): Promise<any> {
+  return User.create(user);
+}
+
+export function readUser(): Promise<any> {
+  return User.find().then();
+}
+
+export function updateUserById(_id: string, user: Database.IUser): Promise<any> {
+  return User.findByIdAndUpdate(_id, user).then();
+}
+
+export function deleteUser(_id: string): Promise<any> {
+  return User.findByIdAndDelete(_id).then();
 }

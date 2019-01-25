@@ -1,7 +1,6 @@
 import {Database} from "../../../_interface/IMongooseSchema";
 import {Contact} from "../../models/contact";
 
-
 export function createContact(contact: Database.IContact): Promise<any> {
   return Contact.create(contact);
 }

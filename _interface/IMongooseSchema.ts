@@ -36,7 +36,8 @@ export namespace Database {
 
   export interface IReview extends IMongooseSchema {
     name: string;
-    review: string;
+    review?: string;
+    body: string;
     email?: string;
     isPublished?: boolean;
   }

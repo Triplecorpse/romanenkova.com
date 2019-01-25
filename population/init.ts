@@ -24,9 +24,10 @@ import {getDiplomasItems} from "./init_diplomas_items";
 import {Diploma} from "../server/models/diploma";
 import {getNewContactsPageData} from "./init_new_contacts";
 import {Contact} from "../server/models/contact";
+import {AboutPage} from "../server/models/aboutPage";
 
 const pages = ['nav', 'about', 'article', 'contacts', 'diploma', 'main', 'modal', 'nav', 'review', 'service', 'modalappointment', 'modalreview'];
-const documents = ['schedule', 'serviceItem', 'diplomaItem', 'users', 'newcontact'];
+const documents = ['schedule', 'serviceItem', 'diplomaItem', 'users', 'newcontact', 'aboutpage'];
 const pagesToCreate: Array<string> = process.argv.filter((argv: string): boolean => pages.indexOf(argv) > -1);
 const documentsToCreate: Array<string> = process.argv.filter((argv: string): boolean => documents.indexOf(argv) > -1);
 const mapper: any = {
@@ -44,7 +45,8 @@ const mapper: any = {
     diplomaItem: getDiplomasItems,
     users: getInitUsers,
     review: getReviewPageData,
-    modalreview: getReviewModalPageData
+    modalreview: getReviewModalPageData,
+
 };
 
 mongoose.connect(process.env.MONGODB_URI as string)
@@ -74,6 +76,8 @@ mongoose.connect(process.env.MONGODB_URI as string)
                             return Diploma.insertMany(data);
                         case 'newcontact':
                             return Contact.insertMany(data);
+                        case 'aboutpage':
+                            return AboutPage.insertMany(data);
                         default:
                             return []
                     }
