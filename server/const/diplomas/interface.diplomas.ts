@@ -6,7 +6,7 @@ import interfaceDiplomasRu from "./interface.diplomas.ru";
 import interfaceDiplomasUk from "./interface.diplomas.uk";
 import {readDiploma} from "../../services/db-middleware/diploma";
 
-export const configObj = {
+export const configObj: any = {
   en: interfaceDiplomasEn,
   ru: interfaceDiplomasRu,
   uk: interfaceDiplomasUk,

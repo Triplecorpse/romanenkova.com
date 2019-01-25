@@ -10,7 +10,7 @@ import {getReviews} from "../../services/db-middleware/review";
 import {Page} from "../../../_interface/IPage";
 import IMainPage = Page.IMainPage;
 
-export const configObj = {
+export const configObj: any = {
   en: interfaceMainEn,
   ru: interfaceMainRu,
   uk: interfaceMainUk,

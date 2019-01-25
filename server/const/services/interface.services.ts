@@ -7,7 +7,7 @@ import interfaceServicesRu from "./interface.services.ru";
 import interfaceServicesUk from "./interface.services.uk";
 import {readService} from "../../services/db-middleware/service";
 
-export const configObj = {
+export const configObj: any = {
   en: interfaceServicesEn,
   ru: interfaceServicesRu,
   uk: interfaceServicesUk,

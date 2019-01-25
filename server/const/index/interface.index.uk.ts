@@ -12,7 +12,7 @@ export default {
   language: {
     codeISO2: 'uk',
     locale: 'UA',
-    languageName: 'Українська'
+    nativeName: 'Українська'
   },
   pageMetadata: {
     description: 'Особистий сайт онлайн-психолога',
@@ -43,7 +43,9 @@ export default {
   },
   contact: {
     header: 'Контакти',
-    phoneLabel: 'Телефон'
+    phoneLabel: 'Телефон',
+    items: []
   },
+  availableLanguages: [],
   services: []
 } as IIndexData;

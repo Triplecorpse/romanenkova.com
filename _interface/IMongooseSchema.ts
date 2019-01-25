@@ -1,4 +1,4 @@
-import {TLanguage} from "../server/types/types";
+import {TLanguage, TWeekday} from "../server/types/types";
 
 export namespace Database {
   interface IMongooseSchema {
@@ -11,6 +11,11 @@ export namespace Database {
   export interface IContact extends IMongooseSchema {
     key: string;
     value: string;
+    name: string;
+    viberMobile?: string;
+    viberDesktop?: string;
+    telegram?: string;
+    linkto?: string;
   }
 
   export interface IDiploma extends IMongooseSchema {
@@ -71,5 +76,11 @@ export namespace Database {
     isDeleted: boolean,
     url: string,
     entityId: string
+  }
+
+  export interface ISchedule {
+    weekday?: TWeekday;
+    date?: string;
+    availableHours: Array<string>;
   }
 }

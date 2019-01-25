@@ -91,7 +91,7 @@ export function updatePageSubmitObj(pageObj: IPageSubmit): Promise<Array<IPage>>
 
   if (pageMedia.length) {
     availableLanguages.forEach((lang: TLanguage): void => {
-      pages[lang] = pages[lang] || {
+      pages[lang] = pages[lang] as any || {
         language: lang,
         entityId: pageObj.id
       }

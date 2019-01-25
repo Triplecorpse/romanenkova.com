@@ -8,6 +8,7 @@ import {Database} from "./IMongooseSchema";
 export interface IIndexData {
   nav: Array<INavItem>,
   language: ILanguageObject,
+  availableLanguages: Array<ILanguageObject>,
   pageMetadata: IPageMetadata,
   appointment: IAppointmentModal,
   contact: IContactBlock,

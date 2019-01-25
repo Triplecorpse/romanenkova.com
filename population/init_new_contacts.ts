@@ -5,30 +5,37 @@ import {Contact} from "../server/models/contact";
 export function getNewContactsPageData(): Promise<Database.IContact> {
   const contacts = [
       {
+        name: 'Telegram',
         value: 'irina_romanenkova',
         key: 'telegram'
       },
       {
+        name: 'Viber',
         value: '+380664809701',
         key: 'viber'
       },
       {
+        name: 'Skype',
         value: 'iren.romanenkova1986',
         key: 'skype'
       },
       {
+        name: '',
         value: '+380664809701',
         key: 'phone',
       },
       {
+        name: 'Email',
         value: 'info@romanenkova.com',
         key: 'email'
       },
       {
+        name: 'Facebook',
         value: 'romanenkovagestalt',
         key: 'facebook'
       },
       {
+        name: 'Instagram',
         value: 'irinaromanenkova31',
         key: 'instagram'
       }

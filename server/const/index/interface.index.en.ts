@@ -12,7 +12,7 @@ export default {
   language: {
     codeISO2: 'en',
     locale: 'GB',
-    languageName: 'English'
+    nativeName: 'English'
   },
   pageMetadata: {
     description: 'Online Counseling & Therapy',
@@ -43,7 +43,9 @@ export default {
   },
   contact: {
     header: 'Contact',
-    phoneLabel: 'Phone'
+    phoneLabel: 'Phone',
+    items: []
   },
+  availableLanguages: [],
   services: []
 } as IIndexData;

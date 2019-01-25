@@ -12,7 +12,7 @@ export default {
   language: {
     codeISO2: 'fr',
     locale: 'FR',
-    languageName: 'Français'
+    nativeName: 'Français'
   },
   pageMetadata: {
     description: 'Consultation et thérapie en ligne',
@@ -43,7 +43,9 @@ export default {
   },
   contact: {
     header: 'Contactez-moi',
-    phoneLabel: 'Téléphone'
+    phoneLabel: 'Téléphone',
+    items: []
   },
+  availableLanguages: [],
   services: []
 } as IIndexData;

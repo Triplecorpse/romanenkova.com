@@ -10,7 +10,8 @@ export function readContact(isAdmin: boolean = false): Promise<Array<Database.IC
     if (!isAdmin) {
       return {
         key: contact.key,
-        value: contact.value
+        value: contact.value,
+        name: contact.name
       };
     }
 
