@@ -5,12 +5,14 @@ import {IndexComponent} from './pages/_index/components/index/index.component';
 import {LanguageGuardService} from './language-guard.service';
 import {ResolveScheduleService} from './resolve-schedule.service';
 import {ResolveServicesService} from './pages/_index/services/resolve-services.service';
+import {PageDataGuardService} from "./page-data-guard.service";
 
 const routes: Routes = [
   {
     path: ':lang',
     loadChildren: './pages/_index/index.module#IndexModule',
-    canActivate: [LanguageGuardService],
+    canActivate: [LanguageGuardService, PageDataGuardService],
+    data: {pageidv2: 'index'},
     resolve: {headerData: ResolveIndexService, schedule: ResolveScheduleService, services: ResolveServicesService},
     component: IndexComponent,
     outlet: 'primary'

@@ -15,7 +15,7 @@ import {ISchedule} from '../../interfaces/iSchedule';
 import * as initMoment from 'moment-timezone';
 import {extendMoment} from 'moment-range';
 import {IService} from '../../interfaces/IService';
-import {I18nService} from '../../services/i18n.service';
+import {PageDataGuardService} from "../../page-data-guard.service";
 
 const moment = extendMoment(initMoment);
 
@@ -38,7 +38,7 @@ export class AttendButtonComponent implements OnInit {
   @ViewChild('modalAppointment') private modalAppointmentRef: TemplateRef<any>;
   @ViewChild('modalAppointmentMessage') private modalAppointmentMessageRef: TemplateRef<any>;
 
-  public text: string;
+  public header: string;
   public formGroup: FormGroup;
   public modalAppointment: IPage<IModalAppointment>;
   public lang: string;
@@ -70,10 +70,12 @@ export class AttendButtonComponent implements OnInit {
               private httpClient: HttpClient,
               private changeDetectorRef: ChangeDetectorRef,
               private scheduleService: ResolveScheduleService,
-              private i18nService: I18nService) {
+              private pageDataGuardService: PageDataGuardService) {
   }
 
   ngOnInit() {
+    this.header = this.pageDataGuardService.pageData.index.appointment.header;
+
     this.modalAppointment = this.modalService.modalAppointment;
     this.messengerNames = this.messengerNames
       .map((messengerObj: IMessenger) => {
@@ -134,7 +136,6 @@ export class AttendButtonComponent implements OnInit {
       }
       this.changeDetectorRef.markForCheck();
     });
-    this.text = this.i18nService.attendButtonLabel;
   }
 
   openModal(tpl: TemplateRef<any>) {

@@ -24,7 +24,7 @@ import {PipesModule} from '../../pipes/pipes.module';
 import { OverviewReviewsComponent } from './components/overview-reviews/overview-reviews.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
 import { OverviewDiplomasComponent } from './components/overview-diplomas/overview-diplomas.component';
-import { DiplomaComponent } from '../../components/diploma/diploma.component';
+import {environment} from "../../../environments/environment";
 
 @NgModule({
   imports: [
@@ -73,7 +73,7 @@ import { DiplomaComponent } from '../../components/diploma/diploma.component';
     ScrollToModule.forRoot(),
     PipesModule,
     NgxCaptchaModule.forRoot({
-      reCaptcha2SiteKey: '6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil'
+      reCaptcha2SiteKey: environment.recaptcha
     })
   ],
   declarations: [

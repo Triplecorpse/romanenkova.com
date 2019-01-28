@@ -22,7 +22,7 @@ export default {
     rootPageTitle: 'Головна'
   },
   appointment: {
-    header: 'Записатися на прийом',
+    header: 'Записатися на прийом...',
     name: 'Ім\'я та прізвище',
     phone: 'Телефон',
     phoneOption: 'Телефон (будь-який месенджер)',

@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {IndexModule} from './pages/_index/index.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {PageDataGuardService} from "./page-data-guard.service";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     BrowserTransferStateModule
   ],
-  providers: [],
+  providers: [PageDataGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

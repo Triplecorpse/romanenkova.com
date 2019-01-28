@@ -22,7 +22,7 @@ export default {
     rootPageTitle: 'Accueil'
   },
   appointment: {
-    header: 'Prendre rendez-vous',
+    header: 'Prendre rendez-vous...',
     name: 'Nom et prénom',
     phone: 'Téléphone',
     phoneOption: 'Téléphone (n\'importe quel messager)',

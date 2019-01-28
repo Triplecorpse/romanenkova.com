@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ElementRef, HostListener, Inject, Input, OnInit, ViewChild} from '@angular/core';
-import IPage from '../../../../interfaces/iPage';
-import {IContact} from '../../../../interfaces/IContact';
+import {AfterViewInit, Component, ElementRef, HostListener, Inject, OnInit, ViewChild} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {fade} from '../../shortcuts/animations';
+import {PageDataGuardService} from "../../../../page-data-guard.service";
+import {Database} from "../../../../../../_interface/IMongooseSchema";
 
 @Component({
   selector: 'app-contacts',
@@ -14,11 +14,10 @@ import {fade} from '../../shortcuts/animations';
 })
 export class ContactsComponent implements OnInit, AfterViewInit {
   public animationState: string = 'invisible';
+  public header: string;
+  public contactItems: Array<Database.IContact>;
   private isViewInit: boolean;
 
-  @Input() data: IPage<IContact>;
-  @Input() attend: string;
-  @Input() name: string;
   @ViewChild('contacts') private contactsEl: ElementRef;
 
   @HostListener('window:scroll')
@@ -30,27 +29,30 @@ export class ContactsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor(@Inject(DOCUMENT) private document: Document,
+              private pageDataGuardService: PageDataGuardService) {
   }
 
   ngOnInit() {
-    const contacts = (this.data.pageData as Array<IContact>);
-    const viberCnt: IContact = contacts.find((contact: IContact) => contact.type === 'viber');
-    const telegramCnt: IContact = contacts.find((contact: IContact) => contact.type === 'telegram');
+    this.contactItems = this.pageDataGuardService.pageData.index.contact.items;
+    this.header = this.pageDataGuardService.pageData.index.contact.header;
+    const viberCnt: Database.IContact = this.contactItems.find((contact: Database.IContact) => contact.key === 'viber');
+    const telegramCnt: Database.IContact = this.contactItems.find((contact: Database.IContact) => contact.key === 'telegram');
 
-    contacts.forEach((contact: IContact) => {
-      switch (contact.type) {
+    this.contactItems.forEach((contact: Database.IContact) => {
+      switch (contact.key) {
         case 'phone':
-          contact.viberDesktop = `viber://chat?number=${viberCnt.account}`;
-          contact.viberMobile = `viber://add?number=${viberCnt.account}`;
-          contact.telegram = `tg://resolve?domain=${telegramCnt.account}`;
-          contact.linkto = `tel:${contact.account}`;
+          contact.viberDesktop = `viber://chat?number=${viberCnt.value}`;
+          contact.viberMobile = `viber://add?number=${viberCnt.value}`;
+          contact.telegram = `tg://resolve?domain=${telegramCnt.value}`;
+          contact.linkto = `tel:${contact.value}`;
+          contact.name = this.pageDataGuardService.pageData.index.contact.phoneLabel;
           break;
         case 'skype':
-          contact.linkto = `skype:${contact.account}?chat`;
+          contact.linkto = `skype:${contact.value}?chat`;
           break;
         case 'email':
-          contact.linkto = `mailto:${contact.account}`;
+          contact.linkto = `mailto:${contact.value}`;
           break;
         default:
           break;

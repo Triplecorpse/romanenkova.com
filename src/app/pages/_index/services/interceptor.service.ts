@@ -14,10 +14,15 @@ export class InterceptorService implements HttpInterceptor {
     let shouldAddLanguage = false;
     let url = req.url;
 
-    environment.api = environment.api || '/api';
+    const api = environment.api || '/api';
+    const apiv2 = environment.apiv2 || '/api/v2';
 
     if (!url.toLowerCase().startsWith('http')) {
-      url = environment.api + url;
+      if (req.params.get('v') === '2') {
+        url = apiv2 + url;
+      } else {
+        url = api + url;
+      }
     }
 
     this.languagedUrls.forEach((langUrl: string) => {

@@ -3,12 +3,12 @@ import {Database} from "./IMongooseSchema";
 import {IReviewModal} from "./IReviewModal";
 import {IReviewOverview} from "./IReviewOverview";
 
-interface IPage<T = any> {
-  header: string;
-  items?: Array<T>
-}
-
 export namespace Page {
+  export interface IPage<T = any> {
+    header: string;
+    items?: Array<T>
+  }
+
   export interface IMainPage extends IPage {
     diploma: IOverview<Database.IDiploma>,
     about: IOverview<IAboutPage>,
