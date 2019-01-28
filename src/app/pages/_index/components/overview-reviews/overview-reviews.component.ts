@@ -9,6 +9,7 @@ import {LanguageGuardService} from '../../../../language-guard.service';
 import {ReCaptcha2Component} from 'ngx-captcha';
 import {HttpClient} from '@angular/common/http';
 import {IReviewPage} from '../../../../interfaces/iReviewPage';
+import {PageDataGuardService} from "../../../../page-data-guard.service";
 
 @Component({
   selector: 'app-overview-reviews',
@@ -42,7 +43,8 @@ export class OverviewReviewsComponent implements OnInit {
               private formBuilder: FormBuilder,
               private languageGuardService: LanguageGuardService,
               private changeDetectorRef: ChangeDetectorRef,
-              private httpClient: HttpClient) {
+              private httpClient: HttpClient,
+              private pageDataGuardService: PageDataGuardService) {
   }
 
   openModal(tpl: TemplateRef<any>) {
