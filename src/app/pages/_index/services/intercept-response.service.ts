@@ -20,10 +20,6 @@ export class InterceptResponseService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(req).pipe(
       map((data) => {
-        data = this.modifyServices(data);
-        data = this.modifyAppointmentModal(data);
-        data = this.modifySchedule(data);
-        data = this.modifyDiplomas(data);
         return data;
       })
     );

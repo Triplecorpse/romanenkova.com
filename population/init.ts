@@ -25,6 +25,7 @@ import {Diploma} from "../server/models/diploma";
 import {getNewContactsPageData} from "./init_new_contacts";
 import {Contact} from "../server/models/contact";
 import {AboutPage} from "../server/models/aboutPage";
+import {getAboutPageDataV2} from "./init_about_page";
 
 const pages = ['nav', 'about', 'article', 'contacts', 'diploma', 'main', 'modal', 'nav', 'review', 'service', 'modalappointment', 'modalreview'];
 const documents = ['schedule', 'serviceItem', 'diplomaItem', 'users', 'newcontact', 'aboutpage'];
@@ -32,6 +33,7 @@ const pagesToCreate: Array<string> = process.argv.filter((argv: string): boolean
 const documentsToCreate: Array<string> = process.argv.filter((argv: string): boolean => documents.indexOf(argv) > -1);
 const mapper: any = {
     about: getAboutPageData,
+    aboutpage: getAboutPageDataV2,
     contacts: getContactsPageData,
     newcontact: getNewContactsPageData,
     main: getMainPageData,

@@ -37,30 +37,35 @@ import {PageDataGuardService} from "../../page-data-guard.service";
         path: 'about',
         loadChildren: './../about/about.module#AboutModule',
         data: {pageid: 'about', pageidv2: 'about'},
+        canActivate: [PageDataGuardService],
         resolve: {pageData: ResolvePageService}
       },
       {
         path: 'articles',
         loadChildren: './../articles/articles.module#ArticlesModule',
         data: {pageid: 'article', pageidv2: 'article'},
+        canActivate: [PageDataGuardService],
         resolve: {pageData: ResolvePageService}
       },
       {
         path: 'services',
         loadChildren: './../services/services.module#ServicesModule',
         data: {pageid: 'service', pageidv2: 'service'},
+        canActivate: [PageDataGuardService],
         resolve: {pageData: ResolvePageService}
       },
       {
         path: 'diplomas',
         loadChildren: './../diplomas/diplomas.module#DiplomasModule',
         data: {pageid: 'diploma', pageidv2: 'diploma'},
+        canActivate: [PageDataGuardService],
         resolve: {pageData: ResolvePageService}
       },
       {
         path: 'article/:id',
         loadChildren: './../article/article.module#ArticleModule',
         data: {pageid: 'article', pageidv2: 'article'},
+        canActivate: [PageDataGuardService],
         resolve: {pageData: ResolvePageService}
       },
       {

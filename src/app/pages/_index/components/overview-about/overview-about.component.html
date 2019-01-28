@@ -1,11 +1,11 @@
 <div class="block-wrapper" #el [@fadeAndSlideToRight]="animationState">
-  <img *ngIf="blockData.images.length" class="block-image" [src]="blockData.images[0]" alt="First Photo">
-  <div class="block-info-wrapper" [class.no-image]="!blockData.images.length">
+  <img *ngIf="pageBlock.items.length" class="block-image" [src]="pageBlock.items[0]" alt="First Photo">
+  <div class="block-info-wrapper" [class.no-image]="!pageBlock.items.length">
     <div class="block-info-position">{{position}}</div>
-    <h1 class="block-info-name">{{name}}</h1>
-    <div class="block-info-paragraph">{{mainText}}</div>
+    <h1 class="block-info-name">{{fullName}}</h1>
+    <div class="block-info-paragraph">{{pageBlock.body}}</div>
     <div>
-      <a class="block-info-link" routerLink="about">{{blockData.header}}</a>
+      <a class="block-info-link" routerLink="about">{{pageBlock.button}}</a>
     </div>
   </div>
 </div>
