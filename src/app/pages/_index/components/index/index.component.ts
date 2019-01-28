@@ -56,7 +56,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     router.events
       .pipe(filter((e: RouterEvent) => e instanceof NavigationEnd))
       .subscribe((e: NavigationEnd): void => {
-        this.header = route.snapshot.firstChild.data.pageData.header;
+        this.header = this.pageDataGuardService.pageData[route.snapshot.firstChild.data.pageidv2].header;
         this.isRoot = e.urlAfterRedirects.length === 3;
         const title = this.isRoot
           ? pageData.index.pageMetadata.rootPageTitle

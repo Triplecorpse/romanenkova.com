@@ -25,6 +25,7 @@ import { OverviewReviewsComponent } from './components/overview-reviews/overview
 import {NgxCaptchaModule} from 'ngx-captcha';
 import { OverviewDiplomasComponent } from './components/overview-diplomas/overview-diplomas.component';
 import {environment} from "../../../environments/environment";
+import {PageDataGuardService} from "../../page-data-guard.service";
 
 @NgModule({
   imports: [
@@ -35,37 +36,38 @@ import {environment} from "../../../environments/environment";
       {
         path: 'about',
         loadChildren: './../about/about.module#AboutModule',
-        data: {pageid: 'about'},
+        data: {pageid: 'about', pageidv2: 'about'},
         resolve: {pageData: ResolvePageService}
       },
       {
         path: 'articles',
         loadChildren: './../articles/articles.module#ArticlesModule',
-        data: {pageid: 'article'},
+        data: {pageid: 'article', pageidv2: 'article'},
         resolve: {pageData: ResolvePageService}
       },
       {
         path: 'services',
         loadChildren: './../services/services.module#ServicesModule',
-        data: {pageid: 'service'},
+        data: {pageid: 'service', pageidv2: 'service'},
         resolve: {pageData: ResolvePageService}
       },
       {
         path: 'diplomas',
         loadChildren: './../diplomas/diplomas.module#DiplomasModule',
-        data: {pageid: 'diploma'},
+        data: {pageid: 'diploma', pageidv2: 'diploma'},
         resolve: {pageData: ResolvePageService}
       },
       {
         path: 'article/:id',
         loadChildren: './../article/article.module#ArticleModule',
-        data: {pageid: 'article'},
+        data: {pageid: 'article', pageidv2: 'article'},
         resolve: {pageData: ResolvePageService}
       },
       {
         path: '',
         component: MainComponent,
-        data: {pageid: 'main'},
+        data: {pageid: 'main', pageidv2: 'main'},
+        canActivate: [PageDataGuardService],
         resolve: {pageData: ResolvePageService, pageBlocks: ResolveMainPageService, services: ResolveServicesService}
       },
     ]),
