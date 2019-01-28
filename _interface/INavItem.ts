@@ -1,4 +1,5 @@
 export interface INavItem {
-  name: string;
+  header: string;
   anchor: string;
+  href?: string;
 }

@@ -10,10 +10,10 @@
       </a>
     </div>
     <div class="nav">
-      <app-navigation [nav]="nav" class="navigation" (click)="toggleNavOpen(false)"></app-navigation>
+      <app-navigation class="navigation" (click)="toggleNavOpen(false)"></app-navigation>
     </div>
     <div class="soc-lang">
-      <app-social class="social" (click)="toggleNavOpen(false)" [contactData]="contactData"></app-social>
+      <app-social class="social" (click)="toggleNavOpen(false)"></app-social>
       <app-language-selector [(isLanguageListOpen)]="isOpen" class="language"></app-language-selector>
     </div>
   </div>

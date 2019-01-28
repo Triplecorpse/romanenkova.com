@@ -12,9 +12,8 @@ import IPage from '../../../../interfaces/iPage';
 import {IContact} from '../../../../interfaces/IContact';
 import {IModalAppointment} from '../../../../interfaces/iModalAppointment';
 import {ModalService} from '../../services/modal.service';
-import {I18nService} from '../../../../services/i18n.service';
-import {LanguageGuardService} from "../../../../language-guard.service";
 import {environment} from "../../../../../environments/environment";
+import {PageDataGuardService} from "../../../../page-data-guard.service";
 
 @Component({
   selector: 'app-index',
@@ -31,9 +30,9 @@ export class IndexComponent implements OnInit, AfterViewInit {
   public footer: IPage<IContact>;
   public name: [string, string];
   public modalAppointment: IPage<IModalAppointment>;
-  public isBrowser: boolean;
   public dontShowAgain: boolean = true;
   private allowTracking: boolean;
+  public isBrowser: boolean = false;
 
   @ViewChild('cookieConfirmationModal') private cookieConfirmationModal: TemplateRef<any>;
 
@@ -42,13 +41,12 @@ export class IndexComponent implements OnInit, AfterViewInit {
               private route: ActivatedRoute,
               private router: Router,
               private modalService: ModalService,
-              private i18nService: I18nService,
               private changeDetectorRef: ChangeDetectorRef,
               private meta: Meta,
-              private languageGuardService: LanguageGuardService,
+              private pageDataGuardService: PageDataGuardService,
               private titleService: Title) {
 
-    const locale = languageGuardService.locale;
+    const pageData = this.pageDataGuardService.pageData;
 
     // if (isPlatformBrowser(this.platformId) && this.cookieService.get('allow') === '1') {
     //   this.addTrackerCode();
@@ -59,10 +57,12 @@ export class IndexComponent implements OnInit, AfterViewInit {
       .pipe(filter((e: RouterEvent) => e instanceof NavigationEnd))
       .subscribe((e: NavigationEnd): void => {
         this.header = route.snapshot.firstChild.data.pageData.header;
-        this.isRoot = Boolean(this.route.snapshot.firstChild.data.headerData);
-        const title = this.isRoot ? locale.pageMetadata.rootPageTitle : this.header;
-        const position = locale.pageMetadata.position;
-        const fullName = `${locale.pageMetadata.firstName} ${locale.pageMetadata.lastName}`;
+        this.isRoot = e.urlAfterRedirects.length === 3;
+        const title = this.isRoot
+          ? pageData.index.pageMetadata.rootPageTitle
+          : this.header;
+        const position = pageData.index.pageMetadata.position;
+        const fullName = `${pageData.index.pageMetadata.firstName} ${pageData.index.pageMetadata.lastName}`;
         this.titleService.setTitle(`${title} - ${position} ${fullName}`);
 
         if (environment.production && this.allowTracking && isPlatformBrowser(PLATFORM_ID)) {
@@ -106,23 +106,23 @@ export class IndexComponent implements OnInit, AfterViewInit {
     this.modalService.closeModal('cookieConfirm', 'dismiss', null);
   }
 
+  private setMetadata() {
+
+  }
+
   ngOnInit() {
     // todo: perform more clear way to receive data
-    this.title = this.route.snapshot['_resolvedData'].headerData.title;
-    this.nav = this.route.snapshot['_resolvedData'].headerData.navigation;
-    this.footer = this.route.snapshot['_resolvedData'].headerData.contacts;
-    this.i18nService.attendButtonLabel = this.route.snapshot['_resolvedData'].headerData.buttonText;
     this.name = this.route.snapshot.data.headerData.name;
     this.modalService.modalAppointment = this.route.snapshot.data.headerData.modalAppointment;
     this.modalService.services = this.route.snapshot.data.services;
 
     if (isPlatformBrowser(this.platformId)) {
-      const locale = this.languageGuardService.locale;
+      const locale = this.pageDataGuardService.appSettings.locale;
       const html = document.getElementsByTagName('html')[0];
-      this.isBrowser = true;
       html.setAttribute('lang', locale.codeISO2);
       this.meta.addTag({ name: 'og:locale', content: `${locale.codeISO2}_${locale.locale}`});
-      this.meta.addTag({ name: 'og:description', content: locale.pageMetadata.description});
+      this.meta.addTag({ name: 'og:description', content: this.pageDataGuardService.pageData.index.pageMetadata.description});
+      this.isBrowser = true;
     }
   }
 

@@ -37,6 +37,7 @@ export namespace Database {
     title?: string;
     period: string;
     noPriceValue?: string;
+    headerAndPrice?: string;
   }
 
   export interface IReview extends IMongooseSchema {

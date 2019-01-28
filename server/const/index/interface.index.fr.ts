@@ -1,13 +1,13 @@
 import {IIndexData} from "../../../_interface/IIndexData";
 
 export default {
+  rootLink: ['En ligne', 'psychologue'],
   nav: [
-    {name: 'En ligne|psychologue', anchor: 'main'},
-    {name: 'A propos de moi', anchor: 'about'},
-    {name: 'Services', anchor: 'services'},
-    {name: 'Diplômes', anchor: 'diplomas'},
-    // {name: 'Articles', anchor: 'articles'},
-    {name: 'Contactez-moi', anchor: 'contacts'}
+    {header: 'A propos de moi', anchor: 'about'},
+    {header: 'Services', anchor: 'services'},
+    {header: 'Diplômes', anchor: 'diplomas'},
+    {header: 'Articles', anchor: 'articles'},
+    {header: 'Contactez-moi', anchor: 'contacts'}
   ],
   language: {
     codeISO2: 'fr',
@@ -23,13 +23,13 @@ export default {
   },
   appointment: {
     header: 'Prendre rendez-vous...',
-    name: 'Nom et prénom',
+    name: 'Nom et prénom *',
     phone: 'Téléphone',
-    phoneOption: 'Téléphone (n\'importe quel messager)',
+    phoneOption: 'Autre messager',
     contact: 'Contact',
     nickname: 'Surnom',
-    contactOption: 'Téléphone / surnom',
-    email: 'Email',
+    contactOption: 'Téléphone / Surnom',
+    email: 'Email *',
     date: 'Date',
     datesubscr: 'Approximative',
     time: 'Heure locale',

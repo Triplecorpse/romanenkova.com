@@ -6,6 +6,7 @@ import {IContactBlock} from "./IContactBlock";
 import {Database} from "./IMongooseSchema";
 
 export interface IIndexData {
+  rootLink: [string, string],
   nav: Array<INavItem>,
   language: ILanguageObject,
   availableLanguages: Array<ILanguageObject>,

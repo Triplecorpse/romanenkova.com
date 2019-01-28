@@ -1,5 +1,7 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {INavigationItem} from '../../../../../interfaces/iNavigation';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {PageDataGuardService} from "../../../../../page-data-guard.service";
+import {INavItem} from "../../../../../../../_interface/INavItem";
+import {INavigationItem, INavigationUrl} from "../../../../../interfaces/iNavigation";
 
 @Component({
   selector: 'app-navigation',
@@ -8,12 +10,26 @@ import {INavigationItem} from '../../../../../interfaces/iNavigation';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationComponent implements OnInit {
-  @Input() public nav: Array<INavigationItem>;
+  public nav: Array<INavItem>;
+  private anchorMap: Array<{anchor: string, href: string}> = [
+    {href: 'about', anchor: 'about'},
+    {href: 'services', anchor: 'services'},
+    {href: 'diplomas', anchor: 'diplomas'},
+    {href: 'articles', anchor: 'articles'},
+    {href: '#contacts', anchor: 'contacts'}
+  ];
 
-  constructor() {
+  constructor(private pageDataGuardService: PageDataGuardService) {
   }
 
   ngOnInit() {
+    this.nav = this.pageDataGuardService.pageData.index.nav.map((navItem: INavItem): INavItem => {
+      const anchor: string = navItem.anchor;
+      const navUrlItem: INavigationUrl = this.anchorMap.find(anchorMapItem => anchorMapItem.anchor === anchor);
+      navItem.href = navUrlItem.href;
+
+      return navItem;
+    });
   }
 
 }

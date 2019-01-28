@@ -1,13 +1,13 @@
 import {IIndexData} from "../../../_interface/IIndexData";
 
 export default {
+  rootLink: ['online', 'psychologist'],
   nav: [
-    {name: 'Online|psychology', anchor: 'main'},
-    {name: 'About me', anchor: 'about'},
-    {name: 'Services', anchor: 'services'},
-    {name: 'Diplomas', anchor: 'diplomas'},
-    // {name: 'Articles', anchor: 'articles'},
-    {name: 'Contact', anchor: 'contacts'}
+    {header: 'About me', anchor: 'about'},
+    {header: 'Services', anchor: 'services'},
+    {header: 'Diplomas', anchor: 'diplomas'},
+    {header: 'Articles', anchor: 'articles'},
+    {header: 'Contact', anchor: 'contacts'}
   ],
   language: {
     codeISO2: 'en',
@@ -23,13 +23,13 @@ export default {
   },
   appointment: {
     header: 'Make an appointment...',
-    name: 'First and last names',
+    name: 'First and last names *',
     phone: 'Phone',
-    phoneOption: 'Phone (any messenger)',
+    phoneOption: 'Other messenger',
     contact: 'Contact',
     nickname: 'Nickname',
-    contactOption: 'Phone / nickname',
-    email: 'Email',
+    contactOption: 'Phone / Nickname',
+    email: 'Email *',
     date: 'Date',
     datesubscr: 'Approximate',
     time: 'Local time',

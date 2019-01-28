@@ -62,11 +62,11 @@ export const errorMessages: any = {
             uk: 'Будь ласка, введіть своє ім\'я.',
             fr: 'S\'il vous plaît entrez votre nom.'
         },
-        contact: {
-            ru: 'Укажите хотя бы одну из ваших контактных данных или сообщений.',
-            en: 'Please enter at least one of your contact data or message.',
-            uk: 'Будь ласка, введіть принаймні один з ваших контактних даних або повідомлення.',
-            fr: 'Veuillez entrer au moins une de vos données de contact ou message.'
+        email: {
+            ru: 'Пожалуйста, введите ваш email.',
+            en: 'Please enter your email.',
+            uk: 'Будь ласка, введіть ваш email.',
+            fr: 'S\'il vous plaît entrer votre email.'
         }
     },
     review: {

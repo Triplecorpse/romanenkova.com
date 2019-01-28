@@ -48,6 +48,14 @@ export async function getIndexInterface(lang: TLanguage) {
   const services: Array<Database.IService> = await readService(lang);
   const schedule: Array<Database.ISchedule> = await readSchedule();
 
+  services.forEach((service: Database.IService) => {
+    if (service.price) {
+      service.headerAndPrice = `${service.header} - ${service.currency} ${service.price}/${service.period}`;
+    } else {
+      service.headerAndPrice = `${service.header} - ${service.noPriceValue}/${service.period}`;
+    }
+  });
+
   interfaceObj = {
     ...interfaceObj,
     availableLanguages,

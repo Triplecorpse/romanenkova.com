@@ -1,13 +1,13 @@
 import {IIndexData} from "../../../_interface/IIndexData";
 
 export default {
+  rootLink: ['Онлайн', 'психолог'],
   nav: [
-    {name: 'Онлайн|психолог', anchor: 'main'},
-    {name: 'Обо мне', anchor: 'about'},
-    {name: 'Услуги', anchor: 'services'},
-    {name: 'Дипломы', anchor: 'diplomas'},
-    // {name: 'Статьи', anchor: 'articles'},
-    {name: 'Контакты', anchor: 'contacts'}
+    {header: 'Обо мне', anchor: 'about'},
+    {header: 'Услуги', anchor: 'services'},
+    {header: 'Дипломы', anchor: 'diplomas'},
+    {header: 'Статьи', anchor: 'articles'},
+    {header: 'Контакты', anchor: 'contacts'}
   ],
   language: {
     codeISO2: 'ru',
@@ -22,13 +22,13 @@ export default {
     rootPageTitle: 'Главная'
   },
   appointment: {
-    name: 'Имя и фамилия',
+    name: 'Имя и фамилия *',
     phone: 'Телефон',
-    phoneOption: 'Телефон (любой мессенджер)',
+    phoneOption: 'Другой мессенджер',
     nickname: 'Ник',
     contact: 'Контакт',
-    contactOption: 'Телефон / ник',
-    email: 'Email',
+    contactOption: 'Телефон / Ник',
+    email: 'Email *',
     date: 'Дата',
     datesubscr: 'Ориентировочная',
     time: 'Местное время',

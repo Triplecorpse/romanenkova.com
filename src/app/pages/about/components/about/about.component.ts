@@ -1,6 +1,7 @@
-import {ChangeDetectionStrategy, Component, OnInit, ViewChildren} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit, PLATFORM_ID, ViewChildren} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ModalService} from "../../../_index/services/modal.service";
+import {isPlatformServer} from "@angular/common";
 
 @Component({
   selector: 'app-about',
@@ -15,7 +16,9 @@ export class AboutComponent implements OnInit {
 
   @ViewChildren('photo') photo: any;
 
-  constructor(private route: ActivatedRoute, private modalService: ModalService) { }
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,
+              private route: ActivatedRoute,
+              private modalService: ModalService) { }
 
   ngOnInit() {
     this.mainText = this.route.snapshot.data.pageData.pageData.split('\n').filter((s: string) => Boolean(s));
@@ -25,5 +28,13 @@ export class AboutComponent implements OnInit {
 
   openLightBox(source) {
     this.modalService.openLightbox(source);
+  }
+
+  showParagraph(paragraph: string): boolean {
+    if (isPlatformServer(this.platformId)) {
+      return paragraph.indexOf('</a>') > -1;
+    }
+
+    return true;
   }
 }

@@ -155,10 +155,10 @@ router.post('/appointment', (req: IRequest, res: Response) => {
   const appointment: IAppointment = req.body as IAppointment;
   const language: TLanguage = req.query.language || 'en';
 
-  if (!appointment.name && !(appointment.email || appointment.phone || appointment.message)) {
+  if (!appointment.name || !appointment.email) {
     return res.status(400).json({
       name: errorMessages.appointment.name[language],
-      contact: errorMessages.appointment.contact[language],
+      email: errorMessages.appointment.email[language],
       lang: language
     })
   }

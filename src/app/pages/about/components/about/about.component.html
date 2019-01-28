@@ -2,7 +2,7 @@
   <div class="content">
     <div class="text-wrapper">
       <ng-container *ngFor="let paragraph of mainText">
-        <p class="text-paragraph" [innerHTML]="paragraph"></p>
+        <p class="text-paragraph" [innerHTML]="paragraph" *ngIf="showParagraph(paragraph)"></p>
       </ng-container>
     </div>
     <div class="header-wrapper">
