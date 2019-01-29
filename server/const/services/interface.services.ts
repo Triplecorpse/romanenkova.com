@@ -17,7 +17,10 @@ export const configObj: any = {
 export async function getServicesInterface(lang: TLanguage) {
   let interfaceObj: any = configObj[lang];
 
-  interfaceObj.items = await readService(lang);
+  interfaceObj.items = await readService(lang).catch(e => {
+    console.log(e);
+    throw new Error(e.message);
+  });
 
   return interfaceObj;
 }

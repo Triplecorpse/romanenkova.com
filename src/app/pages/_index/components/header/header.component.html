@@ -2,7 +2,7 @@
   <div class="nav-wrapper" [class.fixed]="isFixed" *ngIf="!isMobile || isNavOpen">
     <div class="close-button" (click)="toggleNavOpen(false)"></div>
     <div class="logo">
-      <a class="link-root desktop" routerLink="" *ngIf="title" ngx-scroll-to="navigation">
+      <a class="link-root desktop" [routerLink]="routerLink" *ngIf="title" ngx-scroll-to="navigation">
         <h4>
           <span class="accent">{{title[0]?.toUpperCase()}} </span>
           <span>{{title[1]?.toUpperCase()}}</span>

@@ -58,13 +58,12 @@ export class PageDataGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
     const pageId = route.data.pageidv2;
-    const lang = this.getLang(route);
 
     if (this._pageData[pageId]) {
       return of(true);
     }
 
-    return this.httpClient.get<Page.IPage>(`${lang}/${pageId}`, {params: {v: '2'}})
+    return this.httpClient.get<Page.IPage>(`${route.params.lang}/${pageId}`, {params: {v: '2'}})
       .pipe(
         tap((page: Page.IPage) => {
           this._pageData[pageId] = page;
@@ -78,20 +77,5 @@ export class PageDataGuardService implements CanActivate {
         }),
         map((page: Page.IPage) => true)
       )
-  }
-
-  private getLang(route: ActivatedRouteSnapshot): string {
-    const routeLang = route.params.lang;
-    let storedLang = '';
-
-    if (routeLang) {
-      return routeLang;
-    }
-
-    if (isPlatformBrowser(this.platformId)) {
-      storedLang = localStorage.getItem('lang');
-    }
-
-    return storedLang || 'auto';
   }
 }

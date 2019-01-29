@@ -9,9 +9,12 @@ import {NextFunction} from "express";
 import {languages} from "../const/const";
 import {join} from "path";
 
+const cookieParser = require('cookie-parser');
 const parseAcceptLanguage = require('parse-accept-language');
 const builtOn = new Date();
 const router = express.Router();
+
+router.use(cookieParser('secretthings'));
 
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     const acceptedLangs = parseAcceptLanguage(req);
@@ -19,13 +22,10 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
         languages.find((acceptable: string) => lang.language === acceptable)
     );
 
-    if (req.url.indexOf('https') > -1) {
-
-    }
-
     req.language = req.query.lang || (languageObj ? languageObj.language : 'en');
     next();
 });
+
 router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunction) => {
     if (req.path.includes('assets')) {
         return next();
@@ -40,13 +40,12 @@ router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunc
         })
 });
 router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
-    let name: string;
     // continue routing if language is not acceptable
     if (req.params.lang && languages.indexOf(req.params.lang) === -1 && req.params.lang !== '404') {
         return next();
     }
 
-    req.language = req.params.lang || req.language;
+    req.language = req.params.lang || req.cookies.lang || req.language;
 
     if (!req.params.lang) {
         return res.redirect(`${req.baseUrl}/${req.language}`);
@@ -54,6 +53,7 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
 
     const DIST_FOLDER = join(process.cwd(), 'front');
 
+    res.cookie('lang', req.language, { maxAge: 900000, httpOnly: true });
     res.render(join(DIST_FOLDER, 'index.html'), {req});
 });
 router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {

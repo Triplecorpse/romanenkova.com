@@ -4,7 +4,7 @@ import {Response} from "express-serve-static-core";
 
 export default function getInterfaceRouter(router: any) {
   router.get('/:lang/:page', async (req: IRequest, res: Response) => {
-    if (req.params.lang === 'auto') {
+    if (req.params.lang === 'auto' || req.params.lang === 'undefined') {
       req.params.lang = req.language;
     }
 
@@ -15,6 +15,6 @@ export default function getInterfaceRouter(router: any) {
 
     return res.json(result);
   });
-  
+
   return router;
 }

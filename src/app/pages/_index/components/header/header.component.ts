@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   public isNavOpen: boolean;
   public isMobile: boolean;
   public title: [string, string];
+  public routerLink: string;
 
   @Input() isRoot: boolean;
   @Input() header: string;
@@ -46,6 +47,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.title = this.pageDataGuardService.pageData.index.rootLink;
+    this.routerLink = '/' + this.pageDataGuardService.appSettings.language;
     if (isPlatformBrowser(this.platformId)) {
       this.isMobile = window.innerWidth < 1024;
     }
