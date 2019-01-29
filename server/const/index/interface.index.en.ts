@@ -6,7 +6,7 @@ export default {
     {header: 'About me', anchor: 'about'},
     {header: 'Services', anchor: 'services'},
     {header: 'Diplomas', anchor: 'diplomas'},
-    {header: 'Articles', anchor: 'articles'},
+    // {header: 'Articles', anchor: 'articles'},
     {header: 'Contact', anchor: 'contacts'}
   ],
   language: {
