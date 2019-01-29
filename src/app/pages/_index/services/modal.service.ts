@@ -43,7 +43,7 @@ export class ModalService {
     this._modalEvent.next({name: 'lightbox', type: 'open', success: true, context: src});
   };
 
-  public alert(options: {header: string; body: string; type: 'warning' | 'error '}) {
+  public alert(options: {header: string; body: string;}) {
     this._modalEvent.next({name: 'alert', type: 'open', success: true, context: options});
   };
 

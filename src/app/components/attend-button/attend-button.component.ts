@@ -38,7 +38,6 @@ interface IMessenger {
 export class AttendButtonComponent implements OnInit {
   @Input() public service: IService;
   @ViewChild('modalAppointment') private modalAppointmentRef: TemplateRef<any>;
-  @ViewChild('modalAppointmentMessage') private modalAppointmentMessageRef: TemplateRef<any>;
 
   public header: string;
   public formGroup: FormGroup;
@@ -184,7 +183,7 @@ export class AttendButtonComponent implements OnInit {
     ).subscribe((data: any) => {
       this.isSubmitting = false;
       this.modalService.closeModal('appointment', 'success', e.value);
-      this.modalService.openModal('appointment', this.modalAppointmentMessageRef, {header: data.h, text: data.m});
+      this.modalService.alert({header: data.h, body: data.m});
       captchaElement.resetCaptcha();
       captchaElement.reloadCaptcha();
       this.changeDetectorRef.markForCheck();

@@ -10,6 +10,8 @@ import {ReCaptcha2Component} from 'ngx-captcha';
 import {HttpClient} from '@angular/common/http';
 import {IReviewPage} from '../../../../interfaces/iReviewPage';
 import {PageDataGuardService} from "../../../../page-data-guard.service";
+import {Database} from "../../../../../../_interface/IMongooseSchema";
+import {IReviewModal} from "../../../../../../_interface/IReviewModal";
 
 @Component({
   selector: 'app-overview-reviews',
@@ -18,17 +20,21 @@ import {PageDataGuardService} from "../../../../page-data-guard.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OverviewReviewsComponent implements OnInit {
-  public reviewsPage: IPage<IReviewPage>;
-  public reviews: Array<IReview>;
+  public reviews: Array<Database.IReview>;
+  public header: string;
+  public button: string;
+  public modalData: IReviewModal;
+
   public index: number = 0;
   public reviewForm: FormGroup;
-  private modalReview: IPage<IModalAddReview>;
   public lang: string;
   public explanation: Array<string>;
+
   public nameControl: FormControl = new FormControl();
   public emailControl: FormControl = new FormControl('', Validators.email);
   public reviewControl: FormControl = new FormControl();
   public recaptchaControl: FormControl = new FormControl('', Validators.required);
+
   public isSubmitting: boolean;
   public errorObj: any = {};
   public addReviewText: string;
@@ -36,7 +42,6 @@ export class OverviewReviewsComponent implements OnInit {
   public anonText: string;
 
   @ViewChild('modalAddReview') private modalAddReviewRef: TemplateRef<any>;
-  @ViewChild('modalAddReviewMessage') private modalAddReviewMessageRef: TemplateRef<any>;
 
   constructor(private route: ActivatedRoute,
               private modalService: ModalService,
@@ -48,35 +53,27 @@ export class OverviewReviewsComponent implements OnInit {
   }
 
   openModal(tpl: TemplateRef<any>) {
-    this.modalService.openModal('review', tpl, this.modalReview);
+    this.modalService.openModal('review', tpl, this.modalData);
   }
 
   ngOnInit() {
-    this.reviewsPage = this.route.snapshot.data.pageBlocks[0].find((page: IPage<any>) => page.entityId === 'review');
-    this.modalReview = this.route.snapshot.data.pageBlocks[0].find((page: IPage<any>) => page.entityId === '[modal] review');
+    const reviewBlock = this.pageDataGuardService.pageData.main.review;
+    this.modalData = this.pageDataGuardService.pageData.main.reviewModal;
+
+    this.header = reviewBlock.header;
+    this.button = reviewBlock.button;
+    this.reviews = reviewBlock.items;
+
     this.lang = this.languageGuardService.selectedLang;
-    this.explanation = (this.modalReview.pageData as IModalAddReview).explanation.split('\n');
-    this.addReviewText = (this.reviewsPage.pageData as IReviewPage).submit;
-    this.noReviewText = (this.reviewsPage.pageData as IReviewPage).noReviews;
-    this.anonText = (this.reviewsPage.pageData as IReviewPage).anon;
-
-    delete (this.reviewsPage.pageData as IReviewPage).submit;
-    delete (this.reviewsPage.pageData as IReviewPage).noReviews;
-    delete (this.reviewsPage.pageData as IReviewPage).anon;
-
-    this.reviews = [];
-
-    for (let i in this.reviewsPage.pageData) {
-      if (this.reviewsPage.pageData.hasOwnProperty(i)) {
-        (this.reviewsPage.pageData as any)[i].review = (this.reviewsPage.pageData as any)[i].review.split('\n');
-        this.reviews.push((this.reviewsPage.pageData as any)[i])
-      }
-    }
+    this.explanation = this.modalData.explanation.split('\n');
+    this.addReviewText = this.modalData.submit;
+    this.noReviewText = reviewBlock.noReviews;
+    this.anonText = reviewBlock.anonymous;
 
     this.reviewForm = this.formBuilder.group({
       name: this.nameControl,
       email: this.emailControl,
-      review: this.reviewControl,
+      body: this.reviewControl,
       recaptcha: this.recaptchaControl
     });
   }
@@ -94,11 +91,11 @@ export class OverviewReviewsComponent implements OnInit {
       {
         ...form.value,
         language: this.languageGuardService.selectedLang
-      }
+      }, {params: {v: '2'}}
     ).subscribe((data: any) => {
       this.isSubmitting = false;
       this.modalService.closeModal('review', 'success', form.value);
-      this.modalService.openModal('review', this.modalAddReviewMessageRef, {header: data.h, text: data.m});
+      this.modalService.alert(data);
       captchaElement.resetCaptcha();
       captchaElement.reloadCaptcha();
       this.changeDetectorRef.markForCheck();

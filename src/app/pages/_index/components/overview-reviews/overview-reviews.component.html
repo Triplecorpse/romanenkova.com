@@ -1,5 +1,5 @@
 <div class="reviews-wrapper">
-  <h3 class="reviews-header">{{reviewsPage.header}}</h3>
+  <h3 class="reviews-header">{{header}}</h3>
   <div class="reviews-slider-wrapper">
     <div class="swiper-component-wrapper" *ngIf="reviews?.length; else noReviews">
       <div class="slide-number">
@@ -18,7 +18,7 @@
               <h3 class="name">{{source.name || anonText}}</h3>
               <div class="text">
                 <img src="assets/quotes-bold.svg" alt="">
-                <p class="paragraph" *ngFor="let paragraph of source.review">{{paragraph}}</p>
+                <p class="paragraph" *ngFor="let paragraph of source.body.split('\n')">{{paragraph}}</p>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@
   <div class="reviews-button-wrapper">
     <div class="reviews-button-absolute-wrapper">
       <button class="reviews-button" (click)="openModal(modalAddReview)">
-        {{addReviewText}}
+        {{button}}
       </button>
     </div>
   </div>
@@ -45,18 +45,18 @@
 <ng-template #modalAddReview let-modalData="modalData" let-events="events">
   <form #form="ngForm" [formGroup]="reviewForm" (ngSubmit)="submit(form, captchaElement)" class="review-form">
     <h3 class="header">{{modalData.header}}</h3>
-    <app-input [label]="modalData.pageData.name" type="text" formControlName="name" autocomplete="name"></app-input>
-    <div class="explanation">{{modalData.pageData.namesubscr}}</div>
-    <app-input [label]="modalData.pageData.email" type="email" formControlName="email" autocomplete="email"></app-input>
-    <div class="explanation">{{modalData.pageData.emailsubscr}}</div>
-    <app-textarea [label]="modalData.pageData.review" type="text" formControlName="review"></app-textarea>
+    <app-input [label]="modalData.name" type="text" formControlName="name" autocomplete="name"></app-input>
+    <div class="explanation">{{modalData.namesubscr}}</div>
+    <app-input [label]="modalData.email" type="email" formControlName="email" autocomplete="email"></app-input>
+    <div class="explanation">{{modalData.emailsubscr}}</div>
+    <app-textarea [label]="modalData.review" type="text" formControlName="body"></app-textarea>
     <div class="explanation uniq-field-err">{{errorObj.review}}</div>
     <div class="recaptcha">
       <ngx-recaptcha2 #captchaElement formControlName="recaptcha" [hl]="lang" theme="light" (expire)="handleExpire()"
                       (success)="handleSuccess($event)"></ngx-recaptcha2>
     </div>
     <button class="submit-button" type="submit" [disabled]="reviewForm.invalid || isSubmitting">
-      {{modalData.pageData.submit}}
+      {{modalData.submit}}
       <span class="loader" *ngIf="isSubmitting"></span>
     </button>
     <div class="explanation">
@@ -65,11 +65,4 @@
       </p>
     </div>
   </form>
-</ng-template>
-
-<ng-template #modalAddReviewMessage let-modalData="modalData">
-  <div class="message-wrapper">
-    <h3>{{modalData.header}}</h3>
-    <p>{{modalData.text}}</p>
-  </div>
 </ng-template>

@@ -8,6 +8,13 @@
 
 <ng-template #lightboxTpl let-modalData="modalData">
   <div class="lightbox-wrapper">
-    <img class="lightbox-image" src="{{modalData}}" alt="photo" (click)="openPicture(modalData)">
+    <img class="lightbox-image" [src]="modalData" alt="photo" (click)="openPicture(modalData)">
+  </div>
+</ng-template>
+
+<ng-template #alertTpl let-modalData="modalData">
+  <div class="message-wrapper">
+    <h3>{{modalData.header}}</h3>
+    <p>{{modalData.body}}</p>
   </div>
 </ng-template>

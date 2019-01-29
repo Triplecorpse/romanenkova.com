@@ -103,7 +103,7 @@ export function readReview(language: TLanguage, isAdmin: boolean = false): Promi
     if (!isAdmin) {
       return {
         body: review.body,
-        name: name
+        name: review.name
       }
     }
 

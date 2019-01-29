@@ -12,7 +12,6 @@ export interface IReview extends IMongooseSchema {
 const schema = new mongoose.Schema({
     language: {type: String, required: false},
     name: {type: String, required: false},
-    review: {type: String, required: true},
     body: {type: String, required: true},
     isPublished: {type: Boolean, required: true, default: false}
 });

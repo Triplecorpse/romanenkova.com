@@ -24,6 +24,7 @@ export class ModalComponent implements OnInit {
   context: any;
   events$: Subject<any> = new Subject();
   @ViewChild('lightboxTpl') public lightbox: TemplateRef<string>;
+  @ViewChild('alertTpl') public alert: TemplateRef<{header: string; body: string}>;
   @HostListener('window:scroll', ['$event'])
   private scrollListener($event) {
     if (this.isModalOpen) {
@@ -56,6 +57,8 @@ export class ModalComponent implements OnInit {
 
       if (data.name === 'lightbox') {
         template = this.lightbox;
+      } else if (data.name === 'alert') {
+        template = this.alert;
       } else {
         template = data.template;
       }
