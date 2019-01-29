@@ -3,10 +3,7 @@ import {
   ViewChild
 } from '@angular/core';
 import {ModalService} from '../../pages/_index/services/modal.service';
-import {IModalAppointment} from '../../interfaces/iModalAppointment';
-import IPage from '../../interfaces/iPage';
 import {FormBuilder, FormGroup, FormControl, Validators, FormGroupDirective} from '@angular/forms';
-import {LanguageGuardService} from '../../language-guard.service';
 import {HttpClient} from '@angular/common/http';
 import {ReCaptcha2Component} from 'ngx-captcha';
 import {ResolveScheduleService} from '../../resolve-schedule.service';
@@ -68,7 +65,6 @@ export class AttendButtonComponent implements OnInit {
 
   constructor(private modalService: ModalService,
               private formBuilder: FormBuilder,
-              private languageGuardService: LanguageGuardService,
               private httpClient: HttpClient,
               private changeDetectorRef: ChangeDetectorRef,
               private scheduleService: ResolveScheduleService,
@@ -115,7 +111,7 @@ export class AttendButtonComponent implements OnInit {
       recaptcha: new FormControl('', Validators.required)
     });
 
-    this.lang = this.languageGuardService.selectedLang;
+    this.lang = this.pageDataGuardService.appSettings.language;
     this.schedule = this.scheduleService.schedule;
 
     this.dateControl.valueChanges.subscribe((newValue: Moment) => {

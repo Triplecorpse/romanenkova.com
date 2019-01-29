@@ -6,7 +6,6 @@ import {MainComponent} from './components/main/main.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {HeaderComponent} from './components/header/header.component';
 import {ContactsComponent} from './components/contacts/contacts.component';
-import {ResolvePageService} from './services/resolve-page.service';
 import {NavigationComponent} from './components/header/navigation/navigation.component';
 import {SocialComponent} from './components/header/social/social.component';
 import {LanguageSelectorComponent} from './components/header/language-selector/language-selector.component';
@@ -17,8 +16,6 @@ import {InterceptorService} from './services/interceptor.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 import {OverviewAboutComponent} from './components/overview-about/overview-about.component';
-import {ResolveMainPageService} from './services/resolve-main-page.service';
-import {ResolveServicesService} from './services/resolve-services.service';
 import {InterceptResponseService} from './services/intercept-response.service';
 import {PipesModule} from '../../pipes/pipes.module';
 import { OverviewReviewsComponent } from './components/overview-reviews/overview-reviews.component';
@@ -37,43 +34,37 @@ import {PageDataGuardService} from "../../page-data-guard.service";
         path: 'about',
         loadChildren: './../about/about.module#AboutModule',
         data: {pageid: 'about', pageidv2: 'about'},
-        canActivate: [PageDataGuardService],
-        resolve: {pageData: ResolvePageService}
+        canActivate: [PageDataGuardService]
       },
       {
         path: 'articles',
         loadChildren: './../articles/articles.module#ArticlesModule',
         data: {pageid: 'article', pageidv2: 'article'},
-        canActivate: [PageDataGuardService],
-        resolve: {pageData: ResolvePageService}
+        canActivate: [PageDataGuardService]
       },
       {
         path: 'services',
         loadChildren: './../services/services.module#ServicesModule',
         data: {pageid: 'service', pageidv2: 'service'},
-        canActivate: [PageDataGuardService],
-        resolve: {pageData: ResolvePageService}
+        canActivate: [PageDataGuardService]
       },
       {
         path: 'diplomas',
         loadChildren: './../diplomas/diplomas.module#DiplomasModule',
         data: {pageid: 'diploma', pageidv2: 'diploma'},
-        canActivate: [PageDataGuardService],
-        resolve: {pageData: ResolvePageService}
+        canActivate: [PageDataGuardService]
       },
       {
         path: 'article/:id',
         loadChildren: './../article/article.module#ArticleModule',
         data: {pageid: 'article', pageidv2: 'article'},
-        canActivate: [PageDataGuardService],
-        resolve: {pageData: ResolvePageService}
+        canActivate: [PageDataGuardService]
       },
       {
         path: '',
         component: MainComponent,
         data: {pageid: 'main', pageidv2: 'main'},
-        canActivate: [PageDataGuardService],
-        resolve: {pageData: ResolvePageService, pageBlocks: ResolveMainPageService, services: ResolveServicesService}
+        canActivate: [PageDataGuardService]
       },
     ]),
     ReactiveFormsModule,

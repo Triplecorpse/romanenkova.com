@@ -4,12 +4,9 @@ import {Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import * as Moment from 'moment';
 import {DateRange, extendMoment} from 'moment-range';
-import {LanguageGuardService} from '../../language-guard.service';
-
-
 import {ISchedule} from '../../interfaces/iSchedule';
 import {TWeekday} from '../../interfaces/types';
-
+import {PageDataGuardService} from "../../page-data-guard.service";
 
 const moment = extendMoment(Moment);
 
@@ -54,7 +51,7 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
   private onTouch: () => void;
   private onChange: (v: Moment.Moment) => void = (v: Moment.Moment) => {};
 
-  constructor(private changeDetectorRef: ChangeDetectorRef, private languageService: LanguageGuardService) {
+  constructor(private changeDetectorRef: ChangeDetectorRef, private pageDataGuardService: PageDataGuardService) {
   }
 
   public writeValueFromTemplate(value: string) {
@@ -116,14 +113,14 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
 
   public ngOnInit(): void {
     // todo: bring to i18nService
-    Moment.locale(this.languageService.selectedLang);
+    Moment.locale(this.pageDataGuardService.appSettings.language);
     const weekdays = Moment.weekdays();
     const weekdaysMin = Moment.weekdaysMin();
     const weekdaysShort = Moment.weekdaysShort();
     weekdays.push(weekdays.shift());
     weekdaysMin.push(weekdaysMin.shift());
     weekdaysShort.push(weekdaysShort.shift());
-    Moment.updateLocale(this.languageService.selectedLang, {
+    Moment.updateLocale(this.pageDataGuardService.appSettings.language, {
       weekdays,
       weekdaysShort,
       weekdaysMin,

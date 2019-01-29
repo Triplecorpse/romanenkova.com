@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpParams, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {LanguageGuardService} from '../../../language-guard.service';
 import {environment} from '../../../../environments/environment';
+import {PageDataGuardService} from "../../../page-data-guard.service";
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +41,7 @@ export class InterceptorService implements HttpInterceptor {
       params = params.set(key, req.params.get(key));
     });
     if (!params.get('language')) {
-      params = params.set('language', this.languageGuardService.selectedLang);
+      params = params.set('language', this.pageDataGuardService.appSettings.language);
     }
 
     const newReq = req.clone({params, url});
@@ -49,6 +49,6 @@ export class InterceptorService implements HttpInterceptor {
     return next.handle(newReq);
   }
 
-  constructor(private languageGuardService: LanguageGuardService) {
+  constructor(private pageDataGuardService: PageDataGuardService) {
   }
 }

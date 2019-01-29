@@ -1,14 +1,9 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {IReview} from '../../../../interfaces/iReview';
 import {ModalService} from '../../services/modal.service';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
-import IPage from '../../../../interfaces/iPage';
-import {IModalAddReview} from '../../../../interfaces/iModalAddReview';
-import {LanguageGuardService} from '../../../../language-guard.service';
 import {ReCaptcha2Component} from 'ngx-captcha';
 import {HttpClient} from '@angular/common/http';
-import {IReviewPage} from '../../../../interfaces/iReviewPage';
 import {PageDataGuardService} from "../../../../page-data-guard.service";
 import {Database} from "../../../../../../_interface/IMongooseSchema";
 import {IReviewModal} from "../../../../../../_interface/IReviewModal";
@@ -46,7 +41,6 @@ export class OverviewReviewsComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private modalService: ModalService,
               private formBuilder: FormBuilder,
-              private languageGuardService: LanguageGuardService,
               private changeDetectorRef: ChangeDetectorRef,
               private httpClient: HttpClient,
               private pageDataGuardService: PageDataGuardService) {
@@ -64,7 +58,7 @@ export class OverviewReviewsComponent implements OnInit {
     this.button = reviewBlock.button;
     this.reviews = reviewBlock.items;
 
-    this.lang = this.languageGuardService.selectedLang;
+    this.lang = this.pageDataGuardService.appSettings.language;
     this.explanation = this.modalData.explanation.split('\n');
     this.addReviewText = this.modalData.submit;
     this.noReviewText = reviewBlock.noReviews;
@@ -90,7 +84,7 @@ export class OverviewReviewsComponent implements OnInit {
     this.httpClient.post('review',
       {
         ...form.value,
-        language: this.languageGuardService.selectedLang
+        language: this.pageDataGuardService.appSettings.language
       }, {params: {v: '2'}}
     ).subscribe((data: any) => {
       this.isSubmitting = false;

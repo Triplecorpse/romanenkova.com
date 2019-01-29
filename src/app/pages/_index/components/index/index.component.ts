@@ -28,7 +28,6 @@ export class IndexComponent implements OnInit, AfterViewInit {
   public header: string;
   public attend: string;
   public footer: IPage<IContact>;
-  public name: [string, string];
   public modalAppointment: IPage<IModalAppointment>;
   public dontShowAgain: boolean = true;
   private allowTracking: boolean;
@@ -111,11 +110,6 @@ export class IndexComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    // todo: perform more clear way to receive data
-    this.name = this.route.snapshot.data.headerData.name;
-    this.modalService.modalAppointment = this.route.snapshot.data.headerData.modalAppointment;
-    this.modalService.services = this.route.snapshot.data.services;
-
     if (isPlatformBrowser(this.platformId)) {
       const locale = this.pageDataGuardService.appSettings.locale;
       const html = document.getElementsByTagName('html')[0];
