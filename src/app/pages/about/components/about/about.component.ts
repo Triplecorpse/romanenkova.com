@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, Inject, OnInit, PLATFORM_ID, ViewChi
 import {ActivatedRoute} from '@angular/router';
 import {ModalService} from "../../../_index/services/modal.service";
 import {isPlatformServer} from "@angular/common";
+import {PageDataGuardService} from "../../../../page-data-guard.service";
 
 @Component({
   selector: 'app-about',
@@ -17,13 +18,14 @@ export class AboutComponent implements OnInit {
   @ViewChildren('photo') photo: any;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
-              private route: ActivatedRoute,
-              private modalService: ModalService) { }
+              private modalService: ModalService,
+              private pageDataGuardService: PageDataGuardService,) { }
 
   ngOnInit() {
-    this.mainText = this.route.snapshot.data.pageData.pageData.split('\n').filter((s: string) => Boolean(s));
-    this.name = this.route.snapshot.data.pageData.name.split(/\s/).filter((s: string) => Boolean(s));
-    this.photos = this.route.snapshot.data.pageData.images;
+    const aboutPage = this.pageDataGuardService.pageData.about;
+    this.mainText = aboutPage.body.split('\n').filter((s: string) => Boolean(s));
+    this.name = aboutPage.fullName.split(/\s/).filter((s: string) => Boolean(s));
+    this.photos = aboutPage.items;
   }
 
   openLightBox(source) {

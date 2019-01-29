@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {IDiploma} from "../../../../interfaces/IDiploma";
+import {PageDataGuardService} from "../../../../page-data-guard.service";
 
 @Component({
   selector: 'app-diplomas',
@@ -10,7 +11,8 @@ import {IDiploma} from "../../../../interfaces/IDiploma";
 export class DiplomasComponent implements OnInit {
   public diplomas: Array<IDiploma> = [];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private pageDataGuardService: PageDataGuardService) { }
 
   ngOnInit() {
     const pageData = this.route.snapshot.data.pageData.pageData;
