@@ -8,6 +8,10 @@ import {store} from "@angular/core/src/render3/instructions";
 import {IIndexData} from "../../_interface/IIndexData";
 import {ILanguageObject} from "../../_interface/ILanguageObject";
 import {map, tap} from "rxjs/operators";
+import {ISchedule} from "./interfaces/iSchedule";
+import {Database} from "../../_interface/IMongooseSchema";
+import * as moment from 'moment-timezone';
+import {IModalAppointment} from "./interfaces/iModalAppointment";
 
 interface IPageData {
   index: IIndexData,
@@ -70,6 +74,33 @@ export class PageDataGuardService implements CanActivate {
 
           if (pageId === 'index') {
             const indexPage: IIndexData = <any>page;
+
+            indexPage.schedule = indexPage.schedule.map((item: Database.ISchedule): Database.ISchedule => {
+              const guessed = moment.tz.guess();
+
+              item.availableHours = item.availableHours.map((hour: string) => {
+                const hourArr = hour.split('-');
+                const periodStart = moment.tz(moment(hourArr[0], 'HH:mm'), 'Europe/Kiev').tz(guessed);
+                const periodEnd = moment.tz(moment(hourArr[1], 'HH:mm'), 'Europe/Kiev').tz(guessed);
+                return `${periodStart.format('HH:mm')}-${periodEnd.format('HH:mm')}`;
+              });
+
+              return item;
+            });
+
+            indexPage.appointment.timezone = (() => {
+              const positiveOffset = -new Date().getTimezoneOffset();
+              const duration = moment.duration(positiveOffset, 'minutes');
+              let hours = PageDataGuardService.doublizeString(Math.abs(duration.hours()).toString());
+              hours = duration.hours().toString() > 0
+                ? '+' + hours
+                : '-' + hours;
+              const offsetStr = hours + ':' + PageDataGuardService.doublizeString(duration.minutes().toString());
+              const tzString = moment.tz.guess();
+
+              return `${tzString} GMT ${offsetStr}`;
+            })();
+
             this._appSettings.language = indexPage.language.codeISO2;
             this._appSettings.locale = indexPage.language;
             this._appSettings.locales = indexPage.availableLanguages;
@@ -81,5 +112,13 @@ export class PageDataGuardService implements CanActivate {
         }),
         map((page: Page.IPage) => true)
       )
+  }
+
+  private static doublizeString(str: string): string {
+    if (str.length === 1) {
+      str = '0' + str;
+    }
+
+    return str;
   }
 }

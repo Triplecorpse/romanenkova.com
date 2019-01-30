@@ -16,7 +16,6 @@ import {InterceptorService} from './services/interceptor.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 import {OverviewAboutComponent} from './components/overview-about/overview-about.component';
-import {InterceptResponseService} from './services/intercept-response.service';
 import {PipesModule} from '../../pipes/pipes.module';
 import { OverviewReviewsComponent } from './components/overview-reviews/overview-reviews.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
@@ -89,8 +88,7 @@ import {PageDataGuardService} from "../../page-data-guard.service";
     OverviewDiplomasComponent
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: InterceptResponseService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
   ],
   exports: []
 })

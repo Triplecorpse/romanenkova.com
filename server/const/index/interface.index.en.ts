@@ -47,5 +47,6 @@ export default {
     items: []
   },
   availableLanguages: [],
-  services: []
+  services: [],
+  schedule: []
 } as IIndexData;

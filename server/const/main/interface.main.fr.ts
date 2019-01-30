@@ -22,7 +22,7 @@ export default {
     namesubscr: 'Si vous ne souhaitez pas publier votre nom, laissez-le vide ou entrez votre pseudo.',
     email: 'Email',
     emailsubscr: 'N\'est pas publié',
-    review: 'Revue',
+    review: 'Revue *',
     submit: 'Envoyer un commentaire',
     explanation: 'Le champ email n\'est pas publié et n\'est pas stocké dans la base de données du site. Cependant, il peut être stocké dans ma boîte aux lettres personnelle et ne sera utilisé que pour communiquer avec vous.\nVotre nom sera affiché sur le site Web dans la section Avis exactement tel que vous l\'avez entré. Si vous souhaitez rester anonyme, laissez le champ vide ou entrez simplement votre pseudo.'
   }

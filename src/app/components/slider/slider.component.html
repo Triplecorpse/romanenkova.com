@@ -10,7 +10,7 @@
   </div>
   <div class="ngx-swiper__side-slide-prev" [class.ngx-swiper__side-slide-mobile-hide]="!sideButtonsMobile" (click)="slidePrev()" *ngIf="sideButtons" [class.disabled]="currentIndex === 0"></div>
   <div class="ngx-swiper__side-slide-next" [class.ngx-swiper__side-slide-mobile-hide]="!sideButtonsMobile" (click)="slideNext()" *ngIf="sideButtons" [class.disabled]="currentIndex === slides.length - 1"></div>
-  <swiper [config]="config" [(index)]="currentIndex" (indexChange)="onIndexChange($event)" #swiper>
+  <swiper [config]="config" [(index)]="currentIndex" (indexChange)="onIndexChange($event)" (swiperTransitionEnd)="transitionEnd()" #swiper>
     <ng-container *ngFor="let slide of slides">
       <div #slideTpl>
         <ng-container *ngTemplateOutlet="template; context: {slide: slide}"></ng-container>

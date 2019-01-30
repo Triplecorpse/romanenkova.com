@@ -47,4 +47,8 @@ export class SliderComponent<T> implements OnInit {
   onIndexChange($event: number) {
     this.indexChange.emit($event);
   }
+
+  transitionEnd() {
+    this.swiperDirective.update();
+  }
 }

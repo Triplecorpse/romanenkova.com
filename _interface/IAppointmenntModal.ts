@@ -16,4 +16,5 @@ export interface IAppointmentModal extends IModal {
   checkbox: string;
   instructions: string;
   selectClear: string;
+  timezone?: string;
 }

@@ -13,5 +13,6 @@ export interface IIndexData {
   pageMetadata: IPageMetadata,
   appointment: IAppointmentModal,
   contact: IContactBlock,
-  services: Array<Database.IService>
+  services: Array<Database.IService>,
+  schedule: Array<Database.ISchedule>
 }

@@ -1,5 +1,10 @@
 import {
-  ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, TemplateRef,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  TemplateRef,
   ViewChild
 } from '@angular/core';
 import {ModalService} from '../../pages/_index/services/modal.service';
@@ -8,7 +13,6 @@ import {HttpClient} from '@angular/common/http';
 import {ReCaptcha2Component} from 'ngx-captcha';
 import {ResolveScheduleService} from '../../resolve-schedule.service';
 import {Moment} from 'moment';
-import {ISchedule} from '../../interfaces/iSchedule';
 import * as initMoment from 'moment-timezone';
 import {extendMoment} from 'moment-range';
 import {IService} from '../../interfaces/IService';
@@ -44,11 +48,13 @@ export class AttendButtonComponent implements OnInit {
   private isCaptchaResolved: boolean;
   public isSubmitting: boolean;
   public schedule: any;
+
   public dateControl: FormControl;
   public contactNameControl: FormControl;
   public contactValueControl: FormControl;
   private timeControl: FormControl;
   private serviceControl: FormControl;
+
   public timeSlots: Array<string> = [];
   public contactNameLabel: string;
   public contactValueLabel: string;
@@ -112,7 +118,7 @@ export class AttendButtonComponent implements OnInit {
     });
 
     this.lang = this.pageDataGuardService.appSettings.language;
-    this.schedule = this.scheduleService.schedule;
+    this.schedule = this.pageDataGuardService.pageData.index.schedule;
 
     this.dateControl.valueChanges.subscribe((newValue: Moment) => {
       this.getTimeSlots(newValue);
@@ -182,6 +188,7 @@ export class AttendButtonComponent implements OnInit {
       this.modalService.alert({header: data.h, body: data.m});
       captchaElement.resetCaptcha();
       captchaElement.reloadCaptcha();
+      this.formGroup.reset();
       this.changeDetectorRef.markForCheck();
     }, (err: any) => {
       this.isSubmitting = false;
@@ -207,8 +214,8 @@ export class AttendButtonComponent implements OnInit {
       return;
     }
     const weekdaysMapper = ['mo', 'tu', 'we', 'th', 'fr', 'sa', 'su'];
-    const schedule = (this.schedule.find((scheduleItem: ISchedule): boolean => date.isSame(moment(scheduleItem.date, 'DD.MM.YYYY')))
-      || this.schedule.find((scheduleItem: ISchedule): boolean => scheduleItem.weekday === weekdaysMapper[date.weekday()])).availableHours;
+    const schedule = (this.schedule.find((scheduleItem: Database.ISchedule): boolean => date.isSame(moment(scheduleItem.date, 'DD.MM.YYYY')))
+      || this.schedule.find((scheduleItem: Database.ISchedule): boolean => scheduleItem.weekday === weekdaysMapper[date.weekday()])).availableHours;
 
     schedule.forEach((hours: string, index: number): void => {
       const hoursArr = hours.split('-');

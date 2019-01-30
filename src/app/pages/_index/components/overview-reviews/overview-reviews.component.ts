@@ -27,7 +27,7 @@ export class OverviewReviewsComponent implements OnInit {
 
   public nameControl: FormControl = new FormControl();
   public emailControl: FormControl = new FormControl('', Validators.email);
-  public reviewControl: FormControl = new FormControl();
+  public reviewControl: FormControl = new FormControl('', Validators.required);
   public recaptchaControl: FormControl = new FormControl('', Validators.required);
 
   public isSubmitting: boolean;
@@ -92,6 +92,7 @@ export class OverviewReviewsComponent implements OnInit {
       this.modalService.alert(data);
       captchaElement.resetCaptcha();
       captchaElement.reloadCaptcha();
+      this.reviewForm.reset();
       this.changeDetectorRef.markForCheck();
     }, (err: any) => {
       this.isSubmitting = false;

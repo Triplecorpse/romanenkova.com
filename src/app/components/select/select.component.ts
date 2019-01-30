@@ -14,6 +14,7 @@ import {ModalService} from '../../pages/_index/services/modal.service';
 import {IModalAppointment} from '../../interfaces/iModalAppointment';
 import {Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
+import {PageDataGuardService} from "../../page-data-guard.service";
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -49,8 +50,9 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
   private onTouch: () => void;
   private onChange: (v: any) => void = () => {};
 
-  constructor(private changeDetectorRef: ChangeDetectorRef, private modalService: ModalService) {
-  }
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              private modalService: ModalService,
+              private pageDataGuardService: PageDataGuardService) { }
 
   public writeValue(value: any): void {
     this.onChange(value);
@@ -81,7 +83,7 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
   }
 
   public ngOnInit(): void {
-    this.clearSelectionLabel = (this.modalService.modalAppointment.pageData as IModalAppointment).selectClear;
+    this.clearSelectionLabel = this.pageDataGuardService.pageData.index.appointment.selectClear;
     this.events$.pipe(
       filter((e: Event): boolean => e.type === 'click')
     )

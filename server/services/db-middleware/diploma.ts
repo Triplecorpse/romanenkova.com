@@ -9,7 +9,7 @@ export function createDiploma(diploma: IDiploma): Promise<IDiploma> {
 }
 
 export function readDiploma(isAdmin = false): Promise<Array<IDiploma>> {
-  return Diploma.find()
+  return Diploma.find().sort({order: 1})
     .then((diplomaItems: any) => diplomaItems.map((diplomaItem: IDiploma): IDiploma => {
         if (!isAdmin) {
           return {
