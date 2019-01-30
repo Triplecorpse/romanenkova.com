@@ -1,4 +1,4 @@
-import {TLanguage, TWeekday} from "../server/types/types";
+import {TLanguage, TWeekday} from "./types";
 
 export namespace Database {
   interface IMongooseSchema {
@@ -22,7 +22,7 @@ export namespace Database {
     image: string;
     institute: string;
     graduateYear: number;
-    isPublished: boolean;
+    isPublished?: boolean;
     order: number;
   }
 
@@ -42,7 +42,6 @@ export namespace Database {
 
   export interface IReview extends IMongooseSchema {
     name: string;
-    review?: string;
     body: string;
     email?: string;
     isPublished?: boolean;

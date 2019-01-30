@@ -1,4 +1,4 @@
-import {TLanguage} from "../../types/types";
+import {TLanguage} from "../../../_interface/types";
 
 import interfaceDiplomasEn from "./interface.diplomas.en";
 import interfaceDiplomasFr from "./interface.diplomas.fr";

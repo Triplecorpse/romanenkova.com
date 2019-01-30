@@ -10,7 +10,6 @@ import {
   ViewChild,
   PLATFORM_ID
 } from '@angular/core';
-import IPage from '../../../../interfaces/iPage';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {fadeAndSlideToRight} from '../../shortcuts/animations';
 import {ActivatedRoute} from '@angular/router';

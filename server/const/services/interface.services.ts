@@ -1,5 +1,4 @@
-import {TLanguage} from "../../types/types";
-import {readInterface} from "../../services/db-middleware/interface";
+import {TLanguage} from "../../../_interface/types";
 
 import interfaceServicesEn from "./interface.services.en";
 import interfaceServicesFr from "./interface.services.fr";
@@ -18,7 +17,6 @@ export async function getServicesInterface(lang: TLanguage) {
   let interfaceObj: any = configObj[lang];
 
   interfaceObj.items = await readService(lang).catch(e => {
-    console.log(e);
     throw new Error(e.message);
   });
 

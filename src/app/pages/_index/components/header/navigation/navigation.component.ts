@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {PageDataGuardService} from "../../../../../page-data-guard.service";
 import {INavItem} from "../../../../../../../_interface/INavItem";
-import {INavigationItem, INavigationUrl} from "../../../../../interfaces/iNavigation";
 
 @Component({
   selector: 'app-navigation',
@@ -25,11 +24,10 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
     this.nav = this.pageDataGuardService.pageData.index.nav.map((navItem: INavItem): INavItem => {
       const anchor: string = navItem.anchor;
-      const navUrlItem: INavigationUrl = this.anchorMap.find(anchorMapItem => anchorMapItem.anchor === anchor);
+      const navUrlItem = this.anchorMap.find(anchorMapItem => anchorMapItem.anchor === anchor);
       navItem.href = navUrlItem.href;
 
       return navItem;
     });
   }
-
 }

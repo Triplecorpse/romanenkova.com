@@ -1058,7 +1058,7 @@ function View_DiplomaComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 
 function View_DiplomaComponent_0(_l) { return i1.ɵvid(0, [i1.ɵqud(402653184, 1, { pictureTpl: 0 }), (_l()(), i1.ɵeld(1, 0, null, null, 10, "div", [["class", "diploma-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 1, "div", [["class", "diploma-photo-wrapper"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
         var pd_0 = (_co.showBigPicture() !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 0, "div", [["class", "diploma-photo"]], [[2, "low-padding", null], [4, "background-image", null]], null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 7, "div", [["class", "diploma-description-wrapper"]], [[2, "align-left", null]], null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 6, "div", [["class", "diploma-description"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "h4", [["class", "diploma-description-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", ""])), (_l()(), i1.ɵeld(8, 0, null, null, 1, "p", [["class", "diploma-description-graduate"]], null, null, null, null, null)), (_l()(), i1.ɵted(9, null, ["", ""])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_DiplomaComponent_1)), i1.ɵdid(11, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_5 = (!_co.onPage && _co.buttonText); _ck(_v, 11, 0, currVal_5); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.onPage; var currVal_1 = (("url(" + _co.diploma.picture) + ")"); _ck(_v, 3, 0, currVal_0, currVal_1); var currVal_2 = _co.onPage; _ck(_v, 4, 0, currVal_2); var currVal_3 = _co.diploma.header; _ck(_v, 7, 0, currVal_3); var currVal_4 = _co.diploma.graduateYear; _ck(_v, 9, 0, currVal_4); }); }
+    } return ad; }, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 0, "div", [["class", "diploma-photo"]], [[2, "low-padding", null], [4, "background-image", null]], null, null, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 7, "div", [["class", "diploma-description-wrapper"]], [[2, "align-left", null]], null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 6, "div", [["class", "diploma-description"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "h4", [["class", "diploma-description-header"]], null, null, null, null, null)), (_l()(), i1.ɵted(7, null, ["", ""])), (_l()(), i1.ɵeld(8, 0, null, null, 1, "p", [["class", "diploma-description-graduate"]], null, null, null, null, null)), (_l()(), i1.ɵted(9, null, ["", ""])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_DiplomaComponent_1)), i1.ɵdid(11, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_5 = (!_co.onPage && _co.buttonText); _ck(_v, 11, 0, currVal_5); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.onPage; var currVal_1 = (("url(" + _co.diploma.image) + ")"); _ck(_v, 3, 0, currVal_0, currVal_1); var currVal_2 = _co.onPage; _ck(_v, 4, 0, currVal_2); var currVal_3 = _co.diploma.institute; _ck(_v, 7, 0, currVal_3); var currVal_4 = _co.diploma.graduateYear; _ck(_v, 9, 0, currVal_4); }); }
 exports.View_DiplomaComponent_0 = View_DiplomaComponent_0;
 function View_DiplomaComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-diploma", [], null, null, null, View_DiplomaComponent_0, RenderType_DiplomaComponent)), i1.ɵdid(1, 114688, null, 0, i4.DiplomaComponent, [i5.ModalService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_DiplomaComponent_Host_0 = View_DiplomaComponent_Host_0;
@@ -1109,7 +1109,7 @@ var DiplomaComponent = /** @class */ (function () {
     DiplomaComponent.prototype.ngOnInit = function () {
     };
     DiplomaComponent.prototype.showBigPicture = function () {
-        this.modalService.openLightbox(this.diploma.picture);
+        this.modalService.openLightbox(this.diploma.image);
     };
     return DiplomaComponent;
 }());
@@ -1350,7 +1350,8 @@ var SelectComponent = /** @class */ (function () {
         this.changeDetectorRef = changeDetectorRef;
         this.modalService = modalService;
         this.pageDataGuardService = pageDataGuardService;
-        this.onChange = function () { };
+        this.onChange = function () {
+        };
     }
     SelectComponent.prototype.writeValue = function (value) {
         this.onChange(value);
@@ -1487,13 +1488,16 @@ function View_SliderComponent_5(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0
     } return ad; }, null, null))], null, function (_ck, _v) { var _co = _v.component; var currVal_0 = !_co.sideButtonsMobile; var currVal_1 = (_co.currentIndex === (_co.slides.length - 1)); _ck(_v, 0, 0, currVal_0, currVal_1); }); }
 function View_SliderComponent_7(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 0, null, null, null, null, null, null, null))], null, null); }
 function View_SliderComponent_6(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 4, null, null, null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, [[2, 0], ["slideTpl", 1]], null, 3, "div", [], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 2, null, View_SliderComponent_7)), i1.ɵdid(3, 540672, null, 0, i2.NgTemplateOutlet, [i1.ViewContainerRef], { ngTemplateOutletContext: [0, "ngTemplateOutletContext"], ngTemplateOutlet: [1, "ngTemplateOutlet"] }, null), i1.ɵpod(4, { slide: 0 })], function (_ck, _v) { var _co = _v.component; var currVal_0 = _ck(_v, 4, 0, _v.context.$implicit); var currVal_1 = _co.template; _ck(_v, 3, 0, currVal_0, currVal_1); }, null); }
-function View_SliderComponent_0(_l) { return i1.ɵvid(2, [i1.ɵqud(402653184, 1, { swiper: 0 }), i1.ɵqud(671088640, 2, { slideTpls: 1 }), (_l()(), i1.ɵeld(2, 0, null, null, 10, "div", [["class", "ngx-swiper__wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_SliderComponent_1)), i1.ɵdid(4, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_SliderComponent_4)), i1.ɵdid(6, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_SliderComponent_5)), i1.ɵdid(8, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(9, 0, null, null, 3, "swiper", [], null, [[null, "indexChange"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("indexChange" === en)) {
+function View_SliderComponent_0(_l) { return i1.ɵvid(2, [i1.ɵqud(402653184, 1, { swiper: 0 }), i1.ɵqud(671088640, 2, { slideTpls: 1 }), (_l()(), i1.ɵeld(2, 0, null, null, 10, "div", [["class", "ngx-swiper__wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_SliderComponent_1)), i1.ɵdid(4, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_SliderComponent_4)), i1.ɵdid(6, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_SliderComponent_5)), i1.ɵdid(8, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(9, 0, null, null, 3, "swiper", [], null, [[null, "indexChange"], [null, "swiperTransitionEnd"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("indexChange" === en)) {
         var pd_0 = ((_co.currentIndex = $event) !== false);
         ad = (pd_0 && ad);
     } if (("indexChange" === en)) {
         var pd_1 = (_co.onIndexChange($event) !== false);
         ad = (pd_1 && ad);
-    } return ad; }, i3.View_SwiperComponent_0, i3.RenderType_SwiperComponent)), i1.ɵdid(10, 4374528, [[1, 4], ["swiper", 4]], 0, i4.SwiperComponent, [i1.NgZone, i1.ChangeDetectorRef, i1.PLATFORM_ID, [2, i4.SWIPER_CONFIG]], { index: [0, "index"], config: [1, "config"] }, { indexChange: "indexChange" }), (_l()(), i1.ɵand(16777216, null, 0, 1, null, View_SliderComponent_6)), i1.ɵdid(12, 278528, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = (_co.slides.length && !_co.sideButtons); _ck(_v, 4, 0, currVal_0); var currVal_1 = _co.sideButtons; _ck(_v, 6, 0, currVal_1); var currVal_2 = _co.sideButtons; _ck(_v, 8, 0, currVal_2); var currVal_3 = _co.currentIndex; var currVal_4 = _co.config; _ck(_v, 10, 0, currVal_3, currVal_4); var currVal_5 = _co.slides; _ck(_v, 12, 0, currVal_5); }, null); }
+    } if (("swiperTransitionEnd" === en)) {
+        var pd_2 = (_co.transitionEnd() !== false);
+        ad = (pd_2 && ad);
+    } return ad; }, i3.View_SwiperComponent_0, i3.RenderType_SwiperComponent)), i1.ɵdid(10, 4374528, [[1, 4], ["swiper", 4]], 0, i4.SwiperComponent, [i1.NgZone, i1.ChangeDetectorRef, i1.PLATFORM_ID, [2, i4.SWIPER_CONFIG]], { index: [0, "index"], config: [1, "config"] }, { indexChange: "indexChange", S_TRANSITIONEND: "swiperTransitionEnd" }), (_l()(), i1.ɵand(16777216, null, 0, 1, null, View_SliderComponent_6)), i1.ɵdid(12, 278528, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = (_co.slides.length && !_co.sideButtons); _ck(_v, 4, 0, currVal_0); var currVal_1 = _co.sideButtons; _ck(_v, 6, 0, currVal_1); var currVal_2 = _co.sideButtons; _ck(_v, 8, 0, currVal_2); var currVal_3 = _co.currentIndex; var currVal_4 = _co.config; _ck(_v, 10, 0, currVal_3, currVal_4); var currVal_5 = _co.slides; _ck(_v, 12, 0, currVal_5); }, null); }
 exports.View_SliderComponent_0 = View_SliderComponent_0;
 function View_SliderComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-slider", [], null, null, null, View_SliderComponent_0, RenderType_SliderComponent)), i1.ɵdid(1, 114688, null, 0, i5.SliderComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_SliderComponent_Host_0 = View_SliderComponent_Host_0;
@@ -1561,6 +1565,9 @@ var SliderComponent = /** @class */ (function () {
     };
     SliderComponent.prototype.onIndexChange = function ($event) {
         this.indexChange.emit($event);
+    };
+    SliderComponent.prototype.transitionEnd = function () {
+        this.swiperDirective.update();
     };
     return SliderComponent;
 }());
@@ -1688,20 +1695,6 @@ var TextareaComponent = /** @class */ (function () {
     return TextareaComponent;
 }());
 exports.TextareaComponent = TextareaComponent;
-
-
-/***/ }),
-
-/***/ "./src/app/interfaces/iNavigation.ts":
-/*!*******************************************!*\
-  !*** ./src/app/interfaces/iNavigation.ts ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
 
 
 /***/ }),
@@ -1977,7 +1970,7 @@ function View_FooterComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0
 exports.View_FooterComponent_0 = View_FooterComponent_0;
 function View_FooterComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-footer", [], null, null, null, View_FooterComponent_0, RenderType_FooterComponent)), i1.ɵdid(1, 114688, null, 0, i6.FooterComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_FooterComponent_Host_0 = View_FooterComponent_Host_0;
-var FooterComponentNgFactory = i1.ɵccf("app-footer", i6.FooterComponent, View_FooterComponent_Host_0, { data: "data", name: "name" }, {}, []);
+var FooterComponentNgFactory = i1.ɵccf("app-footer", i6.FooterComponent, View_FooterComponent_Host_0, {}, {}, []);
 exports.FooterComponentNgFactory = FooterComponentNgFactory;
 
 
@@ -2376,7 +2369,6 @@ exports.styles = styles;
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var page_data_guard_service_1 = __webpack_require__(/*! ../../../../../page-data-guard.service */ "./src/app/page-data-guard.service.ts");
-var iNavigation_1 = __webpack_require__(/*! ../../../../../interfaces/iNavigation */ "./src/app/interfaces/iNavigation.ts");
 var NavigationComponent = /** @class */ (function () {
     function NavigationComponent(pageDataGuardService) {
         this.pageDataGuardService = pageDataGuardService;
@@ -2740,7 +2732,7 @@ function View_MainComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, 
         ad = (pd_0 && ad);
     } return ad; }, i2.View_OverviewAboutComponent_0, i2.RenderType_OverviewAboutComponent)), i1.ɵdid(2, 4308992, null, 0, i3.OverviewAboutComponent, [i4.DOCUMENT, i1.PLATFORM_ID, i5.ActivatedRoute, i6.PageDataGuardService], null, null), (_l()(), i1.ɵeld(3, 0, null, null, 1, "app-overview-diplomas", [], null, null, null, i7.View_OverviewDiplomasComponent_0, i7.RenderType_OverviewDiplomasComponent)), i1.ɵdid(4, 114688, null, 0, i8.OverviewDiplomasComponent, [i5.ActivatedRoute, i6.PageDataGuardService], null, null), (_l()(), i1.ɵeld(5, 0, null, null, 0, "div", [["class", "separator"]], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 2, "div", [["class", "content-wrapper"]], null, null, null, null, null)), (_l()(), i1.ɵeld(7, 0, null, null, 1, "app-overview-reviews", [], null, null, null, i9.View_OverviewReviewsComponent_0, i9.RenderType_OverviewReviewsComponent)), i1.ɵdid(8, 114688, null, 0, i10.OverviewReviewsComponent, [i5.ActivatedRoute, i11.ModalService, i12.FormBuilder, i1.ChangeDetectorRef, i13.HttpClient, i6.PageDataGuardService], null, null)], function (_ck, _v) { _ck(_v, 2, 0); _ck(_v, 4, 0); _ck(_v, 8, 0); }, null); }
 exports.View_MainComponent_0 = View_MainComponent_0;
-function View_MainComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-main", [], null, null, null, View_MainComponent_0, RenderType_MainComponent)), i1.ɵdid(1, 114688, null, 0, i14.MainComponent, [i5.ActivatedRoute, i11.ModalService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+function View_MainComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-main", [], null, null, null, View_MainComponent_0, RenderType_MainComponent)), i1.ɵdid(1, 114688, null, 0, i14.MainComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_MainComponent_Host_0 = View_MainComponent_Host_0;
 var MainComponentNgFactory = i1.ɵccf("app-main", i14.MainComponent, View_MainComponent_Host_0, {}, {}, []);
 exports.MainComponentNgFactory = MainComponentNgFactory;
@@ -2781,15 +2773,10 @@ exports.styles = styles;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var modal_service_1 = __webpack_require__(/*! ../../services/modal.service */ "./src/app/pages/_index/services/modal.service.ts");
 var MainComponent = /** @class */ (function () {
-    function MainComponent(route, modalService) {
-        this.route = route;
-        this.modalService = modalService;
+    function MainComponent() {
     }
     MainComponent.prototype.ngOnInit = function () {
-        this.modalService.services = this.route.snapshot.data.services;
     };
     return MainComponent;
 }());
@@ -3330,7 +3317,7 @@ var OverviewReviewsComponent = /** @class */ (function () {
             _this.modalService.alert(data);
             captchaElement.resetCaptcha();
             captchaElement.reloadCaptcha();
-            form.reset();
+            _this.reviewForm.reset();
             _this.changeDetectorRef.markForCheck();
         }, function (err) {
             _this.isSubmitting = false;
@@ -3489,19 +3476,6 @@ var ModalService = /** @class */ (function () {
     function ModalService() {
         this._modalEvent = new rxjs_1.Subject();
     }
-    Object.defineProperty(ModalService.prototype, "modalAppointment", {
-        get: function () {
-            return this._modalAppointment;
-        },
-        set: function (value) {
-            if (this._modalAppointment) {
-                throw new Error('Modal appointment is already set');
-            }
-            this._modalAppointment = value;
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(ModalService.prototype, "modalEvent", {
         get: function () {
             return this._modalEvent.asObservable();

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {IDiploma} from "../../../../interfaces/IDiploma";
 import {PageDataGuardService} from "../../../../page-data-guard.service";
-import {Page} from "../../../../../../_interface/IPage";
 import {Database} from "../../../../../../_interface/IMongooseSchema";
 
 @Component({

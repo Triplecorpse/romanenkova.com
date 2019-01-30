@@ -15,7 +15,6 @@ import {ResolveScheduleService} from '../../resolve-schedule.service';
 import {Moment} from 'moment';
 import * as initMoment from 'moment-timezone';
 import {extendMoment} from 'moment-range';
-import {IService} from '../../interfaces/IService';
 import {PageDataGuardService} from "../../page-data-guard.service";
 import {Database} from "../../../../_interface/IMongooseSchema";
 import {IAppointmentModal} from "../../../../_interface/IAppointmenntModal";
@@ -37,7 +36,7 @@ interface IMessenger {
   providers: [FormBuilder]
 })
 export class AttendButtonComponent implements OnInit {
-  @Input() public service: IService;
+  @Input() public service: Database.IService;
   @ViewChild('modalAppointment') private modalAppointmentRef: TemplateRef<any>;
 
   public header: string;

@@ -1,4 +1,4 @@
-import {TLanguage} from "../../types/types";
+import {TLanguage} from "../../../_interface/types";
 
 import interfaceArticlesEn from "./interface.articles.en";
 import interfaceArticlesFr from "./interface.articles.fr";

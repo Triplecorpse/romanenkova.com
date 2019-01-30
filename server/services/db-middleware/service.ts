@@ -1,6 +1,6 @@
 import {Service} from "../../models/service";
 import {Database} from "../../../_interface/IMongooseSchema";
-import {TLanguage} from "../../types/types"
+import {TLanguage} from "../../../_interface/types"
 
 export function createService(service: Database.IService): Promise<any> {
   return Service.create(service);

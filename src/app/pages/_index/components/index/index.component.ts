@@ -6,11 +6,7 @@ import {
 import {Meta, Title} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
-import {INavigationItem} from '../../../../interfaces/iNavigation';
 import {filter} from 'rxjs/operators';
-import IPage from '../../../../interfaces/iPage';
-import {IContact} from '../../../../interfaces/IContact';
-import {IModalAppointment} from '../../../../interfaces/iModalAppointment';
 import {ModalService} from '../../services/modal.service';
 import {environment} from "../../../../../environments/environment";
 import {PageDataGuardService} from "../../../../page-data-guard.service";
@@ -22,13 +18,9 @@ import {PageDataGuardService} from "../../../../page-data-guard.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IndexComponent implements OnInit, AfterViewInit {
-  public title: Array<string>;
-  public nav: Array<INavigationItem>;
   public isRoot: boolean;
   public header: string;
   public attend: string;
-  public footer: IPage<IContact>;
-  public modalAppointment: IPage<IModalAppointment>;
   public dontShowAgain: boolean = true;
   private allowTracking: boolean;
   public isBrowser: boolean = false;

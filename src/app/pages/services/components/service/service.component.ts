@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {IService} from '../../../../interfaces/IService';
+import {Database} from "../../../../../../_interface/IMongooseSchema";
 
 @Component({
   selector: 'app-service',
@@ -8,7 +8,7 @@ import {IService} from '../../../../interfaces/IService';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServiceComponent implements OnInit {
-  @Input() service: IService;
+  @Input() service: Database.IService;
 
   constructor() {
   }

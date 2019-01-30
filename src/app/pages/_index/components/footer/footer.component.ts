@@ -1,6 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import IPage from '../../../../interfaces/iPage';
-import {IContact} from '../../../../interfaces/IContact';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -8,12 +6,8 @@ import {IContact} from '../../../../interfaces/IContact';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  @Input() data: IPage<IContact>;
-  @Input() name: string;
-
   constructor() { }
 
   ngOnInit() {
   }
-
 }

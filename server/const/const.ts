@@ -1,4 +1,4 @@
-import {TLanguage, TPageId} from "../types/types";
+import {TLanguage, TPageId} from "../../_interface/types";
 import {ILanguageObject} from "../interfaces/iLanguageObject";
 
 export const langObjects: Array<ILanguageObject> = [

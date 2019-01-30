@@ -4,9 +4,9 @@ import {Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import * as Moment from 'moment';
 import {DateRange, extendMoment} from 'moment-range';
-import {TWeekday} from '../../interfaces/types';
 import {PageDataGuardService} from "../../page-data-guard.service";
 import {Database} from "../../../../_interface/IMongooseSchema";
+import {TWeekday} from "../../../../_interface/types";
 
 const moment = extendMoment(Moment);
 

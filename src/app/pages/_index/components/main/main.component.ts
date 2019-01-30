@@ -9,11 +9,10 @@ import {ModalService} from '../../services/modal.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,
-              private modalService: ModalService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.modalService.services = this.route.snapshot.data.services;
+
   }
 }

@@ -1,5 +1,4 @@
-import {TLanguage} from "../../types/types";
-import {readInterface} from "../../services/db-middleware/interface";
+import {TLanguage} from "../../../_interface/types";
 
 import interfaceIndexEn from "./interface.index.en";
 import interfaceIndexFr from "./interface.index.fr";

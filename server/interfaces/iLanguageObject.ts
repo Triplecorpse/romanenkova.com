@@ -1,4 +1,4 @@
-import {TLanguage} from "../types/types";
+import {TLanguage} from "../../_interface/types";
 
 export interface IPageMetadata {
     description: string;

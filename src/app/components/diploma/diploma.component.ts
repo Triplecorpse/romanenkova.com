@@ -1,6 +1,6 @@
 import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {IDiploma} from "../../interfaces/IDiploma";
 import {ModalService} from "../../pages/_index/services/modal.service";
+import {Database} from "../../../../_interface/IMongooseSchema";
 
 @Component({
   selector: 'app-diploma',
@@ -8,7 +8,7 @@ import {ModalService} from "../../pages/_index/services/modal.service";
   styleUrls: ['./diploma.component.scss']
 })
 export class DiplomaComponent implements OnInit {
-  @Input() diploma: IDiploma;
+  @Input() diploma: Database.IDiploma;
   @Input() buttonText?: string;
   @Input() onPage: boolean;
   @ViewChild('pictureTpl') pictureTpl: TemplateRef<any>;
@@ -19,6 +19,6 @@ export class DiplomaComponent implements OnInit {
   }
 
   showBigPicture() {
-    this.modalService.openLightbox(this.diploma.picture);
+    this.modalService.openLightbox(this.diploma.image);
   }
 }

@@ -5,13 +5,13 @@ import {
   ElementRef,
   forwardRef,
   Input,
-  OnInit, QueryList,
-  ViewChild, ViewChildren,
-  ViewContainerRef
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {ModalService} from '../../pages/_index/services/modal.service';
-import {IModalAppointment} from '../../interfaces/iModalAppointment';
 import {Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import {PageDataGuardService} from "../../page-data-guard.service";
@@ -48,11 +48,13 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
   private selectedItem: any;
   public isListOpen: boolean;
   private onTouch: () => void;
-  private onChange: (v: any) => void = () => {};
+  private onChange: (v: any) => void = () => {
+  };
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
               private modalService: ModalService,
-              private pageDataGuardService: PageDataGuardService) { }
+              private pageDataGuardService: PageDataGuardService) {
+  }
 
   public writeValue(value: any): void {
     this.onChange(value);

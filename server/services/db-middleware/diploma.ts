@@ -1,6 +1,7 @@
-import {Diploma, IDiploma} from "../../models/diploma";
+import {Diploma} from "../../models/diploma";
+import {Database} from "../../../_interface/IMongooseSchema";
 
-export function createDiploma(diploma: IDiploma): Promise<IDiploma> {
+export function createDiploma(diploma: Database.IDiploma): Promise<Database.IDiploma> {
   return Diploma.create(diploma)
     .then(() => diploma)
     .catch(err => {
@@ -8,15 +9,14 @@ export function createDiploma(diploma: IDiploma): Promise<IDiploma> {
     });
 }
 
-export function readDiploma(isAdmin = false): Promise<Array<IDiploma>> {
+export function readDiploma(isAdmin = false): Promise<Array<Database.IDiploma>> {
   return Diploma.find().sort({order: 1})
-    .then((diplomaItems: any) => diplomaItems.map((diplomaItem: IDiploma): IDiploma => {
-        if (!isAdmin) {
+    .then((diplomaItems: any) => diplomaItems.map((diplomaItem: Database.IDiploma): Database.IDiploma => {
+      if (!isAdmin) {
           return {
-            description: diplomaItem.description,
-            header: diplomaItem.header,
+            institute: diplomaItem.institute,
             graduateYear: diplomaItem.graduateYear,
-            picture: diplomaItem.picture,
+            image: diplomaItem.image,
             order: diplomaItem.order
           }
         }
@@ -26,7 +26,7 @@ export function readDiploma(isAdmin = false): Promise<Array<IDiploma>> {
     );
 }
 
-export function updateDiploma(_id: string, newDiploma: IDiploma): Promise<IDiploma> {
+export function updateDiploma(_id: string, newDiploma: Database.IDiploma): Promise<Database.IDiploma> {
   return Diploma.findByIdAndUpdate(_id, newDiploma)
     .then((w: any) => {
       return newDiploma

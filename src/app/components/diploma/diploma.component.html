@@ -1,10 +1,10 @@
 <div class="diploma-wrapper">
   <div class="diploma-photo-wrapper" (click)="showBigPicture()">
-    <div class="diploma-photo" [class.low-padding]="onPage" [style.background-image]="'url(' + diploma.picture + ')'"></div>
+    <div class="diploma-photo" [class.low-padding]="onPage" [style.background-image]="'url(' + diploma.image + ')'"></div>
   </div>
   <div class="diploma-description-wrapper" [class.align-left]="onPage">
     <div class="diploma-description">
-      <h4 class="diploma-description-header">{{diploma.header}}</h4>
+      <h4 class="diploma-description-header">{{diploma.institute}}</h4>
       <p class="diploma-description-graduate">{{diploma.graduateYear}}</p>
       <a routerLink="diplomas" *ngIf="!onPage && buttonText">
         <button class="diploma-button">{{buttonText}}</button>

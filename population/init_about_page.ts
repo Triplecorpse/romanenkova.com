@@ -1,11 +1,11 @@
-import {IPage, Page as Page} from "../server/models/page";
 import log from '../server/services/log-service'
 import {AboutPage} from "../server/models/aboutPage";
+import {Page} from "../_interface/IPage";
 
 const fs = require('fs');
 const util = require('util');
 
-export function getAboutPageDataV2(): Promise<Array<IPage>> {
+export function getAboutPageDataV2(): Promise<Array<Page.IAboutPage>> {
     return new Promise((resolve: any, reject: any) => {
         let images: Array<string> = ['https://res.cloudinary.com/hladvnf07/image/upload/v1546549649/v4bhnydnrrrklelbjm9u.jpg', 'https://res.cloudinary.com/hladvnf07/image/upload/v1546549649/rygktlemg9u9iy9trbhu.jpg'];
 

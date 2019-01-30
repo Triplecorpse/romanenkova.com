@@ -1,4 +1,4 @@
-import {TLanguage} from "../server/types/types";
+import {TLanguage} from "./types";
 
 export interface ILanguageObject {
   codeISO2: TLanguage;

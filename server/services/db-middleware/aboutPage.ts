@@ -1,4 +1,4 @@
-import {TLanguage} from "../../types/types";
+import {TLanguage} from "../../../_interface/types";
 import {AboutPage} from "../../models/aboutPage";
 import {Page} from "../../../_interface/IPage";
 import IAboutPage = Page.IAboutPage;

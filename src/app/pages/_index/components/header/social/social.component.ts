@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {IContact} from '../../../../../interfaces/IContact';
 import {Database} from "../../../../../../../_interface/IMongooseSchema";
 import {PageDataGuardService} from "../../../../../page-data-guard.service";
 

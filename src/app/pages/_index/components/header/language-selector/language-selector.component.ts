@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ILangItem} from '../../../../../interfaces/iLangItem';
 import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
 import {filter} from 'rxjs/operators';
 import {PageDataGuardService} from "../../../../../page-data-guard.service";

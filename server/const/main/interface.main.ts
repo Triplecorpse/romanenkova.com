@@ -1,12 +1,11 @@
-import {TLanguage} from "../../types/types";
-import {readInterface} from "../../services/db-middleware/interface";
+import {TLanguage} from "../../../_interface/types";
 
 import interfaceMainEn from "./interface.main.en";
 import interfaceMainFr from "./interface.main.fr";
 import interfaceMainRu from "./interface.main.ru";
 import interfaceMainUk from "./interface.main.uk";
 import {readDiploma} from "../../services/db-middleware/diploma";
-import {getReviews, readReview} from "../../services/db-middleware/review";
+import {readReview} from "../../services/db-middleware/review";
 import {Page} from "../../../_interface/IPage";
 import {readAbout} from "../../services/db-middleware/aboutPage";
 

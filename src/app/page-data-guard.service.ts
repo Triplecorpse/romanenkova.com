@@ -1,17 +1,13 @@
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
-import {ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Resolve, Router} from "@angular/router";
+import {ActivatedRouteSnapshot, CanActivate, Resolve, Router} from "@angular/router";
 import {Page} from "../../_interface/IPage";
 import {HttpClient} from "@angular/common/http";
 import {Observable, of} from "rxjs";
-import {isPlatformBrowser} from "@angular/common";
-import {store} from "@angular/core/src/render3/instructions";
 import {IIndexData} from "../../_interface/IIndexData";
 import {ILanguageObject} from "../../_interface/ILanguageObject";
 import {map, tap} from "rxjs/operators";
-import {ISchedule} from "./interfaces/iSchedule";
 import {Database} from "../../_interface/IMongooseSchema";
 import * as moment from 'moment-timezone';
-import {IModalAppointment} from "./interfaces/iModalAppointment";
 
 interface IPageData {
   index: IIndexData,

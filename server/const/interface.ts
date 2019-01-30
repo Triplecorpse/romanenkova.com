@@ -1,5 +1,5 @@
 import {getIndexInterface} from "./index/interface.index";
-import {TLanguage, TPageId} from "../types/types";
+import {TLanguage, TPageId} from "../../_interface/types";
 import {getMainInterface} from "./main/interface.main";
 import {getServicesInterface} from "./services/interface.services";
 import {getDiplomasInterface} from "./diplomas/interface.diplomas";
