@@ -8,6 +8,10 @@ import log from './services/log-service';
 import mongoose = require('mongoose');
 import {generateSiteMap} from "./services/file-service";
 import {getMilliseconds} from "./services/base";
+import {startMonitoring} from "./monitor";
+
+// startMonitoring();
+
 const cluster = require('cluster');
 
 require('dotenv').config();

@@ -1,5 +1,4 @@
 import express = require('express');
-import api from './api/index';
 import apiv2 from './apiv2/index';
 import {readFile} from '../services/file-service';
 import log from './../services/log-service';
@@ -62,7 +61,6 @@ router.use(express.static('./admin'));
 router.use(express.static('./static'));
 
 router.use('/admin', express.static('admin'));
-router.use('/api', api);
 router.use('/api/v2', apiv2);
 
 router.get('*', (req: IRequest, res: Response) => {
