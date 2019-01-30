@@ -9,6 +9,9 @@ import mongoose = require('mongoose');
 import {generateSiteMap} from "./services/file-service";
 import {getMilliseconds} from "./services/base";
 import {startMonitoring} from "./monitor";
+import http from 'http';
+
+http.globalAgent.maxSockets = 50;
 
 // startMonitoring();
 

@@ -18,11 +18,12 @@ export const configObj: any = {
 
 export async function getMainInterface(lang: TLanguage) {
   let interfaceObj: any = configObj[lang];
+  const dbitems = await Promise.all([readDiploma(), readReview(lang), readAbout(lang)]);
+  const about = dbitems[2];
 
-  interfaceObj.diploma.items = await readDiploma();
-  interfaceObj.review.items = await readReview(lang);
+  interfaceObj.diploma.items = dbitems[0];
+  interfaceObj.review.items = dbitems[1];
 
-  const about: Page.IAboutPage = await readAbout(lang);
   const firstImage = about.items ? about.items[0] : null;
   interfaceObj.about.items = [];
 
