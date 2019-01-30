@@ -1,4 +1,4 @@
-  # Irina Romanenkova's site
+  # Iryna Romanenkova's site
 
 ## init
 `set PORT={number}`

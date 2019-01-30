@@ -14,7 +14,7 @@ require('dotenv').config();
 
 const port: string = process.env.PORT as string;
 
-mongoose.connect(process.env.MONGODB_URI as string)
+mongoose.connect(process.env.MONGODB_URI as string, {useNewUrlParser: true})
     .then(startRegularBackups.bind(this, getMilliseconds(1, 'days')));
 
 generateSiteMap();

@@ -7,7 +7,7 @@ export default {
     button: 'View All'
   },
   about: {
-    header: 'Psychologist|Irina Romanenkova',
+    header: 'Psychologist|Iryna Romanenkova',
     button: 'About me'
   },
   review: {

@@ -73,6 +73,10 @@ export class PageDataGuardService implements CanActivate {
             this._appSettings.language = indexPage.language.codeISO2;
             this._appSettings.locale = indexPage.language;
             this._appSettings.locales = indexPage.availableLanguages;
+
+            if (!route.params.lang) {
+              this.router.navigate([this._appSettings.language]);
+            }
           }
         }),
         map((page: Page.IPage) => true)

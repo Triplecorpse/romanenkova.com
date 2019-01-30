@@ -33,7 +33,7 @@ export const langObjects: Array<ILanguageObject> = [
         pageMetadata: {
             description: 'Personal website of online psychologist',
             position: 'Psychologist',
-            firstName: 'Irina',
+            firstName: 'Iryna',
             lastName: 'Romanenkova',
             rootPageTitle: 'Main'
         }
@@ -45,7 +45,7 @@ export const langObjects: Array<ILanguageObject> = [
         pageMetadata: {
             description: 'Consultation et thérapie en ligne',
             position: 'Psychologue',
-            firstName: 'Irina',
+            firstName: 'Iryna',
             lastName: 'Romanenkova',
             rootPageTitle: 'Accueil'
         }

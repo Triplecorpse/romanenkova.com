@@ -17,7 +17,7 @@ export default {
   pageMetadata: {
     description: 'Consultation et thérapie en ligne',
     position: 'Psychologue',
-    firstName: 'Irina',
+    firstName: 'Iryna',
     lastName: 'Romanenkova',
     rootPageTitle: 'Accueil'
   },

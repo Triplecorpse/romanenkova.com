@@ -2,7 +2,7 @@ export default {
     en: {
         index: ["Online", "psychology"],
         attend: "Make an appointment",
-        name: ["Irina", "Romanenkova"],
+        name: ["Iryna", "Romanenkova"],
         position: "Psychologist",
         notificationEmail: "benzin.a95@gmail.com"
     },
@@ -23,7 +23,7 @@ export default {
     fr: {
         index: ["en ligne", "Psychologie"],
         attend: "Prendre rendez-vous",
-        name: ["Irina", "Romanenkova"],
+        name: ["Iryna", "Romanenkova"],
         position: "Psychologue",
         notificationEmail: "benzin.a95@gmail.com"
     }

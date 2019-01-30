@@ -9,7 +9,7 @@ import {readFile} from "../file-service";
 import {IAppointment} from "../../interfaces/iAppointment";
 
 export function sendEmail(message: IMail): Promise<any> {
-    message.from = message.from || 'Irina Romanenkova <info@romanenkova.com>';
+    message.from = message.from || 'Iryna Romanenkova <info@romanenkova.com>';
 
     if (!message.to) {
         return Promise.reject(new Error('Email should have TO filed'));

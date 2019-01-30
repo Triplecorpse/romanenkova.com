@@ -34,7 +34,7 @@ export class AboutComponent implements OnInit {
 
   showParagraph(paragraph: string): boolean {
     if (isPlatformServer(this.platformId)) {
-      return paragraph.indexOf('</a>') > -1;
+      return paragraph.indexOf('</a>') === -1;
     }
 
     return true;

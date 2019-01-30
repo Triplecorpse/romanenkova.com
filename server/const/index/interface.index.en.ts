@@ -17,7 +17,7 @@ export default {
   pageMetadata: {
     description: 'Online Counseling & Therapy',
     position: 'Psychologist',
-    firstName: 'Irina',
+    firstName: 'Iryna',
     lastName: 'Romanenkova',
     rootPageTitle: 'Main'
   },

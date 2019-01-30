@@ -24,7 +24,6 @@
     "dbread": "tsc --project population && node population/readdb",
     "dbserviceitems": "tsc --project server && node population/init -- serviceItem",
     "serve:local": "ng serve --configuration=local --aot --port=4201",
-    "build:local:watch": "ng run front:server:local && ng build --configuration=local --aot --watch",
     "build:local": "node .env.copy.development && ng run front:server:local && npm run build && npm run build:ssr && ng build --configuration=local --aot",
     "build:development": "node .env.copy.development && ng run front:server:qa && npm run build && npm run build:ssr && ng build --configuration=qa --aot && git add dist/. && git add front/.",
     "build:staging": "node .env.copy.development && ng run front:server:staging && npm run build && npm run build:ssr && ng build --configuration=staging --aot && git add dist/. && git add front/.",

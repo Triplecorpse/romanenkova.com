@@ -9,7 +9,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
             pageData: [
                 {name: ["Online", "psychologist"], anchor: "main"},
                 {name: "Make an appointment", anchor: "appointment"},
-                {name: ["Psychologist", "Irina", "Romanenkova"], anchor: "name"},
+                {name: ["Psychologist", "Iryna", "Romanenkova"], anchor: "name"},
                 {name: "About me", anchor: "about"},
                 {name: "Services", anchor: "services"},
                 {name: "Diplomas", anchor: "diplomas"},
@@ -54,7 +54,7 @@ export function getNavPageData(): Promise<Array<IPage>> {
             pageData: [
                 {name: ["En ligne", "Psychologue"], anchor: "main"},
                 {name: "Prendre rendez-vous", anchor: "appointment"},
-                {name: ["Psychologue", "Irina", "Romanenkova"], anchor: "name"},
+                {name: ["Psychologue", "Iryna", "Romanenkova"], anchor: "name"},
                 {name: "A propos de moi", anchor: "about"},
                 {name: "Services", anchor: "services"},
                 {name: "Diplômes", anchor: "diplomas"},

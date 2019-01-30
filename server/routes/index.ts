@@ -22,7 +22,7 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
         languages.find((acceptable: string) => lang.language === acceptable)
     );
 
-    req.language = req.query.lang || (languageObj ? languageObj.language : 'en');
+    req.language = req.query.lang || req.cookies.lang || (languageObj ? languageObj.language : 'en');
     next();
 });
 
@@ -45,15 +45,11 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
         return next();
     }
 
-    req.language = req.params.lang || req.cookies.lang || req.language;
-
-    if (!req.params.lang) {
-        return res.redirect(`${req.baseUrl}/${req.language}`);
-    }
+    req.language = req.params.lang || req.language;
 
     const DIST_FOLDER = join(process.cwd(), 'front');
 
-    res.cookie('lang', req.language, { maxAge: 900000, httpOnly: true });
+    res.cookie('lang', req.language, { maxAge: 900000, httpOnly: false });
     res.render(join(DIST_FOLDER, 'index.html'), {req});
 });
 router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {
@@ -64,11 +60,11 @@ router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {
 router.use(express.static('./front'));
 router.use(express.static('./admin'));
 router.use(express.static('./static'));
+
 router.use('/admin', express.static('admin'));
 router.use('/api', api);
 router.use('/api/v2', apiv2);
 
-// todo: decide either to do page 404 or redirect to /:lang
 router.get('*', (req: IRequest, res: Response) => {
   res.status(404).redirect(`${req.baseUrl}/404`);
 });
