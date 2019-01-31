@@ -4,6 +4,7 @@ import IRequest from "../../interfaces/iRequest";
 import {NextFunction, Response} from "express-serve-static-core";
 import {validateToken} from "../../services/security-services/auth-service";
 import getReviewRouter from "./review";
+import getPrivacyPolicyRouter from "./privacyPolicy";
 
 const router = express.Router();
 
@@ -38,5 +39,6 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
 
 router.use('/interface', getInterfaceRouter(router));
 router.use('/review', getReviewRouter(router));
+router.use('/privacy-policy', getPrivacyPolicyRouter(router));
 
 export default router;

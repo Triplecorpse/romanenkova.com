@@ -35,7 +35,6 @@ router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextF
 
     const DIST_FOLDER = join(process.cwd(), 'front');
 
-    res.cookie('lang', req.language, { maxAge: 900000, httpOnly: false });
     res.render(join(DIST_FOLDER, 'index.html'), {req});
 });
 router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {

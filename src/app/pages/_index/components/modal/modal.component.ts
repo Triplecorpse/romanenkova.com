@@ -18,6 +18,7 @@ import {fade} from '../../shortcuts/animations';
 })
 export class ModalComponent implements OnInit {
   isModalOpen: boolean;
+  canClose: boolean;
   isFullScreen: boolean;
   openModalName: string;
   template: TemplateRef<any>;
@@ -40,7 +41,7 @@ export class ModalComponent implements OnInit {
 
   public closeModal(status: 'dismiss' | 'success', resolve: any): void {
     if (this.modalService.closeWithBackdrop) {
-      this.modalService.closeModal('appointment', status, resolve);
+      this.modalService.closeModal(this.openModalName, status, resolve);
     }
   }
 
@@ -68,6 +69,7 @@ export class ModalComponent implements OnInit {
       this.template = template;
       this.context = data.context;
       this.renderer.addClass(document.body, 'modal-overlay');
+      this.canClose = this.modalService.closeWithBackdrop;
       this.isFullScreen = this.modalService.isFullScreen;
       this.changeDetectorRef.detectChanges();
     });

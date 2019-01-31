@@ -54,23 +54,30 @@ export default {
     options: [
       {
         header: 'Allow tracking with Google Analytics',
-        subscr: 'An anonymous statistics will be sent to Google Analytics',
-        items: ['Your IP-based location', 'Your system data (OS, browser, platform etc)']
+        subscr: 'If there were previous session with your consent, Google Analytics cookies will remain. However, you won\'t be tracked. An anonymous statistics will be sent to Google Analytics',
+        items: ['Your IP-based location', 'Your system data (OS, browser, platform etc)'],
+        model: true,
+        entityId: 'ga'
       },
       {
         header: 'Allow site\'s cookies',
-        subscr: 'Save selected language'
+        subscr: 'Save selected language',
+        model: true,
+        entityId: 'site'
       },
       {
         header: 'Don\'t show again for 1 week',
-        subscr: 'Requires setting of cookie'
+        subscr: 'Requires setting of cookie',
+        model: true,
+        entityId: 'save'
       }
-    ]
+    ],
+    privacyPolicy: 'Please read our Privacy Policy carefully so that you have a complete understanding of how we collect, store and use personal data.'
   },
   footer: {
     designed: 'Designed by: <strong><a href="https://www.behance.net/Aleksandr_Gaidai" target="_blank">Oleksandr Gaidai</a></strong>',
     qna: 'Ask a question or leave a comment',
-    termspolicy: 'Terms & Policy'
+    termspolicy: 'Privacy Policy'
   },
   tcIsLoading: 'Loading...'
 } as IIndexData;

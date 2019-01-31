@@ -4,14 +4,16 @@ import {
   ViewChild
 } from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
-import {DOCUMENT, isPlatformBrowser, isPlatformServer} from '@angular/common';
+import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
-import {filter} from 'rxjs/operators';
+import {filter, take} from 'rxjs/operators';
 import {ModalService} from '../../services/modal.service';
 import {environment} from "../../../../../environments/environment";
 import {PageDataGuardService} from "../../../../page-data-guard.service";
 import {CookieService} from "../../services/cookie.service";
-import {ICookiesConsentModal} from "../../../../../../_interface/ICookiesConsentModal";
+import {ICookiesConsentModal, ICookiesConsentOption} from "../../../../../../_interface/ICookiesConsentModal";
+import {FooterComponent} from "../footer/footer.component";
+import {IModalEvent} from "../../../../interfaces/iModalEvent";
 
 @Component({
   selector: 'app-index',
@@ -30,6 +32,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   public modalConsent: ICookiesConsentModal;
 
   @ViewChild('cookieConfirmationModal') private cookieConfirmationModal: TemplateRef<any>;
+  @ViewChild('footerComponent') private footerComponent: FooterComponent;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
               @Inject(DOCUMENT) private document: Document,
@@ -44,7 +47,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
 
     const pageData = this.pageDataGuardService.pageData;
 
-    if (isPlatformBrowser(this.platformId) && this.cookieService.get('allow') === '1') {
+    if (isPlatformBrowser(this.platformId) && this.cookieService.get('allow') === '1' && this.cookieService.get('dont') === '1') {
       this.addTrackerCode();
       this.allowTracking = true;
     }
@@ -107,17 +110,23 @@ export class IndexComponent implements OnInit, AfterViewInit {
     this.document.head.appendChild(ga);
   }
 
-  agreeToCookies() {
+  agreeToCookies(options: Array<ICookiesConsentOption>) {
     if (isPlatformBrowser(this.platformId)) {
-      if (this.dontShowAgain) {
-        this.cookieService.set('dont', '1', 7);
-      }
+      options.filter(o => o.model).forEach((o: ICookiesConsentOption) => {
+        if (o.entityId === 'ga') {
+          this.allowTracking = true;
+          this.cookieService.set('allow', '1', 7);
+          this.addTrackerCode();
+        }
 
-      if (this.gaTrack) {
-        this.allowTracking = true;
-        this.cookieService.set('allow', '1', 7);
-        this.addTrackerCode();
-      }
+        if (o.entityId === 'save') {
+          this.cookieService.set('dont', '1', 7);
+        }
+
+        if (o.entityId === 'site') {
+          this.cookieService.set('lang', this.pageDataGuardService.appSettings.language, 7);
+        }
+      });
     }
 
     this.closeModal();
@@ -143,5 +152,14 @@ export class IndexComponent implements OnInit, AfterViewInit {
     if (!this.cookieService.get('dont') && isPlatformBrowser(this.platformId)) {
       this.modalService.openModal('cookieConfirm', this.cookieConfirmationModal, {}, {closeWithBackdrop: false});
     }
+  }
+
+  showPP() {
+    this.footerComponent.openTC();
+    this.modalService.modalEvent.pipe(
+      filter((modalEvent: IModalEvent): boolean => modalEvent.type === 'dismiss' || modalEvent.type === 'success'),
+      filter((modalEvent: IModalEvent): boolean => modalEvent.name === 'tc'),
+      take(1),
+    ).subscribe(this.ngAfterViewInit.bind(this));
   }
 }

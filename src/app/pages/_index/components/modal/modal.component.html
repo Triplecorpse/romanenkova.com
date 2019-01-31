@@ -1,7 +1,7 @@
 <div class="modal-wrapper" @fade *ngIf="isModalOpen"></div>
 <div class="modal-container" @fade *ngIf="isModalOpen" (click)="closeModal('dismiss', null)">
   <div class="modal-window" [class.full-screen]="isFullScreen" (click)="stopPropagation($event)">
-    <div class="modal-close-button" (click)="closeModal('dismiss', null)"></div>
+    <div class="modal-close-button" (click)="closeModal('dismiss', null)" *ngIf="canClose"></div>
     <ng-container *ngTemplateOutlet="template; context: {modalData: context, events: events$}"></ng-container>
   </div>
 </div>

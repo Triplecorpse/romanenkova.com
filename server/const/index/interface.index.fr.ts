@@ -54,23 +54,30 @@ export default {
     options: [
       {
         header: 'Autoriser le suivi avec Google Analytics',
-        subscr: 'Des statistiques anonymes seront envoyées à Google Analytics',
-        items: ['Votre emplacement IP', 'Vos données système (système d\'exploitation, navigateur, plate-forme, etc.)']
+        subscr: 'S\'il y avait une session précédente avec votre consentement, les cookies de GA resteront. Cependant, vous ne serez pas suivi. Des statistiques anonymes seront envoyées à Google Analytics',
+        items: ['Votre emplacement IP', 'Vos données système (système d\'exploitation, navigateur, plate-forme, etc.)'],
+        model: true,
+        entityId: 'ga'
       },
       {
         header: 'Autoriser les cookies du site',
-        subscr: 'Enregistrer la langue sélectionnée'
+        subscr: 'Enregistrer la langue sélectionnée',
+        model: true,
+        entityId: 'site'
       },
       {
         header: 'Ne plus montrer pendant une semaine',
-        subscr: 'Nécessite la configuration d\'un cookie'
+        subscr: 'Nécessite la configuration d\'un cookie',
+        model: true,
+        entityId: 'save'
       }
-    ]
+    ],
+    privacyPolicy: 'Veuillez lire attentivement notre politique de confidentialité afin de bien comprendre comment nous recueillons, stockons et utilisons les données personnelles.'
   },
   footer: {
     designed: 'Conçu par: <strong><a href="https://www.behance.net/Aleksandr_Gaidai" target="_blank">Oleksandr Gaidai</a></strong>',
     qna: 'Poser une question ou laisser un commentaire',
-    termspolicy: 'Termes et politique'
+    termspolicy: 'Politique de confidentialité'
   },
   tcIsLoading: 'Chargement...'
 } as IIndexData;

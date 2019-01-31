@@ -12,7 +12,7 @@ export class CookieService {
     const now = new Date().getTime();
     const expires = new Date(now + expiresInDays * 24 * 60 * 60 * 1000);
     const expiresLocal = expires ? `; expires=${expires}` : '';
-    this.document.cookie = `${name}=${value}${expiresLocal}`;
+    this.document.cookie = `${name}=${value}${expiresLocal}; path=/;`;
   }
 
   public getAll(): {[key: string]: string} {

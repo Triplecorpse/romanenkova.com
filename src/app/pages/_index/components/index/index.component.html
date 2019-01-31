@@ -5,7 +5,7 @@
     <router-outlet></router-outlet>
   </main>
 
-  <app-footer class="footer" *ngIf="isBrowser"></app-footer>
+  <app-footer class="footer" *ngIf="isBrowser" #footerComponent></app-footer>
 </div>
 
 <app-modal></app-modal>
@@ -16,7 +16,7 @@
     <div class="info-wrapper">
       <div class="row" *ngFor="let option of modalConsent.options; let i = index">
         <div class="checkbox">
-          <input type="checkbox" id="c-{{i}}" [(ngModel)]="gaTrack" [ngModelOptions]="{standalone: true}">
+          <input type="checkbox" id="c-{{i}}" [(ngModel)]="option.model" [ngModelOptions]="{standalone: true}">
         </div>
         <div class="label">
           <label for="c-{{i}}">{{option.header}}</label>
@@ -26,10 +26,11 @@
           </ul>
         </div>
       </div>
+      <p (click)="showPP()" class="privacy-policy">{{modalConsent.privacyPolicy}}</p>
     </div>
 
     <div class="button-wrapper">
-      <button class="button yes" (click)="agreeToCookies()">OK</button>
+      <button class="button yes" (click)="agreeToCookies(modalConsent.options)">OK</button>
     </div>
   </div>
 </ng-template>
