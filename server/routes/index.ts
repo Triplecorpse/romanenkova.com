@@ -25,19 +25,6 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     next();
 });
 
-router.get(['/admin', '/admin/*'], (req: IRequest, res: Response, next: NextFunction) => {
-    if (req.path.includes('assets')) {
-        return next();
-    }
-
-    readFile('./admin/index.html')
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send(err.message);
-        })
-});
 router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
     // continue routing if language is not acceptable
     if (req.params.lang && languages.indexOf(req.params.lang) === -1 && req.params.lang !== '404') {
@@ -57,10 +44,8 @@ router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {
 });
 
 router.use(express.static('./front'));
-router.use(express.static('./admin'));
 router.use(express.static('./static'));
 
-router.use('/admin', express.static('admin'));
 router.use('/api/v2', apiv2);
 
 router.get('*', (req: IRequest, res: Response) => {

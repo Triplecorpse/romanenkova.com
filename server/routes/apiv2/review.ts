@@ -8,6 +8,7 @@ import {sendEmail} from "../../services/user-services/email-service";
 export default function getReviewRouter(router: any) {
   router.post('/', async (req: IRequest, res: Response) => {
     const name = req.body.name || 'Anonymous';
+
     await validateRecaptcha(req.body.recaptcha).catch((e: any) => {
       res.status(400).json(errorMessages.captcha[req.body.language]);
       throw e;
@@ -26,6 +27,9 @@ export default function getReviewRouter(router: any) {
               -----------------------------------
               FEEDBACK: ${req.body.body}
             `
+    }).catch((e: any) => {
+      res.status(400).json(errorMessages.email[req.body.language]);
+      throw e;
     });
 
     const header = successMessages.review.header[req.body.language];

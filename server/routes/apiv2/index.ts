@@ -23,12 +23,16 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
         .then(() => {
           req.isTokenValid = true;
           next();
+        })
+        .catch((e: Error) => {
+          res.sendStatus(401);
+          throw new Error(e.message);
         });
     } else {
       next();
     }
   } else {
-    res.status(403).json({m: `Request from domain romanenkova.com only`});
+    res.status(403).json({m: `Request allowed from domain romanenkova.com only`});
   }
 });
 
