@@ -14,7 +14,7 @@ export class ModalService {
     return this._modalEvent.asObservable();
   }
 
-  public openModal(name: string, tpl: TemplateRef<any>, ctx: any, options: IModalOptions = {}) {
+  public openModal<T = any>(name: string, tpl: TemplateRef<T>, ctx: T, options: IModalOptions = {}) {
     this.closeWithBackdrop = options.closeWithBackdrop !== false;
     this.isFullScreen = options.fullScreen;
     this._modalEvent.next({name, type: 'open', success: true, template: tpl, context: ctx});
@@ -30,7 +30,7 @@ export class ModalService {
     this._modalEvent.next({name: 'alert', type: 'open', success: true, context: options});
   };
 
-  public closeModal(name: string, type: 'dismiss' | 'success', data: any) {
+  public closeModal(name: string, type?: 'dismiss' | 'success', data?: any) {
     this._modalEvent.next({name, type, success: type === 'success', resolve: data});
   }
 }

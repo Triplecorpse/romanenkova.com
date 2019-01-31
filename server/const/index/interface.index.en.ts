@@ -48,5 +48,29 @@ export default {
   },
   availableLanguages: [],
   services: [],
-  schedule: []
+  schedule: [],
+  cookies: {
+    header: 'Would you like to allow cookies?',
+    options: [
+      {
+        header: 'Allow tracking with Google Analytics',
+        subscr: 'An anonymous statistics will be sent to Google Analytics',
+        items: ['Your IP-based location', 'Your system data (OS, browser, platform etc)']
+      },
+      {
+        header: 'Allow site\'s cookies',
+        subscr: 'Save selected language'
+      },
+      {
+        header: 'Don\'t show again for 1 week',
+        subscr: 'Requires setting of cookie'
+      }
+    ]
+  },
+  footer: {
+    designed: 'Designed by: <strong><a href="https://www.behance.net/Aleksandr_Gaidai" target="_blank">Oleksandr Gaidai</a></strong>',
+    qna: 'Ask a question or leave a comment',
+    termspolicy: 'Terms & Policy'
+  },
+  tcIsLoading: 'Loading...'
 } as IIndexData;

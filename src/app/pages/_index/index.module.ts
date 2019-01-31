@@ -22,6 +22,7 @@ import {NgxCaptchaModule} from 'ngx-captcha';
 import { OverviewDiplomasComponent } from './components/overview-diplomas/overview-diplomas.component';
 import {environment} from "../../../environments/environment";
 import {PageDataGuardService} from "../../page-data-guard.service";
+import {CookieService} from "./services/cookie.service";
 
 @NgModule({
   imports: [
@@ -88,7 +89,8 @@ import {PageDataGuardService} from "../../page-data-guard.service";
     OverviewDiplomasComponent
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+    CookieService
   ],
   exports: []
 })

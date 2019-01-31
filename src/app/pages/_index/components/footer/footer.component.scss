@@ -1,8 +1,29 @@
+@import './../../../../styles/variables';
+
 .footer {
   background-repeat: no-repeat;
   background-image: url(/assets/footer.png);
   background-position: 50% 100%;
   background-size: cover;
   width: 100%;
-  padding-bottom: 200px;
+  padding-bottom: 150px;
+
+  &-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+
+    .link {
+      padding: 0 10px;
+      border-right: 1px solid black;
+
+      &.tc {
+        cursor: pointer;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
 }

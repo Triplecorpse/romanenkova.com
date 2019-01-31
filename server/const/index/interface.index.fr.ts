@@ -48,5 +48,29 @@ export default {
   },
   availableLanguages: [],
   services: [],
-  schedule: []
+  schedule: [],
+  cookies: {
+    header: 'Voulez-vous autoriser les cookies?',
+    options: [
+      {
+        header: 'Autoriser le suivi avec Google Analytics',
+        subscr: 'Des statistiques anonymes seront envoyées à Google Analytics',
+        items: ['Votre emplacement IP', 'Vos données système (système d\'exploitation, navigateur, plate-forme, etc.)']
+      },
+      {
+        header: 'Autoriser les cookies du site',
+        subscr: 'Enregistrer la langue sélectionnée'
+      },
+      {
+        header: 'Ne plus montrer pendant une semaine',
+        subscr: 'Nécessite la configuration d\'un cookie'
+      }
+    ]
+  },
+  footer: {
+    designed: 'Conçu par: <strong><a href="https://www.behance.net/Aleksandr_Gaidai" target="_blank">Oleksandr Gaidai</a></strong>',
+    qna: 'Poser une question ou laisser un commentaire',
+    termspolicy: 'Termes et politique'
+  },
+  tcIsLoading: 'Chargement...'
 } as IIndexData;

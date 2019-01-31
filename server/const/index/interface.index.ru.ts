@@ -48,5 +48,29 @@ export default {
   },
   availableLanguages: [],
   services: [],
-  schedule: []
+  schedule: [],
+  cookies: {
+    header: 'Вы бы хотели разрешить использование cookies?',
+    options: [
+      {
+        header: 'Разрешить отслеживание Google Analytics',
+        subscr: 'На Google Analytics будет отправлена анонимная статистика',
+        items: ['Ваша геолокация, основанная на IP', 'Ваши системные характеристики (ОС, браузер, платформа и т.д.)']
+      },
+      {
+        header: 'Разрешить cookies сайта',
+        subscr: 'Сохранять выбранный язык'
+      },
+      {
+        header: 'Не спрашивать в течение 1 недели',
+        subscr: 'Требуется запись в куки'
+      }
+    ]
+  },
+  footer: {
+    designed: 'Дизайн разработан: <strong><a href="https://www.behance.net/Aleksandr_Gaidai" target="_blank">Александр Гайдай</a></strong>',
+    qna: 'Задать вопрос или оставить комментарий',
+    termspolicy: 'Правила пользования'
+  },
+  tcIsLoading: 'Загрузка...'
 } as IIndexData;

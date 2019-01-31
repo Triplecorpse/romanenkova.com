@@ -2,4 +2,18 @@
   <div class="contacts-wrapper">
     <app-contacts></app-contacts>
   </div>
+  <div class="footer-links">
+    <!--<a class="link">{{footer.qna}}</a>-->
+    <div class="link tc" (click)="openTC()">{{footer.termspolicy}}</div>
+    <div class="link" [innerHTML]="footer.designed"></div>
+  </div>
 </footer>
+
+<ng-template #tcModalLoadingTpl let-modalData="modalData">
+  <h3>{{modalData}}</h3>
+</ng-template>
+
+<ng-template #tcModalTpl let-modalData="modalData">
+  <h3>{{modalData.header}}</h3>
+  <p *ngFor="let p of modalData.body.split('\n')">{{p}}</p>
+</ng-template>

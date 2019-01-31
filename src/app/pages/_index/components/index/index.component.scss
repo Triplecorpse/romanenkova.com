@@ -45,4 +45,36 @@
       }
     }
   }
+
+  .info-wrapper {
+    .row {
+      display: flex;
+      margin: 5px 0;
+
+      .checkbox {
+        margin-right: 10px;
+      }
+
+      .list {
+        list-style-position: outside;
+        margin-left: 18px;
+
+        li {
+          line-height: 1;
+          color: lighten($color-text-regular, 60);
+        }
+      }
+
+      .subscr {
+        font-size: .8em;
+        color: lighten($color-text-regular, 60);
+        line-height: 1;
+
+        &.block {
+          display: block;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
 }
