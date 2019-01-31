@@ -127,6 +127,16 @@ export class IndexComponent implements OnInit, AfterViewInit {
           this.cookieService.set('lang', this.pageDataGuardService.appSettings.language, 7);
         }
       });
+
+      options.filter(o => !o.model).forEach((o: ICookiesConsentOption) => {
+        if (o.entityId === 'save') {
+          this.cookieService.delete('dont');
+        }
+
+        if (o.entityId === 'site') {
+          this.cookieService.delete('lang');
+        }
+      });
     }
 
     this.closeModal();
@@ -145,6 +155,10 @@ export class IndexComponent implements OnInit, AfterViewInit {
       this.meta.addTag({ name: 'og:locale', content: `${locale.codeISO2}_${locale.locale}`});
       this.meta.addTag({ name: 'og:description', content: this.pageDataGuardService.pageData.index.pageMetadata.description});
       this.isBrowser = true;
+
+      if (this.cookieService.get('lang')) {
+        this.cookieService.set('lang', this.pageDataGuardService.appSettings.language, 7)
+      }
     }
   }
 
