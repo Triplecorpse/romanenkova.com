@@ -7,6 +7,9 @@ import {IModalEvent} from '../../../../interfaces/iModalEvent';
 import {filter} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {fade} from '../../shortcuts/animations';
+import {ITermsPolicy} from "../../../../../../_interface/ITermsPolicy";
+import {HttpClient} from "@angular/common/http";
+import {PageDataGuardService} from "../../../../page-data-guard.service";
 
 @Component({
   selector: 'app-modal',
@@ -24,8 +27,13 @@ export class ModalComponent implements OnInit {
   template: TemplateRef<any>;
   context: any;
   events$: Subject<any> = new Subject();
+  tc: ITermsPolicy = {header: '', body: ''};
+  public isLoadingText: string;
+
   @ViewChild('lightboxTpl') public lightbox: TemplateRef<string>;
   @ViewChild('alertTpl') public alert: TemplateRef<{header: string; body: string}>;
+  @ViewChild('tcModalLoadingTpl') public tcModalLoadingTpl: TemplateRef<string>;
+  @ViewChild('tcModalTpl') public tcModalTpl: TemplateRef<ITermsPolicy>;
   @HostListener('window:scroll', ['$event'])
   private scrollListener($event) {
     if (this.isModalOpen) {
@@ -36,8 +44,9 @@ export class ModalComponent implements OnInit {
   constructor(private modalService: ModalService,
               private renderer: Renderer2,
               private changeDetectorRef: ChangeDetectorRef,
-              @Inject(PLATFORM_ID) private platformId: Object) {
-  }
+              private httpClient: HttpClient,
+              private pageDataGuardService: PageDataGuardService,
+              @Inject(PLATFORM_ID) private platformId: Object) { }
 
   public closeModal(status: 'dismiss' | 'success', resolve: any): void {
     if (this.modalService.closeWithBackdrop) {
@@ -51,6 +60,7 @@ export class ModalComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.isLoadingText = this.pageDataGuardService.pageData.index.tcIsLoading;
     this.modalService.modalEvent.pipe(
       filter((modalEvent: IModalEvent): boolean => modalEvent.type === 'open')
     ).subscribe((data: IModalEvent): void => {
@@ -60,6 +70,8 @@ export class ModalComponent implements OnInit {
         template = this.lightbox;
       } else if (data.name === 'alert') {
         template = this.alert;
+      } else if (data.name === 'privacy-policy') {
+        return this.loadPrivacyPolicy();
       } else {
         template = data.template;
       }
@@ -86,6 +98,20 @@ export class ModalComponent implements OnInit {
   public openPicture(src: string) {
     if (isPlatformBrowser(this.platformId)) {
       window.open(src);
+    }
+  }
+
+  public loadPrivacyPolicy() {
+    if (this.tc.header) {
+      this.modalService.openModal('tc', this.tcModalTpl, this.tc);
+    } else {
+      this.modalService.openModal('tcl', this.tcModalLoadingTpl, this.isLoadingText);
+      this.httpClient.get<ITermsPolicy>('privacy-policy', {params: {v: '2'}})
+        .subscribe((pp: ITermsPolicy) => {
+          this.tc = pp;
+          this.modalService.closeModal('tcl');
+          this.modalService.openModal('tc', this.tcModalTpl, this.tc);
+        });
     }
   }
 }

@@ -51,6 +51,7 @@ export class AttendButtonComponent implements OnInit {
   public dateControl: FormControl;
   public contactNameControl: FormControl;
   public contactValueControl: FormControl;
+  public agreePP: FormControl;
   private timeControl: FormControl;
   private serviceControl: FormControl;
 
@@ -104,6 +105,7 @@ export class AttendButtonComponent implements OnInit {
     this.contactValueControl = new FormControl({value: '', disabled: !this.contactNameControl.value});
     this.timeControl = new FormControl({value: '', disabled: !this.dateControl.value});
     this.serviceControl = new FormControl({value: this.service, disabled: !!this.service});
+    this.agreePP = new FormControl('', Validators.required);
     this.formGroup = this.formBuilder.group({
       name: new FormControl('', Validators.required),
       contactNameControl: this.contactNameControl,
@@ -113,6 +115,7 @@ export class AttendButtonComponent implements OnInit {
       time: this.timeControl,
       message: new FormControl(),
       service: this.serviceControl,
+      agreepp: this.agreePP,
       recaptcha: new FormControl('', Validators.required)
     });
 
@@ -180,6 +183,10 @@ export class AttendButtonComponent implements OnInit {
         date: e.value.date ? e.value.date.format('DD.MM.YYYY') : null,
         timezone: `${guessed} ${timezone}`,
         service
+      }, {
+        params: {
+          v: '2'
+        }
       }
     ).subscribe((data: any) => {
       this.isSubmitting = false;
@@ -230,5 +237,9 @@ export class AttendButtonComponent implements OnInit {
       }
       this.timeSlots.push(...slots);
     });
+  }
+
+  openPP() {
+    this.modalService.openPrivacyPolicy('appointment', this.modalAppointmentRef, this.modalAppointment);
   }
 }

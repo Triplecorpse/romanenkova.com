@@ -18,3 +18,12 @@
     <p>{{modalData.body}}</p>
   </div>
 </ng-template>
+
+<ng-template #tcModalLoadingTpl let-modalData="modalData">
+  <h3>{{modalData}}</h3>
+</ng-template>
+
+<ng-template #tcModalTpl let-modalData="modalData">
+  <h3>{{modalData.header}}</h3>
+  <div [innerHTML]="modalData.body" class="pp-body"></div>
+</ng-template>

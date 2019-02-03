@@ -29,6 +29,9 @@
                 icon="icon-small-arrow-down" [list]="services" [events$]="events"
                 listDisplayProperty="headerAndPrice"></app-select>
     <app-textarea [label]="modalData.message" type="text" formControlName="message"></app-textarea>
+    <div class="privacy-policy">
+      <label><input type="checkbox" formControlName="agreepp" name="agreepp"> {{modalData.agree[0]}} <span (click)="openPP()">{{modalData.agree[1]}}</span></label>
+    </div>
     <div class="recaptcha">
       <ngx-recaptcha2 #captchaElement formControlName="recaptcha" [hl]="lang" theme="light" (expire)="handleExpire()"
                       (success)="handleSuccess($event)"></ngx-recaptcha2>

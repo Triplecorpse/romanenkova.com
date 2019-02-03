@@ -17,14 +17,39 @@
       padding: 0 10px;
       border-right: 1px solid black;
 
+      &.designed::ng-deep {
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+
       &.tc {
         cursor: pointer;
         font-weight: 700;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
 
       &:last-child {
         border-right: none;
       }
     }
+  }
+}
+
+.pp-body::ng-deep {
+  h4 {
+    margin-top: 20px;
+  }
+
+  li {
+    margin-top: 10px;
+  }
+
+  p {
+    font-size: .8em;
+    color: lighten($color-text-regular, 60);
   }
 }

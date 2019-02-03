@@ -6,7 +6,7 @@ import {createReview} from "../../services/db-middleware/review";
 import {sendEmail} from "../../services/user-services/email-service";
 
 export default function getReviewRouter(router: any) {
-  router.post('/', async (req: IRequest, res: Response) => {
+  router.post('/review', async (req: IRequest, res: Response) => {
     const name = req.body.name || 'Anonymous';
 
     await validateRecaptcha(req.body.recaptcha).catch((e: any) => {

@@ -1,6 +1,7 @@
 import {Injectable, TemplateRef} from '@angular/core';
 import {Subject} from 'rxjs';
 import {IModalEvent} from '../../../interfaces/iModalEvent';
+import {filter, take} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,21 @@ export class ModalService {
     this.isFullScreen = true;
     this.closeWithBackdrop = true;
     this._modalEvent.next({name: 'lightbox', type: 'open', success: true, context: src});
+  };
+
+  public openPrivacyPolicy<T = any>(afterCloseName?: string,
+                                    afterCloseTpl?: TemplateRef<T>,
+                                    afterCloseCtx?: T,
+                                    afterCloseOptions: IModalOptions = {}) {
+    this.isFullScreen = false;
+    this.closeWithBackdrop = true;
+    this._modalEvent.next({name: 'privacy-policy', type: 'open', success: true});
+
+    this.modalEvent.pipe(
+      filter((modalEvent: IModalEvent): boolean => modalEvent.type === 'dismiss' || modalEvent.type === 'success'),
+      filter((modalEvent: IModalEvent): boolean => modalEvent.name === 'tc'),
+      take(1),
+    ).subscribe(this.openModal.bind(this, afterCloseName, afterCloseTpl, afterCloseCtx, afterCloseOptions));
   };
 
   public alert(options: {header: string; body: string;}) {

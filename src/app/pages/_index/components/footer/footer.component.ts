@@ -24,7 +24,7 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
     this.footer = this.pageDataGuardService.pageData.index.footer;
     this.isLoadingText = this.pageDataGuardService.pageData.index.tcIsLoading;
-    this.tc = {header: '', body: []}
+    this.tc = {header: '', body: ''}
   }
 
   openTC() {
@@ -34,6 +34,7 @@ export class FooterComponent implements OnInit {
       this.modalService.openModal('tcl', this.tcModalLoadingTpl, this.isLoadingText);
       this.httpClient.get<ITermsPolicy>('privacy-policy', {params: {v: '2'}})
         .subscribe((pp: ITermsPolicy) => {
+          console.log(pp);
           this.tc = pp;
           this.modalService.closeModal('tcl');
           this.modalService.openModal('tc', this.tcModalTpl, this.tc);

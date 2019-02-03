@@ -5,7 +5,7 @@
   <div class="footer-links">
     <!--<a class="link">{{footer.qna}}</a>-->
     <div class="link tc" (click)="openTC()">{{footer.termspolicy}}</div>
-    <div class="link" [innerHTML]="footer.designed"></div>
+    <div class="link designed" [innerHTML]="footer.designed"></div>
   </div>
 </footer>
 
@@ -15,5 +15,5 @@
 
 <ng-template #tcModalTpl let-modalData="modalData">
   <h3>{{modalData.header}}</h3>
-  <!--<p *ngFor="let p of modalData.body.split('\n')">{{p}}</p>-->
+  <div [innerHTML]="tc.body" class="pp-body"></div>
 </ng-template>

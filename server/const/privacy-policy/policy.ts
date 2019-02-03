@@ -3,6 +3,7 @@ import policyRu from "./policy.ru";
 import policyUk from "./policy.uk";
 import policyFr from "./policy.fr";
 import {TLanguage} from "../../../_interface/types";
+import {readFile} from "../../services/file-service";
 
 export const configObj = {
   ru: policyRu,
@@ -12,5 +13,9 @@ export const configObj = {
 };
 
 export async function getPrivacyPolicy(lang: TLanguage) {
-  return configObj[lang];
+  const body = await readFile(`./server/const/privacy-policy/policy.${lang}.html`).catch((e: any) => {
+    throw new Error(e.message);
+  });
+
+  return {...configObj[lang], body};
 }

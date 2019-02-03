@@ -3,11 +3,14 @@ import getInterfaceRouter from "./interface";
 import IRequest from "../../interfaces/iRequest";
 import {NextFunction, Response} from "express-serve-static-core";
 import {validateToken} from "../../services/security-services/auth-service";
-import getReviewRouter from "./review";
+import getReviewHandler from "./review";
 import getPrivacyPolicyRouter from "./privacyPolicy";
+import getAppointmentHandler from "./appointment";
+import bodyParser = require('body-parser');
 
 const router = express.Router();
 
+router.use(bodyParser.json({type: 'application/json'}));
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
   if (/romanenkova.com|localhost|romanenkova.herokuapp.com|romanenkova-staging.herokuapp.com/i.test(req.hostname)) {
     res.header('Access-Control-Allow-Origin', req.get('origin') || '*');
@@ -16,7 +19,7 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
 
     let token = req.query.token;
     if (req.method.toLowerCase() === 'post' || req.method.toLowerCase() === 'put' || req.method.toLowerCase() === 'options') {
-      token = req.body.token;
+      token = req.body ? token || req.body.token : token;
     }
 
     if (token) {
@@ -37,8 +40,10 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
   }
 });
 
+//todo: as far router is shared object, only first post is fired
+router.post('/appointment', getAppointmentHandler);
+router.post('/review', getReviewHandler);
 router.use('/interface', getInterfaceRouter(router));
-router.use('/review', getReviewRouter(router));
 router.use('/privacy-policy', getPrivacyPolicyRouter(router));
 
 export default router;
