@@ -1,5 +1,5 @@
 import {ITermsPolicy} from "../../../_interface/ITermsPolicy";
 
 export default {
-  header: 'Политика конфидециальности'
+  header: 'Privacy Policy'
 } as ITermsPolicy;
