@@ -36,6 +36,7 @@ export class ModalService {
     this._modalEvent.next({name: 'privacy-policy', type: 'open', success: true});
 
     this.modalEvent.pipe(
+      filter(() => Boolean(afterCloseName)),
       filter((modalEvent: IModalEvent): boolean => modalEvent.type === 'dismiss' || modalEvent.type === 'success'),
       filter((modalEvent: IModalEvent): boolean => modalEvent.name === 'tc'),
       take(1),

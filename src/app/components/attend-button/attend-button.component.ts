@@ -79,6 +79,7 @@ export class AttendButtonComponent implements OnInit {
 
   ngOnInit() {
     this.modalAppointment = this.pageDataGuardService.pageData.index.appointment;
+    this.modalAppointment.agreepp = this.pageDataGuardService.pageData.index.agreepp;
     this.header = this.modalAppointment.header;
     this.messengerNames = this.messengerNames
       .map((messengerObj: IMessenger | string) => {
@@ -182,7 +183,8 @@ export class AttendButtonComponent implements OnInit {
         ...e.value,
         date: e.value.date ? e.value.date.format('DD.MM.YYYY') : null,
         timezone: `${guessed} ${timezone}`,
-        service
+        service,
+        language: this.pageDataGuardService.appSettings.language
       }, {
         params: {
           v: '2'
@@ -239,7 +241,9 @@ export class AttendButtonComponent implements OnInit {
     });
   }
 
-  openPP() {
+  openPP(captchaElement) {
+    captchaElement.resetCaptcha();
+    captchaElement.reloadCaptcha();
     this.modalService.openPrivacyPolicy('appointment', this.modalAppointmentRef, this.modalAppointment);
   }
 }

@@ -6,4 +6,5 @@ export interface IReviewModal extends IModal {
   email: string;
   emailsubscr: string;
   review: string;
+  agreepp?: [string, string];
 }

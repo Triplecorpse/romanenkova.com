@@ -1,7 +1,7 @@
 import {IIndexData} from "../../../_interface/IIndexData";
 
 export default {
-  rootLink: ['online', 'psychologist'],
+  rootLink: ['online', 'psychotherapist'],
   nav: [
     {header: 'About me', anchor: 'about'},
     {header: 'Services', anchor: 'services'},
@@ -39,8 +39,7 @@ export default {
     submit: 'OK',
     instructions: 'Required fields: name and any contact information.',
     explanation: 'The date and time of the first trial consultation are indicative and may change by mutual agreement.\nNo personal data entered in this form is stored on the site or transmitted to third parties for promotional purposes.\nContact information is used only for contacting you and is saved only in my personal mailbox.',
-    selectClear: 'Clear selection',
-    agree: ['I have read and agree to', 'Privacy Policy']
+    selectClear: 'Clear selection'
   },
   contact: {
     header: 'Contact',
@@ -80,5 +79,6 @@ export default {
     qna: 'Ask a question or leave a comment',
     termspolicy: 'Privacy Policy'
   },
-  tcIsLoading: 'Loading...'
+  tcIsLoading: 'Loading...',
+  agreepp: ['I have read and agree to', 'Privacy Policy']
 } as IIndexData;

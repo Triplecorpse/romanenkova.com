@@ -17,5 +17,5 @@ export interface IAppointmentModal extends IModal {
   instructions: string;
   selectClear: string;
   timezone?: string;
-  agree: [string, string]
+  agreepp?: [string, string];
 }

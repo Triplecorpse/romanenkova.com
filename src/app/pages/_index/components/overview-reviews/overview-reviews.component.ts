@@ -23,16 +23,15 @@ export class OverviewReviewsComponent implements OnInit {
   public index: number = 0;
   public reviewForm: FormGroup;
   public lang: string;
-  public explanation: Array<string>;
 
   public nameControl: FormControl = new FormControl();
   public emailControl: FormControl = new FormControl('', Validators.email);
   public reviewControl: FormControl = new FormControl('', Validators.required);
   public recaptchaControl: FormControl = new FormControl('', Validators.required);
+  public agreePP: FormControl = new FormControl('', Validators.required);
 
   public isSubmitting: boolean;
   public errorObj: any = {};
-  public addReviewText: string;
   public noReviewText: string;
   public anonText: string;
 
@@ -53,14 +52,13 @@ export class OverviewReviewsComponent implements OnInit {
   ngOnInit() {
     const reviewBlock = this.pageDataGuardService.pageData.main.review;
     this.modalData = this.pageDataGuardService.pageData.main.reviewModal;
+    this.modalData.agreepp = this.pageDataGuardService.pageData.index.agreepp;
 
     this.header = reviewBlock.header;
     this.button = reviewBlock.button;
     this.reviews = reviewBlock.items;
 
     this.lang = this.pageDataGuardService.appSettings.language;
-    this.explanation = this.modalData.explanation.split('\n');
-    this.addReviewText = this.modalData.submit;
     this.noReviewText = reviewBlock.noReviews;
     this.anonText = reviewBlock.anonymous;
 
@@ -68,7 +66,8 @@ export class OverviewReviewsComponent implements OnInit {
       name: this.nameControl,
       email: this.emailControl,
       body: this.reviewControl,
-      recaptcha: this.recaptchaControl
+      recaptcha: this.recaptchaControl,
+      agreepp: this.agreePP
     });
   }
 
@@ -101,5 +100,11 @@ export class OverviewReviewsComponent implements OnInit {
       this.errorObj.review = err.error.m;
       this.changeDetectorRef.markForCheck();
     });
+  }
+
+  openPP(captchaElement) {
+    captchaElement.resetCaptcha();
+    captchaElement.reloadCaptcha();
+    this.modalService.openPrivacyPolicy('appointment', this.modalAddReviewRef, this.modalData);
   }
 }

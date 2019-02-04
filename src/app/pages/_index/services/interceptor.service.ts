@@ -8,10 +8,7 @@ import {PageDataGuardService} from "../../../page-data-guard.service";
   providedIn: 'root'
 })
 export class InterceptorService implements HttpInterceptor {
-  private languagedUrls: Array<string> = ['appointment'];
-
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let shouldAddLanguage = false;
     let url = req.url;
 
     const api = environment.api || '/api';
@@ -23,16 +20,6 @@ export class InterceptorService implements HttpInterceptor {
       } else {
         url = api + url;
       }
-    }
-
-    this.languagedUrls.forEach((langUrl: string) => {
-      if (req.url.includes(langUrl)) {
-        shouldAddLanguage = true;
-      }
-    });
-
-    if (!shouldAddLanguage) {
-      return next.handle(req.clone({url}));
     }
 
     let params: HttpParams = new HttpParams();

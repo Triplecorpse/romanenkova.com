@@ -20,4 +20,5 @@ export interface IIndexData {
   cookies: ICookiesConsentModal,
   footer: IFooter,
   tcIsLoading: string;
+  agreepp: [string, string];
 }

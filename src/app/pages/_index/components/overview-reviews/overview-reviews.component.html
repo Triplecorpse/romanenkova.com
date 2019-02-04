@@ -51,6 +51,9 @@
     <div class="explanation">{{modalData.emailsubscr}}</div>
     <app-textarea [label]="modalData.review" type="text" formControlName="body"></app-textarea>
     <div class="explanation uniq-field-err">{{errorObj.review}}</div>
+    <div class="privacy-policy">
+      <label><input type="checkbox" formControlName="agreepp" name="agreepp"> {{modalData.agreepp[0]}} <span (click)="openPP(captchaElement)">{{modalData.agreepp[1]}}</span></label>
+    </div>
     <div class="recaptcha">
       <ngx-recaptcha2 #captchaElement formControlName="recaptcha" [hl]="lang" theme="light" (expire)="handleExpire()"
                       (success)="handleSuccess($event)"></ngx-recaptcha2>
@@ -60,7 +63,7 @@
       <span class="loader" *ngIf="isSubmitting"></span>
     </button>
     <div class="explanation">
-      <p class="explanation-p" *ngFor="let p of explanation">
+      <p class="explanation-p" *ngFor="let p of modalData.explanation.split('\n')">
         {{p}}
       </p>
     </div>

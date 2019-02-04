@@ -169,11 +169,6 @@ export class IndexComponent implements OnInit, AfterViewInit {
   }
 
   showPP() {
-    this.footerComponent.openTC();
-    this.modalService.modalEvent.pipe(
-      filter((modalEvent: IModalEvent): boolean => modalEvent.type === 'dismiss' || modalEvent.type === 'success'),
-      filter((modalEvent: IModalEvent): boolean => modalEvent.name === 'tc'),
-      take(1),
-    ).subscribe(this.ngAfterViewInit.bind(this));
+    this.modalService.openPrivacyPolicy('cookieConfirm', this.cookieConfirmationModal, {}, {closeWithBackdrop: false});
   }
 }
