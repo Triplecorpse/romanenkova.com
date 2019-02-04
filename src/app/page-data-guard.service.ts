@@ -1,4 +1,4 @@
-import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+  import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Resolve, Router} from "@angular/router";
 import {Page} from "../../_interface/IPage";
 import {HttpClient} from "@angular/common/http";
@@ -63,7 +63,7 @@ export class PageDataGuardService implements CanActivate {
       return of(true);
     }
 
-    return this.httpClient.get<Page.IPage>(`${route.params.lang}/${pageId}`, {params: {v: '2'}})
+    return this.httpClient.get<Page.IPage>(`${route.params.lang || this.appSettings.language}/${pageId}`, {params: {v: '2'}})
       .pipe(
         tap((page: Page.IPage) => {
           this._pageData[pageId] = page;

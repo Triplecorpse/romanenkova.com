@@ -1,7 +1,7 @@
 import {Page} from "../../../_interface/IPage";
 
 export default {
-  header: 'Consultation et thérapie en ligne',
+  header: 'Consultation et thérapie en&nbsp;ligne',
   diploma: {
     header: 'Diplômes et certificats',
     button: 'Voir tout'

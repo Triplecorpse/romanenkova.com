@@ -22,16 +22,7 @@ export class InterceptorService implements HttpInterceptor {
       }
     }
 
-    let params: HttpParams = new HttpParams();
-
-    req.params.keys().forEach((key: string) => {
-      params = params.set(key, req.params.get(key));
-    });
-    if (!params.get('language')) {
-      params = params.set('language', this.pageDataGuardService.appSettings.language);
-    }
-
-    const newReq = req.clone({params, url});
+    const newReq = req.clone({url});
 
     return next.handle(newReq);
   }

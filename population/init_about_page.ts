@@ -7,7 +7,11 @@ const util = require('util');
 
 export function getAboutPageDataV2(): Promise<Array<Page.IAboutPage>> {
     return new Promise((resolve: any, reject: any) => {
-        let images: Array<string> = ['https://res.cloudinary.com/hladvnf07/image/upload/v1546549649/v4bhnydnrrrklelbjm9u.jpg', 'https://res.cloudinary.com/hladvnf07/image/upload/v1546549649/rygktlemg9u9iy9trbhu.jpg'];
+        let images: Array<string> = [
+          'https://res.cloudinary.com/romanenkova/image/upload/v1549319634/_DSC0326.jpg',
+          'https://res.cloudinary.com/romanenkova/image/upload/v1549319633/_DSC0011.jpg',
+          'https://res.cloudinary.com/romanenkova/image/upload/v1549319634/_DSC0055.jpg',
+          'https://res.cloudinary.com/romanenkova/image/upload/v1549319633/_DSC0032.jpg'];
 
         AboutPage.find()
             .then((aboutPages: any) => {
