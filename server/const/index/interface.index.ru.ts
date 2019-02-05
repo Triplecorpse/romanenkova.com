@@ -1,7 +1,7 @@
 import {IIndexData} from "../../../_interface/IIndexData";
 
 export default {
-  rootLink: ['Онлайн', 'психотерапевт'],
+  rootLink: ['Онлайн', 'психолог'],
   nav: [
     {header: 'Обо мне', anchor: 'about'},
     {header: 'Услуги', anchor: 'services'},
