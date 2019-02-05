@@ -52,6 +52,11 @@
   right: 20px;
   background-image: url(/assets/icons/close.svg);
   cursor: pointer;
+  z-index: 30;
+
+  @include mobile-breakpoint {
+    position: fixed;
+  }
 }
 
 .lightbox {

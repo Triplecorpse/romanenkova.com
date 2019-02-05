@@ -193,7 +193,7 @@ export class AttendButtonComponent implements OnInit {
     ).subscribe((data: any) => {
       this.isSubmitting = false;
       this.modalService.closeModal('appointment', 'success', e.value);
-      this.modalService.alert({header: data.h, body: data.m});
+      this.modalService.alert(data);
       captchaElement.resetCaptcha();
       captchaElement.reloadCaptcha();
       this.formGroup.reset();
