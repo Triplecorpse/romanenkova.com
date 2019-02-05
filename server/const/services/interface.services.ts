@@ -5,6 +5,7 @@ import interfaceServicesFr from "./interface.services.fr";
 import interfaceServicesRu from "./interface.services.ru";
 import interfaceServicesUk from "./interface.services.uk";
 import {readService} from "../../services/db-middleware/service";
+import {Database} from "../../../_interface/IMongooseSchema";
 
 export const configObj: any = {
   en: interfaceServicesEn,
@@ -18,6 +19,14 @@ export async function getServicesInterface(lang: TLanguage) {
 
   interfaceObj.items = await readService(lang).catch(e => {
     throw new Error(e.message);
+  });
+
+  interfaceObj.items.forEach((service: Database.IService) => {
+    if (service.price) {
+      service.headerAndPrice = `${service.header} - ${service.currency} ${service.price}/${service.period}`;
+    } else {
+      service.headerAndPrice = `${service.header} - ${service.noPriceValue}/${service.period}`;
+    }
   });
 
   return interfaceObj;

@@ -7,6 +7,8 @@ export interface IAppointmentModal extends IModal {
   nickname: string;
   contact: string;
   contactOption: string;
+  contactValueControl?: string;
+  contactNameControl?: any;
   email: string;
   date: string;
   datesubscr: string;

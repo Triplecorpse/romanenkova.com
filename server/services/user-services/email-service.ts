@@ -26,11 +26,22 @@ export function sendEmail(message: IMail): Promise<any> {
     });
 }
 
-export function getHtmlLetter(appointmentData: IAppointment): Promise<string> {
-    return readFile('./assets/appointment.tpl.html')
-        .then((file: string) => {
-            return file
-                .replace('@name', appointmentData.name)
-                .replace('@otherData', JSON.stringify(appointmentData))
-        })
+export async function getHtmlLetter(tplName: string, ctx: any): Promise<string> {
+    let tpl = await readFile(`./server/assets/${tplName}.tpl.html`);
+
+    for (let i in ctx) {
+      if (!ctx.hasOwnProperty(i)) {
+        continue;
+      }
+
+      if (ctx[i]) {
+        tpl = tpl.replace(new RegExp(`(#@${i})`, 'g'), ctx[i]);
+      } else {
+        tpl = tpl.replace(new RegExp(`(#@${i})`, 'g'), 'n/a');
+      }
+    }
+
+    tpl = tpl.replace(new RegExp(`(#@[a-zA-Z0-9]+)`, 'g'), 'n/a');
+
+    return tpl;
 }
