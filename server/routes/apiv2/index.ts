@@ -1,12 +1,12 @@
 import express = require('express');
-import getInterfaceRouter from "./interface";
+import getInterfaceHandler from "./interface";
 import IRequest from "../../interfaces/iRequest";
 import {NextFunction, Response} from "express-serve-static-core";
 import {validateToken} from "../../services/security-services/auth-service";
 import getReviewHandler from "./review";
-import getPrivacyPolicyRouter from "./privacyPolicy";
 import getAppointmentHandler from "./appointment";
 import bodyParser = require('body-parser');
+import getPrivacyPolicyHandler from "./privacyPolicy";
 
 const router = express.Router();
 
@@ -41,9 +41,9 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
 });
 
 //todo: as far router is shared object, only first post is fired
-router.post('/appointment', getAppointmentHandler);
-router.post('/review', getReviewHandler);
-router.use('/interface', getInterfaceRouter(router));
-router.use('/privacy-policy', getPrivacyPolicyRouter(router));
+router.route('/appointment').post(getAppointmentHandler);
+router.route('/review').post(getReviewHandler);
+router.route('/:lang/:page').get(getInterfaceHandler);
+router.route('/privacy-policy').get(getPrivacyPolicyHandler);
 
 export default router;

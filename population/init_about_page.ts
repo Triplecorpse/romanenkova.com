@@ -1,6 +1,8 @@
 import log from '../server/services/log-service'
 import {AboutPage} from "../server/models/aboutPage";
 import {Page} from "../_interface/IPage";
+import {uploadImage} from "../server/services/file-storage/file-storage-service";
+import {ICloudinaryResponse} from "../server/interfaces/iCloudinaryResponse";
 
 const fs = require('fs');
 const util = require('util');
@@ -12,6 +14,7 @@ export function getAboutPageDataV2(): Promise<Array<Page.IAboutPage>> {
           'https://res.cloudinary.com/romanenkova/image/upload/v1549319633/_DSC0011.jpg',
           'https://res.cloudinary.com/romanenkova/image/upload/v1549319634/_DSC0055.jpg',
           'https://res.cloudinary.com/romanenkova/image/upload/v1549319633/_DSC0032.jpg'];
+        let resolvedImages: Array<string>;
 
         AboutPage.find()
             .then((aboutPages: any) => {
@@ -21,8 +24,18 @@ export function getAboutPageDataV2(): Promise<Array<Page.IAboutPage>> {
 
                 return AboutPage.deleteMany({})
             })
-            .then((pages: any) => {
+            .then((pages) => {
                 log.warning('\x1b[31m', 'DELETED: about', pages.n, 'pages');
+
+                return Promise.all([
+                    uploadImage('./population/assets/_DSC0011.jpg'),
+                    uploadImage('./population/assets/_DSC0032.jpg'),
+                    uploadImage('./population/assets/_DSC0055.jpg'),
+                    uploadImage('./population/assets/_DSC0326.jpg')
+                ]);
+            })
+            .then((images: any) => {
+                resolvedImages = images.map((image: ICloudinaryResponse) => image.secure_url);
                 return util.promisify(fs.readFile)('./population/assets/about.json', 'UTF8');
             })
             .then((textes: any) => {
@@ -31,22 +44,22 @@ export function getAboutPageDataV2(): Promise<Array<Page.IAboutPage>> {
                     header: 'About me',
                     language: 'en',
                     body: textes.en,
-                    items: images
+                    items: resolvedImages
                 }, {
                     header: 'Обо мне',
                     language: 'ru',
                     body: textes.ru,
-                    items: images
+                    items: resolvedImages
                 }, {
                     header: 'Про мене',
                     language: 'uk',
                     body: textes.uk,
-                    items: images
+                    items: resolvedImages
                 }, {
                     header: 'A propos de moi',
                     body: textes.fr,
                     language: 'fr',
-                    items: images
+                    items: resolvedImages
                 }]);
             })
             .catch((err: any) => {
