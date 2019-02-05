@@ -1,21 +1,7 @@
 import mongoose = require('mongoose');
-import {IMongooseSchema} from "./IMongooseSchema";
-import {TLanguage, TPageId} from "../types/types";
-import {languages, pagesId} from "../const/const";
+import {TLanguage} from "../../_interface/types";
+import {languages} from "../const/const";
 import {stripString} from "../services/security-services/strip-html";
-
-export interface IService extends IMongooseSchema {
-    header: string;
-    description: string;
-    image: string;
-    price?: number;
-    currency?: string;
-    priceLabel: string;
-    entityId: string;
-    title: string;
-    period?: string;
-    noPriceValue?: string;
-}
 
 function validateLanguage(lang: TLanguage): boolean {
     return languages.indexOf(lang) > -1;
@@ -40,7 +26,8 @@ const schema = new mongoose.Schema({
     title: {type: String, required: true, set: secureHtmlString},
     period: {type: String, required: false, set: secureHtmlString},
     noPriceValue: {type: String, required: false, set: secureHtmlString},
-    priceLabel: {type: String, required: true, set: secureHtmlString}
+    priceLabel: {type: String, required: true, set: secureHtmlString},
+    isPublished: {type: Boolean, default: true, required: false}
 });
 
 

@@ -1,59 +1,9 @@
-import {TLanguage, TPageId} from "../types/types";
-import {ILanguageObject} from "../interfaces/iLanguageObject";
+import {TLanguage} from "../../_interface/types";
+import {ILanguageObject} from "../../_interface/ILanguageObject";
+import {availableLanguages} from "./index/interface.index";
 
-export const langObjects: Array<ILanguageObject> = [
-    {
-        codeISO2: 'ru',
-        locale: 'RU',
-        languageName: 'Русский',
-        pageMetadata: {
-            description: 'Персональный сайт онлайн-психолога',
-            position: 'Психолог',
-            firstName: 'Ирина',
-            lastName: 'Романенкова',
-            rootPageTitle: 'Главная'
-        }
-    },
-    {
-        codeISO2: 'uk',
-        locale: 'UA',
-        languageName: 'Українська',
-        pageMetadata: {
-            description: 'Особистий сайт онлайн-психолога',
-            position: 'Психолог',
-            firstName: 'Ірина',
-            lastName: 'Романенкова',
-            rootPageTitle: 'Головна'
-        }
-    },
-    {
-        codeISO2: 'en',
-        locale: 'GB',
-        languageName: 'English',
-        pageMetadata: {
-            description: 'Personal website of online psychologist',
-            position: 'Psychologist',
-            firstName: 'Irina',
-            lastName: 'Romanenkova',
-            rootPageTitle: 'Main'
-        }
-    },
-    {
-        codeISO2: 'fr',
-        locale: 'FR',
-        languageName: 'Français',
-        pageMetadata: {
-            description: 'Site personnel du psychologue en ligne',
-            position: 'Psychologue',
-            firstName: 'Irina',
-            lastName: 'Romanenkova',
-            rootPageTitle: 'Accueil'
-        }
-    }
-];
+export const languages: Array<TLanguage> = availableLanguages.map((langObj: ILanguageObject): TLanguage => langObj.codeISO2);
 
-export const languages: Array<TLanguage> = langObjects.map((langObj: ILanguageObject): TLanguage => langObj.codeISO2);
-export const pagesId: Array<TPageId> = ['nav', 'contacts', 'about', 'diploma', 'service', 'article', 'main', 'review', '[modal] appointment', '[modal] review'];
 export const errorMessages: any = {
     appointment: {
         name: {
@@ -62,11 +12,11 @@ export const errorMessages: any = {
             uk: 'Будь ласка, введіть своє ім\'я.',
             fr: 'S\'il vous plaît entrez votre nom.'
         },
-        contact: {
-            ru: 'Укажите хотя бы одну из ваших контактных данных или сообщений.',
-            en: 'Please enter at least one of your contact data or message.',
-            uk: 'Будь ласка, введіть принаймні один з ваших контактних даних або повідомлення.',
-            fr: 'Veuillez entrer au moins une de vos données de contact ou message.'
+        email: {
+            ru: 'Пожалуйста, введите ваш email.',
+            en: 'Please enter your email.',
+            uk: 'Будь ласка, введіть ваш email.',
+            fr: 'S\'il vous plaît entrer votre email.'
         }
     },
     review: {

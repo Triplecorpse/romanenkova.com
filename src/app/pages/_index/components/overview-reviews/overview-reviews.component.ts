@@ -1,14 +1,12 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {IReview} from '../../../../interfaces/iReview';
 import {ModalService} from '../../services/modal.service';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
-import IPage from '../../../../interfaces/iPage';
-import {IModalAddReview} from '../../../../interfaces/iModalAddReview';
-import {LanguageGuardService} from '../../../../language-guard.service';
 import {ReCaptcha2Component} from 'ngx-captcha';
 import {HttpClient} from '@angular/common/http';
-import {IReviewPage} from '../../../../interfaces/iReviewPage';
+import {PageDataGuardService} from "../../../../page-data-guard.service";
+import {Database} from "../../../../../../_interface/IMongooseSchema";
+import {IReviewModal} from "../../../../../../_interface/IReviewModal";
 
 @Component({
   selector: 'app-overview-reviews',
@@ -17,65 +15,59 @@ import {IReviewPage} from '../../../../interfaces/iReviewPage';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OverviewReviewsComponent implements OnInit {
-  public reviewsPage: IPage<IReviewPage>;
-  public reviews: Array<IReview>;
+  public reviews: Array<Database.IReview>;
+  public header: string;
+  public button: string;
+  public modalData: IReviewModal;
+
   public index: number = 0;
   public reviewForm: FormGroup;
-  private modalReview: IPage<IModalAddReview>;
   public lang: string;
-  public explanation: Array<string>;
+
   public nameControl: FormControl = new FormControl();
   public emailControl: FormControl = new FormControl('', Validators.email);
-  public reviewControl: FormControl = new FormControl();
+  public reviewControl: FormControl = new FormControl('', Validators.required);
   public recaptchaControl: FormControl = new FormControl('', Validators.required);
+  public agreePP: FormControl = new FormControl('', Validators.required);
+
   public isSubmitting: boolean;
   public errorObj: any = {};
-  public addReviewText: string;
   public noReviewText: string;
   public anonText: string;
 
   @ViewChild('modalAddReview') private modalAddReviewRef: TemplateRef<any>;
-  @ViewChild('modalAddReviewMessage') private modalAddReviewMessageRef: TemplateRef<any>;
 
   constructor(private route: ActivatedRoute,
               private modalService: ModalService,
               private formBuilder: FormBuilder,
-              private languageGuardService: LanguageGuardService,
               private changeDetectorRef: ChangeDetectorRef,
-              private httpClient: HttpClient) {
+              private httpClient: HttpClient,
+              private pageDataGuardService: PageDataGuardService) {
   }
 
   openModal(tpl: TemplateRef<any>) {
-    this.modalService.openModal('review', tpl, this.modalReview);
+    this.modalService.openModal('review', tpl, this.modalData);
   }
 
   ngOnInit() {
-    this.reviewsPage = this.route.snapshot.data.pageBlocks[0].find((page: IPage<any>) => page.entityId === 'review');
-    this.modalReview = this.route.snapshot.data.pageBlocks[0].find((page: IPage<any>) => page.entityId === '[modal] review');
-    this.lang = this.languageGuardService.selectedLang;
-    this.explanation = (this.modalReview.pageData as IModalAddReview).explanation.split('\n');
-    this.addReviewText = (this.reviewsPage.pageData as IReviewPage).submit;
-    this.noReviewText = (this.reviewsPage.pageData as IReviewPage).noReviews;
-    this.anonText = (this.reviewsPage.pageData as IReviewPage).anon;
+    const reviewBlock = this.pageDataGuardService.pageData.main.review;
+    this.modalData = this.pageDataGuardService.pageData.main.reviewModal;
+    this.modalData.agreepp = this.pageDataGuardService.pageData.index.agreepp;
 
-    delete (this.reviewsPage.pageData as IReviewPage).submit;
-    delete (this.reviewsPage.pageData as IReviewPage).noReviews;
-    delete (this.reviewsPage.pageData as IReviewPage).anon;
+    this.header = reviewBlock.header;
+    this.button = reviewBlock.button;
+    this.reviews = reviewBlock.items;
 
-    this.reviews = [];
-
-    for (let i in this.reviewsPage.pageData) {
-      if (this.reviewsPage.pageData.hasOwnProperty(i)) {
-        (this.reviewsPage.pageData as any)[i].review = (this.reviewsPage.pageData as any)[i].review.split('\n');
-        this.reviews.push((this.reviewsPage.pageData as any)[i])
-      }
-    }
+    this.lang = this.pageDataGuardService.appSettings.language;
+    this.noReviewText = reviewBlock.noReviews;
+    this.anonText = reviewBlock.anonymous;
 
     this.reviewForm = this.formBuilder.group({
       name: this.nameControl,
       email: this.emailControl,
-      review: this.reviewControl,
-      recaptcha: this.recaptchaControl
+      body: this.reviewControl,
+      recaptcha: this.recaptchaControl,
+      agreepp: this.agreePP
     });
   }
 
@@ -91,14 +83,15 @@ export class OverviewReviewsComponent implements OnInit {
     this.httpClient.post('review',
       {
         ...form.value,
-        language: this.languageGuardService.selectedLang
-      }
+        language: this.pageDataGuardService.appSettings.language
+      }, {params: {v: '2'}}
     ).subscribe((data: any) => {
       this.isSubmitting = false;
       this.modalService.closeModal('review', 'success', form.value);
-      this.modalService.openModal('review', this.modalAddReviewMessageRef, {header: data.h, text: data.m});
+      this.modalService.alert(data);
       captchaElement.resetCaptcha();
       captchaElement.reloadCaptcha();
+      this.reviewForm.reset();
       this.changeDetectorRef.markForCheck();
     }, (err: any) => {
       this.isSubmitting = false;
@@ -107,5 +100,11 @@ export class OverviewReviewsComponent implements OnInit {
       this.errorObj.review = err.error.m;
       this.changeDetectorRef.markForCheck();
     });
+  }
+
+  openPP(captchaElement) {
+    captchaElement.resetCaptcha();
+    captchaElement.reloadCaptcha();
+    this.modalService.openPrivacyPolicy('appointment', this.modalAddReviewRef, this.modalData);
   }
 }

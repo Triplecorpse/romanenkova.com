@@ -12,6 +12,7 @@ import {AttendButtonComponent} from './attend-button/attend-button.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
 import {DiplomaComponent} from "./diploma/diploma.component";
 import {RouterModule} from "@angular/router";
+import {environment} from "../../environments/environment";
 
 @NgModule({
   imports: [
@@ -22,7 +23,7 @@ import {RouterModule} from "@angular/router";
     ClickOutsideModule,
     RouterModule,
     NgxCaptchaModule.forRoot({
-      reCaptcha2SiteKey: '6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil'
+      reCaptcha2SiteKey: environment.recaptcha
     })
   ],
   declarations: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent, DiplomaComponent],

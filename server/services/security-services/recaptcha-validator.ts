@@ -1,6 +1,7 @@
 import * as request from 'request';
+require('dotenv').config();
 
-const privateKey: string = '6Lc2zmsUAAAAAEBIlXk1nuiBQ75DsABN44Kxuxpn';
+const privateKey: string = process.env.RECAPTCHA_SECRET as string;
 
 export function validateRecaptcha(key: string): Promise<any> {
     const captchaRequestOpts = {

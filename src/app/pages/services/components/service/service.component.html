@@ -7,7 +7,7 @@
   <div class="service-description-price">{{service.priceLabel}}:
       <span class="value" *ngIf="service.price !== undefined; else noprice">{{service.currency}} {{service.price}}/{{service.period}}</span>
       <ng-template #noprice>
-        <span class="value">{{service.noPriceValue}}</span>
+        <span class="value">{{service.noPriceValue}}/{{service.period}}</span>
       </ng-template>
     </div>
   <div class="service-attend-button-wrapper">

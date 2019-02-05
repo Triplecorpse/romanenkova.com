@@ -1,9 +1,10 @@
 import log from "../server/services/log-service";
-import {IService, Service} from "../server/models/service";
+import {Service} from "../server/models/service";
 import {uploadImage} from "../server/services/file-storage/file-storage-service";
+import {Database} from "../_interface/IMongooseSchema";
 
-export function getServiceItemData(): Promise<Array<IService>> {
-    const data: Array<IService> = [
+export function getServiceItemData(): Promise<Array<Database.IService>> {
+    const data: Array<Database.IService> = [
         {
             currency: 'EUR',
             header: 'Individual counseling',
@@ -67,7 +68,8 @@ export function getServiceItemData(): Promise<Array<IService>> {
             priceLabel: 'Стоимость',
             entityId: '[counseling] group',
             title: 'Group counselling',
-            noPriceValue: 'рассчитывается для каждой группы'
+            noPriceValue: 'рассчитывается',
+            period: 'за группу'
         }, {
             header: 'Групові консультації',
             language: 'uk',
@@ -76,7 +78,8 @@ export function getServiceItemData(): Promise<Array<IService>> {
             priceLabel: 'Вартість',
             entityId: '[counseling] group',
             title: 'Group counselling',
-            noPriceValue: 'розраховується для кожної групи'
+            noPriceValue: 'розраховується',
+            period: 'за групу'
         }, {
             header: 'Conseil de groupe',
             language: 'fr',
@@ -95,21 +98,21 @@ export function getServiceItemData(): Promise<Array<IService>> {
 
         Service.find()
             .then((services: Array<any>) => {
-                const differentServices = services.filter((service: IService): boolean => service.language === 'en');
+                const differentServices = services.filter((service: Database.IService): boolean => service.language === 'en');
                 if (!differentServices.length) {
                     return Promise.all([uploadImage('./population/assets/single-leaf.png'), uploadImage('./population/assets/multiple-leaf.png')]);
                 }
-                differentServices.forEach((service: IService): void => {
+                differentServices.forEach((service: Database.IService): void => {
                     images.push(service.image);
                 });
             })
             .then((result: any) => {
                 if (Array.isArray(result)) {
-                    data.forEach((item: IService): void => {
-                        item.image = result[+item.image].url;
+                    data.forEach((item: Database.IService): void => {
+                        item.image = result[+item.image].secure_url;
                     });
                 } else {
-                    data.forEach((item: IService): void => {
+                    data.forEach((item: Database.IService): void => {
                         item.image = images[+item.image];
                     });
                 }

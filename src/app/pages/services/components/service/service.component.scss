@@ -24,15 +24,15 @@
     -ms-grid-row-span: 3;
     grid-row: 1 /span 3;
 
+    .image {
+      min-width: 100%;
+      max-width: 100%;
+    }
+
     @include mobile-breakpoint {
       -ms-grid-row: 1;
       -ms-grid-row-span: 1;
       grid-row: 1;
-
-      .image {
-        min-width: 100%;
-        max-width: 100%;
-      }
     }
   }
 

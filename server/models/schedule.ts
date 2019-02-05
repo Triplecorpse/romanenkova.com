@@ -1,11 +1,5 @@
 import mongoose = require('mongoose');
-import {TWeekday} from "../types/types";
-
-export interface ISchedule {
-    weekday?: TWeekday;
-    date?: string;
-    availableHours: Array<string>;
-}
+import {TWeekday} from "../../_interface/types";
 
 function validateWeekday(weekday: TWeekday): boolean {
     const weekdays: Array<TWeekday> = ['su', 'mo', 'tu', 'we', 'th', 'fr', 'sa'];

@@ -1,7 +1,7 @@
 import fs = require('fs');
 import log from './log-service';
 import {languages} from "../const/const";
-import {TLanguage} from "../types/types";
+import {TLanguage} from "../../_interface/types";
 
 export function readFile(path: string, options: object | string = 'UTF8'): Promise<string> {
     return new Promise ((resolve, reject) => {

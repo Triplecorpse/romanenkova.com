@@ -6,7 +6,6 @@ import {MainComponent} from './components/main/main.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {HeaderComponent} from './components/header/header.component';
 import {ContactsComponent} from './components/contacts/contacts.component';
-import {ResolvePageService} from './services/resolve-page.service';
 import {NavigationComponent} from './components/header/navigation/navigation.component';
 import {SocialComponent} from './components/header/social/social.component';
 import {LanguageSelectorComponent} from './components/header/language-selector/language-selector.component';
@@ -17,14 +16,13 @@ import {InterceptorService} from './services/interceptor.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 import {OverviewAboutComponent} from './components/overview-about/overview-about.component';
-import {ResolveMainPageService} from './services/resolve-main-page.service';
-import {ResolveServicesService} from './services/resolve-services.service';
-import {InterceptResponseService} from './services/intercept-response.service';
 import {PipesModule} from '../../pipes/pipes.module';
 import { OverviewReviewsComponent } from './components/overview-reviews/overview-reviews.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
 import { OverviewDiplomasComponent } from './components/overview-diplomas/overview-diplomas.component';
-import { DiplomaComponent } from '../../components/diploma/diploma.component';
+import {environment} from "../../../environments/environment";
+import {PageDataGuardService} from "../../page-data-guard.service";
+import {CookieService} from "./services/cookie.service";
 
 @NgModule({
   imports: [
@@ -35,45 +33,45 @@ import { DiplomaComponent } from '../../components/diploma/diploma.component';
       {
         path: 'about',
         loadChildren: './../about/about.module#AboutModule',
-        data: {pageid: 'about'},
-        resolve: {pageData: ResolvePageService}
+        data: {pageid: 'about', pageidv2: 'about'},
+        canActivate: [PageDataGuardService]
       },
       {
         path: 'articles',
         loadChildren: './../articles/articles.module#ArticlesModule',
-        data: {pageid: 'article'},
-        resolve: {pageData: ResolvePageService}
+        data: {pageid: 'article', pageidv2: 'article'},
+        canActivate: [PageDataGuardService]
       },
       {
         path: 'services',
         loadChildren: './../services/services.module#ServicesModule',
-        data: {pageid: 'service'},
-        resolve: {pageData: ResolvePageService}
+        data: {pageid: 'service', pageidv2: 'service'},
+        canActivate: [PageDataGuardService]
       },
       {
         path: 'diplomas',
         loadChildren: './../diplomas/diplomas.module#DiplomasModule',
-        data: {pageid: 'diploma'},
-        resolve: {pageData: ResolvePageService}
+        data: {pageid: 'diploma', pageidv2: 'diploma'},
+        canActivate: [PageDataGuardService]
       },
       {
         path: 'article/:id',
         loadChildren: './../article/article.module#ArticleModule',
-        data: {pageid: 'article'},
-        resolve: {pageData: ResolvePageService}
+        data: {pageid: 'article', pageidv2: 'article'},
+        canActivate: [PageDataGuardService]
       },
       {
         path: '',
         component: MainComponent,
-        data: {pageid: 'main'},
-        resolve: {pageData: ResolvePageService, pageBlocks: ResolveMainPageService, services: ResolveServicesService}
+        data: {pageid: 'main', pageidv2: 'main'},
+        canActivate: [PageDataGuardService]
       },
     ]),
     ReactiveFormsModule,
     ScrollToModule.forRoot(),
     PipesModule,
     NgxCaptchaModule.forRoot({
-      reCaptcha2SiteKey: '6Lc2zmsUAAAAAA0vgv4qoXcREi9LkfWwn1i0Jyil'
+      reCaptcha2SiteKey: environment.recaptcha
     })
   ],
   declarations: [
@@ -92,7 +90,7 @@ import { DiplomaComponent } from '../../components/diploma/diploma.component';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: InterceptResponseService, multi: true}
+    CookieService
   ],
   exports: []
 })

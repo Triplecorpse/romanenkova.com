@@ -45,4 +45,60 @@
       }
     }
   }
+
+  .info-wrapper {
+    .row {
+      display: flex;
+      margin: 5px 0;
+      transition: .3s color ease;
+
+      &, label {
+        cursor: pointer;
+      }
+
+      &:hover {
+        color: $color-text-accent;
+      }
+
+      .checkbox {
+        margin-right: 10px;
+      }
+
+      .list {
+        list-style-position: outside;
+        margin-left: 18px;
+
+        li {
+          line-height: 1;
+          color: lighten($color-text-regular, 60);
+        }
+      }
+
+      .subscr {
+        font-size: .8em;
+        color: lighten($color-text-regular, 60);
+        line-height: 1.3;
+
+        &.block {
+          display: block;
+          margin-top: 5px;
+        }
+      }
+    }
+
+    .privacy-policy {
+      margin-bottom: 5px;
+      cursor: pointer;
+
+      .active-link {
+        transition: .3s color ease;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover {
+          color: $color-text-accent;
+        }
+      }
+    }
+  }
 }

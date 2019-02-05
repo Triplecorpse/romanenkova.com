@@ -2,7 +2,7 @@
   <div class="nav-wrapper" [class.fixed]="isFixed" *ngIf="!isMobile || isNavOpen">
     <div class="close-button" (click)="toggleNavOpen(false)"></div>
     <div class="logo">
-      <a class="link-root desktop" routerLink="" *ngIf="title" ngx-scroll-to="navigation">
+      <a class="link-root desktop" [routerLink]="routerLink" *ngIf="title" ngx-scroll-to="navigation">
         <h4>
           <span class="accent">{{title[0]?.toUpperCase()}} </span>
           <span>{{title[1]?.toUpperCase()}}</span>
@@ -10,10 +10,10 @@
       </a>
     </div>
     <div class="nav">
-      <app-navigation [nav]="nav" class="navigation" (click)="toggleNavOpen(false)"></app-navigation>
+      <app-navigation class="navigation" (click)="toggleNavOpen(false)"></app-navigation>
     </div>
     <div class="soc-lang">
-      <app-social class="social" (click)="toggleNavOpen(false)" [contactData]="contactData"></app-social>
+      <app-social class="social" (click)="toggleNavOpen(false)"></app-social>
       <app-language-selector [(isLanguageListOpen)]="isOpen" class="language"></app-language-selector>
     </div>
   </div>
@@ -28,8 +28,8 @@
       <div class="strips"></div>
     </div>
   </div>
-  <h1 class="page-header" [class.fixed]="isFixed">
-    {{header}}
+  <h1 class="page-header" [class.fixed]="isFixed" [innerHTML]="header">
+
   </h1>
   <div class="button-wrapper">
     <div class="button">

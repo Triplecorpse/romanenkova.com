@@ -1,28 +1,40 @@
 <div>
-  <app-header [isRoot]="isRoot" [title]="title" [nav]="nav" [header]="header" [contactData]="footer.pageData"></app-header>
+  <app-header [isRoot]="isRoot" [header]="header"></app-header>
 
   <main class="content">
     <router-outlet></router-outlet>
   </main>
 
-  <app-footer class="footer" [data]="footer" [name]="name" *ngIf="isBrowser"></app-footer>
+  <app-footer class="footer" *ngIf="isBrowser" #footerComponent></app-footer>
 </div>
 
 <app-modal></app-modal>
 
 <ng-template #cookieConfirmationModal let-source="modalData">
   <div class="modal-confirm-wrapper">
-    <h3>Would you like to allow cookies?</h3>
-    <p>By agreeing you agree with usage of 3rd part cookies. By checking the checkbox "Don't show again", you agree with usage of site's cookies.</p>
-    <p>If you agree, an anonymous statistics will be sent to Google Analytics.</p>
-    <ul>
-      <li>Your IP-based location</li>
-      <li>Your system data (OS, browser, platform etc)</li>
-    </ul>
-    <label><input type="hidden" [(ngModel)]="dontShowAgain" [ngModelOptions]="{standalone: true}"> Don't show again for 1 month</label>
+    <h3>{{modalConsent.header}}</h3>
+    <div class="info-wrapper">
+      <div class="row" *ngFor="let option of modalConsent.options; let i = index">
+        <div class="checkbox">
+          <input type="checkbox" id="c-{{i}}" [(ngModel)]="option.model" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="label">
+          <label for="c-{{i}}">{{option.header}}</label>
+          <label class="block subscr" for="c-{{i}}">{{option.subscr}}</label>
+          <ul class="list" *ngIf="option.items?.length">
+            <li *ngFor="let li of option.items"><label class="subscr" for="c-{{i}}">{{li}}</label></li>
+          </ul>
+        </div>
+      </div>
+      <p class="privacy-policy">
+        {{modalConsent.privacyPolicy[0]}}
+        <span (click)="showPP()" class="active-link">{{modalConsent.privacyPolicy[1]}}</span>
+        {{modalConsent.privacyPolicy[2]}}
+      </p>
+    </div>
+
     <div class="button-wrapper">
-      <button class="button yes" (click)="agreeToCookies()">Yes</button>
-      <button class="button no" (click)="disagreeToCookies()">No</button>
+      <button class="button yes" (click)="agreeToCookies(modalConsent.options)">OK</button>
     </div>
   </div>
 </ng-template>

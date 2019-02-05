@@ -1,21 +1,8 @@
 import mongoose = require('mongoose');
 
-import {IMongooseSchema} from "./IMongooseSchema";
 import {stripString} from "../services/security-services/strip-html";
-import {TLanguage} from "../types/types";
+import {TLanguage} from "../../_interface/types";
 import {languages} from "../const/const";
-
-export interface IArticle extends IMongooseSchema {
-    logo: string;
-    header: string;
-    isPublished: boolean;
-    createdAt: Date;
-    updatedAt: Date,
-    deletedAt?: Date,
-    isDeleted: boolean,
-    url: string,
-    entityId: string
-}
 
 function secureHtmlString(input: string): string {
     return stripString(input);

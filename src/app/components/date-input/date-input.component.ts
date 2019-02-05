@@ -4,12 +4,9 @@ import {Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import * as Moment from 'moment';
 import {DateRange, extendMoment} from 'moment-range';
-import {LanguageGuardService} from '../../language-guard.service';
-
-
-import {ISchedule} from '../../interfaces/iSchedule';
-import {TWeekday} from '../../interfaces/types';
-
+import {PageDataGuardService} from "../../page-data-guard.service";
+import {Database} from "../../../../_interface/IMongooseSchema";
+import {TWeekday} from "../../../../_interface/types";
 
 const moment = extendMoment(Moment);
 
@@ -33,7 +30,7 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
   @Input() icon?: string;
   @Input() events$: Observable<Event>;
   @Input() control: FormControl;
-  @Input() schedule: Array<ISchedule>;
+  @Input() schedule: Array<Database.ISchedule>;
   @ViewChild('dateInput') dateInput: ElementRef;
   @ViewChild('calendarIconEl') calendarIconEl: ElementRef;
 
@@ -54,7 +51,8 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
   private onTouch: () => void;
   private onChange: (v: Moment.Moment) => void = (v: Moment.Moment) => {};
 
-  constructor(private changeDetectorRef: ChangeDetectorRef, private languageService: LanguageGuardService) {
+  constructor(private changeDetectorRef: ChangeDetectorRef,
+              private pageDataGuardService: PageDataGuardService) {
   }
 
   public writeValueFromTemplate(value: string) {
@@ -115,15 +113,16 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
   }
 
   public ngOnInit(): void {
-    // todo: bring to i18nService
-    Moment.locale(this.languageService.selectedLang);
+    this.schedule = this.pageDataGuardService.pageData.index.schedule;
+
+    Moment.locale(this.pageDataGuardService.appSettings.language);
     const weekdays = Moment.weekdays();
     const weekdaysMin = Moment.weekdaysMin();
     const weekdaysShort = Moment.weekdaysShort();
     weekdays.push(weekdays.shift());
     weekdaysMin.push(weekdaysMin.shift());
     weekdaysShort.push(weekdaysShort.shift());
-    Moment.updateLocale(this.languageService.selectedLang, {
+    Moment.updateLocale(this.pageDataGuardService.appSettings.language, {
       weekdays,
       weekdaysShort,
       weekdaysMin,
@@ -148,16 +147,16 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
       });
 
     this.unavailableDates = this.schedule
-      .filter((scheduleItem: ISchedule): boolean => scheduleItem.date && scheduleItem.availableHours.length === 0)
-      .map((scheduleItem: ISchedule): Moment.Moment => moment(scheduleItem.date, 'DD.MM.YYYY'));
+      .filter((scheduleItem: Database.ISchedule): boolean => scheduleItem.date && scheduleItem.availableHours.length === 0)
+      .map((scheduleItem: Database.ISchedule): Moment.Moment => moment(scheduleItem.date, 'DD.MM.YYYY'));
 
     this.availableDates = this.schedule
-      .filter((scheduleItem: ISchedule): boolean => scheduleItem.date && scheduleItem.availableHours.length > 0)
-      .map((scheduleItem: ISchedule): Moment.Moment => moment(scheduleItem.date, 'DD.MM.YYYY'));
+      .filter((scheduleItem: Database.ISchedule): boolean => scheduleItem.date && scheduleItem.availableHours.length > 0)
+      .map((scheduleItem: Database.ISchedule): Moment.Moment => moment(scheduleItem.date, 'DD.MM.YYYY'));
 
     this.unavailableWeekdays = this.schedule
-      .filter((scheduleItem: ISchedule): boolean => !scheduleItem.date && scheduleItem.availableHours.length === 0)
-      .map((scheduleItem: ISchedule): TWeekday => scheduleItem.weekday);
+      .filter((scheduleItem: Database.ISchedule): boolean => !scheduleItem.date && scheduleItem.availableHours.length === 0)
+      .map((scheduleItem: Database.ISchedule): TWeekday => scheduleItem.weekday);
   }
 
   public input($event): void {
@@ -258,8 +257,5 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
     if ($event.code === 'Escape') {
       this.toggleCalendar(false);
     }
-  }
-
-  public ngOnDestroy() {
   }
 }

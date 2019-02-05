@@ -10,10 +10,12 @@ import {
   ViewChild,
   PLATFORM_ID
 } from '@angular/core';
-import IPage from '../../../../interfaces/iPage';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {fadeAndSlideToRight} from '../../shortcuts/animations';
 import {ActivatedRoute} from '@angular/router';
+import {Page} from "../../../../../../_interface/IPage";
+import {PageDataGuardService} from "../../../../page-data-guard.service";
+import {IOverview} from "../../../../../../_interface/IOverview";
 
 @Component({
   selector: 'app-overview-about',
@@ -26,12 +28,11 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class OverviewAboutComponent implements OnInit, AfterViewInit {
   public animationState: string;
-  public mainText: string;
   private isViewInit: boolean;
-  public blockData: IPage<string>;
+  public pageBlock: IOverview<Page.IAboutPage>;
+  public position: string;
+  public fullName: string;
 
-  @Input() public name: string;
-  @Input() public position: string;
   @ViewChild('el') private el: ElementRef;
   @HostListener('window:scroll')
   private listener() {
@@ -48,15 +49,15 @@ export class OverviewAboutComponent implements OnInit, AfterViewInit {
 
   constructor(@Inject(DOCUMENT) private document: Document,
               @Inject(PLATFORM_ID) private platformId: Object,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private pageDataGuardService: PageDataGuardService) {
   }
 
   ngOnInit() {
-    const pageBlock = this.route.snapshot.data.pageBlocks[0];
-    this.blockData = pageBlock.entityId === 'about' ? pageBlock : pageBlock.find((page: IPage<any>) => page.entityId === 'about');
-    this.mainText = (this.blockData.pageData as string)
-      .split('\n')
-      .filter((s: string) => Boolean(s))[0];
+    this.pageBlock = this.pageDataGuardService.pageData.main.about;
+    const headerArr = this.pageBlock.header.split('|');
+    this.position = headerArr[0];
+    this.fullName = headerArr[1];
 
     this.listener();
   }

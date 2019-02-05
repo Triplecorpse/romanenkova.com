@@ -1,12 +1,11 @@
-import {IPage, Page as Page} from "../server/models/page";
 import log from "../server/services/log-service";
-import {ISchedule, Schedule} from "../server/models/schedule";
-import {IUser, User} from "../server/models/user";
+import {User} from "../server/models/user";
+import {Database} from "../_interface/IMongooseSchema";
 
-export function getInitUsers(): Promise<Array<ISchedule>> {
-    const data: Array<IUser> = [
+export function getInitUsers(): Promise<Array<Database.IUser>> {
+    const data: Array<Database.IUser> = [
         {
-            nickName: 'admin',
+            login: 'admin',
             password: 'admin',
             lastName: '',
             firstName: '',

@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import IPage from '../../../../interfaces/iPage';
-import {IContact} from '../../../../interfaces/IContact';
+import {Component, OnInit} from '@angular/core';
+import {IFooter} from "../../../../../../_interface/IFooter";
+import {PageDataGuardService} from "../../../../page-data-guard.service";
+import {ModalService} from "../../services/modal.service";
 
 @Component({
   selector: 'app-footer',
@@ -8,12 +9,16 @@ import {IContact} from '../../../../interfaces/IContact';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  @Input() data: IPage<IContact>;
-  @Input() name: string;
+  public footer: IFooter;
 
-  constructor() { }
+  constructor(private pageDataGuardService: PageDataGuardService,
+              private modalService: ModalService) { }
 
   ngOnInit() {
+    this.footer = this.pageDataGuardService.pageData.index.footer;
   }
 
+  openTC() {
+    this.modalService.openPrivacyPolicy();
+  }
 }

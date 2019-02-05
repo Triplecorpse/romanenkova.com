@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {IDiploma} from "../../../../interfaces/IDiploma";
+import {PageDataGuardService} from "../../../../page-data-guard.service";
+import {Database} from "../../../../../../_interface/IMongooseSchema";
 
 @Component({
   selector: 'app-diplomas',
@@ -8,17 +8,11 @@ import {IDiploma} from "../../../../interfaces/IDiploma";
   styleUrls: ['./diplomas.component.scss']
 })
 export class DiplomasComponent implements OnInit {
-  public diplomas: Array<IDiploma> = [];
+  public diplomas: Array<Database.IDiploma> = [];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private pageDataGuardService: PageDataGuardService) { }
 
   ngOnInit() {
-    const pageData = this.route.snapshot.data.pageData.pageData;
-    delete pageData.overview;
-    for (let i in pageData) {
-      if (pageData.hasOwnProperty(i)) {
-        this.diplomas.push(pageData[i]);
-      }
-    }
+    this.diplomas = this.pageDataGuardService.pageData.diploma.items;
   }
 }

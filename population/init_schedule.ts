@@ -1,8 +1,9 @@
 import log from "../server/services/log-service";
-import {ISchedule, Schedule} from "../server/models/schedule";
+import {Schedule} from "../server/models/schedule";
+import {Database} from "../_interface/IMongooseSchema";
 
-export function getSchedule(): Promise<Array<ISchedule>> {
-    const data: Array<ISchedule> = [
+export function getSchedule(): Promise<Array<Database.ISchedule>> {
+    const data: Array<Database.ISchedule> = [
         {
             weekday: 'su',
             availableHours: [],

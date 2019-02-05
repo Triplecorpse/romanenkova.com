@@ -1,10 +1,11 @@
-import {Article, IArticle} from "../../models/article";
+import {Article} from "../../models/article";
+import {Database} from "../../../_interface/IMongooseSchema";
 
-export function getArticles(conditions: any = {}): Promise<Array<IArticle>> {
+export function getArticles(conditions: any = {}): Promise<Array<Database.IArticle>> {
     return new Promise((resolve: any, reject: any) => {
         Article.find(conditions)
             .then((articles: Array<any>) => {
-                resolve(articles.map((article: any): IArticle => ({
+                resolve(articles.map((article: any): Database.IArticle => ({
                     createdAt: article.createdAt,
                     deletedAt: article.deletedAt,
                     entityId: article.entityId,

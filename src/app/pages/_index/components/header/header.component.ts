@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, HostListener, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
-import {INavigationItem} from '../../../../interfaces/iNavigation';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
-import {IContact} from '../../../../interfaces/IContact';
+import {PageDataGuardService} from "../../../../page-data-guard.service";
+import {Database} from "../../../../../../_interface/IMongooseSchema";
 
 export interface ILanguageState {
   open: boolean;
@@ -18,12 +18,12 @@ export class HeaderComponent implements OnInit {
   public isOpen: boolean;
   public isNavOpen: boolean;
   public isMobile: boolean;
+  public title: [string, string];
+  public routerLink: string;
 
   @Input() isRoot: boolean;
   @Input() header: string;
-  @Input() title: Array<string>;
-  @Input() nav: Array<INavigationItem>;
-  @Input() contactData: Array<IContact>;
+  @Input() contactData: Array<Database.IContact>;
 
   @HostListener('window:scroll')
   private listener(): void {
@@ -39,10 +39,14 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  constructor(@Inject(DOCUMENT) private document: Document, @Inject(PLATFORM_ID) private platformId: Object) {
+  constructor(@Inject(DOCUMENT) private document: Document,
+              @Inject(PLATFORM_ID) private platformId: Object,
+              private pageDataGuardService: PageDataGuardService) {
   }
 
   ngOnInit() {
+    this.title = this.pageDataGuardService.pageData.index.rootLink;
+    this.routerLink = '/' + this.pageDataGuardService.appSettings.language;
     if (isPlatformBrowser(this.platformId)) {
       this.isMobile = window.innerWidth < 1024;
     }

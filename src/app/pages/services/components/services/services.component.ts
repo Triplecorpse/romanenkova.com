@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {IService} from '../../../../interfaces/IService';
+import {PageDataGuardService} from "../../../../page-data-guard.service";
+import {Database} from "../../../../../../_interface/IMongooseSchema";
 
 @Component({
   selector: 'app-services',
@@ -8,11 +9,11 @@ import {IService} from '../../../../interfaces/IService';
   styleUrls: ['./services.component.scss']
 })
 export class ServicesComponent implements OnInit {
-  public services: Array<IService>;
+  public services: Array<Database.IService>;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private pageDataGuardService: PageDataGuardService) { }
 
   ngOnInit() {
-    this.services = this.route.snapshot.data.pageData.pageData;
+    this.services = this.pageDataGuardService.pageData.service.items;
   }
 }

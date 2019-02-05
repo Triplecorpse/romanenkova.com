@@ -11,7 +11,7 @@
     align-items: center;
 
     &-item {
-      margin-right: 15px;
+      margin: 0 8px;
       font-weight: 700;
 
       &-text {
@@ -35,10 +35,6 @@
           color: $color-text-regular;
           transition: .3s color ease;
         }
-      }
-
-      &:last-child {
-        margin-right: 0;
       }
 
       @include tablet-breakpoint {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PageDataGuardService} from "../../../../page-data-guard.service";
 
 @Component({
   selector: 'app-articles',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticlesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pageDataGuardService: PageDataGuardService) { }
 
   ngOnInit() {
   }

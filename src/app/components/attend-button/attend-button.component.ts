@@ -1,21 +1,23 @@
 import {
-  ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, TemplateRef,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  TemplateRef,
   ViewChild
 } from '@angular/core';
 import {ModalService} from '../../pages/_index/services/modal.service';
-import {IModalAppointment} from '../../interfaces/iModalAppointment';
-import IPage from '../../interfaces/iPage';
 import {FormBuilder, FormGroup, FormControl, Validators, FormGroupDirective} from '@angular/forms';
-import {LanguageGuardService} from '../../language-guard.service';
 import {HttpClient} from '@angular/common/http';
 import {ReCaptcha2Component} from 'ngx-captcha';
 import {ResolveScheduleService} from '../../resolve-schedule.service';
 import {Moment} from 'moment';
-import {ISchedule} from '../../interfaces/iSchedule';
 import * as initMoment from 'moment-timezone';
 import {extendMoment} from 'moment-range';
-import {IService} from '../../interfaces/IService';
-import {I18nService} from '../../services/i18n.service';
+import {PageDataGuardService} from "../../page-data-guard.service";
+import {Database} from "../../../../_interface/IMongooseSchema";
+import {IAppointmentModal} from "../../../../_interface/IAppointmenntModal";
 
 const moment = extendMoment(initMoment);
 
@@ -34,80 +36,92 @@ interface IMessenger {
   providers: [FormBuilder]
 })
 export class AttendButtonComponent implements OnInit {
-  @Input() public service: IService;
+  @Input() public service: Database.IService;
   @ViewChild('modalAppointment') private modalAppointmentRef: TemplateRef<any>;
-  @ViewChild('modalAppointmentMessage') private modalAppointmentMessageRef: TemplateRef<any>;
 
-  public text: string;
+  public header: string;
   public formGroup: FormGroup;
-  public modalAppointment: IPage<IModalAppointment>;
+  public modalAppointment: IAppointmentModal;
   public lang: string;
   public errorObj: any = {};
   private isCaptchaResolved: boolean;
   public isSubmitting: boolean;
   public schedule: any;
+
   public dateControl: FormControl;
   public contactNameControl: FormControl;
   public contactValueControl: FormControl;
+  public agreePP: FormControl;
   private timeControl: FormControl;
   private serviceControl: FormControl;
+
   public timeSlots: Array<string> = [];
   public contactNameLabel: string;
   public contactValueLabel: string;
   public contactValueType: string;
   public explanation: Array<string>;
-  public messengerNames: Array<IMessenger> = [
-    {name: '@phone', nickType: 'tel', icon: '', nickPlaceholder: '@phone'},
+  public messengerNames: Array<IMessenger | string> = [
     {name: 'Viber', nickType: 'tel', icon: '', nickPlaceholder: '@phone'},
-    {name: 'Messenger', nickType: 'text', icon: '', nickPlaceholder: '@nickname'},
-    {name: 'Telegram', nickType: 'text', icon: '', nickPlaceholder: '@nickname'}
+    {name: 'WhatsApp', nickType: 'tel', icon: '', nickPlaceholder: '@phone'},
+    {name: 'Telegram', nickType: 'text', icon: '', nickPlaceholder: '@nickname'},
+    '_',
+    {name: '@phone', nickType: 'text', icon: '', nickPlaceholder: '@phone / @nickname'}
   ];
-  public services: Array<IService>;
+  public services: Array<Database.IService>;
 
   constructor(private modalService: ModalService,
               private formBuilder: FormBuilder,
-              private languageGuardService: LanguageGuardService,
               private httpClient: HttpClient,
               private changeDetectorRef: ChangeDetectorRef,
               private scheduleService: ResolveScheduleService,
-              private i18nService: I18nService) {
+              private pageDataGuardService: PageDataGuardService) {
   }
 
   ngOnInit() {
-    this.modalAppointment = this.modalService.modalAppointment;
+    this.modalAppointment = this.pageDataGuardService.pageData.index.appointment;
+    this.modalAppointment.agreepp = this.pageDataGuardService.pageData.index.agreepp;
+    this.header = this.modalAppointment.header;
     this.messengerNames = this.messengerNames
-      .map((messengerObj: IMessenger) => {
+      .map((messengerObj: IMessenger | string) => {
+        if (typeof messengerObj === 'string') {
+          return messengerObj;
+        }
+
         messengerObj.name = messengerObj.name
-          .replace('@phone', (this.modalAppointment.pageData as IModalAppointment).phone);
+          .replace('@phone', this.modalAppointment.phoneOption);
+
         messengerObj.nickPlaceholder = messengerObj.nickPlaceholder
-          .replace('@nickname', (this.modalAppointment.pageData as IModalAppointment).nickname)
-          .replace('@phone', (this.modalAppointment.pageData as IModalAppointment).phone);
+          .replace('@nickname', this.modalAppointment.nickname)
+          .replace('@phone', this.modalAppointment.phone);
 
         return messengerObj;
       });
-    this.explanation =
-      (this.modalAppointment.pageData  as IModalAppointment).explanation.split('\n');
-    this.contactNameLabel = (this.modalAppointment.pageData as IModalAppointment).contact;
-    this.contactValueLabel = (this.modalAppointment.pageData as IModalAppointment).contactOption;
-    this.services = this.modalService.services;
+    this.explanation = this.modalAppointment.explanation.split('\n');
+    this.contactNameLabel = this.modalAppointment.contact;
+    this.contactValueLabel = this.modalAppointment.contactOption;
+    this.services = this.pageDataGuardService.pageData.index.services;
+
     this.dateControl = new FormControl();
     this.contactNameControl = new FormControl();
     this.contactValueControl = new FormControl({value: '', disabled: !this.contactNameControl.value});
     this.timeControl = new FormControl({value: '', disabled: !this.dateControl.value});
     this.serviceControl = new FormControl({value: this.service, disabled: !!this.service});
+    this.agreePP = new FormControl('', Validators.required);
     this.formGroup = this.formBuilder.group({
-      name: new FormControl(),
+      name: new FormControl('', Validators.required),
       contactNameControl: this.contactNameControl,
       contactValueControl: this.contactValueControl,
-      email: new FormControl('', Validators.email),
+      email: new FormControl('', [Validators.email, Validators.required]),
       date: this.dateControl,
       time: this.timeControl,
       message: new FormControl(),
       service: this.serviceControl,
+      agreepp: this.agreePP,
       recaptcha: new FormControl('', Validators.required)
     });
-    this.lang = this.languageGuardService.selectedLang;
-    this.schedule = this.scheduleService.schedule;
+
+    this.lang = this.pageDataGuardService.appSettings.language;
+    this.schedule = this.pageDataGuardService.pageData.index.schedule;
 
     this.dateControl.valueChanges.subscribe((newValue: Moment) => {
       this.getTimeSlots(newValue);
@@ -128,13 +142,12 @@ export class AttendButtonComponent implements OnInit {
         this.contactValueType = newValue.nickType;
         this.contactValueControl.enable();
       } else {
-        this.contactValueLabel = (this.modalAppointment.pageData as IModalAppointment).contactOption;
+        this.contactValueLabel = this.modalAppointment.contactOption;
         this.contactValueControl.setValue(null);
         this.contactValueControl.disable();
       }
       this.changeDetectorRef.markForCheck();
     });
-    this.text = this.i18nService.attendButtonLabel;
   }
 
   openModal(tpl: TemplateRef<any>) {
@@ -170,21 +183,27 @@ export class AttendButtonComponent implements OnInit {
         ...e.value,
         date: e.value.date ? e.value.date.format('DD.MM.YYYY') : null,
         timezone: `${guessed} ${timezone}`,
-        service
+        service,
+        language: this.pageDataGuardService.appSettings.language
+      }, {
+        params: {
+          v: '2'
+        }
       }
     ).subscribe((data: any) => {
       this.isSubmitting = false;
       this.modalService.closeModal('appointment', 'success', e.value);
-      this.modalService.openModal('appointment', this.modalAppointmentMessageRef, {header: data.h, text: data.m});
+      this.modalService.alert({header: data.h, body: data.m});
       captchaElement.resetCaptcha();
       captchaElement.reloadCaptcha();
+      this.formGroup.reset();
       this.changeDetectorRef.markForCheck();
     }, (err: any) => {
       this.isSubmitting = false;
       captchaElement.resetCaptcha();
       captchaElement.reloadCaptcha();
       this.errorObj.name = err.error.name;
-      this.errorObj.contact = err.error.contact;
+      this.errorObj.email = err.error.email;
       this.changeDetectorRef.markForCheck();
     });
   }
@@ -203,8 +222,8 @@ export class AttendButtonComponent implements OnInit {
       return;
     }
     const weekdaysMapper = ['mo', 'tu', 'we', 'th', 'fr', 'sa', 'su'];
-    const schedule = (this.schedule.find((scheduleItem: ISchedule): boolean => date.isSame(moment(scheduleItem.date, 'DD.MM.YYYY')))
-      || this.schedule.find((scheduleItem: ISchedule): boolean => scheduleItem.weekday === weekdaysMapper[date.weekday()])).availableHours;
+    const schedule = (this.schedule.find((scheduleItem: Database.ISchedule): boolean => date.isSame(moment(scheduleItem.date, 'DD.MM.YYYY')))
+      || this.schedule.find((scheduleItem: Database.ISchedule): boolean => scheduleItem.weekday === weekdaysMapper[date.weekday()])).availableHours;
 
     schedule.forEach((hours: string, index: number): void => {
       const hoursArr = hours.split('-');
@@ -220,5 +239,11 @@ export class AttendButtonComponent implements OnInit {
       }
       this.timeSlots.push(...slots);
     });
+  }
+
+  openPP(captchaElement) {
+    captchaElement.resetCaptcha();
+    captchaElement.reloadCaptcha();
+    this.modalService.openPrivacyPolicy('appointment', this.modalAppointmentRef, this.modalAppointment);
   }
 }
