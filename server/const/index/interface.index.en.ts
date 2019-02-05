@@ -72,7 +72,7 @@ export default {
         entityId: 'save'
       }
     ],
-    privacyPolicy: 'Please read our Privacy Policy carefully so that you have a complete understanding of how we collect, store and use personal data.'
+    privacyPolicy: ['Please read our', 'Privacy Policy', 'carefully so that you have a complete understanding of how we collect, store and use personal data.']
   },
   footer: {
     designed: 'Designed by: <strong><a href="https://www.behance.net/Aleksandr_Gaidai" target="_blank">Oleksandr Gaidai</a></strong>',

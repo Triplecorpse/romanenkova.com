@@ -9,5 +9,5 @@ export interface ICookiesConsentOption {
 export interface ICookiesConsentModal {
   header: string;
   options: Array<ICookiesConsentOption>,
-  privacyPolicy: string;
+  privacyPolicy: [string, string, string];
 }

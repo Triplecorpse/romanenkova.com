@@ -72,7 +72,7 @@ export default {
         entityId: 'save'
       }
     ],
-    privacyPolicy: 'Veuillez lire attentivement notre politique de confidentialité afin de bien comprendre comment nous recueillons, stockons et utilisons les données personnelles.'
+    privacyPolicy: ['Veuillez lire attentivement notre', 'Politique de Confidentialité', 'afin de bien comprendre comment nous recueillons, stockons et utilisons les données personnelles.']
   },
   footer: {
     designed: 'Conçu par: <strong><a href="https://www.behance.net/Aleksandr_Gaidai" target="_blank">Oleksandr Gaidai</a></strong>',

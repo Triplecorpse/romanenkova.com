@@ -26,7 +26,11 @@
           </ul>
         </div>
       </div>
-      <p (click)="showPP()" class="privacy-policy">{{modalConsent.privacyPolicy}}</p>
+      <p class="privacy-policy">
+        {{modalConsent.privacyPolicy[0]}}
+        <span (click)="showPP()" class="active-link">{{modalConsent.privacyPolicy[1]}}</span>
+        {{modalConsent.privacyPolicy[2]}}
+      </p>
     </div>
 
     <div class="button-wrapper">

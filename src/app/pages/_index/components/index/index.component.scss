@@ -89,10 +89,15 @@
     .privacy-policy {
       margin-bottom: 5px;
       cursor: pointer;
-      transition: .3s color ease;
 
-      &:hover {
-        color: $color-text-accent;
+      .active-link {
+        transition: .3s color ease;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover {
+          color: $color-text-accent;
+        }
       }
     }
   }
