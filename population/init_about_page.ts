@@ -9,21 +9,9 @@ const util = require('util');
 
 export function getAboutPageDataV2(): Promise<Array<Page.IAboutPage>> {
     return new Promise((resolve: any, reject: any) => {
-        let images: Array<string> = [
-          'https://res.cloudinary.com/romanenkova/image/upload/v1549319634/_DSC0326.jpg',
-          'https://res.cloudinary.com/romanenkova/image/upload/v1549319633/_DSC0011.jpg',
-          'https://res.cloudinary.com/romanenkova/image/upload/v1549319634/_DSC0055.jpg',
-          'https://res.cloudinary.com/romanenkova/image/upload/v1549319633/_DSC0032.jpg'];
         let resolvedImages: Array<string>;
 
-        AboutPage.find()
-            .then((aboutPages: any) => {
-                if (aboutPages && aboutPages.length && aboutPages[0].images) {
-                    images = aboutPages[0].images;
-                }
-
-                return AboutPage.deleteMany({})
-            })
+        AboutPage.deleteMany({})
             .then((pages) => {
                 log.warning('\x1b[31m', 'DELETED: about', pages.n, 'pages');
 
@@ -35,7 +23,7 @@ export function getAboutPageDataV2(): Promise<Array<Page.IAboutPage>> {
                 ]);
             })
             .then((images: any) => {
-                resolvedImages = images.map((image: ICloudinaryResponse) => image.secure_url);
+                resolvedImages = images.map((image: string) => image);
                 return util.promisify(fs.readFile)('./population/assets/about.json', 'UTF8');
             })
             .then((textes: any) => {
