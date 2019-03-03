@@ -39,9 +39,9 @@ export function getDiplomasItems(): Promise<Array<Database.IDiploma>> {
               const imgs$ = data.map(i => i.image).map(img => uploadImage(`./population/assets/${img}`));
               return Promise.all(imgs$);
             })
-            .then((cloudinaries: Array<ICloudinaryResponse>) => {
+            .then((cloudinaries: Array<string>) => {
                 data.forEach((item, index) => {
-                  item.image = cloudinaries[index].secure_url;
+                  item.image = cloudinaries[index];
                 });
                 return Diploma.deleteMany({})
             })

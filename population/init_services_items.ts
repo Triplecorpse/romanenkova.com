@@ -109,7 +109,7 @@ export function getServiceItemData(): Promise<Array<Database.IService>> {
             .then((result: any) => {
                 if (Array.isArray(result)) {
                     data.forEach((item: Database.IService): void => {
-                        item.image = result[+item.image].secure_url;
+                        item.image = result[+item.image];
                     });
                 } else {
                     data.forEach((item: Database.IService): void => {

@@ -1,28 +1,15 @@
-import {ICloudinaryResponse} from "../../interfaces/iCloudinaryResponse";
+import util = require('util');
+import fs = require('fs');
+import {encryptString} from "../security-services/crypto-service";
 
-const cloudinary = require('cloudinary');
+export function uploadImage(path: string): Promise<string> {
+  const patharr = path.split('/');
+  const filename = patharr.pop() as string;
+  const extension = filename.split('.').pop();
+  const newFilename = `${encryptString(filename)}.${extension}`;
 
-export function uploadImage(path: string): Promise<ICloudinaryResponse> {
-    return new Promise<ICloudinaryResponse>((resolve, reject) => {
-        cloudinary.v2.uploader.upload(path, (error: any, result: ICloudinaryResponse) => {
-            if (error) {
-                reject(error);
-                return;
-            }
-
-            resolve(result);
-        });
-    });
-}
-
-export function getImageList(): Promise<any> {
-  return new Promise((resolve, reject) => {
-    cloudinary.v2.api.resources(function(error: any, result: any) {
-      if (error) {
-        return reject(error);
-      }
-
-      return resolve(result);
-    });
-  });
+  return util.promisify(fs.copyFile)(path, `./front/assets/${newFilename}`)
+    .then(() => {
+      return `/assets/${newFilename}`
+    })
 }
