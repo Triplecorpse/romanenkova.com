@@ -45,7 +45,10 @@
 }
 
 .logo {
-  width: 30%;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .page-header {
@@ -56,7 +59,7 @@
 
   @include desktop-breakpoint {
     &.fixed {
-      margin-top: 120px;
+      margin-top: 155px;
     }
   }
 
@@ -68,16 +71,39 @@
 
 .nav-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 0 100px;
   width: 100%;
   z-index: 10;
   position: relative;
 
+  .line-1 {
+    width: 100%;
+
+    .inner {
+      height: 95px;
+      padding: 0 100px;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  .line-2 {
+    background-color: rgba(255, 255, 255, .5);
+    width: 100%;
+
+    .inner {
+      height: 85px;
+      padding: 0 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
   @include desktop-breakpoint {
-    height: 50px;
-    margin: 35px 0;
+    margin: 0 0 35px;
 
     &.fixed {
       background-color: #ffffff;
@@ -86,7 +112,11 @@
       top: 0;
       left: 0;
       box-shadow: 0 0 50px 0 rgba(0, 0, 0, .1);
-      transition: background-color .3s ease .3s,  box-shadow .3s ease .3s;
+      transition: background-color .3s ease .3s,  box-shadow .3s ease .3s, top .3s ease .3s;
+
+      &.hidden {
+        top: -95px;
+      }
     }
   }
 
@@ -169,13 +199,16 @@
 }
 
 .link-root {
-  display: block;
-  align-self: center;
   text-transform: uppercase;
   flex-basis: 0;
   flex-grow: 1;
   text-decoration: none;
   font-size: 14px;
+  text-align: center;
+
+  h4 {
+    display: inline;
+  }
 
   span {
     font-size: 18px;
@@ -208,20 +241,20 @@
 }
 
 .soc-lang {
-  width: 30%;
+  width: 33%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+
+  .language {
+    margin-left: 75px;
+  }
 
   @include tablet-breakpoint {
     flex-direction: column;
     width: auto;
   }
-}
-
-.social {
-  margin: 0 auto;
 }
 
 .close-button {

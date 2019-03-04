@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, HostListener, Inject, Input, OnInit,
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {PageDataGuardService} from "../../../../page-data-guard.service";
 import {Database} from "../../../../../../_interface/IMongooseSchema";
+import {fade} from "../../shortcuts/animations";
 
 export interface ILanguageState {
   open: boolean;
@@ -11,7 +12,10 @@ export interface ILanguageState {
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    fade()
+  ]
 })
 export class HeaderComponent implements OnInit {
   public isFixed: boolean;
@@ -20,6 +24,8 @@ export class HeaderComponent implements OnInit {
   public isMobile: boolean;
   public title: [string, string];
   public routerLink: string;
+  public scrollingTop: boolean = true;
+  private previousScrollTop: number;
 
   @Input() isRoot: boolean;
   @Input() header: string;
@@ -29,6 +35,8 @@ export class HeaderComponent implements OnInit {
   private listener(): void {
     const scrollTop = this.document.documentElement.scrollTop;
     this.isFixed = !this.isMobile && scrollTop > 35;
+    this.scrollingTop = this.previousScrollTop >= scrollTop;
+    this.previousScrollTop = scrollTop;
     this.isOpen = false;
   }
 
