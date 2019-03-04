@@ -11,14 +11,10 @@ function secureHtmlString(input: string): string {
     return stripString(input);
 }
 
-function validateUrl(url: string): boolean {
-    return url.startsWith('http');
-}
-
 const schema = new mongoose.Schema({
     header: {type: String, required: true, set: secureHtmlString},
     description: {type: String, required: false, set: secureHtmlString},
-    image: {type: String, required: true, validate: validateUrl},
+    image: {type: String, required: true},
     language: {type: String, required: true, validate: validateLanguage},
     price: {type: Number, required: false},
     currency: {type: String, required: false},

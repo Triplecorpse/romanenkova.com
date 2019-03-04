@@ -94,33 +94,17 @@ export function getServiceItemData(): Promise<Array<Database.IService>> {
     ];
 
     return new Promise((resolve: any, reject: any) => {
-        const images: Array<string> = [];
+      Service.deleteMany({})
+            .then((result: any) => {
+              log.warning('\x1b[31m', 'DELETED: service', result.n, 'pages');
 
-        Service.find()
-            .then((services: Array<any>) => {
-                const differentServices = services.filter((service: Database.IService): boolean => service.language === 'en');
-                if (!differentServices.length) {
-                    return Promise.all([uploadImage('./population/assets/single-leaf.png'), uploadImage('./population/assets/multiple-leaf.png')]);
-                }
-                differentServices.forEach((service: Database.IService): void => {
-                    images.push(service.image);
+              return Promise.all([uploadImage('./population/assets/single-leaf.png'), uploadImage('./population/assets/multiple-leaf.png')])
+            })
+            .then((result: any) => {
+                data.forEach((item: Database.IService): void => {
+                    item.image = result[+item.image].image;
                 });
-            })
-            .then((result: any) => {
-                if (Array.isArray(result)) {
-                    data.forEach((item: Database.IService): void => {
-                        item.image = result[+item.image];
-                    });
-                } else {
-                    data.forEach((item: Database.IService): void => {
-                        item.image = images[+item.image];
-                    });
-                }
 
-                return Service.deleteMany({});
-            })
-            .then((result: any) => {
-                log.warning('\x1b[31m', 'DELETED: service', result.n, 'pages');
                 resolve(data);
             })
             .catch((err: any) => {

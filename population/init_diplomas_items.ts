@@ -3,6 +3,7 @@ import {uploadImage} from "../server/services/file-storage/file-storage-service"
 import {Diploma} from "../server/models/diploma";
 import {ICloudinaryResponse} from "../server/interfaces/iCloudinaryResponse";
 import {Database} from "../_interface/IMongooseSchema";
+import {IPhotoPreview} from "../_interface/IPhotoPreview";
 
 export function getDiplomasItems(): Promise<Array<Database.IDiploma>> {
     const data: Array<Database.IDiploma> = [
@@ -11,37 +12,44 @@ export function getDiplomasItems(): Promise<Array<Database.IDiploma>> {
         graduateYear: 2017,
         institute: 'Institut Français de Gestalt-thérapie',
         isPublished: true,
-        image: 'b5y4tavtkjpntbi2jaxd.jpg'
+        image: 'b5y4tavtkjpntbi2jaxd.jpg',
+        preview: ''
       }, {
         order: 2,
         graduateYear: 2014,
         institute: 'Московский институт гештальт-терапии и консультирования',
         isPublished: true,
-        image: 'ngqtoz87dqotziytypjy.jpg'
+        image: 'ngqtoz87dqotziytypjy.jpg',
+        preview: ''
       }, {
         order: 3,
         graduateYear: 2017,
         institute: 'European Association for Transactional Analysis',
         isPublished: true,
-        image: 'v423mum9ulmzaukezdrm.jpg'
+        image: 'v423mum9ulmzaukezdrm.jpg',
+        preview: ''
       }, {
         order: 4,
         graduateYear: 2018,
         institute: 'European Association for Transactional Analysis',
         isPublished: true,
-        image: 'eupxoexyhmtzxl74lgvy.jpg'
+        image: 'eupxoexyhmtzxl74lgvy.jpg',
+        preview: ''
       }
     ];
 
     return new Promise((resolve: any, reject: any) => {
         Diploma.find()
             .then(() => {
-              const imgs$ = data.map(i => i.image).map(img => uploadImage(`./population/assets/${img}`));
+              const imgs$ = data
+                .map(i => i.image)
+                .map(img => uploadImage(`./population/assets/${img}`));
               return Promise.all(imgs$);
             })
-            .then((cloudinaries: Array<string>) => {
+            .then((images: Array<IPhotoPreview>) => {
                 data.forEach((item, index) => {
-                  item.image = cloudinaries[index];
+                  item.image = images[index].image;
+                  item.preview = images[index].preview;
                 });
                 return Diploma.deleteMany({})
             })

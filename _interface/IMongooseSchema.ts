@@ -1,4 +1,5 @@
 import {TLanguage, TWeekday} from "./types";
+import {IPhotoPreview} from "./IPhotoPreview";
 
 export namespace Database {
   interface IMongooseSchema {
@@ -18,8 +19,7 @@ export namespace Database {
     linkto?: string;
   }
 
-  export interface IDiploma extends IMongooseSchema {
-    image: string;
+  export interface IDiploma extends IMongooseSchema, IPhotoPreview {
     institute: string;
     graduateYear: number;
     isPublished?: boolean;

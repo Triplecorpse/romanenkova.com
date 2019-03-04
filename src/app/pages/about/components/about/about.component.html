@@ -15,7 +15,7 @@
         <ng-template #photoTpl let-source="slide">
           <div class="swiper-slide-wrapper">
             <div class="image-wrapper">
-              <div class="image" [ngStyle]="{'background-image': 'url(' + source + ')'}" (click)="openLightBox(source)"></div>
+              <div class="image" [ngStyle]="{'background-image': 'url(' + source.preview + ')'}" (click)="openLightBox(source.image)"></div>
             </div>
           </div>
         </ng-template>

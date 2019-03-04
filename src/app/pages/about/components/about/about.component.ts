@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ModalService} from "../../../_index/services/modal.service";
 import {isPlatformServer} from "@angular/common";
 import {PageDataGuardService} from "../../../../page-data-guard.service";
+import {IPhotoPreview} from "../../../../../../_interface/IPhotoPreview";
 
 @Component({
   selector: 'app-about',
@@ -12,7 +13,7 @@ import {PageDataGuardService} from "../../../../page-data-guard.service";
 })
 export class AboutComponent implements OnInit {
   public mainText: Array<string> = [];
-  public photos: Array<string>;
+  public photos: Array<IPhotoPreview>;
   public name: Array<string>;
 
   @ViewChildren('photo') photo: any;

@@ -2,11 +2,12 @@ import {IOverview} from "./IOverview";
 import {Database} from "./IMongooseSchema";
 import {IReviewModal} from "./IReviewModal";
 import {IReviewOverview} from "./IReviewOverview";
+import {IPhotoPreview} from "./IPhotoPreview";
 
 export namespace Page {
   export interface IPage<T = any> {
     header: string;
-    items?: Array<T>
+    items?: Array<T>;
   }
 
   export interface IMainPage extends IPage {
@@ -16,7 +17,7 @@ export namespace Page {
     reviewModal: IReviewModal
   }
 
-  export interface IAboutPage extends IPage<string> {
+  export interface IAboutPage extends IPage<IPhotoPreview> {
     body: string;
     fullName?: string;
     position?: string;

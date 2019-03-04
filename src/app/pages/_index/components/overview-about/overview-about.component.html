@@ -1,5 +1,5 @@
 <div class="block-wrapper" #el [@fadeAndSlideToRight]="animationState">
-  <img *ngIf="pageBlock.items.length" class="block-image" [src]="pageBlock.items[0]" alt="First Photo">
+  <img *ngIf="pageBlock.items.length" class="block-image" [src]="pageBlock.items[0].preview" alt="First Photo">
   <div class="block-info-wrapper" [class.no-image]="!pageBlock.items.length">
     <div class="block-info-position">{{position}}</div>
     <h1 class="block-info-name">{{fullName}}</h1>

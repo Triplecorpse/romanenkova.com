@@ -3,13 +3,14 @@ import {AboutPage} from "../server/models/aboutPage";
 import {Page} from "../_interface/IPage";
 import {uploadImage} from "../server/services/file-storage/file-storage-service";
 import {ICloudinaryResponse} from "../server/interfaces/iCloudinaryResponse";
+import {IPhotoPreview} from "../_interface/IPhotoPreview";
 
 const fs = require('fs');
 const util = require('util');
 
 export function getAboutPageDataV2(): Promise<Array<Page.IAboutPage>> {
     return new Promise((resolve: any, reject: any) => {
-        let resolvedImages: Array<string>;
+        let resolvedImages: Array<IPhotoPreview>;
 
         AboutPage.deleteMany({})
             .then((pages) => {

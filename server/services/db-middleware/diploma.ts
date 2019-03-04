@@ -17,6 +17,7 @@ export function readDiploma(isAdmin = false): Promise<Array<Database.IDiploma>> 
             institute: diplomaItem.institute,
             graduateYear: diplomaItem.graduateYear,
             image: diplomaItem.image,
+            preview: diplomaItem.preview,
             order: diplomaItem.order
           }
         }
