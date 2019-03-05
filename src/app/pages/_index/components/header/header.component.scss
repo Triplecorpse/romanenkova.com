@@ -59,11 +59,12 @@
 
   @include desktop-breakpoint {
     &.fixed {
-      margin-top: 155px;
+      margin-top: 215px;
     }
   }
 
   @include tablet-breakpoint {
+    margin-top: 100px;
     width: 85%;
     padding: 0;
   }
@@ -86,6 +87,11 @@
       padding: 0 100px;
       display: flex;
       justify-content: flex-end;
+
+      @include tablet-breakpoint {
+        height: auto;
+        justify-content: center;
+      }
     }
   }
 
@@ -99,6 +105,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      @include tablet-breakpoint {
+        height: auto;
+      }
     }
   }
 
@@ -128,14 +138,20 @@
     margin-top: 0;
     background: #ffffff;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: flex-start;
     padding-bottom: 30px;
     box-shadow: 0 0 50px 0 rgba(0, 0, 0, .1);
+
+    .logo {
+      display: none;
+    }
   }
 
   @include mobile-breakpoint {
     height: 100vh;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
   }
 
   @include mobile-breakpoint-landscape {
@@ -150,6 +166,7 @@
 
 .m-nav-wrapper {
   display: none;
+  z-index: 9;
 
   .hamburger {
     width: 45px;
@@ -185,12 +202,20 @@
   }
 
   @include tablet-breakpoint {
+    &.fixed {
+      top: 0;
+    }
+
+    transition: .3s top ease;
+    top: -75px;
     display: flex;
+    position: fixed;
     align-items: center;
+    margin-bottom: 25px;
+    justify-content: space-between;
     height: 75px;
     width: 100%;
     padding: 0 15px;
-    margin-bottom: 25px;
     background-image: url(/assets/header-mobile.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -219,6 +244,8 @@
   }
 
   @include tablet-breakpoint {
+    text-align: left;
+
     &.desktop {
       display: none;
     }
@@ -249,6 +276,10 @@
 
   .language {
     margin-left: 75px;
+
+    @include tablet-breakpoint {
+      margin-left: 0;
+    }
   }
 
   @include tablet-breakpoint {

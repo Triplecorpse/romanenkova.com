@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   public isMobile: boolean;
   public title: [string, string];
   public routerLink: string;
-  public scrollingTop: boolean = true;
+  public showHeaderLine1: boolean = true;
   private previousScrollTop: number;
 
   @Input() isRoot: boolean;
@@ -34,8 +34,8 @@ export class HeaderComponent implements OnInit {
   @HostListener('window:scroll')
   private listener(): void {
     const scrollTop = this.document.documentElement.scrollTop;
-    this.isFixed = !this.isMobile && scrollTop > 35;
-    this.scrollingTop = this.previousScrollTop >= scrollTop;
+    this.isFixed = !this.isMobile && scrollTop > 0;
+    this.showHeaderLine1 = this.previousScrollTop >= scrollTop || scrollTop < 100;
     this.previousScrollTop = scrollTop;
     this.isOpen = false;
   }
