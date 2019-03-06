@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   background-color: rgba(255, 255, 255, .75);
-  z-index: 20;
+  z-index: 50;
 }
 
 .modal-container {
@@ -16,7 +16,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 25;
+  z-index: 60;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +52,7 @@
   right: 20px;
   background-image: url(/assets/icons/close.svg);
   cursor: pointer;
-  z-index: 30;
+  z-index: 70;
 
   @include mobile-breakpoint {
     position: fixed;

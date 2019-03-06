@@ -26,17 +26,15 @@
     <div class="close-button" (click)="toggleNavOpen(false)"></div>
   </div>
   <div class="m-nav-wrapper" [class.fixed]="showHeaderLine1">
-    <!--<div class="inner">-->
-      <a class="link-root mobile" routerLink="" *ngIf="title">
-        <h4>
-          <span class="accent">{{title[0]?.toUpperCase()}} </span>
-          <span>{{title[1]?.toUpperCase()}}</span>
-        </h4>
-      </a>
-      <div class="hamburger" (click)="toggleNavOpen(true)">
-        <div class="strips"></div>
-      </div>
-    <!--</div>-->
+    <a class="link-root mobile" routerLink="" *ngIf="title">
+      <h4>
+        <span class="accent">{{title[0]?.toUpperCase()}} </span>
+        <span>{{title[1]?.toUpperCase()}}</span>
+      </h4>
+    </a>
+    <div class="hamburger" (click)="toggleNavOpen(true)">
+      <div class="strips"></div>
+    </div>
   </div>
   <h1 class="page-header" [class.fixed]="isFixed" [innerHTML]="header">
 

@@ -33,11 +33,13 @@ export class HeaderComponent implements OnInit {
 
   @HostListener('window:scroll')
   private listener(): void {
-    const scrollTop = this.document.documentElement.scrollTop;
-    this.isFixed = !this.isMobile && scrollTop > 0;
-    this.showHeaderLine1 = this.previousScrollTop >= scrollTop || scrollTop < 100;
-    this.previousScrollTop = scrollTop;
-    this.isOpen = false;
+    if (isPlatformBrowser(this.platformId)) {
+      const scrollTop = Math.max(window.pageYOffset, this.document.documentElement.scrollTop, this.document.body.scrollTop);
+      this.isFixed = !this.isMobile && scrollTop > 0;
+      this.showHeaderLine1 = this.previousScrollTop >= scrollTop || scrollTop < 100;
+      this.previousScrollTop = scrollTop;
+      this.isOpen = false;
+    }
   }
 
   @HostListener('window:resize')
