@@ -13,6 +13,9 @@ import {NgxCaptchaModule} from 'ngx-captcha';
 import {DiplomaComponent} from "./diploma/diploma.component";
 import {RouterModule} from "@angular/router";
 import {environment} from "../../environments/environment";
+import { PaginationComponent } from './pagination/pagination.component';
+import { VideoComponent } from './video/video.component';
+import { ShowMoreComponent } from './show-more/show-more.component';
 
 @NgModule({
   imports: [
@@ -26,7 +29,7 @@ import {environment} from "../../environments/environment";
       reCaptcha2SiteKey: environment.recaptcha
     })
   ],
-  declarations: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent, DiplomaComponent],
+  declarations: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent, DiplomaComponent, PaginationComponent, VideoComponent, ShowMoreComponent],
   exports: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent,
     ClickOutsideModule, DiplomaComponent]
 })
