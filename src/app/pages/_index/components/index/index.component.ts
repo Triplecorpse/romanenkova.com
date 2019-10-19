@@ -31,8 +31,8 @@ export class IndexComponent implements OnInit, AfterViewInit {
   public isBrowser: boolean = false;
   public modalConsent: ICookiesConsentModal;
 
-  @ViewChild('cookieConfirmationModal') private cookieConfirmationModal: TemplateRef<any>;
-  @ViewChild('footerComponent') private footerComponent: FooterComponent;
+  @ViewChild('cookieConfirmationModal', {static: true}) private cookieConfirmationModal: TemplateRef<any>;
+  @ViewChild('footerComponent', {static: true}) private footerComponent: FooterComponent;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
               @Inject(DOCUMENT) private document: Document,

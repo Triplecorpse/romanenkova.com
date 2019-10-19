@@ -33,7 +33,7 @@
       <label><input type="checkbox" formControlName="agreepp" name="agreepp"> {{modalData.agreepp[0]}} <span (click)="openPP(captchaElement)">{{modalData.agreepp[1]}}</span></label>
     </div>
     <div class="recaptcha">
-      <ngx-recaptcha2 #captchaElement formControlName="recaptcha" [hl]="lang" theme="light" (expire)="handleExpire()"
+      <ngx-recaptcha2 #captchaElement formControlName="recaptcha" [siteKey]="captchaKey" [hl]="lang" theme="light" (expire)="handleExpire()"
                       (success)="handleSuccess($event)"></ngx-recaptcha2>
     </div>
     <button class="submit-button" type="submit" [disabled]="appointmentForm.invalid || isSubmitting">

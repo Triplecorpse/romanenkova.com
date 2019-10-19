@@ -11,7 +11,7 @@ export class DiplomaComponent implements OnInit {
   @Input() diploma: Database.IDiploma;
   @Input() buttonText?: string;
   @Input() onPage: boolean;
-  @ViewChild('pictureTpl') pictureTpl: TemplateRef<any>;
+  @ViewChild('pictureTpl', {static: true}) pictureTpl: TemplateRef<any>;
 
   constructor(private modalService: ModalService) { }
 

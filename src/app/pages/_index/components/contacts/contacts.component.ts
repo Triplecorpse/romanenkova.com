@@ -18,7 +18,7 @@ export class ContactsComponent implements OnInit, AfterViewInit {
   public contactItems: Array<Database.IContact>;
   private isViewInit: boolean;
 
-  @ViewChild('contacts') private contactsEl: ElementRef;
+  @ViewChild('contacts', {static: true}) private contactsEl: ElementRef;
 
   @HostListener('window:scroll')
   private scrollListener() {

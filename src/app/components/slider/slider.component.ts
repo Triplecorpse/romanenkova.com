@@ -17,7 +17,7 @@ export class SliderComponent<T> implements OnInit {
   @Input() public sideButtonsMobile: boolean = true;
   @Input() public index: number = 0;
   @Output() public indexChange: EventEmitter<number> = new EventEmitter<number>();
-  @ViewChild('swiper') public swiper: SwiperComponent;
+  @ViewChild('swiper', {static: true}) public swiper: SwiperComponent;
   @ViewChildren('slideTpl') public slideTpls: QueryList<ElementRef>;
 
   private slideHeights: Array<number> = [];

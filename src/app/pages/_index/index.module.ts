@@ -70,9 +70,7 @@ import {CookieService} from "./services/cookie.service";
     ReactiveFormsModule,
     ScrollToModule.forRoot(),
     PipesModule,
-    NgxCaptchaModule.forRoot({
-      reCaptcha2SiteKey: environment.recaptcha
-    })
+    NgxCaptchaModule
   ],
   declarations: [
     IndexComponent,

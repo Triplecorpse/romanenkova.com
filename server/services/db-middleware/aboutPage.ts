@@ -1,7 +1,6 @@
-import {TLanguage} from "../../../_interface/types";
-import {AboutPage} from "../../models/aboutPage";
-import {Page} from "../../../_interface/IPage";
-import IAboutPage = Page.IAboutPage;
+import {TLanguage} from '../../../_interface/types';
+import {AboutPage} from '../../models/aboutPage';
+import {Page} from '../../../_interface/IPage';
 
 export function readAbout(language: TLanguage, isAdmin: boolean = false): Promise<Page.IAboutPage> {
   const query = isAdmin
@@ -13,7 +12,7 @@ export function readAbout(language: TLanguage, isAdmin: boolean = false): Promis
         header: ''
       }));
 
-  return query.then() as Promise<Page.IAboutPage>;
+  return query as Promise<Page.IAboutPage>;
 }
 
 export function updateAbout(aboutPages: Array<Page.IAboutPage>): Promise<any> {

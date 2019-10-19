@@ -4,9 +4,10 @@ import {ModalService} from '../../services/modal.service';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
 import {ReCaptcha2Component} from 'ngx-captcha';
 import {HttpClient} from '@angular/common/http';
-import {PageDataGuardService} from "../../../../page-data-guard.service";
-import {Database} from "../../../../../../_interface/IMongooseSchema";
-import {IReviewModal} from "../../../../../../_interface/IReviewModal";
+import {PageDataGuardService} from '../../../../page-data-guard.service';
+import {Database} from '../../../../../../_interface/IMongooseSchema';
+import {IReviewModal} from '../../../../../../_interface/IReviewModal';
+import {environment} from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-overview-reviews',
@@ -34,8 +35,9 @@ export class OverviewReviewsComponent implements OnInit {
   public errorObj: any = {};
   public noReviewText: string;
   public anonText: string;
+  public captchaKey = environment.recaptcha;
 
-  @ViewChild('modalAddReview') private modalAddReviewRef: TemplateRef<any>;
+  @ViewChild('modalAddReview', {static: true}) private modalAddReviewRef: TemplateRef<any>;
 
   constructor(private route: ActivatedRoute,
               private modalService: ModalService,

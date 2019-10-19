@@ -25,9 +25,7 @@ import { ShowMoreComponent } from './show-more/show-more.component';
     ReactiveFormsModule,
     ClickOutsideModule,
     RouterModule,
-    NgxCaptchaModule.forRoot({
-      reCaptcha2SiteKey: environment.recaptcha
-    })
+    NgxCaptchaModule
   ],
   declarations: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent, DiplomaComponent, PaginationComponent, VideoComponent, ShowMoreComponent],
   exports: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent,

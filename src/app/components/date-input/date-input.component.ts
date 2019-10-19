@@ -31,8 +31,8 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
   @Input() events$: Observable<Event>;
   @Input() control: FormControl;
   @Input() schedule: Array<Database.ISchedule>;
-  @ViewChild('dateInput') dateInput: ElementRef;
-  @ViewChild('calendarIconEl') calendarIconEl: ElementRef;
+  @ViewChild('dateInput', {static: true}) dateInput: ElementRef;
+  @ViewChild('calendarIconEl', {static: true}) calendarIconEl: ElementRef;
 
   public weekdays: Array<string>;
   private isDisabled: boolean;

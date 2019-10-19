@@ -13,9 +13,9 @@ import {
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {fadeAndSlideToRight} from '../../shortcuts/animations';
 import {ActivatedRoute} from '@angular/router';
-import {Page} from "../../../../../../_interface/IPage";
-import {PageDataGuardService} from "../../../../page-data-guard.service";
-import {IOverview} from "../../../../../../_interface/IOverview";
+import {Page} from '../../../../../../_interface/IPage';
+import {PageDataGuardService} from '../../../../page-data-guard.service';
+import {IOverview} from '../../../../../../_interface/IOverview';
 
 @Component({
   selector: 'app-overview-about',
@@ -33,7 +33,7 @@ export class OverviewAboutComponent implements OnInit, AfterViewInit {
   public position: string;
   public fullName: string;
 
-  @ViewChild('el') private el: ElementRef;
+  @ViewChild('el', {static: true}) private el: ElementRef;
   @HostListener('window:scroll')
   private listener() {
     if (isPlatformBrowser(this.platformId)) {

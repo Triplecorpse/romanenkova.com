@@ -30,10 +30,10 @@ export class ModalComponent implements OnInit {
   tc: ITermsPolicy = {header: '', body: ''};
   public isLoadingText: string;
 
-  @ViewChild('lightboxTpl') public lightbox: TemplateRef<string>;
-  @ViewChild('alertTpl') public alert: TemplateRef<{header: string; body: string}>;
-  @ViewChild('tcModalLoadingTpl') public tcModalLoadingTpl: TemplateRef<string>;
-  @ViewChild('tcModalTpl') public tcModalTpl: TemplateRef<ITermsPolicy>;
+  @ViewChild('lightboxTpl', {static: true}) public lightbox: TemplateRef<string>;
+  @ViewChild('alertTpl', {static: true}) public alert: TemplateRef<{header: string; body: string}>;
+  @ViewChild('tcModalLoadingTpl', {static: true}) public tcModalLoadingTpl: TemplateRef<string>;
+  @ViewChild('tcModalTpl', {static: true}) public tcModalTpl: TemplateRef<ITermsPolicy>;
   @HostListener('window:scroll', ['$event'])
   private scrollListener($event) {
     if (this.isModalOpen) {

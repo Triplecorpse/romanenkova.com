@@ -7,6 +7,7 @@ import IRequest from "../interfaces/iRequest";
 import {NextFunction} from "express";
 import {languages} from "../const/const";
 import {join} from "path";
+import {TLanguage} from '../../_interface/types';
 
 const cookieParser = require('cookie-parser');
 const parseAcceptLanguage = require('parse-accept-language');
@@ -27,11 +28,11 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
 
 router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
     // continue routing if language is not acceptable
-    if (req.params.lang && languages.indexOf(req.params.lang) === -1 && req.params.lang !== '404') {
+    if (req.params.lang && languages.indexOf(req.params.lang as TLanguage) === -1 && req.params.lang !== '404') {
         return next();
     }
 
-    req.language = req.params.lang || req.language;
+    req.language = req.params.lang as TLanguage || req.language;
 
     const DIST_FOLDER = join(process.cwd(), 'front');
 
@@ -47,8 +48,8 @@ router.use(express.static('./static'));
 
 router.use('/api/v2', apiv2);
 
-router.get('*', (req: IRequest, res: Response) => {
-  res.status(404).redirect(`${req.baseUrl}/404`);
-});
+// router.get('*', (req: IRequest, res: Response) => {
+//   res.status(404).redirect(`${req.baseUrl}/404`);
+// });
 
 export default router;

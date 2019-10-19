@@ -1,15 +1,15 @@
-//#!/usr/bin/env node
+// #!/usr/bin/env node
 
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
-import {startRegularBackups} from "./services/security-services/backup-service";
+import {startRegularBackups} from './services/security-services/backup-service';
 import {app} from './server';
 import log from './services/log-service';
 import mongoose = require('mongoose');
-import {generateSiteMap} from "./services/file-service";
-import {getMilliseconds} from "./services/base";
-import {startMonitoring} from "./monitor";
-import http from 'http';
+import {generateSiteMap} from './services/file-service';
+import {getMilliseconds} from './services/base';
+import {startMonitoring} from './monitor';
+import http = require('http');
 
 http.globalAgent.maxSockets = 50;
 

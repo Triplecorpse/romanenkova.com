@@ -15,9 +15,10 @@ import {ResolveScheduleService} from '../../resolve-schedule.service';
 import {Moment} from 'moment';
 import * as initMoment from 'moment-timezone';
 import {extendMoment} from 'moment-range';
-import {PageDataGuardService} from "../../page-data-guard.service";
-import {Database} from "../../../../_interface/IMongooseSchema";
-import {IAppointmentModal} from "../../../../_interface/IAppointmenntModal";
+import {PageDataGuardService} from '../../page-data-guard.service';
+import {Database} from '../../../../_interface/IMongooseSchema';
+import {IAppointmentModal} from '../../../../_interface/IAppointmenntModal';
+import {environment} from '../../../environments/environment';
 
 const moment = extendMoment(initMoment);
 
@@ -37,7 +38,7 @@ interface IMessenger {
 })
 export class AttendButtonComponent implements OnInit {
   @Input() public service: Database.IService;
-  @ViewChild('modalAppointment') private modalAppointmentRef: TemplateRef<any>;
+  @ViewChild('modalAppointment', {static: true}) private modalAppointmentRef: TemplateRef<any>;
 
   public header: string;
   public formGroup: FormGroup;
@@ -68,6 +69,7 @@ export class AttendButtonComponent implements OnInit {
     {name: '@phone', nickType: 'text', icon: '', nickPlaceholder: '@phone / @nickname'}
   ];
   public services: Array<Database.IService>;
+  public captchaKey = environment.recaptcha;
 
   constructor(private modalService: ModalService,
               private formBuilder: FormBuilder,

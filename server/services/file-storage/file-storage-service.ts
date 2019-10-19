@@ -1,8 +1,8 @@
 import util = require('util');
 import fs = require('fs');
-import {encryptString} from "../security-services/crypto-service";
-import sharp from "sharp";
-import {IPhotoPreview} from "../../../_interface/IPhotoPreview";
+import {encryptString} from '../security-services/crypto-service';
+import sharp = require('sharp');
+import {IPhotoPreview} from '../../../_interface/IPhotoPreview';
 
 export function uploadImage(path: string): Promise<IPhotoPreview> {
   const patharr = path.split('/');
