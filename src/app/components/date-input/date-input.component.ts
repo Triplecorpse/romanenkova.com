@@ -2,19 +2,89 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, forwa
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
-import * as Moment from 'moment';
-import {DateRange, extendMoment} from 'moment-range';
-import {PageDataGuardService} from "../../page-data-guard.service";
-import {Database} from "../../../../_interface/IMongooseSchema";
-import {TWeekday} from "../../../../_interface/types";
-
-const moment = extendMoment(Moment);
+import {PageDataGuardService} from '../../page-data-guard.service';
+import {Database} from '../../../../_interface/IMongooseSchema';
+import {TWeekday} from '../../../../_interface/types';
+import {
+  addDays,
+  eachDayOfInterval,
+  format,
+  isEqual,
+  isSameMonth,
+  isSameYear,
+  isValid,
+  isWithinInterval,
+  Locale,
+  parse,
+  set
+} from 'date-fns';
+import {enUS, fr, ru, uk} from 'date-fns/locale';
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => DateInputComponent),
   multi: true
 };
+
+const locales = {
+  uk: uk,
+  en: enUS,
+  fr: fr,
+  ru: ru
+};
+
+function parseDate(dateStr: string): Date {
+  const formats = [
+    'dd.MM.yyyy',
+    'dd,MM,yyyy',
+    'dd-MM-yyyy',
+    'MM/dd/yyyy',
+    'yyyy-MM-dd',
+    'dd.MM',
+    'dd,MM',
+    'dd-MM',
+    'MM/dd',
+    'MM-dd'
+  ];
+
+  for (const formatStr of formats) {
+    const date = parse(dateStr, formatStr, new Date());
+
+    if (isValid(date) || formats[formats.length - 1] === formatStr) {
+      return date;
+    }
+  }
+}
+
+function eachMonthOfInterval(range: { start: Date, end: Date }): Array<Date> {
+  const currentDate = new Date(range.start.getTime());
+  const endTime = range.end.getTime();
+  const dates = [];
+
+  currentDate.setDate(1);
+  currentDate.setHours(0, 0, 0);
+
+  while (currentDate.getTime() <= endTime) {
+    dates.push(new Date(currentDate));
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    currentDate.setDate(1);
+  }
+
+  return dates;
+}
+
+function getWeekdayDates(start: 0 | 1): Array<Date> {
+  const startOfAWeek = new Date();
+  const currentDay = startOfAWeek.getDay();
+  const subtraction = currentDay - start;
+
+  startOfAWeek.setDate(startOfAWeek.getDate() - subtraction);
+
+  return eachDayOfInterval({
+    start: startOfAWeek,
+    end: addDays(startOfAWeek, 6)
+  });
+}
 
 @Component({
   selector: 'app-date-input',
@@ -34,40 +104,34 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
   @ViewChild('dateInput', {static: true}) dateInput: ElementRef;
   @ViewChild('calendarIconEl', {static: true}) calendarIconEl: ElementRef;
 
+  format = format;
+  locale: Locale;
   public weekdays: Array<string>;
-  private isDisabled: boolean;
+  public monthYears: Array<string>;
   public isCalendarOpen: boolean;
-  public selectedDate: Moment.Moment;
-  public minDate: Moment.Moment;
-  private range: DateRange;
-  public monthYearRange: Array<Moment.Moment>;
+  public selectedDate: Date;
+  public minDate: Date;
+  public monthYearRange: Array<Date>;
   public monthYearRangeIndex: number = 0;
   public value: string;
   public textValue: string;
   public parsedDate: string;
-  private unavailableDates: Array<Moment.Moment>;
-  private availableDates: Array<Moment.Moment>;
+  private isDisabled: boolean;
+  private range: { start: Date; end: Date };
+  private unavailableDates: Array<Date>;
+  private availableDates: Array<Date>;
   private unavailableWeekdays: Array<TWeekday>;
+  private startOfToday = set(new Date(), {hours: 0, minutes: 0, seconds: 0, milliseconds: 0}).getTime();
   private onTouch: () => void;
-  private onChange: (v: Moment.Moment) => void = (v: Moment.Moment) => {};
+  private onChange: (v: Date) => void = (v: Date) => {
+  };
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
               private pageDataGuardService: PageDataGuardService) {
   }
 
   public writeValueFromTemplate(value: string) {
-    const parsedDate = moment(value, [
-      'DD.MM.YYYY',
-      'DD,MM,YYYY',
-      'DD-MM-YYYY',
-      'MM/DD/YYYY',
-      'YYYY-MM-DD',
-      'DD.MM',
-      'DD,MM',
-      'DD-MM',
-      'MM/DD',
-      'MM-DD'
-    ]).startOf('day');
+    const parsedDate = parseDate(value);
 
     this.value = value;
 
@@ -75,27 +139,29 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
       this.onChange(null);
     }
 
-    if (parsedDate.isValid() && parsedDate.within(this.range) && this.getAvailability(parsedDate)) {
+    if (isValid(parsedDate) && isWithinInterval(parsedDate, this.range) && this.getAvailability(parsedDate)) {
       this.writeValue(parsedDate);
       this.selectedDate = parsedDate;
     } else {
       this.control.setErrors({
-        invalid: !parsedDate.isValid(),
-        notInRange: !parsedDate.within(this.range),
-        notAvailable: this.getAvailability(parsedDate)
+        invalid: !isValid(parsedDate),
+        notInRange: isValid(parsedDate) ? !isWithinInterval(parsedDate, this.range) : true,
+        notAvailable: isValid(parsedDate) ? this.getAvailability(parsedDate) : true
       });
-      this.selectedDate = moment().startOf('day');
+
+      this.selectedDate = new Date(this.startOfToday);
       this.parsedDate = '';
       this.onChange(null);
     }
   }
 
-  public writeValue(value: Moment.Moment): void {
-    if (value instanceof Moment) {
-      this.value = value.format('DD.MM.YYYY');
+  public writeValue(value: Date): void {
+    if (value instanceof Date) {
+      this.value = format(value, 'dd.MM.yyyy');
       this.selectedDate = value;
     }
-    this.parsedDate = value ? `(${value.format('DD MMMM YYYY')})` : '';
+
+    this.parsedDate = value ? `(${format(value, 'dd MMMM yyyy')})` : '';
     this.control.setErrors(null);
     this.onChange(value);
   }
@@ -112,31 +178,17 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
     this.isDisabled = state;
   }
 
-  public ngOnInit(): void {
+  public async ngOnInit() {
+    this.weekdays = getWeekdayDates(1)
+      .map(date => format(date, 'EEEEEE', {locale: locales[this.pageDataGuardService.appSettings.language]}));
     this.schedule = this.pageDataGuardService.pageData.index.schedule;
-
-    Moment.locale(this.pageDataGuardService.appSettings.language);
-    const weekdays = Moment.weekdays();
-    const weekdaysMin = Moment.weekdaysMin();
-    const weekdaysShort = Moment.weekdaysShort();
-    weekdays.push(weekdays.shift());
-    weekdaysMin.push(weekdaysMin.shift());
-    weekdaysShort.push(weekdaysShort.shift());
-    Moment.updateLocale(this.pageDataGuardService.appSettings.language, {
-      weekdays,
-      weekdaysShort,
-      weekdaysMin,
-      week: {
-        dow: 1,
-        doy: 1
-      }
-    });
-
-    this.selectedDate = moment().startOf('day');
-    this.minDate = moment().startOf('day');
-    this.range = moment.rangeFromInterval('days', 28, this.minDate);
-    this.monthYearRange = Array.from(this.range.snapTo('month').by('month'));
-    this.weekdays = Moment.weekdaysMin();
+    this.selectedDate = new Date(this.startOfToday);
+    this.minDate = new Date(this.startOfToday);
+    this.range = {
+      start: new Date(this.startOfToday),
+      end: addDays(new Date(this.startOfToday), 28),
+    };
+    this.monthYearRange = eachMonthOfInterval(this.range);
 
     this.events$.pipe(
       filter((e: Event): boolean => e.type === 'click')
@@ -148,11 +200,11 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
 
     this.unavailableDates = this.schedule
       .filter((scheduleItem: Database.ISchedule): boolean => scheduleItem.date && scheduleItem.availableHours.length === 0)
-      .map((scheduleItem: Database.ISchedule): Moment.Moment => moment(scheduleItem.date, 'DD.MM.YYYY'));
+      .map((scheduleItem: Database.ISchedule): Date => parse(scheduleItem.date, 'dd.MM.yyyy', 0));
 
     this.availableDates = this.schedule
       .filter((scheduleItem: Database.ISchedule): boolean => scheduleItem.date && scheduleItem.availableHours.length > 0)
-      .map((scheduleItem: Database.ISchedule): Moment.Moment => moment(scheduleItem.date, 'DD.MM.YYYY'));
+      .map((scheduleItem: Database.ISchedule): Date => parse(scheduleItem.date, 'dd.MM.yyyy', 0));
 
     this.unavailableWeekdays = this.schedule
       .filter((scheduleItem: Database.ISchedule): boolean => !scheduleItem.date && scheduleItem.availableHours.length === 0)
@@ -181,15 +233,14 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
     this.monthYearRangeIndex += direction === 'next' ? 1 : -1;
   }
 
-  public getDays(): Array<Moment.Moment> {
-    return Array.from(this.range.by('day'))
-      .filter((d: Moment.Moment): boolean =>
-        (d.month() === this.monthYearRange[this.monthYearRangeIndex].month()) &&
-        (d.year() === this.monthYearRange[this.monthYearRangeIndex].year()));
+  public getDatesOfSelectedMonth(): Array<Date> {
+    return eachDayOfInterval(this.range)
+      .filter(date => isSameMonth(date, this.monthYearRange[this.monthYearRangeIndex]) &&
+        isSameYear(date, this.monthYearRange[this.monthYearRangeIndex]));
   }
 
-  public setActiveDate(day: Moment.Moment): void {
-    this.value = day.format('DD.MM.YYYY');
+  public setActiveDate(day: Date): void {
+    this.value = format(day, 'dd.MM.yyyy');
     this.control.enable();
     this.selectedDate = day;
     this.writeValue(day);
@@ -198,7 +249,8 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
   }
 
   public getMonthString(): string {
-    const rawString = this.monthYearRange[this.monthYearRangeIndex].format('MMMM YYYY');
+    const rawString =
+      format(this.monthYearRange[this.monthYearRangeIndex], 'MMMM yyyy', {locale: locales[this.pageDataGuardService.appSettings.language]});
     return rawString.charAt(0).toUpperCase() + rawString.slice(1);
   }
 
@@ -207,17 +259,15 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
   }
 
   public onBlurInput() {
-    this.value = this.parsedDate ? this.selectedDate.format('DD.MM.YYYY') : this.value;
+    this.value = this.parsedDate ? format(this.selectedDate, 'dd.MM.yyyy') : this.value;
   }
 
-  public getAvailability(date: Moment.Moment): boolean {
+  public getAvailability(date: Date): boolean {
     const weekdaysMapper: Array<TWeekday> = ['mo', 'tu', 'we', 'th', 'fr', 'sa', 'su'];
-    const weekday: TWeekday = weekdaysMapper[date.weekday()];
+    const weekday: TWeekday = weekdaysMapper[+format(date, 'i')];
     const isAvailableByWeekday = this.unavailableWeekdays.indexOf(weekday) === -1;
-    const isUnavailableByDate = this.unavailableDates.findIndex((unavailableDate: Moment.Moment): boolean =>
-      unavailableDate.isSame(date)) > -1;
-    const isAvailableByDate = this.availableDates.findIndex((availableDate: Moment.Moment): boolean =>
-      availableDate.isSame(date)) > -1;
+    const isUnavailableByDate = this.unavailableDates.findIndex(unavailableDate => isEqual(unavailableDate, date)) > -1;
+    const isAvailableByDate = this.availableDates.findIndex(availableDate => isEqual(availableDate, date)) > -1;
 
     if (isUnavailableByDate) {
       return false;
@@ -239,12 +289,13 @@ export class DateInputComponent implements ControlValueAccessor, OnInit {
     }
   }
 
-  public onDateKeyPress($event: KeyboardEvent, date: Moment.Moment): void {
+  public onDateKeyPress($event: KeyboardEvent, date: Date): void {
     if ($event.code === 'Enter') {
       this.setActiveDate(date);
       this.toggleCalendar(false);
       this.dateInput.nativeElement.focus();
     }
+
     if ($event.code === 'Escape') {
       this.toggleCalendar(false);
     }
