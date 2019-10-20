@@ -32,7 +32,7 @@
             <ng-container *ngIf="listItem !== '_'">
               <li class="list-item"
                   tabindex="0"
-                  [class.separator]="!isLast && preparedList[index + 1].isNextSeparator"
+                  [class.separator]="!isLast && listItem.isNextSeparator"
                   (click)="setActiveItem(listItem)"
                   (keydown.enter)="setActiveItem(listItem)"
                   (keydown.escape)="closeListAndResetFocus()"

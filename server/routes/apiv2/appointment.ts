@@ -4,6 +4,7 @@ import {validateRecaptcha} from "../../services/security-services/recaptcha-vali
 import {errorMessages, successMessages} from "../../const/const";
 import {IAppointmentModal} from "../../../_interface/IAppointmenntModal";
 import {getHtmlLetter, sendEmail} from "../../services/user-services/email-service";
+import {writeFile} from '../../services/file-service';
 
 export default async function getAppointmentHandler(req: IRequest, res: Response) {
   const appointment: IAppointmentModal = req.body;
@@ -30,12 +31,17 @@ export default async function getAppointmentHandler(req: IRequest, res: Response
   });
   const contactNameControl = appointment.contactNameControl ? appointment.contactNameControl.name : 'n/a';
   const htmlLetter = await getHtmlLetter('appointment', {...appointment, contactNameControl});
-  await sendEmail({
-    to: `info@romanenkova.com, ${appointment.email}`,
-    from: `${appointment.name} <info@romanenkova.com>`,
-    subject: 'New Appointment From Site',
-    html: htmlLetter
-  });
+
+  if (!req.isLocalhost) {
+    await sendEmail({
+      to: `info@romanenkova.com, ${appointment.email}`,
+      from: `${appointment.name} <info@romanenkova.com>`,
+      subject: 'New Appointment From Site',
+      html: htmlLetter
+    });
+  } else {
+    await writeFile('./email-last-appointment.html', htmlLetter);
+  }
 
   const header = successMessages.appointment.header[req.body.language];
   const body = successMessages.appointment.body[req.body.language];

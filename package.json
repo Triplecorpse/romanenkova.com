@@ -20,7 +20,7 @@
     "build:development": "node .env.copy.development && ng run front:server:qa && npm run build && npm run build:ssr && ng build --configuration=qa --aot && git add dist/. && git add front/.",
     "build:staging": "node .env.copy.development && ng run front:server:staging && npm run build && npm run build:ssr && ng build --configuration=staging --aot && git add dist/. && git add front/.",
     "build:production": "node .env.copy.production && ng run front:server:production && npm run build && npm run build:ssr && ng build --configuration=production --aot --prod && git add dist/. && git add front/.",
-    "start:n:build:local": "npm run build:production && npm start"
+    "start:n:build:local": "npm run build:local && npm start"
   },
   "repository": {
     "type": "git",

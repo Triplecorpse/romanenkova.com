@@ -1,4 +1,4 @@
-import {IModal} from "./IModal";
+import {IModal} from './IModal';
 
 export interface IAppointmentModal extends IModal {
   name: string;

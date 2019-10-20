@@ -23,6 +23,7 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     );
 
     req.language = req.query.lang || req.cookies.lang || (languageObj ? languageObj.language : 'en');
+    req.isLocalhost = req.hostname.includes('localhost');
     next();
 });
 

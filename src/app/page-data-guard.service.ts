@@ -92,7 +92,7 @@ export class PageDataGuardService implements CanActivate {
               return item;
             });
 
-            indexPage.appointment.timezone = format(new Date(), 'xxx');
+            indexPage.appointment.timezone = format(new Date(), `'GMT 'xxx`);
 
             this._appSettings.language = indexPage.language.codeISO2;
             this._appSettings.locale = indexPage.language;

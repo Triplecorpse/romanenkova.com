@@ -1,14 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Input,
-  OnInit,
-  TemplateRef,
-  ViewChild
-} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {ModalService} from '../../pages/_index/services/modal.service';
-import {FormBuilder, FormGroup, FormControl, Validators, FormGroupDirective} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {ReCaptcha2Component} from 'ngx-captcha';
 import {ResolveScheduleService} from '../../resolve-schedule.service';
@@ -23,17 +15,20 @@ interface IMessenger {
   nickType: 'tel' | 'text';
   icon: string;
   nickPlaceholder: string;
+  isNextSeparator?: boolean;
 }
 
 function eachHourOfInterval(range: { start: Date; end: Date }): Array<Date> {
-  const currentDate = range.start;
+  const currentDate = new Date(range.start.getTime());
   const endTime = range.end.getTime();
   const dates = [];
 
+  currentDate.setMinutes(0, 0, 0);
+
+
   while (currentDate.getTime() <= endTime) {
-    dates.push(currentDate);
+    dates.push(new Date(currentDate.getTime()));
     currentDate.setHours(currentDate.getHours() + 1);
-    currentDate.setMinutes(0, 0, 0);
   }
 
   return dates;
@@ -137,14 +132,17 @@ export class AttendButtonComponent implements OnInit {
 
     this.dateControl.valueChanges.subscribe((newValue: Date) => {
       this.getTimeSlots(newValue);
+
       if (this.timeSlots.indexOf(this.timeControl.value) === -1) {
         this.timeControl.setValue(null);
       }
+
       if (newValue && this.timeSlots.length) {
         this.timeControl.enable();
       } else {
         this.timeControl.disable();
       }
+
       this.changeDetectorRef.markForCheck();
     });
 
@@ -215,17 +213,21 @@ export class AttendButtonComponent implements OnInit {
     this.isCaptchaResolved = true;
   }
 
-  getTimeSlots(date: Date): void {
-    this.timeSlots.length = 0;
+  getTimeSlots(date: Date) {
+    this.timeSlots = [];
     if (!date) {
       return;
     }
     const weekdaysMapper = ['mo', 'tu', 'we', 'th', 'fr', 'sa', 'su'];
-    const schedule =
-      (this.schedule.find(scheduleItemDate => isEqual(date, parse(scheduleItemDate.date, 'dd.MM.yyyy', 0)) ||
-      this.schedule.find(scheduleItemWeekday => scheduleItemWeekday.weekday === weekdaysMapper[date.getDay()]))).availableHours;
+    const scheduleByDates = this.schedule.find(scheduleItemDate => isEqual(date, parse(scheduleItemDate.date, 'dd.MM.yyyy', 0)));
+    const scheduleByWeekdays = this.schedule.find(scheduleItemWeekday => scheduleItemWeekday.weekday === weekdaysMapper[date.getDay()]);
+    const schedule = scheduleByDates || scheduleByWeekdays;
 
-    schedule.forEach((hours: string, index: number): void => {
+    if (!schedule.availableHours) {
+      return;
+    }
+
+    schedule.availableHours.forEach((hours: string, index: number): void => {
       const hoursArr = hours.split('-');
       const start = parse(hoursArr[0], 'HH:mm', 0);
       const end = parse(hoursArr[1], 'HH:mm', 0);
@@ -233,7 +235,7 @@ export class AttendButtonComponent implements OnInit {
       const slots = eachHourOfInterval(range)
         .map((startTime: Date): string => `${format(startTime, 'HH:mm')} - ${format(addHours(startTime, 1), 'HH:mm')}`);
 
-      if (index < schedule.length - 1) {
+      if (index < schedule.availableHours.length - 1) {
         slots.push('_');
       }
 

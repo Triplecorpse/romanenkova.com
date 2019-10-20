@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpParams, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../../../environments/environment';
-import {PageDataGuardService} from "../../../page-data-guard.service";
+import {PageDataGuardService} from '../../../page-data-guard.service';
 
 @Injectable({
   providedIn: 'root'
