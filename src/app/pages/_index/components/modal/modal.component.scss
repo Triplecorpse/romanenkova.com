@@ -32,6 +32,14 @@
   max-height: 100vh;
   overflow-y: auto;
 
+  &.is-privacy-policy {
+    max-width: 1200px;
+  }
+
+  &.alert {
+    padding: 35px;
+  }
+
   &.full-screen {
     max-width: none;
     height: 100%;
@@ -75,7 +83,6 @@
   }
 }
 
-
 .pp-body::ng-deep {
   h4 {
     margin-top: 20px;
@@ -88,5 +95,27 @@
   p {
     font-size: .8em;
     color: lighten($color-text-regular, 60);
+  }
+}
+
+.button {
+  display: block;
+  margin: 50px auto 0;
+  color: #ffffff;
+  background-color: $color-text-accent;
+}
+
+.message-wrapper {
+  .header {
+    text-align: center;
+  }
+
+  .text {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .button {
+    margin-top: 15px;
   }
 }

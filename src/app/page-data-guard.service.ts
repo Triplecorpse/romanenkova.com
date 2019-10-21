@@ -7,10 +7,10 @@ import {IIndexData} from '../../_interface/IIndexData';
 import {ILanguageObject} from '../../_interface/ILanguageObject';
 import {map, tap} from 'rxjs/operators';
 import {Database} from '../../_interface/IMongooseSchema';
+import {isPlatformBrowser} from '@angular/common';
 import addMinutes from 'date-fns/addMinutes';
 import format from 'date-fns/format';
 import parse from 'date-fns/parse';
-import {isPlatformBrowser} from '@angular/common';
 
 interface IPageData {
   index: IIndexData;
@@ -79,23 +79,26 @@ export class PageDataGuardService implements CanActivate {
         tap((page: Page.IPage) => {
           this._pageData[pageId] = page;
 
-          if (pageId === 'index' && isPlatformBrowser(this.platformId)) {
+          if (pageId === 'index') {
             const indexPage: IIndexData = <any>page;
 
-            indexPage.schedule = indexPage.schedule.map((item: Database.ISchedule): Database.ISchedule => {
-              item.availableHours = item.availableHours.map((hour: string) => {
-                const tzOffset = new Date().getTimezoneOffset();
-                const hourArr = hour.split('-');
-                const start = parse(hourArr[0], 'HH:mm', 0);
-                const end = parse(hourArr[1], 'HH:mm', 0);
+            if (isPlatformBrowser(this.platformId)) {
+              indexPage.schedule = indexPage.schedule
+                .map((item: Database.ISchedule): Database.ISchedule => {
+                  item.availableHours = item.availableHours.map((hour: string) => {
+                    const tzOffset = new Date().getTimezoneOffset();
+                    const hourArr = hour.split('-');
+                    const start = parse(hourArr[0], 'HH:mm', 0);
+                    const end = parse(hourArr[1], 'HH:mm', 0);
 
-                return `${format(addMinutes(start, -tzOffset), 'HH:mm')}-${format(addMinutes(end, -tzOffset), 'HH:mm')}`;
-              });
+                    return `${format(addMinutes(start, -tzOffset), 'HH:mm')}-${format(addMinutes(end, -tzOffset), 'HH:mm')}`;
+                  });
 
-              return item;
-            });
+                  return item;
+                });
 
-            indexPage.appointment.timezone = format(new Date(), `'GMT 'xxx`);
+              indexPage.appointment.timezone = format(new Date(), `'GMT 'xxx`);
+            }
 
             this._appSettings.language = indexPage.language.codeISO2;
             this._appSettings.locale = indexPage.language;

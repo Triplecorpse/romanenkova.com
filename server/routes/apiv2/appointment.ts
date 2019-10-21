@@ -1,9 +1,9 @@
-import IRequest from "../../interfaces/iRequest";
-import {Response} from "express-serve-static-core";
-import {validateRecaptcha} from "../../services/security-services/recaptcha-validator";
-import {errorMessages, successMessages} from "../../const/const";
-import {IAppointmentModal} from "../../../_interface/IAppointmenntModal";
-import {getHtmlLetter, sendEmail} from "../../services/user-services/email-service";
+import IRequest from '../../interfaces/iRequest';
+import {Response} from 'express-serve-static-core';
+import {validateRecaptcha} from '../../services/security-services/recaptcha-validator';
+import {errorMessages, successMessages} from '../../const/const';
+import {IAppointmentModal} from '../../../_interface/IAppointmenntModal';
+import {getHtmlLetter, sendEmail} from '../../services/user-services/email-service';
 import {writeFile} from '../../services/file-service';
 
 export default async function getAppointmentHandler(req: IRequest, res: Response) {
@@ -14,11 +14,11 @@ export default async function getAppointmentHandler(req: IRequest, res: Response
       name: errorMessages.appointment.name[req.body.language],
       email: errorMessages.appointment.email[req.body.language],
       lang: req.body.language
-    })
+    });
   }
 
   if (!appointment.name) {
-    return res.status(400).json({name: errorMessages.appointment.name[req.body.language], lang: req.body.language})
+    return res.status(400).json({name: errorMessages.appointment.name[req.body.language], lang: req.body.language});
   }
 
   if (!appointment.email) {

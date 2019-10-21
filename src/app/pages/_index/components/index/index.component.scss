@@ -11,39 +11,11 @@
 }
 
 .modal-confirm-wrapper {
-  .button-wrapper {
-    display: flex;
-    justify-content: flex-end;
-
-    .button {
-      height: 40px;
-      border: none;
-      text-transform: uppercase;
-      font-weight: 700;
-      padding: 0 50px;
-      font-family: 'Montserrat', sans-serif;
-      cursor: pointer;
-      position: relative;
-      font-size: .8rem;
-      box-shadow: 0 0 24px 0 rgba(0, 0, 0, .15);
-      transition: .3s transform ease;
-      margin-left: 10px;
-
-      &:hover {
-        transform: scale(1.2);
-        transition: .3s transform ease;
-        z-index: 5;
-      }
-
-      &.yes {
-        background-color: $color-text-accent;
-        color: #ffffff;
-      }
-
-      &.no {
-        background-color: #ffffff;
-      }
-    }
+  .button {
+    display: block;
+    margin: 50px auto 0;
+    background-color: $color-text-accent;
+    color: #ffffff;
   }
 
   .info-wrapper {

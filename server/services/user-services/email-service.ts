@@ -1,12 +1,11 @@
-import IMail from "../../interfaces/iMail";
+import IMail from '../../interfaces/iMail';
 
 require('dotenv').config();
 
 const apiKey: string = process.env.MAILGUN_API_KEY as string;
-const domain: string = 'mail.romanenkova.com';
+const domain = 'mail.romanenkova.com';
 const mailgun = require('mailgun-js')({apiKey, domain, host: 'api.eu.mailgun.net'});
-import {readFile} from "../file-service";
-import {IAppointment} from "../../interfaces/iAppointment";
+import {readFile} from '../file-service';
 
 export function sendEmail(message: IMail): Promise<any> {
     message.from = message.from || 'Iryna Romanenkova <info@romanenkova.com>';
@@ -29,7 +28,7 @@ export function sendEmail(message: IMail): Promise<any> {
 export async function getHtmlLetter(tplName: string, ctx: any): Promise<string> {
     let tpl = await readFile(`./server/assets/${tplName}.tpl.html`);
 
-    for (let i in ctx) {
+    for (const i in ctx) {
       if (!ctx.hasOwnProperty(i)) {
         continue;
       }

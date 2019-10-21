@@ -1,15 +1,15 @@
 import {
   ChangeDetectorRef, Component, HostListener, OnInit, Renderer2, TemplateRef, ViewChild, PLATFORM_ID, Inject
 } from '@angular/core';
-import {isPlatformBrowser} from "@angular/common";
+import {isPlatformBrowser} from '@angular/common';
 import {ModalService} from '../../services/modal.service';
 import {IModalEvent} from '../../../../interfaces/iModalEvent';
 import {filter} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {fade} from '../../shortcuts/animations';
-import {ITermsPolicy} from "../../../../../../_interface/ITermsPolicy";
-import {HttpClient} from "@angular/common/http";
-import {PageDataGuardService} from "../../../../page-data-guard.service";
+import {ITermsPolicy} from '../../../../../../_interface/ITermsPolicy';
+import {HttpClient} from '@angular/common/http';
+import {PageDataGuardService} from '../../../../page-data-guard.service';
 
 @Component({
   selector: 'app-modal',
@@ -28,6 +28,8 @@ export class ModalComponent implements OnInit {
   context: any;
   events$: Subject<any> = new Subject();
   tc: ITermsPolicy = {header: '', body: ''};
+  isPrivacyPolicy: boolean;
+  isAlert: boolean;
   public isLoadingText: string;
 
   @ViewChild('lightboxTpl', {static: true}) public lightbox: TemplateRef<string>;
@@ -65,11 +67,14 @@ export class ModalComponent implements OnInit {
       filter((modalEvent: IModalEvent): boolean => modalEvent.type === 'open')
     ).subscribe((data: IModalEvent): void => {
       let template: TemplateRef<any>;
+      this.isAlert = false;
+      this.isPrivacyPolicy = false;
 
       if (data.name === 'lightbox') {
         template = this.lightbox;
       } else if (data.name === 'alert') {
         template = this.alert;
+        this.isAlert = true;
       } else if (data.name === 'privacy-policy') {
         return this.loadPrivacyPolicy();
       } else {
@@ -111,6 +116,8 @@ export class ModalComponent implements OnInit {
           this.tc = pp;
           this.modalService.closeModal('tcl');
           this.modalService.openModal('tc', this.tcModalTpl, this.tc);
+          this.isPrivacyPolicy = true;
+          this.changeDetectorRef.markForCheck();
         });
     }
   }
