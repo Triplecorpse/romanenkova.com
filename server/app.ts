@@ -40,8 +40,7 @@ if (cluster.isMaster) {
   });
 } else {
   app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
-    log.info(`Server started on port ${port}`);
+    log.info(`Server started on port ${port}. Go to http://localhost:${port} to open the app`);
   });
 
   console.log(`Worker ${process.pid} started`);

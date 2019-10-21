@@ -1,4 +1,4 @@
-  import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
+import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router} from '@angular/router';
 import {Page} from '../../_interface/IPage';
 import {HttpClient} from '@angular/common/http';
@@ -7,7 +7,10 @@ import {IIndexData} from '../../_interface/IIndexData';
 import {ILanguageObject} from '../../_interface/ILanguageObject';
 import {map, tap} from 'rxjs/operators';
 import {Database} from '../../_interface/IMongooseSchema';
-  import {addMinutes, format, parse} from 'date-fns';
+import addMinutes from 'date-fns/addMinutes';
+import format from 'date-fns/format';
+import parse from 'date-fns/parse';
+import {isPlatformBrowser} from '@angular/common';
 
 interface IPageData {
   index: IIndexData;
@@ -76,7 +79,7 @@ export class PageDataGuardService implements CanActivate {
         tap((page: Page.IPage) => {
           this._pageData[pageId] = page;
 
-          if (pageId === 'index') {
+          if (pageId === 'index' && isPlatformBrowser(this.platformId)) {
             const indexPage: IIndexData = <any>page;
 
             indexPage.schedule = indexPage.schedule.map((item: Database.ISchedule): Database.ISchedule => {

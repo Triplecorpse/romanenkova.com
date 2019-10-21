@@ -5,20 +5,21 @@ import {filter} from 'rxjs/operators';
 import {PageDataGuardService} from '../../page-data-guard.service';
 import {Database} from '../../../../_interface/IMongooseSchema';
 import {TWeekday} from '../../../../_interface/types';
-import {
-  addDays,
-  eachDayOfInterval,
-  format,
-  isEqual,
-  isSameMonth,
-  isSameYear,
-  isValid,
-  isWithinInterval,
-  Locale,
-  parse,
-  set
-} from 'date-fns';
-import {enUS, fr, ru, uk} from 'date-fns/locale';
+import addDays from 'date-fns/addDays';
+import eachDayOfInterval from 'date-fns/eachDayOfInterval';
+import format from 'date-fns/format';
+import isEqual from 'date-fns/isEqual';
+import isSameMonth from 'date-fns/isSameMonth';
+import isSameYear from 'date-fns/isSameYear';
+import isValid from 'date-fns/isValid';
+import isWithinInterval from 'date-fns/isWithinInterval';
+import {Locale} from 'date-fns';
+import parse from 'date-fns/parse';
+import set from 'date-fns/set';
+import enUS from 'date-fns/locale/en-US';
+import fr from 'date-fns/locale/fr';
+import ru from 'date-fns/locale/ru';
+import uk from 'date-fns/locale/uk';
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,

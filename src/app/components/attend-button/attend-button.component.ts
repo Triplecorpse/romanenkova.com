@@ -8,7 +8,10 @@ import {PageDataGuardService} from '../../page-data-guard.service';
 import {Database} from '../../../../_interface/IMongooseSchema';
 import {IAppointmentModal} from '../../../../_interface/IAppointmenntModal';
 import {environment} from '../../../environments/environment';
-import {addHours, format, isEqual, parse} from 'date-fns';
+import addHours from 'date-fns/addHours';
+import format from 'date-fns/format';
+import isEqual from 'date-fns/isEqual';
+import parse from 'date-fns/parse';
 
 interface IMessenger {
   name: string;

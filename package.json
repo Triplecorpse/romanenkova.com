@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha test/index.spec.js",
     "start": "npm run build && node server/app.js",
+    "start:local": "npm run build:local && npm run build && node server/app.js",
     "update": "sudo systemctl stop varnish && git checkout . && git pull && npm i && npm run build && npm run build:production && pm2 restart app && sudo systemctl start varnish",
     "build": "tsc --project server",
     "build:ssr": "webpack --config webpack.server.config.js --progress --colors",
@@ -15,12 +16,11 @@
     "dbrecreateadmin": "tsc --project population && node population/init -- users",
     "dbserviceitems": "tsc --project population && node population/init -- serviceItem",
     "dbdiplomaitems": "tsc --project population && node population/init -- diplomaItem",
-    "serve:local": "ng serve --configuration=local --aot --port=4201",
-    "build:local": "node .env.copy.development && ng run front:server:local && npm run build && npm run build:ssr && ng build --configuration=local --aot",
-    "build:development": "node .env.copy.development && ng run front:server:qa && npm run build && npm run build:ssr && ng build --configuration=qa --aot && git add dist/. && git add front/.",
-    "build:staging": "node .env.copy.development && ng run front:server:staging && npm run build && npm run build:ssr && ng build --configuration=staging --aot && git add dist/. && git add front/.",
-    "build:production": "node .env.copy.production && ng run front:server:production && npm run build && npm run build:ssr && ng build --configuration=production --aot --prod && git add dist/. && git add front/.",
-    "start:n:build:local": "npm run build:local && npm start"
+    "build:local": "node .env.copy.development && ng run front:server:local && npm run build && npm run build:ssr && ng build --configuration=local --aot --stats-json",
+    "build:production": "node .env.copy.production && ng run front:server:production && npm run build && npm run build:ssr && ng build --configuration=production --aot --stats-json --prod && git add dist/. && git add front/.",
+    "analyze": "webpack-bundle-analyzer front/stats.json",
+    "build:local:n:analyze": "npm run build:local && npm run analyze",
+    "build:production:n:analyze": "npm run build:production && npm run analyze"
   },
   "repository": {
     "type": "git",
@@ -83,6 +83,7 @@
     "ts-loader": "^6.2.0",
     "ts-node": "8.4.1",
     "web-animations-js": "^2.3.2",
+    "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.9",
     "zone.js": "^0.10.2"
   },
