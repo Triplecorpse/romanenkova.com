@@ -109,6 +109,8 @@ export class ModalComponent implements OnInit {
   public loadPrivacyPolicy() {
     if (this.tc.header) {
       this.modalService.openModal('tc', this.tcModalTpl, this.tc);
+      this.isPrivacyPolicy = true;
+      this.changeDetectorRef.markForCheck();
     } else {
       this.modalService.openModal('tcl', this.tcModalLoadingTpl, this.isLoadingText);
       this.httpClient.get<ITermsPolicy>('privacy-policy', {params: {v: '2'}})

@@ -66,9 +66,10 @@
         transition: .3s color ease;
         font-weight: 700;
         cursor: pointer;
+        color: $color-text-accent;
 
         &:hover {
-          color: $color-text-accent;
+          text-decoration: underline;
         }
       }
     }
