@@ -58,13 +58,16 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  background-image: url(/assets/icons/close.svg);
   cursor: pointer;
   z-index: 70;
 
   @include mobile-breakpoint {
     position: fixed;
   }
+}
+
+.modal-close-button {
+  background-image: url(/assets/icons/close.svg);
 }
 
 .lightbox {
@@ -95,6 +98,14 @@
   p {
     margin-top: 10px;
     color: $color-text-regular;
+  }
+
+  a {
+    color: $color-text-accent;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
