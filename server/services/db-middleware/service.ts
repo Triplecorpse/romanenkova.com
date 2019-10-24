@@ -1,6 +1,6 @@
-import {Service} from "../../models/service";
-import {Database} from "../../../_interface/IMongooseSchema";
-import {TLanguage} from "../../../_interface/types"
+import {Service} from '../../models/service';
+import {Database} from '../../../_interface/IMongooseSchema';
+import {TLanguage} from '../../../_interface/types';
 
 export function createService(service: Database.IService): Promise<any> {
   return Service.create(service);
@@ -27,11 +27,11 @@ export function readService(language: TLanguage, isAdmin: boolean = false): Prom
         period: service.period,
         price: service.price,
         priceLabel: service.priceLabel
-      }
+      };
     }
 
     return service;
-  }))
+  }));
 }
 
 export function updateService(_id: string, service: Database.IService): Promise<any> {

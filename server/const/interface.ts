@@ -1,10 +1,10 @@
-import {getIndexInterface} from "./index/interface.index";
-import {TLanguage, TPageId} from "../../_interface/types";
-import {getMainInterface} from "./main/interface.main";
-import {getServicesInterface} from "./services/interface.services";
-import {getDiplomasInterface} from "./diplomas/interface.diplomas";
-import {getArticlesInterface} from "./articles/interface.articles";
-import {getAboutInterface} from "./about/interface.about";
+import {getIndexInterface} from './index/interface.index';
+import {TLanguage, TPageId} from '../../_interface/types';
+import {getMainInterface} from './main/interface.main';
+import {getServicesInterface} from './services/interface.services';
+import {getDiplomasInterface} from './diplomas/interface.diplomas';
+import {getArticlesInterface} from './articles/interface.articles';
+import {getAboutInterface} from './about/interface.about';
 
 export default async function getInterface(pageId: TPageId, lang: TLanguage) {
   switch (pageId) {

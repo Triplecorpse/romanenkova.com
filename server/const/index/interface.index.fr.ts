@@ -1,4 +1,4 @@
-import {IIndexData} from "../../../_interface/IIndexData";
+import {IIndexData} from '../../../_interface/IIndexData';
 
 export default {
   rootLink: ['En ligne', 'psychologue'],
@@ -6,7 +6,7 @@ export default {
     {header: 'A propos de moi', anchor: 'about'},
     {header: 'Services', anchor: 'services'},
     {header: 'Diplômes', anchor: 'diplomas'},
-    // {header: 'Articles', anchor: 'articles'},
+    {header: 'Articles', anchor: 'articles'},
     {header: 'Contactez-moi', anchor: 'contacts'}
   ],
   language: {

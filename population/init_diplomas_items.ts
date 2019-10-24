@@ -1,9 +1,8 @@
-import log from "../server/services/log-service";
-import {uploadImage} from "../server/services/file-storage/file-storage-service";
-import {Diploma} from "../server/models/diploma";
-import {ICloudinaryResponse} from "../server/interfaces/iCloudinaryResponse";
-import {Database} from "../_interface/IMongooseSchema";
-import {IPhotoPreview} from "../_interface/IPhotoPreview";
+import log from '../server/services/log-service';
+import {uploadImage} from '../server/services/file-storage/file-storage-service';
+import {Diploma} from '../server/models/diploma';
+import {Database} from '../_interface/IMongooseSchema';
+import {IPhotoPreview} from '../_interface/IPhotoPreview';
 
 export function getDiplomasItems(): Promise<Array<Database.IDiploma>> {
     const data: Array<Database.IDiploma> = [
@@ -51,7 +50,7 @@ export function getDiplomasItems(): Promise<Array<Database.IDiploma>> {
                   item.image = images[index].image;
                   item.preview = images[index].preview;
                 });
-                return Diploma.deleteMany({})
+                return Diploma.deleteMany({});
             })
             .then((result: any) => {
                 log.warning('\x1b[31m', 'DELETED: diploma item', result.n, 'pages');
@@ -60,5 +59,5 @@ export function getDiplomasItems(): Promise<Array<Database.IDiploma>> {
             .catch((err: any) => {
                 reject(err);
             });
-    })
+    });
 }

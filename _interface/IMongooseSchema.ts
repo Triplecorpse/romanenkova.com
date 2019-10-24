@@ -68,6 +68,8 @@ export namespace Database {
 
   export interface IArticle extends IMongooseSchema {
     logo: string;
+    imageMd: string;
+    imageXl: string;
     header: string;
     isPublished: boolean;
     createdAt: Date;

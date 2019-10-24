@@ -1,12 +1,12 @@
 import express = require('express');
-import getInterfaceHandler from "./interface";
-import IRequest from "../../interfaces/iRequest";
-import {NextFunction, Response} from "express-serve-static-core";
-import {validateToken} from "../../services/security-services/auth-service";
-import getReviewHandler from "./review";
-import getAppointmentHandler from "./appointment";
 import bodyParser = require('body-parser');
-import getPrivacyPolicyHandler from "./privacyPolicy";
+import getInterfaceHandler from './interface';
+import IRequest from '../../interfaces/iRequest';
+import {NextFunction, Response} from 'express-serve-static-core';
+import {validateToken} from '../../services/security-services/auth-service';
+import getReviewHandler from './review';
+import getAppointmentHandler from './appointment';
+import getPrivacyPolicyHandler from './privacyPolicy';
 
 const router = express.Router();
 
@@ -40,7 +40,7 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
   }
 });
 
-//todo: as far router is shared object, only first post is fired
+// todo: as far router is shared object, only first post is fired
 router.route('/appointment').post(getAppointmentHandler);
 router.route('/review').post(getReviewHandler);
 router.route('/:lang/:page').get(getInterfaceHandler);
