@@ -4,7 +4,7 @@ import interfaceArticlesEn from './interface.articles.en';
 import interfaceArticlesFr from './interface.articles.fr';
 import interfaceArticlesRu from './interface.articles.ru';
 import interfaceArticlesUk from './interface.articles.uk';
-import {readArticle} from '../../services/db-middleware/article';
+import {readArticlesPreviews} from '../../services/db-middleware/article';
 
 export const configObj: any = {
   en: interfaceArticlesEn,
@@ -16,7 +16,7 @@ export const configObj: any = {
 export async function getArticlesInterface(lang: TLanguage) {
   const interfaceObj: any = configObj[lang];
 
-  interfaceObj.items = await readArticle(lang);
+  interfaceObj.items = await readArticlesPreviews(lang);
 
   return interfaceObj;
 }

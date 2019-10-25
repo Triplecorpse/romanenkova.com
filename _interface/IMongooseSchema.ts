@@ -71,12 +71,13 @@ export namespace Database {
     imageMd: string;
     imageXl: string;
     header: string;
-    isPublished: boolean;
+    body: string;
+    isPublished?: boolean;
     createdAt: Date;
     updatedAt: Date;
     deletedAt?: Date;
-    isDeleted: boolean;
-    url: string;
+    isDeleted?: boolean;
+    url?: string;
     entityId: string;
   }
 
