@@ -1,5 +1,4 @@
 import mongoose = require('mongoose');
-
 import {stripString} from '../services/security-services/strip-html';
 import {TLanguage} from '../../_interface/types';
 import {languages} from '../const/const';
@@ -9,7 +8,7 @@ function secureHtmlString(input: string): string {
 }
 
 function validateUrl(url: string) {
-    return url.startsWith('http');
+    return url.startsWith('http') || url.startsWith('/') || url.startsWith('./');
 }
 
 function validateLanguage(lang: TLanguage): boolean {

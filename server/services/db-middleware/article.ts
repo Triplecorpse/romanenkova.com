@@ -1,8 +1,8 @@
 import {TLanguage} from '../../../_interface/types';
 import {Article} from '../../models/article';
 import {Database} from '../../../_interface/IMongooseSchema';
-import IArticle = Database.IArticle;
 import {IArticlePreview} from '../../../_interface/IArticlePreview';
+import IArticle = Database.IArticle;
 
 export function readArticlesPreviews(language: TLanguage, isAdmin: boolean = false): Promise<Array<IArticlePreview>> {
   const opts = {
@@ -13,6 +13,10 @@ export function readArticlesPreviews(language: TLanguage, isAdmin: boolean = fal
   if (isAdmin) {
     delete opts.isPublished;
   }
+
+  Article.find(opts).then((aa) => {
+    console.log('greokdjoierutofierjsoiugovfjkrdiog', opts, aa);
+  });
 
   return Article.find(opts)
     .then((articles: any) => articles.map((article: IArticlePreview): IArticlePreview => ({
@@ -71,5 +75,4 @@ export function readArticle(language: TLanguage, entityId: string, isAdmin: bool
         entityId: id, header, logo, updatedAt, createdAt, imageMd, imageXl, body
       }));
     });
-  ;
 }

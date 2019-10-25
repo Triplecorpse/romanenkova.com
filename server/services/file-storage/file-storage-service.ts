@@ -1,7 +1,7 @@
 import util = require('util');
 import fs = require('fs');
-import {encryptString} from '../security-services/crypto-service';
 import sharp = require('sharp');
+import {encryptString} from '../security-services/crypto-service';
 import {IPhotoPreview} from '../../../_interface/IPhotoPreview';
 
 export function uploadImage(path: string): Promise<IPhotoPreview> {
@@ -18,14 +18,4 @@ export function uploadImage(path: string): Promise<IPhotoPreview> {
       image: `/assets/${newFilename}`,
       preview: `/assets/500_${newFilename}`
     }));
-}
-
-export function uploadFile(path: string): Promise<string> {
-  const patharr = path.split('/');
-  const filename = patharr.pop() as string;
-  const extension = filename.split('.').pop();
-  const newFilename = `${encryptString(filename)}.${extension}`;
-
-  return util.promisify(fs.copyFile)(path, `./front/assets/${newFilename}`)
-    .then(() => newFilename);
 }
