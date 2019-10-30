@@ -1,0 +1,22 @@
+.article {
+  &-wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 115px 115px auto;
+    grid-template-rows: 115px 115px auto;
+    -ms-grid-columns: 270px auto;
+    grid-template-columns: 270px auto;
+    width: 50%;
+  }
+
+  &-image {
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 3;
+    grid-row: 1 /span 3;
+
+    .image {
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
+}

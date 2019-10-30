@@ -19,6 +19,8 @@ const schema = new mongoose.Schema({
     logo: {type: String, required: true, validate: validateUrl},
     imageMd: {type: String, required: true, validate: validateUrl},
     imageXl: {type: String, required: true, validate: validateUrl},
+    imageAuthor: {type: String, required: true},
+    imageUrl: {type: String, required: true},
     header: {type: String, required: true, set: secureHtmlString},
     body: {type: String, required: true, set: secureHtmlString},
     isPublished: {type: Boolean, default: false},

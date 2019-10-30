@@ -14,10 +14,6 @@ export function readArticlesPreviews(language: TLanguage, isAdmin: boolean = fal
     delete opts.isPublished;
   }
 
-  Article.find(opts).then((aa) => {
-    console.log('greokdjoierutofierjsoiugovfjkrdiog', opts, aa);
-  });
-
   return Article.find(opts)
     .then((articles: any) => articles.map((article: IArticlePreview): IArticlePreview => ({
       logo: article.logo,
@@ -64,15 +60,17 @@ export function readArticle(language: TLanguage, entityId: string, isAdmin: bool
       imageXl: article.imageXl,
       imageMd: article.imageMd,
       body: article.body,
-      entityId: article.entityId
+      entityId: article.entityId,
+      imageUrl: article.imageUrl,
+      imageAuthor: article.imageAuthor
     })))
     .then((articles: Array<IArticle>): Array<IArticle> => {
       if (isAdmin) {
         return articles;
       }
 
-      return articles.map(({entityId: id, header, logo, updatedAt, createdAt, body, imageXl, imageMd}: IArticle): IArticle => ({
-        entityId: id, header, logo, updatedAt, createdAt, imageMd, imageXl, body
+      return articles.map(({entityId: id, header, logo, updatedAt, createdAt, body, imageXl, imageMd, imageUrl, imageAuthor}: IArticle): IArticle => ({
+        entityId: id, header, logo, updatedAt, createdAt, imageMd, imageXl, body, imageAuthor, imageUrl
       }));
     });
 }

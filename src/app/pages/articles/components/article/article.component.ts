@@ -9,9 +9,10 @@ import {IArticlePreview} from '../../../../../../_interface/IArticlePreview';
 export class ArticleComponent implements OnInit {
   @Input() article: IArticlePreview;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
   }
 
+  ngOnInit() {
+
+  }
 }

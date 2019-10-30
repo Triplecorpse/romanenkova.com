@@ -19,7 +19,9 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
       imageMd: 'celebration-couple-enjoyment-1587646@0,33x.jpg',
       imageXl: 'celebration-couple-enjoyment-1587646.jpg',
       entityId: 'article',
-      url: 'what-is-gestalt'
+      url: 'what-is-gestalt',
+      imageAuthor: 'Luis Quintero',
+      imageUrl: 'https://www.lifeofpix.com/photo/temp-celebration-couple-enjoyment-1587646-jpg/'
     }
   ];
 

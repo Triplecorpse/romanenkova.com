@@ -79,6 +79,8 @@ export namespace Database {
     isDeleted?: boolean;
     url?: string;
     entityId: string;
+    imageAuthor: string;
+    imageUrl: string;
   }
 
   export interface ISchedule {

@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {Database} from "../../../../../../_interface/IMongooseSchema";
+import {Database} from '../../../../../../_interface/IMongooseSchema';
 
 @Component({
   selector: 'app-service',
