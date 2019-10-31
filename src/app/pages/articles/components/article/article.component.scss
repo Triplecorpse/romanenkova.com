@@ -1,3 +1,6 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+
 .article {
   &-wrapper {
     display: -ms-grid;
@@ -17,6 +20,25 @@
     .image {
       min-width: 100%;
       max-width: 100%;
+    }
+  }
+
+  &-header {
+    padding: 0 0 10px 20px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &-date {
+    padding: 10px 0 0 20px;
+  }
+
+  &-button {
+    .button {
+      padding: 30px 40px;
+      transform: translateX(-50%);
+      background-color: #ffffff;
+      color: $color-text-accent;
     }
   }
 }

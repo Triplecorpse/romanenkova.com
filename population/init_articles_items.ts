@@ -1,7 +1,7 @@
 import log from '../server/services/log-service';
 import {Database} from '../_interface/IMongooseSchema';
 import {Article} from '../server/models/article';
-import {uploadImage} from '../server/services/file-storage/file-storage-service';
+import {uploadImageForArticle} from '../server/services/file-storage/file-storage-service';
 import {readFile} from '../server/services/file-service';
 import IArticle = Database.IArticle;
 
@@ -15,9 +15,9 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
       header: 'Гештальт-терапия',
       body: 'what-is-gestalt.ru.html',
       language: 'ru',
-      logo: 'celebration-couple-enjoyment-1587646sq.jpg',
-      imageMd: 'celebration-couple-enjoyment-1587646@0,33x.jpg',
-      imageXl: 'celebration-couple-enjoyment-1587646.jpg',
+      logo: '2019_05_celebration-couple-enjoyment_@replaceString.jpg',
+      imageMd: '2019_05_celebration-couple-enjoyment.jpg',
+      imageXl: '2019_05_celebration-couple-enjoyment.jpg',
       entityId: 'article',
       url: 'what-is-gestalt',
       imageAuthor: 'Luis Quintero',
@@ -36,17 +36,15 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
           const newItems: Array<IArticle> = [];
 
           Promise.all([
-            uploadImage(`./population/assets/${logo}`),
-            uploadImage(`./population/assets/${imageMd}`),
-            uploadImage(`./population/assets/${imageXl}`),
+            uploadImageForArticle(`./population/assets/${logo}`),
             readFile(`./population/assets/initial_articles/${body}`)
           ]).then((result) => {
             newItems[index] = {
               ...item,
-              logo: result[0].image,
-              imageMd: result[1].image,
-              imageXl: result[2].image,
-              body: result[3]
+              logo: result[0].logo,
+              imageMd: result[0].imageMd,
+              imageXl: result[0].imageXl,
+              body: result[1]
             };
 
             if (isAllLoaded(data, newItems)) {
