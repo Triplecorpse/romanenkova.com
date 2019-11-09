@@ -22,7 +22,7 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
       url: 'what-is-gestalt',
       imageAuthor: 'Luis Quintero',
       imageUrl: 'https://www.lifeofpix.com/photo/temp-celebration-couple-enjoyment-1587646-jpg/'
-    },
+    }/*,
     {
       isDeleted: false,
       updatedAt: new Date(2018, 11, 1),
@@ -38,7 +38,7 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
       url: 'working-with-deprecation',
       imageAuthor: 'Luis Quintero',
       imageUrl: 'https://www.lifeofpix.com/photo/temp-celebration-couple-enjoyment-1587646-jpg/'
-    }
+    }*/
   ];
 
   return new Promise((resolve: any, reject: any) => {
