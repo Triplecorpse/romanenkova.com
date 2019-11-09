@@ -9,8 +9,8 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
   const data: Array<Database.IArticle> = [
     {
       isDeleted: false,
-      updatedAt: new Date(),
-      createdAt: new Date(),
+      updatedAt: new Date(2018, 11, 1),
+      createdAt: new Date(2017, 11, 1),
       isPublished: true,
       header: 'Гештальт-терапия',
       body: 'what-is-gestalt.ru.html',
@@ -20,6 +20,22 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
       imageXl: '2019_05_celebration-couple-enjoyment.jpg',
       entityId: 'article',
       url: 'what-is-gestalt',
+      imageAuthor: 'Luis Quintero',
+      imageUrl: 'https://www.lifeofpix.com/photo/temp-celebration-couple-enjoyment-1587646-jpg/'
+    },
+    {
+      isDeleted: false,
+      updatedAt: new Date(2018, 11, 1),
+      createdAt: new Date(2017, 11, 1),
+      isPublished: true,
+      header: 'Как работать с обесцениванием',
+      body: 'working-with-deprecation.ru.html',
+      language: 'ru',
+      logo: '2019_05_celebration-couple-enjoyment_@replaceString.jpg',
+      imageMd: '2019_05_celebration-couple-enjoyment.jpg',
+      imageXl: '2019_05_celebration-couple-enjoyment.jpg',
+      entityId: 'article',
+      url: 'working-with-deprecation',
       imageAuthor: 'Luis Quintero',
       imageUrl: 'https://www.lifeofpix.com/photo/temp-celebration-couple-enjoyment-1587646-jpg/'
     }
