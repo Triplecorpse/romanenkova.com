@@ -3,6 +3,7 @@ import {Database} from '../_interface/IMongooseSchema';
 import {Article} from '../server/models/article';
 import {uploadImageForArticle} from '../server/services/file-storage/file-storage-service';
 import {readFile} from '../server/services/file-service';
+import * as path from 'path';
 import IArticle = Database.IArticle;
 
 export function getArticleItemData(): Promise<Array<Database.IService>> {
@@ -52,8 +53,8 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
           const newItems: Array<IArticle> = [];
 
           Promise.all([
-            uploadImageForArticle(`population/assets/${logo}`),
-            readFile(`population/assets/initial_articles/${body}`)
+            uploadImageForArticle(path.join(__dirname, `assets/${logo}`)),
+            readFile(path.join(__dirname, `assets/initial_articles/${body}`))
           ]).then((result) => {
             newItems[index] = {
               ...item,
