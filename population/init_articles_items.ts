@@ -52,8 +52,8 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
           const newItems: Array<IArticle> = [];
 
           Promise.all([
-            uploadImageForArticle(`./population/assets/${logo}`),
-            readFile(`./population/assets/initial_articles/${body}`)
+            uploadImageForArticle(`population/assets/${logo}`),
+            readFile(`population/assets/initial_articles/${body}`)
           ]).then((result) => {
             newItems[index] = {
               ...item,
