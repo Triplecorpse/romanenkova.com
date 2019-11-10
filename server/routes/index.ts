@@ -22,8 +22,8 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     const isQa = req.hostname.includes('staging') || req.hostname.includes('qa');
 
     if (isQa && !req.cookies.allowQa) {
-      res.sendStatus(404);
-      return;
+        res.sendStatus(404);
+        return;
     }
 
     req.language = req.query.lang || req.cookies.lang || (languageObj ? languageObj.language : 'en');

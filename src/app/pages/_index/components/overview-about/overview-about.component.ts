@@ -5,10 +5,9 @@ import {
   ElementRef,
   HostListener,
   Inject,
-  Input,
   OnInit,
-  ViewChild,
-  PLATFORM_ID
+  PLATFORM_ID,
+  ViewChild
 } from '@angular/core';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {fadeAndSlideToRight} from '../../shortcuts/animations';

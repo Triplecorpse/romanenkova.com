@@ -31,7 +31,6 @@ interface IAppSettings {
   providedIn: 'root'
 })
 export class PageDataGuardService implements CanActivate {
-
   get pageData() {
     return this._pageData;
   }
@@ -58,14 +57,6 @@ export class PageDataGuardService implements CanActivate {
     locale: null,
     locales: null
   };
-
-  private static doublizeString(str: string): string {
-    if (str.length === 1) {
-      str = '0' + str;
-    }
-
-    return str;
-  }
 
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
     const pageId = route.data.pageidv2;

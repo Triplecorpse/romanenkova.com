@@ -22,7 +22,7 @@ export function uploadImage(path: string): Promise<IPhotoPreview> {
 }
 
 export function uploadImageForArticle(path: string): Promise<IPhotoArticle> {
-  const patharr = path.split('/');
+  const patharr = path.split(/(\\)|(\/)/);
   const filename = patharr.pop() as string;
   const extension = filename.split('.').pop();
 
