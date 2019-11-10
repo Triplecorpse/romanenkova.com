@@ -1,11 +1,12 @@
 import IMail from '../../interfaces/iMail';
+import {readFile} from '../file-service';
 
 require('dotenv').config();
 
 const apiKey: string = process.env.MAILGUN_API_KEY as string;
+console.log(apiKey);
 const domain = 'mail.romanenkova.com';
 const mailgun = require('mailgun-js')({apiKey, domain, host: 'api.eu.mailgun.net'});
-import {readFile} from '../file-service';
 
 export function sendEmail(message: IMail): Promise<any> {
     message.from = message.from || 'Iryna Romanenkova <info@romanenkova.com>';
