@@ -1,7 +1,7 @@
 import IMail from '../../interfaces/iMail';
 import {readFile} from '../file-service';
 
-require('dotenv').config({path: './.env'});
+require('dotenv').config();
 
 const apiKey: string = process.env.MAILGUN_API_KEY as string;
 const domain = 'mail.romanenkova.com';
