@@ -28,8 +28,6 @@ export class InterceptorService implements HttpInterceptor {
       }
     }
 
-    console.log('readyurl:', url);
-
     const newReq = req.clone({url});
 
     return next.handle(newReq);
