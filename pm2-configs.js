@@ -1,9 +1,8 @@
 module.exports = {
   apps : [
     {
-      name: "myapp",
+      name: "app-staging",
       script: "server/app.js",
-      watch: true,
       instance_var: 'INSTANCE_ID',
       env: {
         PORT:4000,
