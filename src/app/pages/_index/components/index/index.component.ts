@@ -1,19 +1,24 @@
 import {
   AfterViewInit,
-  ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit, PLATFORM_ID, TemplateRef,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+  TemplateRef,
   ViewChild
 } from '@angular/core';
 import {Meta, Title} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
-import {filter, take} from 'rxjs/operators';
+import {filter} from 'rxjs/operators';
 import {ModalService} from '../../services/modal.service';
-import {environment} from "../../../../../environments/environment";
-import {PageDataGuardService} from "../../../../page-data-guard.service";
-import {CookieService} from "../../services/cookie.service";
-import {ICookiesConsentModal, ICookiesConsentOption} from "../../../../../../_interface/ICookiesConsentModal";
-import {FooterComponent} from "../footer/footer.component";
-import {IModalEvent} from "../../../../interfaces/iModalEvent";
+import {environment} from '../../../../../environments/environment';
+import {PageDataGuardService} from '../../../../page-data-guard.service';
+import {CookieService} from '../../services/cookie.service';
+import {ICookiesConsentModal, ICookiesConsentOption} from '../../../../../../_interface/ICookiesConsentModal';
+import {FooterComponent} from '../footer/footer.component';
 
 @Component({
   selector: 'app-index',
@@ -75,7 +80,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   }
 
   addTrackerCode() {
-    //todo: add code to insert and run scripts here
+    // todo: add code to insert and run scripts here
     const gtagman = this.document.createElement('script');
     const gtagglob = this.document.createElement('script');
     const gtagglobaction = this.document.createElement('script');
@@ -157,7 +162,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
       this.isBrowser = true;
 
       if (this.cookieService.get('lang')) {
-        this.cookieService.set('lang', this.pageDataGuardService.appSettings.language, 7)
+        this.cookieService.set('lang', this.pageDataGuardService.appSettings.language, 7);
       }
     }
   }

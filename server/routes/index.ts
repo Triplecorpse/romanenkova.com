@@ -1,12 +1,10 @@
 import express = require('express');
 import apiv2 from './apiv2/index';
-import {readFile} from '../services/file-service';
-import log from './../services/log-service';
-import {Request, Response} from "express-serve-static-core";
-import IRequest from "../interfaces/iRequest";
-import {NextFunction} from "express";
-import {languages} from "../const/const";
-import {join} from "path";
+import {Request, Response} from 'express-serve-static-core';
+import IRequest from '../interfaces/iRequest';
+import {NextFunction} from 'express';
+import {languages} from '../const/const';
+import {join} from 'path';
 import {TLanguage} from '../../_interface/types';
 
 const cookieParser = require('cookie-parser');
@@ -21,6 +19,12 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     const languageObj = acceptedLangs.find((lang: any) =>
         languages.find((acceptable: string) => lang.language === acceptable)
     );
+    const isQa = req.hostname.includes('staging') || req.hostname.includes('qa');
+
+    if (isQa && !req.cookies.allowQa) {
+      res.sendStatus(404);
+      return;
+    }
 
     req.language = req.query.lang || req.cookies.lang || (languageObj ? languageObj.language : 'en');
     req.isLocalhost = req.hostname.includes('localhost');
