@@ -21,9 +21,11 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     );
     const isQa = req.hostname.includes('staging') || req.hostname.includes('qa');
 
-    if (isQa && !req.cookies.allowQa) {
-        res.sendStatus(404);
+    if (isQa && !req.cookies.allowQa && !req.query.secret !== 'allowQa') {
+        res.status(404).set('Content-Type', 'text/html').send('./front/assets/run-staging.html');
         return;
+    } else if(isQa && req.query.secret === 'allowQa') {
+        res.cookies.allowQa = 1;
     }
 
     req.language = req.query.lang || req.cookies.lang || (languageObj ? languageObj.language : 'en');
