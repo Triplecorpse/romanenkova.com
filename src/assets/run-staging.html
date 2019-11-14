@@ -44,11 +44,11 @@
 </head>
 <body>
 <div class="wrapper">
-    <form onsubmit="submit()" action="/qa">
+    <form id="form">
         <div>
             <label>
                 Input secret word right here:
-                <input id="secret" type="text" name="secret">
+                <input id="secret" type="text">
             </label>
         </div>
         <div style="margin-top: 10px; display: flex; justify-content: flex-end">
@@ -57,8 +57,12 @@
     </form>
 </div>
 <script>
-    async function submit() {
-        const secret = document.getElementById('secret').textContent;
+    document.getElementById('form').addEventListener('submit', submit);
+
+    async function submit(e) {
+        e.preventDefault();
+
+        const secret = document.getElementById('secret').value;
         const response = await (await fetch('/qa?secret=' + secret)).json();
 
         if (response.ok) {
