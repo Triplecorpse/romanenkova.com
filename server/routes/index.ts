@@ -4,6 +4,7 @@ import {Request, Response} from 'express-serve-static-core';
 import IRequest from '../interfaces/iRequest';
 import {NextFunction} from 'express';
 import {languages} from '../const/const';
+import * as path from 'path';
 import {join} from 'path';
 import {TLanguage} from '../../_interface/types';
 
@@ -19,18 +20,26 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     const languageObj = acceptedLangs.find((lang: any) =>
         languages.find((acceptable: string) => lang.language === acceptable)
     );
-    const isQa = req.hostname.includes('staging') || req.hostname.includes('qa');
+    const isQa = req.hostname.includes('staging') || req.hostname.includes('qa') || req.hostname.includes('localhost');
 
-    if (isQa && !req.cookies.allowQa && !req.query.secret !== 'allowQa') {
-        res.status(404).set('Content-Type', 'text/html').send('./front/assets/run-staging.html');
+    if (isQa && !req.cookies.allowQa && req.query.secret !== undefined) {
+        res.sendFile(path.join(__dirname + '../../../front/assets/run-staging.html'));
+
         return;
-    } else if(isQa && req.query.secret === 'allowQa') {
-        res.cookies.allowQa = 1;
     }
 
     req.language = req.query.lang || req.cookies.lang || (languageObj ? languageObj.language : 'en');
     req.isLocalhost = req.hostname.includes('localhost');
+
     next();
+});
+
+router.get('/qa', (req: IRequest, res: Response) => {
+    if (req.query.secret === 'allowQa') {
+        res.cookie('allowQa', 1).json({ok: true});
+    } else {
+        res.sendStatus(403);
+    }
 });
 
 router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
