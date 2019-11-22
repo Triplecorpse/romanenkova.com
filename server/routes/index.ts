@@ -4,9 +4,9 @@ import {Request, Response} from 'express-serve-static-core';
 import IRequest from '../interfaces/iRequest';
 import {NextFunction} from 'express';
 import {languages} from '../const/const';
+import * as path from 'path';
 import {join} from 'path';
 import {TLanguage} from '../../_interface/types';
-import * as path from 'path';
 
 const cookieParser = require('cookie-parser');
 const parseAcceptLanguage = require('parse-accept-language');
@@ -30,8 +30,6 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
 
     req.language = req.query.lang || req.cookies.lang || (languageObj ? languageObj.language : 'en');
     req.isLocalhost = req.hostname.includes('localhost');
-
-
 
     next();
 });
