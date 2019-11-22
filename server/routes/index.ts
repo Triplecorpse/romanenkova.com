@@ -22,7 +22,7 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     );
     const isQa = req.hostname.includes('staging') || req.hostname.includes('qa') || req.hostname.includes('localhost');
 
-    if (isQa && !req.cookies.allowQa && !req.path.includes('qa')) {
+    if (isQa && !req.cookies.allowQa && req.query.secret !== undefined) {
         res.sendFile(path.join(__dirname + '../../../front/assets/run-staging.html'));
 
         return;
