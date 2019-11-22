@@ -79,7 +79,7 @@
   align-items: center;
   width: 100%;
   z-index: 30;
-  position: fixed;
+  position: relative;
 
   .line-1 {
     width: 100%;
@@ -133,7 +133,7 @@
   }
 
   @include tablet-breakpoint {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: auto;

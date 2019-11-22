@@ -15,6 +15,14 @@ const router = express.Router();
 
 router.use(cookieParser('secretthings'));
 
+router.get('/qa', (req: IRequest, res: Response) => {
+  if (req.query.secret === 'allowQa') {
+    res.cookie('allowQa', 1).json({ok: true});
+  } else {
+    res.status(403).json({ok: false});
+  }
+});
+
 router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     const acceptedLangs = parseAcceptLanguage(req);
     const languageObj = acceptedLangs.find((lang: any) =>
@@ -22,7 +30,7 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     );
     const isQa = req.hostname.includes('staging') || req.hostname.includes('qa') || req.hostname.includes('localhost');
 
-    if (isQa && !req.cookies.allowQa && req.query.secret !== undefined) {
+    if (isQa && !req.cookies.allowQa) {
         res.sendFile(path.join(__dirname + '../../../front/assets/run-staging.html'));
 
         return;
@@ -32,14 +40,6 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     req.isLocalhost = req.hostname.includes('localhost');
 
     next();
-});
-
-router.get('/qa', (req: IRequest, res: Response) => {
-    if (req.query.secret === 'allowQa') {
-        res.cookie('allowQa', 1).json({ok: true});
-    } else {
-        res.sendStatus(403);
-    }
 });
 
 router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
