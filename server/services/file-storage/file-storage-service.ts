@@ -32,8 +32,8 @@ export function uploadImageForArticle(filePath: string): Promise<IPhotoArticle> 
 
   return Promise.all([logo$, imageMd$, imageXl$])
     .then(() => ({
-      logo: `/articles/${filename}_logo.${extension}`,
-      imageMd: `/articles/${filename}_md.${extension}`,
-      imageXl: `/articles/${filename}_xl.${extension}`
+      logo: `/articles/${filename}_logo${extension}`,
+      imageMd: `/articles/${filename}_md${extension}`,
+      imageXl: `/articles/${filename}_xl${extension}`
     }));
 }
