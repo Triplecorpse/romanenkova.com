@@ -13,11 +13,11 @@ export function uploadImage(path: string): Promise<IPhotoPreview> {
 
   return sharp(path)
     .resize(500, 500)
-    .toFile(`./front/assets/500_${newFilename}`)
-    .then(() => util.promisify(fs.copyFile)(path, `./front/assets/${newFilename}`))
+    .toFile(`../imgs/services/500_${newFilename}`)
+    .then(() => util.promisify(fs.copyFile)(path, `../imgs/services/${newFilename}`))
     .then(() => ({
-      image: `/assets/${newFilename}`,
-      preview: `/assets/500_${newFilename}`
+      image: `/services/${newFilename}`,
+      preview: `/services/500_${newFilename}`
     }));
 }
 
@@ -26,19 +26,19 @@ export function uploadImageForArticle(path: string): Promise<IPhotoArticle> {
   const filename = patharr.pop() as string;
   const extension = filename.split('.').pop();
 
-  const logo$ = util.promisify(fs.copyFile)(path.replace('@replaceString', 'logo'), `./front/assets/${filename}_logo.${extension}`);
+  const logo$ = util.promisify(fs.copyFile)(path.replace('@replaceString', 'logo'), `../imgs/articles/${filename}_logo.${extension}`);
   const imageXl$ = sharp(path.replace('_@replaceString', ''))
     .resize(2048, 960, {withoutEnlargement: true, fit: 'cover'})
-    .toFile(`./front/assets/${filename}_xl.${extension}`);
+    .toFile(`../imgs/articles/${filename}_xl.${extension}`);
   const imageMd$ = sharp(path.replace('_@replaceString', ''))
     .resize(1150, 540)
-    .toFile(`./front/assets/${filename}_md.${extension}`);
+    .toFile(`../imgs/articles/${filename}_md.${extension}`);
 
 
   return Promise.all([logo$, imageMd$, imageXl$])
     .then(() => ({
-      logo: `./assets/${filename}_logo.${extension}`,
-      imageMd: `./assets/${filename}_md.${extension}`,
-      imageXl: `./assets/${filename}_xl.${extension}`
+      logo: `/articles/${filename}_logo.${extension}`,
+      imageMd: `/articles/${filename}_md.${extension}`,
+      imageXl: `/articles/${filename}_xl.${extension}`
     }));
 }
