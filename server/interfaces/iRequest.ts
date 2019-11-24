@@ -6,4 +6,5 @@ export default interface IRequest extends Request {
     files?: any;
     isTokenValid?: boolean;
     isLocalhost?: boolean;
+    isQa?: boolean;
 }
