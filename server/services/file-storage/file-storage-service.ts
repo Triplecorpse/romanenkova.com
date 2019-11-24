@@ -1,38 +1,33 @@
 import util = require('util');
 import fs = require('fs');
+import path = require('path');
 import sharp = require('sharp');
-import {encryptString} from '../security-services/crypto-service';
 import {IPhotoPreview} from '../../../_interface/IPhotoPreview';
 import {IPhotoArticle} from '../../../_interface/IPhotoArticle';
 
-export function uploadImage(path: string): Promise<IPhotoPreview> {
-  const patharr = path.split('/');
-  const filename = patharr.pop() as string;
-  const extension = filename.split('.').pop();
-  const newFilename = `${encryptString(filename)}.${extension}`;
+export function uploadImage(filePath: string, prefix: string): Promise<IPhotoPreview> {
+  const basename = path.basename(filePath);
 
-  return sharp(path)
+  return sharp(filePath)
     .resize(500, 500)
-    .toFile(`../imgs/services/500_${newFilename}`)
-    .then(() => util.promisify(fs.copyFile)(path, `../imgs/services/${newFilename}`))
+    .toFile(`../imgs/${prefix}/500_${basename}`)
+    .then(() => util.promisify(fs.copyFile)(filePath, `../imgs/${prefix}/${basename}`))
     .then(() => ({
-      image: `/services/${newFilename}`,
-      preview: `/services/500_${newFilename}`
+      image: `/${prefix}/${basename}`,
+      preview: `/${prefix}/500_${basename}`
     }));
 }
 
-export function uploadImageForArticle(path: string): Promise<IPhotoArticle> {
-  const patharr = path.split(/(\\)|(\/)/);
-  const filename = patharr.pop() as string;
-  const extension = filename.split('.').pop();
-
-  const logo$ = util.promisify(fs.copyFile)(path.replace('@replaceString', 'logo'), `../imgs/articles/${filename}_logo.${extension}`);
-  const imageXl$ = sharp(path.replace('_@replaceString', ''))
+export function uploadImageForArticle(filePath: string): Promise<IPhotoArticle> {
+  const extension = path.extname(filePath);
+  const filename = path.basename(filePath, extension);
+  const logo$ = util.promisify(fs.copyFile)(filePath.replace('@replaceString', 'logo'), `../imgs/articles/${filename}_logo${extension}`);
+  const imageXl$ = sharp(filePath.replace('_@replaceString', ''))
     .resize(2048, 960, {withoutEnlargement: true, fit: 'cover'})
-    .toFile(`../imgs/articles/${filename}_xl.${extension}`);
-  const imageMd$ = sharp(path.replace('_@replaceString', ''))
+    .toFile(`../imgs/articles/${filename}_xl${extension}`);
+  const imageMd$ = sharp(filePath.replace('_@replaceString', ''))
     .resize(1150, 540)
-    .toFile(`../imgs/articles/${filename}_md.${extension}`);
+    .toFile(`../imgs/articles/${filename}_md${extension}`);
 
 
   return Promise.all([logo$, imageMd$, imageXl$])

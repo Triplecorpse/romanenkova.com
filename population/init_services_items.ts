@@ -1,7 +1,7 @@
-import log from "../server/services/log-service";
-import {Service} from "../server/models/service";
-import {uploadImage} from "../server/services/file-storage/file-storage-service";
-import {Database} from "../_interface/IMongooseSchema";
+import log from '../server/services/log-service';
+import {Service} from '../server/models/service';
+import {uploadImage} from '../server/services/file-storage/file-storage-service';
+import {Database} from '../_interface/IMongooseSchema';
 
 export function getServiceItemData(): Promise<Array<Database.IService>> {
     const data: Array<Database.IService> = [
@@ -98,7 +98,7 @@ export function getServiceItemData(): Promise<Array<Database.IService>> {
             .then((result: any) => {
               log.warning('\x1b[31m', 'DELETED: service', result.n, 'pages');
 
-              return Promise.all([uploadImage('./population/assets/single-leaf.png'), uploadImage('./population/assets/multiple-leaf.png')])
+              return Promise.all([uploadImage('./population/assets/services/single-leaf.png', 'services'), uploadImage('./population/assets/services/multiple-leaf.png', 'services')]);
             })
             .then((result: any) => {
                 data.forEach((item: Database.IService): void => {
@@ -110,5 +110,5 @@ export function getServiceItemData(): Promise<Array<Database.IService>> {
             .catch((err: any) => {
                 reject(err);
             });
-    })
+    });
 }

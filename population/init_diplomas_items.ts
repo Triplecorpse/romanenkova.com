@@ -11,28 +11,28 @@ export function getDiplomasItems(): Promise<Array<Database.IDiploma>> {
         graduateYear: 2017,
         institute: 'Institut Français de Gestalt-thérapie',
         isPublished: true,
-        image: 'b5y4tavtkjpntbi2jaxd.jpg',
+        image: 'diplomas/b5y4tavtkjpntbi2jaxd.jpg',
         preview: ''
       }, {
         order: 2,
         graduateYear: 2014,
         institute: 'Московский институт гештальт-терапии и консультирования',
         isPublished: true,
-        image: 'ngqtoz87dqotziytypjy.jpg',
+        image: 'diplomas/ngqtoz87dqotziytypjy.jpg',
         preview: ''
       }, {
         order: 3,
         graduateYear: 2017,
         institute: 'European Association for Transactional Analysis',
         isPublished: true,
-        image: 'v423mum9ulmzaukezdrm.jpg',
+        image: 'diplomas/v423mum9ulmzaukezdrm.jpg',
         preview: ''
       }, {
         order: 4,
         graduateYear: 2018,
         institute: 'European Association for Transactional Analysis',
         isPublished: true,
-        image: 'eupxoexyhmtzxl74lgvy.jpg',
+        image: 'diplomas/eupxoexyhmtzxl74lgvy.jpg',
         preview: ''
       }
     ];
@@ -42,7 +42,7 @@ export function getDiplomasItems(): Promise<Array<Database.IDiploma>> {
             .then(() => {
               const imgs$ = data
                 .map(i => i.image)
-                .map(img => uploadImage(`./population/assets/${img}`));
+                .map(img => uploadImage(`./population/assets/${img}`, 'diplomas'));
               return Promise.all(imgs$);
             })
             .then((images: Array<IPhotoPreview>) => {

@@ -1,9 +1,8 @@
-import log from '../server/services/log-service'
-import {AboutPage} from "../server/models/aboutPage";
-import {Page} from "../_interface/IPage";
-import {uploadImage} from "../server/services/file-storage/file-storage-service";
-import {ICloudinaryResponse} from "../server/interfaces/iCloudinaryResponse";
-import {IPhotoPreview} from "../_interface/IPhotoPreview";
+import log from '../server/services/log-service';
+import {AboutPage} from '../server/models/aboutPage';
+import {Page} from '../_interface/IPage';
+import {uploadImage} from '../server/services/file-storage/file-storage-service';
+import {IPhotoPreview} from '../_interface/IPhotoPreview';
 
 const fs = require('fs');
 const util = require('util');
@@ -17,10 +16,10 @@ export function getAboutPageDataV2(): Promise<Array<Page.IAboutPage>> {
                 log.warning('\x1b[31m', 'DELETED: about', pages.n, 'pages');
 
                 return Promise.all([
-                    uploadImage('./population/assets/_DSC0011.jpg'),
-                    uploadImage('./population/assets/_DSC0032.jpg'),
-                    uploadImage('./population/assets/_DSC0055.jpg'),
-                    uploadImage('./population/assets/_DSC0326.jpg')
+                    uploadImage('./population/assets/photos/_DSC0011.jpg', 'photos'),
+                    uploadImage('./population/assets/photos/_DSC0032.jpg', 'photos'),
+                    uploadImage('./population/assets/photos/_DSC0055.jpg', 'photos'),
+                    uploadImage('./population/assets/photos/_DSC0326.jpg', 'photos')
                 ]);
             })
             .then((images: any) => {
