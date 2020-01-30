@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {PageDataGuardService} from "../../../../../page-data-guard.service";
-import {INavItem} from "../../../../../../../_interface/INavItem";
+import {PageDataGuardService} from '../../../../../page-data-guard.service';
+import {INavItem} from '../../../../../../../_interface/INavItem';
 
 @Component({
   selector: 'app-navigation',

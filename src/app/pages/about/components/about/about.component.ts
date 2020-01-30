@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
               private modalService: ModalService,
-              private pageDataGuardService: PageDataGuardService,) { }
+              private pageDataGuardService: PageDataGuardService) { }
 
   ngOnInit() {
     const aboutPage = this.pageDataGuardService.pageData.about;

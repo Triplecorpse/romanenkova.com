@@ -1,11 +1,16 @@
 <nav id="navigation" class="navigation">
   <ul class="navigation-list">
     <li class="navigation-list-item" *ngFor="let navItem of nav">
-      <a class="navigation-list-item-text" [routerLink]="navItem.href" routerLinkActive="active" *ngIf="navItem.anchor !== 'contacts'; else contactsTpl" ngx-scroll-to="navigation">
+      <a class="navigation-list-item-text"
+         *ngIf="navItem.anchor !== 'contacts'; else contactsTpl"
+         routerLinkActive="active"
+         [routerLink]="navItem.href"
+         ngx-scroll-to="pagetop">
         {{navItem.header}}
       </a>
       <ng-template #contactsTpl>
-        <a class="navigation-list-item-text" ngx-scroll-to="contacts">
+        <a class="navigation-list-item-text"
+           ngx-scroll-to="contacts">
           {{navItem.header}}
         </a>
       </ng-template>

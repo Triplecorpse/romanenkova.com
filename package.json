@@ -14,6 +14,7 @@
     "db:connect": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongod",
     "db:console": "cd %ProgramFiles%/MongoDB/Server/3.6/bin/ && start mongo",
     "db:init": "tsc --project population && node population/init -- schedule serviceItem diplomaItem users newcontact aboutpage articleItem",
+    "db:aboutpage": "tsc --project population && node population/init -- aboutpage",
     "db:recreateadmin": "tsc --project population && node population/init -- users",
     "db:service": "tsc --project population && node population/init -- serviceItem",
     "db:article": "tsc --project population && node population/init -- articleItem",

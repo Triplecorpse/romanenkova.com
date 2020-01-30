@@ -29,7 +29,7 @@ const mapper: any = {
     users: getInitUsers
 };
 
-mongoose.connect(process.env.MONGODB_URI as string)
+mongoose.connect(process.env.MONGODB_URI as string, {useNewUrlParser: true, useUnifiedTopology: true})
     .then((): any => {
         log.warning('\x1b[0m', 'DBINIT :::: CONNECTED TO DATABASE :::: ' + process.env.MONGODB_URI);
         const pagesQ: Array<Promise<any>> = [];
