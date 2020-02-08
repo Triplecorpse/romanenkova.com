@@ -1,0 +1,33 @@
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {PageDataGuardService} from '../../../page-data-guard.service';
+import {INavItem} from '../../../../../_interface/INavItem';
+
+@Component({
+  selector: 'app-navigation',
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class NavigationComponent implements OnInit {
+  public nav: Array<INavItem>;
+  private anchorMap: Array<{anchor: string, href: string}> = [
+    {href: 'about', anchor: 'about'},
+    {href: 'services', anchor: 'services'},
+    {href: 'diplomas', anchor: 'diplomas'},
+    {href: 'articles', anchor: 'articles'},
+    {href: '#contacts', anchor: 'contacts'}
+  ];
+
+  constructor(private pageDataGuardService: PageDataGuardService) {
+  }
+
+  ngOnInit() {
+    this.nav = this.pageDataGuardService.pageData.index.nav.map((navItem: INavItem): INavItem => {
+      const anchor: string = navItem.anchor;
+      const navUrlItem = this.anchorMap.find(anchorMapItem => anchorMapItem.anchor === anchor);
+      navItem.href = navUrlItem.href;
+
+      return navItem;
+    });
+  }
+}

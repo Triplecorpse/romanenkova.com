@@ -11,7 +11,7 @@ import {
   ViewChildren
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {ModalService} from '../../pages/_index/services/modal.service';
+import {ModalService} from '../../services/modal.service';
 import {Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import {PageDataGuardService} from '../../page-data-guard.service';

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IArticlePreview} from '../../../../../../_interface/IArticlePreview';
+import {PageDataGuardService} from '../../../../page-data-guard.service';
 
 @Component({
   selector: 'app-article',

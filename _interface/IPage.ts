@@ -1,8 +1,9 @@
-import {IOverview} from "./IOverview";
-import {Database} from "./IMongooseSchema";
-import {IReviewModal} from "./IReviewModal";
-import {IReviewOverview} from "./IReviewOverview";
-import {IPhotoPreview} from "./IPhotoPreview";
+import {IOverview} from './IOverview';
+import {Database} from './IMongooseSchema';
+import {IReviewModal} from './IReviewModal';
+import {IReviewOverview} from './IReviewOverview';
+import {IPhotoPreview} from './IPhotoPreview';
+import {IArticlePreview} from './IArticlePreview';
 
 export namespace Page {
   export interface IPage<T = any> {
@@ -11,10 +12,10 @@ export namespace Page {
   }
 
   export interface IMainPage extends IPage {
-    diploma: IOverview<Database.IDiploma>,
-    about: IOverview<IAboutPage>,
-    review: IReviewOverview,
-    reviewModal: IReviewModal
+    diploma: IOverview<Database.IDiploma>;
+    about: IOverview<IAboutPage>;
+    review: IReviewOverview;
+    reviewModal: IReviewModal;
   }
 
   export interface IAboutPage extends IPage<IPhotoPreview> {
@@ -23,8 +24,9 @@ export namespace Page {
     position?: string;
   }
 
-  export interface IArticlesPage extends IPage<Database.IArticle> {
-
+  export interface IArticlesPage extends IPage<IArticlePreview> {
+    buttonText: string;
+    languageLabel: string;
   }
 
   export interface IDiplomaPage extends IPage<Database.IDiploma> {

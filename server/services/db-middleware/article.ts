@@ -4,10 +4,10 @@ import {Database} from '../../../_interface/IMongooseSchema';
 import {IArticlePreview} from '../../../_interface/IArticlePreview';
 import IArticle = Database.IArticle;
 
-export function readArticlesPreviews(language: TLanguage, isAdmin: boolean = false): Promise<Array<IArticlePreview>> {
+export function readArticlesPreviews(lang?: TLanguage, isAdmin?: boolean): Promise<Array<IArticlePreview>> {
   const opts = {
     isPublished: true,
-    language
+    lang
   };
 
   if (isAdmin) {
@@ -18,6 +18,7 @@ export function readArticlesPreviews(language: TLanguage, isAdmin: boolean = fal
     .then((articles: any) => articles.map((article: IArticlePreview): IArticlePreview => ({
       logo: article.logo,
       header: article.header,
+      language: article.language,
       createdAt: article.createdAt,
       updatedAt: article.updatedAt,
       deletedAt: article.deletedAt,
@@ -30,8 +31,8 @@ export function readArticlesPreviews(language: TLanguage, isAdmin: boolean = fal
         return articles;
       }
 
-      return articles.map(({entityId, header, logo, updatedAt, createdAt}: IArticlePreview): IArticlePreview => ({
-        entityId, header, logo, updatedAt, createdAt
+      return articles.map(({entityId, header, logo, updatedAt, createdAt, language}: IArticlePreview): IArticlePreview => ({
+        entityId, header, logo, updatedAt, createdAt, language
       }));
     });
 }

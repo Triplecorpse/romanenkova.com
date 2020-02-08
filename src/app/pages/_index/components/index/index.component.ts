@@ -13,12 +13,12 @@ import {Meta, Title} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
 import {filter} from 'rxjs/operators';
-import {ModalService} from '../../services/modal.service';
+import {ModalService} from '../../../../services/modal.service';
 import {environment} from '../../../../../environments/environment';
 import {PageDataGuardService} from '../../../../page-data-guard.service';
-import {CookieService} from '../../services/cookie.service';
+import {CookieService} from '../../../../services/cookie.service';
 import {ICookiesConsentModal, ICookiesConsentOption} from '../../../../../../_interface/ICookiesConsentModal';
-import {FooterComponent} from '../footer/footer.component';
+import {FooterComponent} from '../../../../components/footer/footer.component';
 
 @Component({
   selector: 'app-index',

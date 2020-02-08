@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Inject, OnInit, PLATFORM_ID, ViewChildren} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ModalService} from "../../../_index/services/modal.service";
+import {ModalService} from "../../../../services/modal.service";
 import {isPlatformServer} from "@angular/common";
 import {PageDataGuardService} from "../../../../page-data-guard.service";
 import {IPhotoPreview} from "../../../../../../_interface/IPhotoPreview";

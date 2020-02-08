@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {ModalService} from '../../pages/_index/services/modal.service';
+import {ModalService} from '../../services/modal.service';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {ReCaptcha2Component} from 'ngx-captcha';
