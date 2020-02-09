@@ -5,8 +5,9 @@ import {getServicesInterface} from './services/interface.services';
 import {getDiplomasInterface} from './diplomas/interface.diplomas';
 import {getArticlesInterface} from './articles/interface.articles';
 import {getAboutInterface} from './about/interface.about';
+import {getArticleInterface} from './article/interface.article';
 
-export default async function getInterface(pageId: TPageId, lang: TLanguage) {
+export default async function getInterface(pageId: TPageId, lang: TLanguage, articleUrl?: string) {
   switch (pageId) {
     case 'index':
       return getIndexInterface(lang);
@@ -18,6 +19,8 @@ export default async function getInterface(pageId: TPageId, lang: TLanguage) {
       return getDiplomasInterface(lang);
     case 'article':
       return getArticlesInterface(lang);
+    case 'article-item':
+      return getArticleInterface(lang, articleUrl as string);
     case 'about':
       return getAboutInterface(lang);
     default:

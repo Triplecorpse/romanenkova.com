@@ -3,7 +3,7 @@
     <div class="line-1">
       <div class="inner">
         <div class="logo">
-          <a class="link-root desktop" [routerLink]="routerLink" *ngIf="title" ngx-scroll-to="navigation">
+          <a class="link-root desktop" [routerLink]="routerLink" *ngIf="title" ngx-scroll-to="pagetop">
             <h4>
               <span class="accent">{{title[0]?.toUpperCase()}} </span>
               <span>{{title[1]?.toUpperCase()}}</span>
@@ -19,7 +19,7 @@
     <div class="line-2">
       <div class="inner">
         <div class="nav">
-          <app-navigation class="navigation" (click)="toggleNavOpen(false)"></app-navigation>
+          <app-navigation class="navigation" (click)="toggleNavOpen(false)" [isArticlePage]="isArticlePage"></app-navigation>
         </div>
       </div>
     </div>

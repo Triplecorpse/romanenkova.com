@@ -1,6 +1,7 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {PageDataGuardService} from '../../../page-data-guard.service';
 import {INavItem} from '../../../../../_interface/INavItem';
+import {NavigationEnd} from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -9,8 +10,10 @@ import {INavItem} from '../../../../../_interface/INavItem';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationComponent implements OnInit {
+  @Input() public isArticlePage: boolean;
+
   public nav: Array<INavItem>;
-  private anchorMap: Array<{anchor: string, href: string}> = [
+  private anchorMap: Array<{ anchor: string, href: string }> = [
     {href: 'about', anchor: 'about'},
     {href: 'services', anchor: 'services'},
     {href: 'diplomas', anchor: 'diplomas'},

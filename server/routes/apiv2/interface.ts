@@ -8,7 +8,7 @@ export default async function getInterfaceHandler(req: IRequest, res: Response) 
     req.params.lang = req.language as TLanguage;
   }
 
-  const result = await getInterface(req.params.page as TPageId, req.params.lang as TLanguage)
+  const result = await getInterface(req.params.page as TPageId, req.params.lang as TLanguage, req.params.articleUrl)
     .catch((err: any) => {
       throw res.status(400).send(err.message);
     });

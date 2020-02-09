@@ -31,17 +31,16 @@ export function readArticlesPreviews(lang?: TLanguage, isAdmin?: boolean): Promi
         return articles;
       }
 
-      return articles.map(({entityId, header, logo, updatedAt, createdAt, language}: IArticlePreview): IArticlePreview => ({
-        entityId, header, logo, updatedAt, createdAt, language
+      return articles.map(({entityId, header, logo, updatedAt, createdAt, language, url}: IArticlePreview): IArticlePreview => ({
+        entityId, header, logo, updatedAt, createdAt, language, url
       }));
     });
 }
 
-export function readArticle(language: TLanguage, entityId: string, isAdmin: boolean = false): Promise<Array<Database.IArticle>> {
+export function readArticle(url: string, isAdmin: boolean = false): Promise<Array<Database.IArticle>> {
   const opts = {
     isPublished: true,
-    language,
-    entityId
+    url
   };
 
   if (isAdmin) {

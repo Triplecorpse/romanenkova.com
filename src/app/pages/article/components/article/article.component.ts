@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IArticlePreview} from '../../../../../../_interface/IArticlePreview';
 import {PageDataGuardService} from '../../../../page-data-guard.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-article',
@@ -10,9 +11,9 @@ import {PageDataGuardService} from '../../../../page-data-guard.service';
 export class ArticleComponent implements OnInit {
   @Input() article: IArticlePreview;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log('kk', this.route.snapshot.paramMap.get('url'));
   }
-
 }

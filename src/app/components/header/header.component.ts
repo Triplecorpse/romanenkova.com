@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component, HostListener, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
-import {PageDataGuardService} from "../../page-data-guard.service";
-import {Database} from "../../../../_interface/IMongooseSchema";
-import {fade} from "../../shortcuts/animations";
+import {PageDataGuardService} from '../../page-data-guard.service';
+import {Database} from '../../../../_interface/IMongooseSchema';
+import {fade} from '../../shortcuts/animations';
 
 export interface ILanguageState {
   open: boolean;
@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
   @Input() isRoot: boolean;
   @Input() header: string;
   @Input() contactData: Array<Database.IContact>;
+  @Input() isArticlePage: boolean;
 
   @HostListener('window:scroll')
   private listener(): void {

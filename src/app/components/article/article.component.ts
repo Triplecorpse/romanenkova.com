@@ -19,7 +19,6 @@ export class ArticleComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.pageDataGuardService.appSettings);
     this.buttonText = this.pageDataGuardService.pageData.article.buttonText;
     this.languageLabel = this.pageDataGuardService.pageData.article.languageLabel;
     this.language = this.article.language;

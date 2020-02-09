@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
+import {NavigationEnd, Router, RouterEvent} from '@angular/router';
 import {filter} from 'rxjs/operators';
-import {PageDataGuardService} from "../../../page-data-guard.service";
-import {ILanguageObject} from "../../../../../_interface/ILanguageObject";
+import {PageDataGuardService} from '../../../page-data-guard.service';
+import {ILanguageObject} from '../../../../../_interface/ILanguageObject';
 
 @Component({
   selector: 'app-language-selector',
@@ -17,8 +17,7 @@ export class LanguageSelectorComponent implements OnInit {
   @Input() public isLanguageListOpen: boolean;
   @Output() public isLanguageListOpenChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
+  constructor(private router: Router,
               private pageDataGuardService: PageDataGuardService,
               private changeDetectorRef: ChangeDetectorRef) {
   }

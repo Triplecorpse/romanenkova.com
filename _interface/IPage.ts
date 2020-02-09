@@ -7,7 +7,7 @@ import {IArticlePreview} from './IArticlePreview';
 
 export namespace Page {
   export interface IPage<T = any> {
-    header: string;
+    header?: string;
     items?: Array<T>;
   }
 
@@ -27,6 +27,11 @@ export namespace Page {
   export interface IArticlesPage extends IPage<IArticlePreview> {
     buttonText: string;
     languageLabel: string;
+  }
+
+  export interface IArticlePage extends IPage<Database.IArticle> {
+    backToArticles: string;
+    share: string;
   }
 
   export interface IDiplomaPage extends IPage<Database.IDiploma> {

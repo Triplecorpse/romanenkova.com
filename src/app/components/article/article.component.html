@@ -16,6 +16,8 @@
     </div>
   </div>
   <div class="article-button">
-    <button class="button">{{buttonText}}</button>
+    <a [routerLink]="['../article/', article.url]">
+      <button class="button">{{buttonText}}</button>
+    </a>
   </div>
 </div>
