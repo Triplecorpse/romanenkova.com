@@ -20,7 +20,7 @@ export default async function getInterface(pageId: TPageId, lang: TLanguage, art
     case 'article':
       return getArticlesInterface(lang);
     case 'article-item':
-      return getArticleInterface(lang, articleUrl as string);
+      return getArticleInterface(lang);
     case 'about':
       return getAboutInterface(lang);
     default:

@@ -12,10 +12,6 @@ export const configObj: any = {
   fr: interfaceArticleFr
 };
 
-export async function getArticleInterface(lang: TLanguage, url: string) {
-  const interfaceObj: any = configObj[lang];
-
-  interfaceObj.items = await readArticle(url);
-
-  return interfaceObj;
+export async function getArticleInterface(lang: TLanguage) {
+  return configObj[lang];
 }

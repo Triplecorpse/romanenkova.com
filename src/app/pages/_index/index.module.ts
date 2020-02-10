@@ -56,7 +56,7 @@ import {CookieService} from '../../services/cookie.service';
       {
         path: 'article/:id',
         loadChildren: './../article/article.module#ArticleModule',
-        data: {pageid: 'article', pageidv2: 'article'},
+        data: {pageid: 'article-item', pageidv2: 'article-item'},
         canActivate: [PageDataGuardService]
       },
       {

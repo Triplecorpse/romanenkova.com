@@ -7,6 +7,7 @@ import {validateToken} from '../../services/security-services/auth-service';
 import getReviewHandler from './review';
 import getAppointmentHandler from './appointment';
 import getPrivacyPolicyHandler from './privacyPolicy';
+import getArticleHandler from './article';
 
 const router = express.Router();
 
@@ -43,7 +44,8 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
 // todo: as far router is shared object, only first post is fired
 router.route('/appointment').post(getAppointmentHandler);
 router.route('/review').post(getReviewHandler);
-router.route('/:lang/:page/:articleUrl?').get(getInterfaceHandler);
+router.route('/:lang/:page/').get(getInterfaceHandler);
+router.route('/article/:url/').get(getArticleHandler);
 router.route('/privacy-policy').get(getPrivacyPolicyHandler);
 
 export default router;
