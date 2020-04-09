@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.use(bodyParser.json({type: 'application/json'}));
 router.use('*', (req: Request, res: Response, next: NextFunction) => {
-  if (/romanenkova.com|localhost|romanenkova.herokuapp.com|romanenkova-staging.herokuapp.com/i.test(req.hostname)) {
+  if (/romanenkova.com|localhost|psydp.com.ua/i.test(req.hostname)) {
     res.header('Access-Control-Allow-Origin', req.get('origin') || '*');
     res.header('Access-Control-Allow-Headers', 'Origin,X-Requested-With,Content-Type,Accept');
     res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');

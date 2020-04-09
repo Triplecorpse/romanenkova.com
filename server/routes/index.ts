@@ -15,6 +15,14 @@ const router = express.Router();
 router.use(cookieParser('secretthings'));
 
 router.use('*', (req: Request, res: Response, next: NextFunction) => {
+  if (/psydp.com.ua/.test(req.hostname)) {
+    res.redirect('https://www.romanenkova.com');
+  } else {
+    next();
+  }
+});
+
+router.use('*', (req: Request, res: Response, next: NextFunction) => {
     const acceptedLangs = parseAcceptLanguage(req);
     const languageObj = acceptedLangs.find((lang: any) =>
         languages.find((acceptable: string) => lang.language === acceptable)
