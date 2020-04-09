@@ -1,7 +1,7 @@
 import log from '../server/services/log-service';
 import {Database} from '../_interface/IMongooseSchema';
 import {Article} from '../server/models/article';
-import {uploadImageForArticle} from '../server/services/file-storage/file-storage-service';
+import {uploadImagesForArticle} from '../server/services/file-storage/file-storage-service';
 import {readFile} from '../server/services/file-service';
 import * as path from 'path';
 import IArticle = Database.IArticle;
@@ -16,14 +16,14 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
       header: 'Гештальт-терапия',
       body: 'what-is-gestalt.ru.html',
       language: 'ru',
-      logo: 'articles/2019_05_celebration-couple-enjoyment_@replaceString.jpg',
+      logo: 'articles/2019_05_celebration-couple-enjoyment_logo.jpg',
       imageMd: 'articles/2019_05_celebration-couple-enjoyment.jpg',
       imageXl: 'articles/2019_05_celebration-couple-enjoyment.jpg',
       entityId: 'article',
       url: 'what-is-gestalt',
       imageAuthor: 'Luis Quintero',
       imageUrl: 'https://www.lifeofpix.com/photo/temp-celebration-couple-enjoyment-1587646-jpg/'
-    }/*,
+    },
     {
       isDeleted: false,
       updatedAt: new Date(2018, 11, 1),
@@ -32,14 +32,14 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
       header: 'Как работать с обесцениванием',
       body: 'working-with-deprecation.ru.html',
       language: 'ru',
-      logo: '2019_05_celebration-couple-enjoyment_@replaceString.jpg',
-      imageMd: '2019_05_celebration-couple-enjoyment.jpg',
-      imageXl: '2019_05_celebration-couple-enjoyment.jpg',
+      logo: 'articles/close-up-photo-of-woman-with-her-hands-tied-with-rope-1435441_logo.jpg',
+      imageMd: 'articles/close-up-photo-of-woman-with-her-hands-tied-with-rope-1435441.jpg',
+      imageXl: 'articles/close-up-photo-of-woman-with-her-hands-tied-with-rope-1435441.jpg',
       entityId: 'article',
       url: 'working-with-deprecation',
-      imageAuthor: 'Luis Quintero',
-      imageUrl: 'https://www.lifeofpix.com/photo/temp-celebration-couple-enjoyment-1587646-jpg/'
-    }*/
+      imageAuthor: 'Engin Akyurt',
+      imageUrl: 'https://www.pexels.com/photo/close-up-photo-of-woman-with-her-hands-tied-with-rope-1435441/'
+    }
   ];
 
   return new Promise((resolve: any, reject: any) => {
@@ -48,12 +48,14 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
         log.warning('\x1b[31m', 'DELETED: article', result.n, 'pages');
       })
       .then(() => {
+        const newItems: Array<IArticle> = [];
+        let counter = 0;
+
         data.forEach((item: Database.IArticle, index: number): void => {
-          const {logo, imageMd, imageXl, body} = item;
-          const newItems: Array<IArticle> = [];
+          const {logo, body, imageMd} = item;
 
           Promise.all([
-            uploadImageForArticle(path.join(__dirname, `assets/${logo}`)),
+            uploadImagesForArticle(path.join(__dirname, `assets/${logo}`), path.join(__dirname, `assets/${imageMd}`)),
             readFile(path.join(__dirname, `assets/initial_articles/${body}`))
           ]).then((result) => {
             newItems[index] = {
@@ -64,24 +66,16 @@ export function getArticleItemData(): Promise<Array<Database.IService>> {
               body: result[1]
             };
 
-            if (isAllLoaded(data, newItems)) {
+            counter++;
+
+            if (counter === data.length) {
               resolve(newItems);
             }
           });
-
         });
-
       })
       .catch((err: any) => {
         reject(err);
       });
   });
-}
-
-function isAllLoaded(items: Array<IArticle>, newItems: Array<IArticle>): boolean {
-  if (items.length !== newItems.length) {
-    return false;
-  }
-
-  return newItems.every((item: IArticle) => !!item);
 }

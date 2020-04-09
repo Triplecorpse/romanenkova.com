@@ -12,6 +12,7 @@
     "build": "tsc --project server",
     "build:ssr": "webpack --config webpack.server.config.js --progress --colors",
     "db:init": "tsc --project population && node population/init -- schedule serviceItem diplomaItem users newcontact aboutpage articleItem",
+    "db:aboutpage": "tsc --project population && node population/init -- aboutpage",
     "db:recreateadmin": "tsc --project population && node population/init -- users",
     "db:service": "tsc --project population && node population/init -- serviceItem",
     "db:article": "tsc --project population && node population/init -- articleItem",

@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IArticlePreview} from '../../../../../../_interface/IArticlePreview';
+import {ActivatedRoute} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-article',
@@ -9,9 +11,9 @@ import {IArticlePreview} from '../../../../../../_interface/IArticlePreview';
 export class ArticleComponent implements OnInit {
   @Input() article: IArticlePreview;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private httpClient: HttpClient) { }
 
   ngOnInit() {
+    this.httpClient.get(`article/${this.route.snapshot.paramMap.get('id')}`, {params: {v: '2'}}).subscribe();
   }
-
 }

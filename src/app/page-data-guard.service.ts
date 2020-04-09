@@ -1,5 +1,5 @@
 import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
-import {ActivatedRouteSnapshot, CanActivate, Router} from '@angular/router';
+import {ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router} from '@angular/router';
 import {Page} from '../../_interface/IPage';
 import {HttpClient} from '@angular/common/http';
 import {Observable, of} from 'rxjs';

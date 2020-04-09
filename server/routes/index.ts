@@ -61,6 +61,7 @@ router.get('/qa', (req: Request, res: Response) => {
 
 router.use(express.static('./front'));
 router.use(express.static('./static'));
+router.use(express.static('../imgs'));
 router.use('/api/v2', apiv2);
 
 // router.get('*', (req: IRequest, res: Response) => {

@@ -15,5 +15,4 @@ export class ArticlesComponent implements OnInit {
   ngOnInit() {
     this.articles = this.pageDataGuardService.pageData.article.items;
   }
-
 }

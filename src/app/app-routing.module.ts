@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {IndexComponent} from './pages/_index/components/index/index.component';
-import {PageDataGuardService} from "./page-data-guard.service";
+import {PageDataGuardService} from './page-data-guard.service';
 
 const routes: Routes = [
   {
     path: ':lang',
-    loadChildren: './pages/_index/index.module#IndexModule',
+    loadChildren: () => import('./pages/_index/index.module').then(m => m.IndexModule),
     canActivate: [PageDataGuardService],
     data: {pageidv2: 'index'},
     component: IndexComponent,

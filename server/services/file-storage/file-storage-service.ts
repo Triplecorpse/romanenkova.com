@@ -18,14 +18,15 @@ export function uploadImage(filePath: string, prefix: string): Promise<IPhotoPre
     }));
 }
 
-export function uploadImageForArticle(filePath: string): Promise<IPhotoArticle> {
-  const extension = path.extname(filePath);
-  const filename = path.basename(filePath, extension);
-  const logo$ = util.promisify(fs.copyFile)(filePath.replace('@replaceString', 'logo'), `../imgs/articles/${filename}_logo${extension}`);
-  const imageXl$ = sharp(filePath.replace('_@replaceString', ''))
+export function uploadImagesForArticle(logoPath: string, imagePath: string): Promise<IPhotoArticle> {
+  const extension = path.extname(imagePath);
+  const filename = path.basename(imagePath, extension);
+  const logoFilename = path.basename(logoPath, extension);
+  const logo$ = util.promisify(fs.copyFile)(logoPath, `../imgs/articles/${logoFilename}${extension}`);
+  const imageXl$ = sharp(imagePath)
     .resize(2048, 960, {withoutEnlargement: true, fit: 'cover'})
     .toFile(`../imgs/articles/${filename}_xl${extension}`);
-  const imageMd$ = sharp(filePath.replace('_@replaceString', ''))
+  const imageMd$ = sharp(imagePath)
     .resize(1150, 540)
     .toFile(`../imgs/articles/${filename}_md${extension}`);
 

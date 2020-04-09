@@ -12,13 +12,14 @@ import {
 import {Meta, Title} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
-import {filter} from 'rxjs/operators';
-import {ModalService} from '../../services/modal.service';
+import {filter, tap} from 'rxjs/operators';
+import {ModalService} from '../../../../services/modal.service';
 import {environment} from '../../../../../environments/environment';
 import {PageDataGuardService} from '../../../../page-data-guard.service';
-import {CookieService} from '../../services/cookie.service';
+import {CookieService} from '../../../../services/cookie.service';
 import {ICookiesConsentModal, ICookiesConsentOption} from '../../../../../../_interface/ICookiesConsentModal';
-import {FooterComponent} from '../footer/footer.component';
+import {FooterComponent} from '../../../../components/footer/footer.component';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-index',
@@ -35,6 +36,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   private allowTracking: boolean;
   public isBrowser: boolean = false;
   public modalConsent: ICookiesConsentModal;
+  public isArticlePage: boolean;
 
   @ViewChild('cookieConfirmationModal', {static: true}) private cookieConfirmationModal: TemplateRef<any>;
   @ViewChild('footerComponent', {static: true}) private footerComponent: FooterComponent;
@@ -60,6 +62,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     router.events
       .pipe(filter((e: RouterEvent) => e instanceof NavigationEnd))
       .subscribe((e: NavigationEnd): void => {
+        this.isArticlePage = e.urlAfterRedirects.includes('/article/');
         this.header = this.pageDataGuardService.pageData[route.snapshot.firstChild.data.pageidv2].header;
         this.isRoot = e.urlAfterRedirects.length === 3;
         const title = this.isRoot

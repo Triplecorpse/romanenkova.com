@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Inject, OnInit, PLATFORM_ID, ViewChildren} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ModalService} from "../../../_index/services/modal.service";
+import {ModalService} from "../../../../services/modal.service";
 import {isPlatformServer} from "@angular/common";
 import {PageDataGuardService} from "../../../../page-data-guard.service";
 import {IPhotoPreview} from "../../../../../../_interface/IPhotoPreview";
@@ -20,7 +20,7 @@ export class AboutComponent implements OnInit {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
               private modalService: ModalService,
-              private pageDataGuardService: PageDataGuardService,) { }
+              private pageDataGuardService: PageDataGuardService) { }
 
   ngOnInit() {
     const aboutPage = this.pageDataGuardService.pageData.about;
