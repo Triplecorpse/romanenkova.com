@@ -1,8 +1,7 @@
 import express = require('express');
 import bodyParser = require('body-parser');
 import getInterfaceHandler from './interface';
-import IRequest from '../../interfaces/iRequest';
-import {NextFunction, Response} from 'express-serve-static-core';
+import {NextFunction, Request, Response} from 'express-serve-static-core';
 import {validateToken} from '../../services/security-services/auth-service';
 import getReviewHandler from './review';
 import getAppointmentHandler from './appointment';
@@ -11,13 +10,13 @@ import getPrivacyPolicyHandler from './privacyPolicy';
 const router = express.Router();
 
 router.use(bodyParser.json({type: 'application/json'}));
-router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
+router.use('*', (req: Request, res: Response, next: NextFunction) => {
   if (/romanenkova.com|localhost|romanenkova.herokuapp.com|romanenkova-staging.herokuapp.com/i.test(req.hostname)) {
     res.header('Access-Control-Allow-Origin', req.get('origin') || '*');
     res.header('Access-Control-Allow-Headers', 'Origin,X-Requested-With,Content-Type,Accept');
     res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
 
-    let token = req.query.token;
+    let token: string = req.query.token as string;
     if (req.method.toLowerCase() === 'post' || req.method.toLowerCase() === 'put' || req.method.toLowerCase() === 'options') {
       token = req.body ? token || req.body.token : token;
     }

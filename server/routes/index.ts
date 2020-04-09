@@ -1,7 +1,6 @@
 import express = require('express');
 import apiv2 from './apiv2/index';
 import {Request, Response} from 'express-serve-static-core';
-import IRequest from '../interfaces/iRequest';
 import {NextFunction} from 'express';
 import {languages} from '../const/const';
 import * as path from 'path';
@@ -15,7 +14,7 @@ const router = express.Router();
 
 router.use(cookieParser('secretthings'));
 
-router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
+router.use('*', (req: Request, res: Response, next: NextFunction) => {
     const acceptedLangs = parseAcceptLanguage(req);
     const languageObj = acceptedLangs.find((lang: any) =>
         languages.find((acceptable: string) => lang.language === acceptable)
@@ -28,7 +27,7 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
     next();
 });
 
-router.get('/:lang?/:page?/:entity?', (req: IRequest, res: Response, next: NextFunction) => {
+router.get('/:lang?/:page?/:entity?', (req: Request, res: Response, next: NextFunction) => {
     // continue routing if language is not acceptable
     if (req.params.lang && languages.indexOf(req.params.lang as TLanguage) === -1 && req.params.lang !== '404') {
         return next();
@@ -52,7 +51,7 @@ router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {
     next();
 });
 
-router.get('/qa', (req: IRequest, res: Response) => {
+router.get('/qa', (req: Request, res: Response) => {
   if (req.query.secret === 'allowQa') {
     res.cookie('allowQa', 1).json({ok: true});
   } else {

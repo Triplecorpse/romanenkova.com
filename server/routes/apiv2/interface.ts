@@ -1,9 +1,8 @@
-import IRequest from '../../interfaces/iRequest';
 import getInterface from '../../const/interface';
-import {Response} from 'express-serve-static-core';
+import {Request, Response} from 'express';
 import {TLanguage, TPageId} from '../../../_interface/types';
 
-export default async function getInterfaceHandler(req: IRequest, res: Response) {
+export default async function getInterfaceHandler(req: Request, res: Response) {
   if (req.params.lang === 'auto' || req.params.lang === 'undefined' || req.params.lang === 'null') {
     req.params.lang = req.language as TLanguage;
   }

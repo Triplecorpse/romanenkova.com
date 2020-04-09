@@ -1,12 +1,11 @@
-import IRequest from '../../interfaces/iRequest';
-import {Response} from 'express-serve-static-core';
+import {Request, Response} from 'express';
 import {validateRecaptcha} from '../../services/security-services/recaptcha-validator';
 import {errorMessages, successMessages} from '../../const/const';
 import {createReview} from '../../services/db-middleware/review';
 import {sendEmail} from '../../services/user-services/email-service';
 import {writeFile} from '../../services/file-service';
 
-export default async function getReviewHandler(req: IRequest, res: Response) {
+export default async function getReviewHandler(req: Request, res: Response) {
   const name = req.body.name || 'Anonymous';
 
   await validateRecaptcha(req.body.recaptcha).catch((e: any) => {

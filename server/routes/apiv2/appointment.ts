@@ -1,12 +1,11 @@
-import IRequest from '../../interfaces/iRequest';
-import {Response} from 'express-serve-static-core';
 import {validateRecaptcha} from '../../services/security-services/recaptcha-validator';
 import {errorMessages, successMessages} from '../../const/const';
 import {IAppointmentModal} from '../../../_interface/IAppointmenntModal';
 import {getHtmlLetter, sendEmail} from '../../services/user-services/email-service';
 import {writeFile} from '../../services/file-service';
+import {Request, Response} from 'express';
 
-export default async function getAppointmentHandler(req: IRequest, res: Response) {
+export default async function getAppointmentHandler(req: Request, res: Response) {
   const appointment: IAppointmentModal = req.body;
 
   if (!appointment.name && !appointment.email) {
