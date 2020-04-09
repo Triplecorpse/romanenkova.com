@@ -39,7 +39,7 @@
   <h1 class="page-header" [class.fixed]="isFixed" [innerHTML]="header">
 
   </h1>
-  <div class="button-wrapper">
+  <div class="button-wrapper" *ngIf="showButton">
     <div class="button">
       <app-attend-button></app-attend-button>
     </div>

@@ -3,7 +3,6 @@ import interfaceArticleEn from './interface.article.en';
 import interfaceArticleRu from './interface.article.ru';
 import interfaceArticleUk from './interface.article.uk';
 import interfaceArticleFr from './interface.article.fr';
-import {readArticle} from '../../services/db-middleware/article';
 
 export const configObj: any = {
   en: interfaceArticleEn,

@@ -9,17 +9,17 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import {Meta, Title} from '@angular/platform-browser';
+import {Meta} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
-import {filter, tap} from 'rxjs/operators';
+import {filter} from 'rxjs/operators';
 import {ModalService} from '../../../../services/modal.service';
 import {environment} from '../../../../../environments/environment';
 import {PageDataGuardService} from '../../../../page-data-guard.service';
 import {CookieService} from '../../../../services/cookie.service';
 import {ICookiesConsentModal, ICookiesConsentOption} from '../../../../../../_interface/ICookiesConsentModal';
 import {FooterComponent} from '../../../../components/footer/footer.component';
-import {Observable} from 'rxjs';
+import {TitleService} from '../../../../services/title.service';
 
 @Component({
   selector: 'app-index',
@@ -49,7 +49,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
               private changeDetectorRef: ChangeDetectorRef,
               private meta: Meta,
               private pageDataGuardService: PageDataGuardService,
-              private titleService: Title,
+              private titleService: TitleService,
               private cookieService: CookieService) {
 
     const pageData = this.pageDataGuardService.pageData;
@@ -70,7 +70,8 @@ export class IndexComponent implements OnInit, AfterViewInit {
           : this.header;
         const position = pageData.index.pageMetadata.position;
         const fullName = `${pageData.index.pageMetadata.firstName} ${pageData.index.pageMetadata.lastName}`;
-        this.titleService.setTitle(`${title} - ${position} ${fullName}`);
+        this.titleService.suffix = `${position} ${fullName}`;
+        this.titleService.prefix = title;
 
         if (environment.production && this.allowTracking && isPlatformBrowser(this.platformId)) {
           (<any>window).ga('create', 'UA-132675881-1', 'auto');

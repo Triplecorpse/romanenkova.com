@@ -1,8 +1,11 @@
-import {ChangeDetectionStrategy, Component, HostListener, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {PageDataGuardService} from '../../page-data-guard.service';
 import {Database} from '../../../../_interface/IMongooseSchema';
 import {fade} from '../../shortcuts/animations';
+import {HeaderService} from '../../services/header.service';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {filter} from 'rxjs/operators';
 
 export interface ILanguageState {
   open: boolean;
@@ -25,6 +28,7 @@ export class HeaderComponent implements OnInit {
   public title: [string, string];
   public routerLink: string;
   public showHeaderLine1: boolean = true;
+  public showButton = true;
   private previousScrollTop: number;
 
   @Input() isRoot: boolean;
@@ -52,7 +56,12 @@ export class HeaderComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) private document: Document,
               @Inject(PLATFORM_ID) private platformId: Object,
-              private pageDataGuardService: PageDataGuardService) {
+              private pageDataGuardService: PageDataGuardService,
+              private headerService: HeaderService,
+              private changeDetectionRef: ChangeDetectorRef,
+              private router: Router,
+              private route: ActivatedRoute
+  ) {
   }
 
   ngOnInit() {
@@ -61,6 +70,17 @@ export class HeaderComponent implements OnInit {
     if (isPlatformBrowser(this.platformId)) {
       this.isMobile = window.innerWidth < 1024;
     }
+    this.headerService.header$.subscribe((header) => {
+      this.header = header;
+      this.changeDetectionRef.markForCheck();
+    });
+    this.router.events
+      .pipe(filter(e => e instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.showButton = !event.urlAfterRedirects.includes('/article/');
+      });
+
+    this.showButton = !this.router.url.includes('/article/');
   }
 
   public toggleNavOpen(state: boolean): void {

@@ -43,8 +43,8 @@ router.use('*', (req: Request, res: Response, next: NextFunction) => {
 // todo: as far router is shared object, only first post is fired
 router.route('/appointment').post(getAppointmentHandler);
 router.route('/review').post(getReviewHandler);
-router.route('/:lang/:page/').get(getInterfaceHandler);
 router.route('/article/:url/').get(getArticleHandler);
 router.route('/privacy-policy').get(getPrivacyPolicyHandler);
+router.route('/:lang/:page/').get(getInterfaceHandler);
 
 export default router;

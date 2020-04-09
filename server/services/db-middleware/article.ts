@@ -37,7 +37,7 @@ export function readArticlesPreviews(lang?: TLanguage, isAdmin?: boolean): Promi
     });
 }
 
-export function readArticle(url: string, isAdmin: boolean = false): Promise<Array<Database.IArticle>> {
+export function readArticle(url: string, isAdmin: boolean = false): Promise<Database.IArticle> {
   const opts = {
     isPublished: true,
     url
@@ -47,8 +47,8 @@ export function readArticle(url: string, isAdmin: boolean = false): Promise<Arra
     delete opts.isPublished;
   }
 
-  return Article.find(opts)
-    .then((articles: any) => articles.map((article: IArticle): IArticle => ({
+  return Article.findOne(opts)
+    .then((article: any) => ({
       logo: article.logo,
       header: article.header,
       isPublished: article.isPublished,
@@ -63,14 +63,23 @@ export function readArticle(url: string, isAdmin: boolean = false): Promise<Arra
       entityId: article.entityId,
       imageUrl: article.imageUrl,
       imageAuthor: article.imageAuthor
-    })))
-    .then((articles: Array<IArticle>): Array<IArticle> => {
+    }))
+    .then((article: IArticle): IArticle => {
       if (isAdmin) {
-        return articles;
+        return article;
       }
 
-      return articles.map(({entityId: id, header, logo, updatedAt, createdAt, body, imageXl, imageMd, imageUrl, imageAuthor}: IArticle): IArticle => ({
-        entityId: id, header, logo, updatedAt, createdAt, imageMd, imageXl, body, imageAuthor, imageUrl
-      }));
+      return{
+        entityId: article.entityId,
+        header: article.header,
+        logo: article.logo,
+        updatedAt: article.updatedAt,
+        createdAt: article.createdAt,
+        imageMd: article.imageMd,
+        imageXl: article.imageXl,
+        body: article.body,
+        imageAuthor: article.imageAuthor,
+        imageUrl: article.imageUrl
+      };
     });
 }
