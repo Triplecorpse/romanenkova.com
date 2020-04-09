@@ -8,7 +8,7 @@ const fs = require('fs');
 const util = require('util');
 
 export function getAboutPageDataV2(): Promise<Array<Page.IAboutPage>> {
-    return new Promise((resolve: any, reject: any) => {
+    return new Promise((resolve: (data: any) => void, reject: (data: any) => void) => {
         let resolvedImages: Array<IPhotoPreview>;
 
         AboutPage.deleteMany({})
@@ -53,5 +53,5 @@ export function getAboutPageDataV2(): Promise<Array<Page.IAboutPage>> {
             .catch((err: any) => {
                 reject(err);
             });
-    })
+    });
 }

@@ -2,6 +2,7 @@ import {Inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {isPlatformServer} from '@angular/common';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class InterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let url = req.url;
-    let host = '/';
+    let host = environment.apiLink;
     const api = 'api/';
     const apiv2 = 'api/v2/';
 

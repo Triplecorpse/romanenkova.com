@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha test/index.spec.js",
     "start": "npm run build && node server/app.js",
+    "serve": "ng serve --configuration=light",
     "start:local": "npm run build:local && npm run build && npm run db:init && node server/app.js",
     "update": "sudo systemctl stop varnish && git checkout . && git pull && npm i && npm run build && npm run build:production && pm2 restart app && sudo systemctl start varnish",
     "update:qa": "git checkout . && git pull && npm i && npm run build && npm run build:qa && pm2 restart app-stage",

@@ -10,12 +10,11 @@ import {DateInputComponent} from './date-input/date-input.component';
 import {SelectComponent} from './select/select.component';
 import {AttendButtonComponent} from './attend-button/attend-button.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
-import {DiplomaComponent} from "./diploma/diploma.component";
-import {RouterModule} from "@angular/router";
-import {environment} from "../../environments/environment";
-import { PaginationComponent } from './pagination/pagination.component';
-import { VideoComponent } from './video/video.component';
-import { ShowMoreComponent } from './show-more/show-more.component';
+import {DiplomaComponent} from './diploma/diploma.component';
+import {RouterModule} from '@angular/router';
+import {PaginationComponent} from './pagination/pagination.component';
+import {VideoComponent} from './video/video.component';
+import {ShowMoreComponent} from './show-more/show-more.component';
 
 @NgModule({
   imports: [

@@ -85,6 +85,16 @@
                   "with": "src/environments/environment.staging.ts"
                 }
               ]
+            },
+            "light": {
+              "outputHashing": "all",
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.light.ts"
+                }
+              ]
             }
           }
         },
@@ -105,6 +115,9 @@
             },
             "local": {
               "browserTarget": "front:build:local"
+            },
+            "light": {
+              "browserTarget": "front:build:light"
             }
           }
         },
