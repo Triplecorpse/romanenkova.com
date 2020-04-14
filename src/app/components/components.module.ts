@@ -15,6 +15,8 @@ import {RouterModule} from '@angular/router';
 import {PaginationComponent} from './pagination/pagination.component';
 import {VideoComponent} from './video/video.component';
 import {ShowMoreComponent} from './show-more/show-more.component';
+import {FbShareComponent} from './fb-share/fb-share.component';
+import {JwSocialButtonsModule} from 'jw-angular-social-buttons';
 
 @NgModule({
   imports: [
@@ -24,11 +26,12 @@ import {ShowMoreComponent} from './show-more/show-more.component';
     ReactiveFormsModule,
     ClickOutsideModule,
     RouterModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    JwSocialButtonsModule
   ],
-  declarations: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent, DiplomaComponent, PaginationComponent, VideoComponent, ShowMoreComponent],
-  exports: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent,
-    ClickOutsideModule, DiplomaComponent]
+  declarations: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent, DiplomaComponent, PaginationComponent, VideoComponent, ShowMoreComponent, FbShareComponent],
+    exports: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent,
+        ClickOutsideModule, DiplomaComponent, FbShareComponent]
 })
 export class ComponentsModule {
 }

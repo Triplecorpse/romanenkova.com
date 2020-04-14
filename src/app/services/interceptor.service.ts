@@ -45,10 +45,8 @@ export class InterceptorService implements HttpInterceptor {
     Object.keys(anyParsedJson).forEach(key => {
       if (typeof anyParsedJson[key] === 'object') {
         result[key] = this.setImagesApiUrls(anyParsedJson[key]);
-      } else if (typeof anyParsedJson[key] === 'string' &&
-        this.pathIsImage(anyParsedJson[key]) &&
-        !anyParsedJson[key].includes('://')) {
-        result[key] = environment.apiLink + anyParsedJson[key];
+      } else if (typeof anyParsedJson[key] === 'string' && this.pathIsImage(anyParsedJson[key]) && !anyParsedJson[key].includes('://')) {
+        result[key] = (environment.apiLink + anyParsedJson[key]).replace(/\/\//g, '/').replace(':/', '://');
       } else {
         result[key] = anyParsedJson[key];
       }

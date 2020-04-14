@@ -1,5 +1,5 @@
 <header  id="pagetop" class="header-block-wrapper" [class.is-root]="isRoot">
-  <div class="nav-wrapper" [class.fixed]="isFixed" [class.hidden]="!showHeaderLine1" *ngIf="!isMobile || isNavOpen">
+  <div class="nav-wrapper" [class.fixed]="isFixed" [class.hidden]="!showHeaderLine1" *ngIf="!isMobile || isNavOpen" (clickOutside)="checkIfCloseMenu()">
     <div class="line-1">
       <div class="inner">
         <div class="logo">
@@ -36,9 +36,7 @@
       <div class="strips"></div>
     </div>
   </div>
-  <h1 class="page-header" [class.fixed]="isFixed" [innerHTML]="header">
-
-  </h1>
+  <h1 class="page-header" [class.fixed]="isFixed" [innerHTML]="header"></h1>
   <div class="button-wrapper" *ngIf="showButton">
     <div class="button">
       <app-attend-button></app-attend-button>

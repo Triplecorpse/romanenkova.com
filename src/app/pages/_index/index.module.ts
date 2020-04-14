@@ -17,11 +17,12 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 import {OverviewAboutComponent} from '../../components/overview-about/overview-about.component';
 import {PipesModule} from '../../pipes/pipes.module';
-import { OverviewReviewsComponent } from '../../components/overview-reviews/overview-reviews.component';
+import {OverviewReviewsComponent} from '../../components/overview-reviews/overview-reviews.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
-import { OverviewDiplomasComponent } from '../../components/overview-diplomas/overview-diplomas.component';
+import {OverviewDiplomasComponent} from '../../components/overview-diplomas/overview-diplomas.component';
 import {PageDataGuardService} from '../../page-data-guard.service';
 import {CookieService} from '../../services/cookie.service';
+import {ClickOutsideModule} from 'ng4-click-outside';
 
 @NgModule({
   imports: [
@@ -69,7 +70,8 @@ import {CookieService} from '../../services/cookie.service';
     ReactiveFormsModule,
     ScrollToModule.forRoot(),
     PipesModule,
-    NgxCaptchaModule
+    NgxCaptchaModule,
+    ClickOutsideModule
   ],
   declarations: [
     IndexComponent,

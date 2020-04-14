@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Title} from '@angular/platform-browser';
+import {MetaService} from './meta.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,14 @@ export class TitleService {
     this.setTitle();
   }
 
-  constructor(private title: Title) {
+  constructor(private title: Title, private meta: MetaService) {
+
   }
 
   private setTitle() {
     const delimiter = this._prefix && this._suffix ? ' - ' : '';
 
     this.title.setTitle(this._prefix + delimiter + this._suffix);
+    this.meta.setOgMeta('title', this._prefix + delimiter + this._suffix);
   }
 }

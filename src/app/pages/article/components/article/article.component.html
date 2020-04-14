@@ -1,5 +1,35 @@
-<div class="page-wrapper">
-  <p>
-    article works!
-  </p>
+<div class="content-wrapper">
+  <div class="date-wrapper">{{article?.createdAt | date}}</div>
+  <picture>
+    <source [srcset]="article?.imageXl" media="(min-width: 1150px)">
+    <source [srcset]="article?.imageMd" media="(max-width: 1149px)">
+    <img [src]="article?.imageMd" alt="article_image">
+  </picture>
+  <div class="share-wrapper">
+    <a class="back" [routerLink]="'/' + currentLang + '/articles'" ngx-scroll-to="pagetop">
+      <div class="button-wrapper">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+      <div class="text-wrapper">
+        {{backText}}
+      </div>
+    </a>
+    <app-fb-share [text]="shareText" *ngIf="showShareButton"></app-fb-share>
+  </div>
+  <div class="article-body-wrapper">
+    <ng-container *ngFor="let p of paragraphs">
+      <p class="p-section" [innerHTML]="p"></p>
+    </ng-container>
+  </div>
+  <div class="share-wrapper">
+    <a class="back" [routerLink]="'/' + currentLang + '/articles'" ngx-scroll-to="pagetop">
+      <div class="button-wrapper">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+      <div class="text-wrapper">
+        {{backText}}
+      </div>
+    </a>
+    <app-fb-share [text]="shareText" *ngIf="showShareButton"></app-fb-share>
+  </div>
 </div>

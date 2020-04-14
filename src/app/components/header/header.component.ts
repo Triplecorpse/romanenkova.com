@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit {
   public showHeaderLine1: boolean = true;
   public showButton = true;
   private previousScrollTop: number;
+  private navOpenTime: number;
 
   @Input() isRoot: boolean;
   @Input() header: string;
@@ -50,7 +51,7 @@ export class HeaderComponent implements OnInit {
   @HostListener('window:resize')
   private onResize() {
     if (isPlatformBrowser(this.platformId)) {
-      this.isMobile = window.innerWidth < 1024;
+      this.isMobile = window.innerWidth < 1025;
     }
   }
 
@@ -68,7 +69,7 @@ export class HeaderComponent implements OnInit {
     this.title = this.pageDataGuardService.pageData.index.rootLink;
     this.routerLink = '/' + this.pageDataGuardService.appSettings.language;
     if (isPlatformBrowser(this.platformId)) {
-      this.isMobile = window.innerWidth < 1024;
+      this.isMobile = window.innerWidth <= 1024;
     }
     this.headerService.header$.subscribe((header) => {
       this.header = header;
@@ -85,5 +86,14 @@ export class HeaderComponent implements OnInit {
 
   public toggleNavOpen(state: boolean): void {
     this.isNavOpen = state;
+
+    this.navOpenTime = state ? Date.now() : 0;
+  }
+
+  checkIfCloseMenu() {
+    if (Date.now() - this.navOpenTime >= 100) {
+      this.toggleNavOpen(false);
+      this.navOpenTime = 0;
+    }
   }
 }

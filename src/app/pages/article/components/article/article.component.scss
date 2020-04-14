@@ -1,3 +1,83 @@
-.page-wrapper {
-  margin-top: -250px;
+@import "../../../../styles/mixins";
+
+.content-wrapper, .share-wrapper {
+  width: 80%;
+  margin: -290px auto 0;
+
+  @include mobile-breakpoint {
+    width: 100%;
+    margin-top: -340px;
+  }
+
+  @include tablet-breakpoint {
+    @include landscape {
+      margin-top: -240px;
+    }
+  }
+
+  picture, img {
+    width: 100%;
+  }
+}
+
+.date-wrapper {
+  margin: 0 auto 15px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.share-wrapper {
+  display: flex;
+  margin: 40px auto;
+  align-items: center;
+
+  .back {
+    display: flex;
+    margin-right: 40px;
+  }
+
+  .button-wrapper {
+    border: 2px solid $color-text-accent;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 25px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    color: $color-text-accent;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .text-wrapper {
+    color: $color-text-accent;
+    font-weight: 600;
+  }
+
+  @include mobile-breakpoint {
+    padding: 0 20px;
+  }
+}
+
+::ng-deep {
+  .article-body-wrapper {
+    width: 80%;
+    margin: 0 auto;
+
+    .p-section {
+      margin-top: 15px;
+      text-align: justify;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    @include mobile-breakpoint {
+      width: 100%;
+      padding: 0 20px;
+    }
+  }
 }

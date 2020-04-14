@@ -9,7 +9,6 @@ import {
   TemplateRef,
   ViewChild
 } from '@angular/core';
-import {Meta} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
 import {filter} from 'rxjs/operators';
@@ -20,6 +19,8 @@ import {CookieService} from '../../../../services/cookie.service';
 import {ICookiesConsentModal, ICookiesConsentOption} from '../../../../../../_interface/ICookiesConsentModal';
 import {FooterComponent} from '../../../../components/footer/footer.component';
 import {TitleService} from '../../../../services/title.service';
+import {MetaService} from '../../../../services/meta.service';
+import {LocationService} from '../../../../services/location.service';
 
 @Component({
   selector: 'app-index',
@@ -47,10 +48,11 @@ export class IndexComponent implements OnInit, AfterViewInit {
               private router: Router,
               private modalService: ModalService,
               private changeDetectorRef: ChangeDetectorRef,
-              private meta: Meta,
+              private metaService: MetaService,
               private pageDataGuardService: PageDataGuardService,
               private titleService: TitleService,
-              private cookieService: CookieService) {
+              private cookieService: CookieService,
+              private location: LocationService) {
 
     const pageData = this.pageDataGuardService.pageData;
 
@@ -78,6 +80,13 @@ export class IndexComponent implements OnInit, AfterViewInit {
           (<any>window).ga('set', 'page', e.urlAfterRedirects);
           (<any>window).ga('send', 'pageview');
         }
+
+        if (!this.isArticlePage) {
+          this.metaService.setOgMeta('image', 'https://www.romanenkova.com/assets/main.png');
+          this.metaService.setOgMeta('image:url', 'https://www.romanenkova.com/assets/main.png');
+          this.metaService.setOgMeta('image:secure_url', 'https://www.romanenkova.com/assets/main.png');
+        }
+          this.metaService.setOgMeta('url', this.location.href);
 
         this.changeDetectorRef.markForCheck();
       });
@@ -161,8 +170,8 @@ export class IndexComponent implements OnInit, AfterViewInit {
       const locale = this.pageDataGuardService.appSettings.locale;
       const html = document.getElementsByTagName('html')[0];
       html.setAttribute('lang', locale.codeISO2);
-      this.meta.addTag({ name: 'og:locale', content: `${locale.codeISO2}_${locale.locale}`});
-      this.meta.addTag({ name: 'og:description', content: this.pageDataGuardService.pageData.index.pageMetadata.description});
+      this.metaService.setOgMeta('locale', `${locale.codeISO2}_${locale.locale}`);
+      this.metaService.setOgMeta('description', this.pageDataGuardService.pageData.index.pageMetadata.description);
       this.isBrowser = true;
 
       if (this.cookieService.get('lang')) {
