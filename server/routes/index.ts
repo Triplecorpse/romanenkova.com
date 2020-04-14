@@ -15,7 +15,7 @@ const router = express.Router();
 router.use(cookieParser('secretthings'));
 
 router.use('*', (req: Request, res: Response, next: NextFunction) => {
-  if (/psydp.com.ua/.test(req.hostname)) {
+  if (/psydp.com.ua/.test(req.hostname) || /https:\/\/romanenkova.com/.test(req.hostname)) {
     res.redirect('https://www.romanenkova.com');
   } else {
     next();
