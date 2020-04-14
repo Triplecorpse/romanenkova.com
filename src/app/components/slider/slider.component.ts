@@ -1,8 +1,17 @@
 import {
-  ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, TemplateRef, ViewChild,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  QueryList,
+  TemplateRef,
+  ViewChild,
   ViewChildren
 } from '@angular/core';
-import {SwiperConfigInterface, SwiperComponent, SwiperDirective} from 'ngx-swiper-wrapper';
+import {SwiperComponent, SwiperConfigInterface, SwiperDirective} from 'ngx-swiper-wrapper';
 
 @Component({
   selector: 'app-slider',
@@ -10,7 +19,7 @@ import {SwiperConfigInterface, SwiperComponent, SwiperDirective} from 'ngx-swipe
   styleUrls: ['./slider.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SliderComponent<T> implements OnInit {
+export class SliderComponent<T> implements AfterViewInit {
   @Input() public template: TemplateRef<T>;
   @Input() public slides: Array<T>;
   @Input() public sideButtons: boolean;
@@ -33,14 +42,18 @@ export class SliderComponent<T> implements OnInit {
   }
 
   public slideNext() {
-    this.swiperDirective.nextSlide();
+    if (!this.swiper.isAtLast) {
+      this.swiperDirective.nextSlide();
+    }
   }
 
   public slidePrev() {
-    this.swiperDirective.prevSlide();
+    if (!this.swiper.isAtFirst) {
+      this.swiperDirective.prevSlide();
+    }
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.swiperDirective = this.swiper.directiveRef;
   }
 
