@@ -5,6 +5,7 @@ import {ngExpressEngine} from '@nguniversal/express-engine';
 import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
 import {enableProdMode} from '@angular/core';
 import {join} from 'path';
+import passport from 'passport';
 
 export const app = express();
 
@@ -24,5 +25,6 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', DIST_FOLDER);
 
+app.use(passport.initialize());
 app.use('/', routes);
 app.use(bodyParser.json({type: 'application/json'}));

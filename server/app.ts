@@ -5,10 +5,10 @@ import 'reflect-metadata';
 import {startRegularBackups} from './services/security-services/backup-service';
 import {app} from './server';
 import log from './services/log-service';
-import mongoose = require('mongoose');
 import {generateSiteMap} from './services/file-service';
 import {getMilliseconds} from './services/base';
-import {startMonitoring} from './monitor';
+import passport from 'passport';
+import mongoose = require('mongoose');
 import http = require('http');
 
 http.globalAgent.maxSockets = 50;
@@ -22,7 +22,7 @@ require('dotenv').config();
 const port: string = process.env.PORT as string;
 
 mongoose.connect(process.env.MONGODB_URI as string, {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(startRegularBackups.bind(this, getMilliseconds(1, 'days')));
+  .then(startRegularBackups.bind(this, getMilliseconds(1, 'days')));
 
 generateSiteMap();
 
@@ -46,4 +46,4 @@ if (cluster.isMaster) {
   console.log(`Worker ${process.pid} started`);
 }
 
-
+export const ps = passport;

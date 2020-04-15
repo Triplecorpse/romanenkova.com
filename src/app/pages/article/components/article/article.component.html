@@ -1,10 +1,10 @@
 <div class="content-wrapper">
   <div class="date-wrapper">{{article?.createdAt | date}}</div>
-  <picture>
-    <source [srcset]="article?.imageXl" media="(min-width: 1150px)">
-    <source [srcset]="article?.imageMd" media="(max-width: 1149px)">
-    <img [src]="article?.imageMd" alt="article_image">
-  </picture>
+<!--  <picture>-->
+<!--    <source [srcset]="article?.imageXl" media="(min-width: 1150px)">-->
+<!--    <source [srcset]="article?.imageMd" media="(max-width: 1149px)">-->
+<!--    <img [src]="article?.imageMd" alt="article_image">-->
+<!--  </picture>-->
   <div class="share-wrapper">
     <a class="back" [routerLink]="'/' + currentLang + '/articles'" ngx-scroll-to="pagetop">
       <div class="button-wrapper">
