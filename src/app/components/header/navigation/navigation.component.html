@@ -3,7 +3,7 @@
     <li class="navigation-list-item" *ngFor="let navItem of nav">
       <a class="navigation-list-item-text"
          *ngIf="navItem.anchor !== 'contacts'; else contactsTpl"
-         [class.active]="isArticlePage && navItem.anchor === 'articles'"
+         [class.force-active]="isArticlePage && navItem.anchor === 'articles'"
          routerLinkActive="active"
          [routerLink]="navItem.href"
          ngx-scroll-to="pagetop">

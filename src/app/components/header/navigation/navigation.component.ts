@@ -1,7 +1,6 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {PageDataGuardService} from '../../../page-data-guard.service';
 import {INavItem} from '../../../../../_interface/INavItem';
-import {NavigationEnd} from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -11,6 +10,7 @@ import {NavigationEnd} from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
   @Input() public isArticlePage: boolean;
+  @Input() public isArticlesPage: boolean;
 
   public nav: Array<INavItem>;
   private anchorMap: Array<{ anchor: string, href: string }> = [
@@ -21,7 +21,16 @@ export class NavigationComponent implements OnInit {
     {href: '#contacts', anchor: 'contacts'}
   ];
 
-  constructor(private pageDataGuardService: PageDataGuardService) {
+  constructor(private pageDataGuardService: PageDataGuardService, private changeDetectorRef: ChangeDetectorRef) {
+  }
+
+  ngOnChanges() {
+    setTimeout(() => {
+      console.log('s, -e');
+      console.log(this.isArticlesPage);
+      console.log(this.isArticlePage);
+      this.changeDetectorRef.markForCheck();
+    }, 100);
   }
 
   ngOnInit() {

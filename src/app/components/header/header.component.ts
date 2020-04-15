@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
   @Input() header: string;
   @Input() contactData: Array<Database.IContact>;
   @Input() isArticlePage: boolean;
+  @Input() isArticlesPage: boolean;
 
   @HostListener('window:scroll')
   private listener(): void {

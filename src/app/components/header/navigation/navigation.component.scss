@@ -25,7 +25,7 @@
           text-decoration: none;
         }
 
-        &.active {
+        &.active, &.force-active {
           color: $color-text-regular;
           transition: .3s color ease;
           border-bottom: 1px solid $color-text-regular;

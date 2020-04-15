@@ -38,6 +38,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   public isBrowser: boolean = false;
   public modalConsent: ICookiesConsentModal;
   public isArticlePage: boolean;
+  public isArticlesPage: boolean;
 
   @ViewChild('cookieConfirmationModal', {static: true}) private cookieConfirmationModal: TemplateRef<any>;
   @ViewChild('footerComponent', {static: true}) private footerComponent: FooterComponent;
@@ -65,6 +66,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
       .pipe(filter((e: RouterEvent) => e instanceof NavigationEnd))
       .subscribe((e: NavigationEnd): void => {
         this.isArticlePage = e.urlAfterRedirects.includes('/article/');
+        this.isArticlesPage = e.urlAfterRedirects.includes('/articles');
         this.header = this.pageDataGuardService.pageData[route.snapshot.firstChild.data.pageidv2].header;
         this.isRoot = e.urlAfterRedirects.length === 3;
         const title = this.isRoot

@@ -1,5 +1,10 @@
-<header  id="pagetop" class="header-block-wrapper" [class.is-root]="isRoot">
-  <div class="nav-wrapper" [class.fixed]="isFixed" [class.hidden]="!showHeaderLine1" *ngIf="!isMobile || isNavOpen" (clickOutside)="checkIfCloseMenu()">
+<header id="pagetop"
+        class="header-block-wrapper"
+        [class.is-root]="isRoot">
+  <div class="nav-wrapper"
+       [class.fixed]="isFixed"
+       [class.hidden]="!showHeaderLine1" *ngIf="!isMobile || isNavOpen"
+       (clickOutside)="checkIfCloseMenu()">
     <div class="line-1">
       <div class="inner">
         <div class="logo">
@@ -19,7 +24,11 @@
     <div class="line-2">
       <div class="inner">
         <div class="nav">
-          <app-navigation class="navigation" (click)="toggleNavOpen(false)" [isArticlePage]="isArticlePage"></app-navigation>
+          <app-navigation class="navigation"
+                          [isArticlePage]="isArticlePage"
+                          [isArticlesPage]="isArticlesPage"
+                          (click)="toggleNavOpen(false)">
+          </app-navigation>
         </div>
       </div>
     </div>
