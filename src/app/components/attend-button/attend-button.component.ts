@@ -1,31 +1,40 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Input,
-  OnInit,
-  TemplateRef,
-  ViewChild
-} from '@angular/core';
-import {ModalService} from '../../pages/_index/services/modal.service';
-import {FormBuilder, FormGroup, FormControl, Validators, FormGroupDirective} from '@angular/forms';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {ModalService} from '../../services/modal.service';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {ReCaptcha2Component} from 'ngx-captcha';
 import {ResolveScheduleService} from '../../resolve-schedule.service';
-import {Moment} from 'moment';
-import * as initMoment from 'moment-timezone';
-import {extendMoment} from 'moment-range';
-import {PageDataGuardService} from "../../page-data-guard.service";
-import {Database} from "../../../../_interface/IMongooseSchema";
-import {IAppointmentModal} from "../../../../_interface/IAppointmenntModal";
-
-const moment = extendMoment(initMoment);
+import {PageDataGuardService} from '../../page-data-guard.service';
+import {Database} from '../../../../_interface/IMongooseSchema';
+import {IAppointmentModal} from '../../../../_interface/IAppointmenntModal';
+import {environment} from '../../../environments/environment';
+import addHours from 'date-fns/addHours';
+import format from 'date-fns/format';
+import isEqual from 'date-fns/isEqual';
+import parse from 'date-fns/parse';
 
 interface IMessenger {
   name: string;
   nickType: 'tel' | 'text';
   icon: string;
   nickPlaceholder: string;
+  isNextSeparator?: boolean;
+}
+
+function eachHourOfInterval(range: { start: Date; end: Date }): Array<Date> {
+  const currentDate = new Date(range.start.getTime());
+  const endTime = range.end.getTime();
+  const dates = [];
+
+  currentDate.setMinutes(0, 0, 0);
+
+
+  while (currentDate.getTime() <= endTime) {
+    dates.push(new Date(currentDate.getTime()));
+    currentDate.setHours(currentDate.getHours() + 1);
+  }
+
+  return dates;
 }
 
 @Component({
@@ -37,7 +46,7 @@ interface IMessenger {
 })
 export class AttendButtonComponent implements OnInit {
   @Input() public service: Database.IService;
-  @ViewChild('modalAppointment') private modalAppointmentRef: TemplateRef<any>;
+  @ViewChild('modalAppointment', {static: true}) private modalAppointmentRef: TemplateRef<any>;
 
   public header: string;
   public formGroup: FormGroup;
@@ -68,6 +77,7 @@ export class AttendButtonComponent implements OnInit {
     {name: '@phone', nickType: 'text', icon: '', nickPlaceholder: '@phone / @nickname'}
   ];
   public services: Array<Database.IService>;
+  public captchaKey = environment.recaptcha;
 
   constructor(private modalService: ModalService,
               private formBuilder: FormBuilder,
@@ -123,16 +133,19 @@ export class AttendButtonComponent implements OnInit {
     this.lang = this.pageDataGuardService.appSettings.language;
     this.schedule = this.pageDataGuardService.pageData.index.schedule;
 
-    this.dateControl.valueChanges.subscribe((newValue: Moment) => {
+    this.dateControl.valueChanges.subscribe((newValue: Date) => {
       this.getTimeSlots(newValue);
+
       if (this.timeSlots.indexOf(this.timeControl.value) === -1) {
         this.timeControl.setValue(null);
       }
+
       if (newValue && this.timeSlots.length) {
         this.timeControl.enable();
       } else {
         this.timeControl.disable();
       }
+
       this.changeDetectorRef.markForCheck();
     });
 
@@ -155,19 +168,6 @@ export class AttendButtonComponent implements OnInit {
   }
 
   submit(e: FormGroupDirective, captchaElement: ReCaptcha2Component) {
-    const guessed = initMoment.tz.guess();
-    const offset = initMoment.tz(guessed).utcOffset();
-    const duration = initMoment.duration(offset, 'minutes');
-    const sign = duration.hours().toString()[0] === '-' ? '=' : '+';
-    let hours = Math.abs(duration.hours()).toString();
-    let minutes = duration.minutes().toString();
-    if (hours.length === 1) {
-      hours = '0' + hours;
-    }
-    if (minutes.length === 1) {
-      minutes = '0' + minutes;
-    }
-    const timezone = `${sign}${hours}:${minutes}`;
     let service = e.value.service
       ? e.value.service.headerAndPrice
       : null;
@@ -182,7 +182,7 @@ export class AttendButtonComponent implements OnInit {
       {
         ...e.value,
         date: e.value.date ? e.value.date.format('DD.MM.YYYY') : null,
-        timezone: `${guessed} ${timezone}`,
+        timezone: format(new Date(), 'xxx'),
         service,
         language: this.pageDataGuardService.appSettings.language
       }, {
@@ -216,27 +216,32 @@ export class AttendButtonComponent implements OnInit {
     this.isCaptchaResolved = true;
   }
 
-  getTimeSlots(date: Moment): void {
-    this.timeSlots.length = 0;
+  getTimeSlots(date: Date) {
+    this.timeSlots = [];
     if (!date) {
       return;
     }
     const weekdaysMapper = ['mo', 'tu', 'we', 'th', 'fr', 'sa', 'su'];
-    const schedule = (this.schedule.find((scheduleItem: Database.ISchedule): boolean => date.isSame(moment(scheduleItem.date, 'DD.MM.YYYY')))
-      || this.schedule.find((scheduleItem: Database.ISchedule): boolean => scheduleItem.weekday === weekdaysMapper[date.weekday()])).availableHours;
+    const scheduleByDates = this.schedule.find(scheduleItemDate => isEqual(date, parse(scheduleItemDate.date, 'dd.MM.yyyy', 0)));
+    const scheduleByWeekdays = this.schedule.find(scheduleItemWeekday => scheduleItemWeekday.weekday === weekdaysMapper[date.getDay()]);
+    const schedule = scheduleByDates || scheduleByWeekdays;
 
-    schedule.forEach((hours: string, index: number): void => {
+    if (!schedule.availableHours) {
+      return;
+    }
+
+    schedule.availableHours.forEach((hours: string, index: number): void => {
       const hoursArr = hours.split('-');
-      const start = moment(hoursArr[0], 'HH:mm');
-      const end = moment(hoursArr[1], 'HH:mm');
-      const range = moment.range(start, end);
-      const slots = Array
-        .from(range.by('hours'))
-        .map((startTime: Moment): string =>
-          `${startTime.format('HH:mm')} - ${startTime.add(1, 'hour').format('HH:mm')}`);
-      if (index < schedule.length - 1) {
+      const start = parse(hoursArr[0], 'HH:mm', 0);
+      const end = parse(hoursArr[1], 'HH:mm', 0);
+      const range = {start, end};
+      const slots = eachHourOfInterval(range)
+        .map((startTime: Date): string => `${format(startTime, 'HH:mm')} - ${format(addHours(startTime, 1), 'HH:mm')}`);
+
+      if (index < schedule.availableHours.length - 1) {
         slots.push('_');
       }
+
       this.timeSlots.push(...slots);
     });
   }

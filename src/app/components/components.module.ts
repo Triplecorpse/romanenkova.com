@@ -10,9 +10,12 @@ import {DateInputComponent} from './date-input/date-input.component';
 import {SelectComponent} from './select/select.component';
 import {AttendButtonComponent} from './attend-button/attend-button.component';
 import {NgxCaptchaModule} from 'ngx-captcha';
-import {DiplomaComponent} from "./diploma/diploma.component";
-import {RouterModule} from "@angular/router";
-import {environment} from "../../environments/environment";
+import {DiplomaComponent} from './diploma/diploma.component';
+import {RouterModule} from '@angular/router';
+import {PaginationComponent} from './pagination/pagination.component';
+import {VideoComponent} from './video/video.component';
+import {ShowMoreComponent} from './show-more/show-more.component';
+import {FbShareComponent} from './fb-share/fb-share.component';
 
 @NgModule({
   imports: [
@@ -22,13 +25,11 @@ import {environment} from "../../environments/environment";
     ReactiveFormsModule,
     ClickOutsideModule,
     RouterModule,
-    NgxCaptchaModule.forRoot({
-      reCaptcha2SiteKey: environment.recaptcha
-    })
+    NgxCaptchaModule
   ],
-  declarations: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent, DiplomaComponent],
-  exports: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent,
-    ClickOutsideModule, DiplomaComponent]
+  declarations: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent, DiplomaComponent, PaginationComponent, VideoComponent, ShowMoreComponent, FbShareComponent],
+    exports: [SliderComponent, InputComponent, TextareaComponent, DateInputComponent, SelectComponent, AttendButtonComponent,
+        ClickOutsideModule, DiplomaComponent, FbShareComponent]
 })
 export class ComponentsModule {
 }

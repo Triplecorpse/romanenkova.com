@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {PageDataGuardService} from "../../../../page-data-guard.service";
-import {Database} from "../../../../../../_interface/IMongooseSchema";
+import {Component, OnInit} from '@angular/core';
+import {PageDataGuardService} from '../../../../page-data-guard.service';
+import {Database} from '../../../../../../_interface/IMongooseSchema';
 
 @Component({
   selector: 'app-services',

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
-import {ModalService} from "../../pages/_index/services/modal.service";
+import {ModalService} from "../../services/modal.service";
 import {Database} from "../../../../_interface/IMongooseSchema";
 
 @Component({
@@ -11,7 +11,7 @@ export class DiplomaComponent implements OnInit {
   @Input() diploma: Database.IDiploma;
   @Input() buttonText?: string;
   @Input() onPage: boolean;
-  @ViewChild('pictureTpl') pictureTpl: TemplateRef<any>;
+  @ViewChild('pictureTpl', {static: true}) pictureTpl: TemplateRef<any>;
 
   constructor(private modalService: ModalService) { }
 

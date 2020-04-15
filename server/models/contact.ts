@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
 
 const schema = new mongoose.Schema({
   key: {type: String, required: true},

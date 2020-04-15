@@ -1,5 +1,5 @@
-import striptags from 'striptags';
-import {IStriptagsOptions} from "../../interfaces/iStriptagsOptions";
+import striptags = require('striptags');
+import {IStriptagsOptions} from '../../interfaces/iStriptagsOptions';
 
 export function stripString(str: string, opts?: any): string {
     return striptags(str, opts);
@@ -22,7 +22,7 @@ function _removeTagsFromObject(obj: any, options: IStriptagsOptions): any {
         return obj;
     }
 
-    for (let i in obj) {
+    for (const i in obj) {
         if (obj.hasOwnProperty(i)) {
             obj[i] = _removeTagsFromObject(obj[i], options);
         }

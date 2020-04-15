@@ -11,10 +11,10 @@ import {
   ViewChildren
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {ModalService} from '../../pages/_index/services/modal.service';
+import {ModalService} from '../../services/modal.service';
 import {Observable} from 'rxjs';
 import {filter} from 'rxjs/operators';
-import {PageDataGuardService} from "../../page-data-guard.service";
+import {PageDataGuardService} from '../../page-data-guard.service';
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
@@ -30,17 +30,28 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
   providers: [CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR]
 })
 export class SelectComponent implements ControlValueAccessor, OnInit {
+  preparedList: Array<any>;
   @Input() label: string;
   @Input() subscr: string;
   @Input() type: string;
   @Input() options: any;
   @Input() icon?: string;
-  @Input() list: Array<any>;
   @Input() listDisplayProperty: string;
   @Input() events$: Observable<Event>;
-  @ViewChild('selectEl') selectEl: ElementRef;
-  @ViewChild('emptyListEl') emptyListEl: ElementRef;
-  @ViewChildren('listItemEl') listItemEl: QueryList<ElementRef>;
+  @Input() set list(value: Array<any>) {
+    this.preparedList = value
+      .map((listItem: any, index: number) => {
+        if (index > 0 && listItem === '_') {
+          value[index - 1].isNextSeparator = true;
+        }
+
+        return listItem;
+      })
+      .filter((el: any) => el !== '_');
+  }
+  @ViewChild('selectEl', {static: true}) selectEl: ElementRef;
+  @ViewChild('clearSelectionEl', {static: false}) clearSelectionEl: ElementRef;
+  @ViewChildren('listItemEl', {read: ElementRef}) listItemEl: QueryList<ElementRef>;
 
   public isDisabled: boolean;
   public value: string;
@@ -48,8 +59,7 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
   private selectedItem: any;
   public isListOpen: boolean;
   private onTouch: () => void;
-  private onChange: (v: any) => void = () => {
-  };
+  private onChange: (v: any) => void = () => {};
 
   constructor(private changeDetectorRef: ChangeDetectorRef,
               private modalService: ModalService,
@@ -103,57 +113,45 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
     $event.stopPropagation();
   }
 
-  public onInputKeyPress($event: KeyboardEvent): void {
+  openListAndSelectClearList(): void {
     if (this.isDisabled) {
       return;
     }
-    if ($event.code === 'Enter') {
-      this.toggleList();
-    }
-    if ($event.code === 'ArrowDown') {
-      this.toggleList(true);
-      this.emptyListEl.nativeElement.focus();
-    }
-    if ($event.code === 'Escape') {
-      this.toggleList(false);
-      this.selectEl.nativeElement.focus();
-    }
+
+    this.toggleList(true);
+    this.clearSelectionEl.nativeElement.focus();
   }
 
-  public onItemKeyPress($event: KeyboardEvent, listItem: any): void {
-    const nextElement = $event.srcElement.nextElementSibling;
-    const prevElement = $event.srcElement.previousElementSibling;
+  selectFirstItem() {
+    this.listItemEl.first.nativeElement.focus();
+  }
 
-    if ($event.code === 'Enter') {
-      this.setActiveItem(listItem);
-      this.toggleList(false);
-      this.selectEl.nativeElement.focus();
+  selectLastItem() {
+    this.listItemEl.last.nativeElement.focus();
+  }
 
+  selectPreviousItem(currentIndex: number) {
+    if (currentIndex === 0) {
+      this.clearSelectionEl.nativeElement.focus();
+
+      return;
     }
 
-    if ($event.code === 'Escape') {
-      this.toggleList(false);
-      this.selectEl.nativeElement.focus();
+    this.listItemEl.find((el: ElementRef, i: number) => i === currentIndex - 1).nativeElement.focus();
+  }
+
+  selectNextItem(currentIndex: number) {
+    if (currentIndex === this.listItemEl.length - 1) {
+      this.clearSelectionEl.nativeElement.focus();
+
+      return;
     }
 
-    if ($event.code === 'ArrowUp') {
-      if (prevElement) {
-        (prevElement as any).focus();
-      }
+    this.listItemEl.find((el: ElementRef, i: number) => i === currentIndex + 1).nativeElement.focus();
+  }
 
-      if ($event.srcElement.getAttribute('data-is-first') === 'true') {
-        this.emptyListEl.nativeElement.focus();
-      }
-    }
-
-    if ($event.code === 'ArrowDown') {
-      if (nextElement) {
-        (nextElement as any).focus();
-      }
-
-      if ($event.srcElement.hasAttribute('data-is-empty')) {
-        this.listItemEl.toArray()[0].nativeElement.focus();
-      }
-    }
+  closeListAndResetFocus() {
+    this.selectEl.nativeElement.focus();
+    this.toggleList(false);
   }
 }

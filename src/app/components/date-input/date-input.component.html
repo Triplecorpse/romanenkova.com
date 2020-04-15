@@ -29,15 +29,15 @@
         <div class="weekday" *ngFor="let weekday of weekdays"><span>{{weekday}}</span></div>
       </div>
       <div class="calendar-dates">
-        <ng-container *ngFor="let day of getDays(); let index = index">
+        <ng-container *ngFor="let day of getDatesOfSelectedMonth(); let index = index">
           <div class="date"
-               [class.active]="selectedDate.format('D.M.YYYY') === day.format('D.M.YYYY')"
+               [class.active]="format(selectedDate, 'd.M.yyyy') === format(day, 'd.M.yyyy')"
                [class.disabled]="!getAvailability(day)"
-               [style.margin-left.px]="index === 0 && 8 + (day.weekday() * 46)"
+               [style.margin-left.px]="index === 0 && 8 + (day.getDay() * 46)"
                (click)="setActiveDate(day)"
                (keypress)="onDateKeyPress($event, day)"
                tabindex="0">
-            {{day.format('DD')}}
+            {{format(day, 'dd')}}
           </div>
         </ng-container>
       </div>

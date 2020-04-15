@@ -1,15 +1,14 @@
 import mongoose = require('mongoose');
-
-import {stripString} from "../services/security-services/strip-html";
-import {TLanguage} from "../../_interface/types";
-import {languages} from "../const/const";
+import {stripString} from '../services/security-services/strip-html';
+import {TLanguage} from '../../_interface/types';
+import {languages} from '../const/const';
 
 function secureHtmlString(input: string): string {
     return stripString(input);
 }
 
 function validateUrl(url: string) {
-    return url.startsWith('http');
+    return url.startsWith('http') || url.startsWith('/') || url.startsWith('./');
 }
 
 function validateLanguage(lang: TLanguage): boolean {
@@ -18,6 +17,10 @@ function validateLanguage(lang: TLanguage): boolean {
 
 const schema = new mongoose.Schema({
     logo: {type: String, required: true, validate: validateUrl},
+    imageMd: {type: String, required: true, validate: validateUrl},
+    imageXl: {type: String, required: true, validate: validateUrl},
+    imageAuthor: {type: String, required: true},
+    imageUrl: {type: String, required: true},
     header: {type: String, required: true, set: secureHtmlString},
     body: {type: String, required: true, set: secureHtmlString},
     isPublished: {type: Boolean, default: false},

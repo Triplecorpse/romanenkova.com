@@ -1,19 +1,26 @@
 import {
   AfterViewInit,
-  ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit, PLATFORM_ID, TemplateRef,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+  TemplateRef,
   ViewChild
 } from '@angular/core';
-import {Meta, Title} from '@angular/platform-browser';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
 import {ActivatedRoute, NavigationEnd, Router, RouterEvent} from '@angular/router';
-import {filter, take} from 'rxjs/operators';
-import {ModalService} from '../../services/modal.service';
-import {environment} from "../../../../../environments/environment";
-import {PageDataGuardService} from "../../../../page-data-guard.service";
-import {CookieService} from "../../services/cookie.service";
-import {ICookiesConsentModal, ICookiesConsentOption} from "../../../../../../_interface/ICookiesConsentModal";
-import {FooterComponent} from "../footer/footer.component";
-import {IModalEvent} from "../../../../interfaces/iModalEvent";
+import {filter} from 'rxjs/operators';
+import {ModalService} from '../../../../services/modal.service';
+import {environment} from '../../../../../environments/environment';
+import {PageDataGuardService} from '../../../../page-data-guard.service';
+import {CookieService} from '../../../../services/cookie.service';
+import {ICookiesConsentModal, ICookiesConsentOption} from '../../../../../../_interface/ICookiesConsentModal';
+import {FooterComponent} from '../../../../components/footer/footer.component';
+import {TitleService} from '../../../../services/title.service';
+import {MetaService} from '../../../../services/meta.service';
+import {LocationService} from '../../../../services/location.service';
 
 @Component({
   selector: 'app-index',
@@ -30,9 +37,11 @@ export class IndexComponent implements OnInit, AfterViewInit {
   private allowTracking: boolean;
   public isBrowser: boolean = false;
   public modalConsent: ICookiesConsentModal;
+  public isArticlePage: boolean;
+  public isArticlesPage: boolean;
 
-  @ViewChild('cookieConfirmationModal') private cookieConfirmationModal: TemplateRef<any>;
-  @ViewChild('footerComponent') private footerComponent: FooterComponent;
+  @ViewChild('cookieConfirmationModal', {static: true}) private cookieConfirmationModal: TemplateRef<any>;
+  @ViewChild('footerComponent', {static: true}) private footerComponent: FooterComponent;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
               @Inject(DOCUMENT) private document: Document,
@@ -40,10 +49,11 @@ export class IndexComponent implements OnInit, AfterViewInit {
               private router: Router,
               private modalService: ModalService,
               private changeDetectorRef: ChangeDetectorRef,
-              private meta: Meta,
+              private metaService: MetaService,
               private pageDataGuardService: PageDataGuardService,
-              private titleService: Title,
-              private cookieService: CookieService) {
+              private titleService: TitleService,
+              private cookieService: CookieService,
+              private location: LocationService) {
 
     const pageData = this.pageDataGuardService.pageData;
 
@@ -55,6 +65,8 @@ export class IndexComponent implements OnInit, AfterViewInit {
     router.events
       .pipe(filter((e: RouterEvent) => e instanceof NavigationEnd))
       .subscribe((e: NavigationEnd): void => {
+        this.isArticlePage = e.urlAfterRedirects.includes('/article/');
+        this.isArticlesPage = e.urlAfterRedirects.includes('/articles');
         this.header = this.pageDataGuardService.pageData[route.snapshot.firstChild.data.pageidv2].header;
         this.isRoot = e.urlAfterRedirects.length === 3;
         const title = this.isRoot
@@ -62,7 +74,8 @@ export class IndexComponent implements OnInit, AfterViewInit {
           : this.header;
         const position = pageData.index.pageMetadata.position;
         const fullName = `${pageData.index.pageMetadata.firstName} ${pageData.index.pageMetadata.lastName}`;
-        this.titleService.setTitle(`${title} - ${position} ${fullName}`);
+        this.titleService.suffix = `${position} ${fullName}`;
+        this.titleService.prefix = title;
 
         if (environment.production && this.allowTracking && isPlatformBrowser(this.platformId)) {
           (<any>window).ga('create', 'UA-132675881-1', 'auto');
@@ -70,12 +83,19 @@ export class IndexComponent implements OnInit, AfterViewInit {
           (<any>window).ga('send', 'pageview');
         }
 
+        if (!this.isArticlePage) {
+          this.metaService.setOgMeta('image', 'https://www.romanenkova.com/assets/main.png');
+          this.metaService.setOgMeta('image:url', 'https://www.romanenkova.com/assets/main.png');
+          this.metaService.setOgMeta('image:secure_url', 'https://www.romanenkova.com/assets/main.png');
+        }
+          this.metaService.setOgMeta('url', this.location.href);
+
         this.changeDetectorRef.markForCheck();
       });
   }
 
   addTrackerCode() {
-    //todo: add code to insert and run scripts here
+    // todo: add code to insert and run scripts here
     const gtagman = this.document.createElement('script');
     const gtagglob = this.document.createElement('script');
     const gtagglobaction = this.document.createElement('script');
@@ -152,12 +172,12 @@ export class IndexComponent implements OnInit, AfterViewInit {
       const locale = this.pageDataGuardService.appSettings.locale;
       const html = document.getElementsByTagName('html')[0];
       html.setAttribute('lang', locale.codeISO2);
-      this.meta.addTag({ name: 'og:locale', content: `${locale.codeISO2}_${locale.locale}`});
-      this.meta.addTag({ name: 'og:description', content: this.pageDataGuardService.pageData.index.pageMetadata.description});
+      this.metaService.setOgMeta('locale', `${locale.codeISO2}_${locale.locale}`);
+      this.metaService.setOgMeta('description', this.pageDataGuardService.pageData.index.pageMetadata.description);
       this.isBrowser = true;
 
       if (this.cookieService.get('lang')) {
-        this.cookieService.set('lang', this.pageDataGuardService.appSettings.language, 7)
+        this.cookieService.set('lang', this.pageDataGuardService.appSettings.language, 7);
       }
     }
   }

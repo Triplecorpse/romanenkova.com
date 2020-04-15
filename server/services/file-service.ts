@@ -1,11 +1,12 @@
 import fs = require('fs');
 import log from './log-service';
-import {languages} from "../const/const";
-import {TLanguage} from "../../_interface/types";
+import {languages} from '../const/const';
+import {TLanguage} from '../../_interface/types';
+import ErrnoException = NodeJS.ErrnoException;
 
 export function readFile(path: string, options: object | string = 'UTF8'): Promise<string> {
     return new Promise ((resolve, reject) => {
-        fs.readFile(path, options, (err: Error, data: object | string) => {
+        fs.readFile(path, options, (err: ErrnoException | null, data: object | string) => {
             if (err) {
                 reject(err);
                 log.error(`Error reading file ${path}`, err);
@@ -19,7 +20,7 @@ export function readFile(path: string, options: object | string = 'UTF8'): Promi
 
 export function writeFile(path: string, data: string, options: object | string = 'UTF8'): Promise<string> {
     return new Promise ((resolve, reject) => {
-        fs.writeFile(path, data, options, (err: Error) => {
+        fs.writeFile(path, data, options, (err: ErrnoException | null) => {
             if (err) {
                 reject(err);
                 log.error(`Error writing file ${path}`, err);
@@ -33,7 +34,7 @@ export function writeFile(path: string, data: string, options: object | string =
 
 export function removeFile(path: string): Promise<string> {
     return new Promise ((resolve, reject) => {
-        fs.unlink(path, (err: Error) => {
+        fs.unlink(path, (err: ErrnoException | null) => {
             if (err) {
                 reject(err);
                 log.error(`Error removing file ${path}`, err);
@@ -47,7 +48,7 @@ export function removeFile(path: string): Promise<string> {
 
 export function readDir(path: string, options: object | string = 'UTF8'): Promise<Array<string>> {
     return new Promise ((resolve, reject) => {
-        fs.readdir(path, (err: Error, files: Array<string>) => {
+        fs.readdir(path, (err: ErrnoException | null, files: Array<string>) => {
             if (err) {
                 reject(err);
                 log.error(`Error reading directoru ${path}`, err);

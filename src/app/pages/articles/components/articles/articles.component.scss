@@ -1,0 +1,45 @@
+@import "../../../../styles/mixins";
+@import "../../../../styles/variables";
+
+.articles {
+  &-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    @include desktop-sm-breakpoint {
+      flex-direction: column;
+    }
+
+    @include mobile-breakpoint-landscape {
+      flex-direction: row;
+    }
+  }
+
+  &-item {
+    width: calc(50% - 10px);
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+
+    app-article {
+      width: 100%;
+    }
+
+    @include desktop-sm-breakpoint {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
+    @include mobile-breakpoint-landscape {
+      width: calc(50% - 10px);
+    }
+  }
+}
+
+@include mobile-breakpoint-landscape {
+  app-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

@@ -1,10 +1,10 @@
-import {TLanguage} from "../../../_interface/types";
+import {TLanguage} from '../../../_interface/types';
 
-import interfaceArticlesEn from "./interface.articles.en";
-import interfaceArticlesFr from "./interface.articles.fr";
-import interfaceArticlesRu from "./interface.articles.ru";
-import interfaceArticlesUk from "./interface.articles.uk";
-import {readService} from "../../services/db-middleware/service";
+import interfaceArticlesEn from './interface.articles.en';
+import interfaceArticlesFr from './interface.articles.fr';
+import interfaceArticlesRu from './interface.articles.ru';
+import interfaceArticlesUk from './interface.articles.uk';
+import {readArticlesPreviews} from '../../services/db-middleware/article';
 
 export const configObj: any = {
   en: interfaceArticlesEn,
@@ -14,9 +14,9 @@ export const configObj: any = {
 };
 
 export async function getArticlesInterface(lang: TLanguage) {
-  let interfaceObj: any = configObj[lang];
+  const interfaceObj: any = configObj[lang];
 
-  interfaceObj.items = await readService(lang);
+  interfaceObj.items = await readArticlesPreviews();
 
   return interfaceObj;
 }

@@ -1,23 +1,24 @@
-import express = require('express');
-import getInterfaceHandler from "./interface";
-import IRequest from "../../interfaces/iRequest";
-import {NextFunction, Response} from "express-serve-static-core";
-import {validateToken} from "../../services/security-services/auth-service";
-import getReviewHandler from "./review";
-import getAppointmentHandler from "./appointment";
+import express from 'express';
+import getInterfaceHandler from './interface';
+import {NextFunction, Request, Response} from 'express-serve-static-core';
+import {validateToken} from '../../services/security-services/auth-service';
+import getReviewHandler from './review';
+import getAppointmentHandler from './appointment';
+import getPrivacyPolicyHandler from './privacyPolicy';
+import getArticleHandler from './article';
+import loginHandler from './login';
 import bodyParser = require('body-parser');
-import getPrivacyPolicyHandler from "./privacyPolicy";
 
 const router = express.Router();
 
 router.use(bodyParser.json({type: 'application/json'}));
-router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
-  if (/romanenkova.com|localhost|romanenkova.herokuapp.com|romanenkova-staging.herokuapp.com/i.test(req.hostname)) {
+router.use('*', (req: Request, res: Response, next: NextFunction) => {
+  if (/romanenkova.com|localhost/i.test(req.hostname)) {
     res.header('Access-Control-Allow-Origin', req.get('origin') || '*');
     res.header('Access-Control-Allow-Headers', 'Origin,X-Requested-With,Content-Type,Accept');
     res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
 
-    let token = req.query.token;
+    let token: string = req.query.token as string;
     if (req.method.toLowerCase() === 'post' || req.method.toLowerCase() === 'put' || req.method.toLowerCase() === 'options') {
       token = req.body ? token || req.body.token : token;
     }
@@ -40,10 +41,12 @@ router.use('*', (req: IRequest, res: Response, next: NextFunction) => {
   }
 });
 
-//todo: as far router is shared object, only first post is fired
+// todo: as far router is shared object, only first post is fired
 router.route('/appointment').post(getAppointmentHandler);
 router.route('/review').post(getReviewHandler);
-router.route('/:lang/:page').get(getInterfaceHandler);
+router.route('/article/:url/').get(getArticleHandler);
 router.route('/privacy-policy').get(getPrivacyPolicyHandler);
+router.route('/:lang/:page/').get(getInterfaceHandler);
+router.route('/login').post(loginHandler);
 
 export default router;

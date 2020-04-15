@@ -1,5 +1,5 @@
-import {TLanguage, TWeekday} from "./types";
-import {IPhotoPreview} from "./IPhotoPreview";
+import {TLanguage, TWeekday} from './types';
+import {IPhotoPreview} from './IPhotoPreview';
 
 export namespace Database {
   interface IMongooseSchema {
@@ -68,14 +68,19 @@ export namespace Database {
 
   export interface IArticle extends IMongooseSchema {
     logo: string;
+    imageMd: string;
+    imageXl: string;
     header: string;
-    isPublished: boolean;
+    body: string;
+    isPublished?: boolean;
     createdAt: Date;
-    updatedAt: Date,
-    deletedAt?: Date,
-    isDeleted: boolean,
-    url: string,
-    entityId: string
+    updatedAt: Date;
+    deletedAt?: Date;
+    isDeleted?: boolean;
+    url?: string;
+    entityId: string;
+    imageAuthor: string;
+    imageUrl: string;
   }
 
   export interface ISchedule {

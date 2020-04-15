@@ -1,11 +1,11 @@
-import IRequest from "../../interfaces/iRequest";
-import {Response} from "express-serve-static-core";
-import {validateRecaptcha} from "../../services/security-services/recaptcha-validator";
-import {errorMessages, successMessages} from "../../const/const";
-import {createReview} from "../../services/db-middleware/review";
-import {sendEmail} from "../../services/user-services/email-service";
+import {Request, Response} from 'express';
+import {validateRecaptcha} from '../../services/security-services/recaptcha-validator';
+import {errorMessages, successMessages} from '../../const/const';
+import {createReview} from '../../services/db-middleware/review';
+import {sendEmail} from '../../services/user-services/email-service';
+import {writeFile} from '../../services/file-service';
 
-export default async function getReviewHandler(req: IRequest, res: Response) {
+export default async function getReviewHandler(req: Request, res: Response) {
   const name = req.body.name || 'Anonymous';
 
   await validateRecaptcha(req.body.recaptcha).catch((e: any) => {
@@ -18,22 +18,28 @@ export default async function getReviewHandler(req: IRequest, res: Response) {
   });
   let to = 'info@romanenkova.com';
   if (req.body.email) {
-    to += `, ${req.body.email}`
+    to += `, ${req.body.email}`;
   }
-  await sendEmail({
-    to,
-    from: `${name} <info@mail.romanenkova.com>`,
-    subject: 'A feedback was left',
-    text: `
+
+  const htmlLetter = `
               FROM: ${req.body.name},
               EMAIL: ${req.body.email},
               -----------------------------------
               FEEDBACK: ${req.body.body}
-            `
-  }).catch((e: any) => {
-    res.status(400).json(errorMessages.email[req.body.language]);
-    throw e;
-  });
+            `;
+  if (!req.isLocalhost) {
+    await sendEmail({
+      to,
+      from: `${name} <info@mail.romanenkova.com>`,
+      subject: 'A feedback was left',
+      text: htmlLetter
+    }).catch((e: any) => {
+      res.status(400).json(errorMessages.email[req.body.language]);
+      throw e;
+    });
+  } else {
+    await writeFile('./email-last-review.html', htmlLetter);
+  }
 
   const header = successMessages.review.header[req.body.language];
   const body = successMessages.review.body[req.body.language];
