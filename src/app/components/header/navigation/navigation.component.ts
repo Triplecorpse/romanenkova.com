@@ -24,15 +24,6 @@ export class NavigationComponent implements OnInit {
   constructor(private pageDataGuardService: PageDataGuardService, private changeDetectorRef: ChangeDetectorRef) {
   }
 
-  ngOnChanges() {
-    setTimeout(() => {
-      console.log('s, -e');
-      console.log(this.isArticlesPage);
-      console.log(this.isArticlePage);
-      this.changeDetectorRef.markForCheck();
-    }, 100);
-  }
-
   ngOnInit() {
     this.nav = this.pageDataGuardService.pageData.index.nav.map((navItem: INavItem): INavItem => {
       const anchor: string = navItem.anchor;
