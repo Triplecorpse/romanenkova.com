@@ -34,6 +34,22 @@ export function getDiplomasItems(): Promise<Array<Database.IDiploma>> {
         isPublished: true,
         image: 'diplomas/eupxoexyhmtzxl74lgvy.jpg',
         preview: ''
+      },
+      {
+        order: 5,
+        graduateYear: 2020,
+        institute: 'Centrum Pomocy Psychologicznej i Terapii Somatycznej',
+        isPublished: true,
+        image: 'diplomas/IMG_2467.jpg',
+        preview: ''
+      },
+      {
+        order: 6,
+        graduateYear: 2009,
+        institute: 'Дніпропетровський національний університет імені Олеся Гончара',
+        isPublished: true,
+        image: 'diplomas/IMG_2469.jpg',
+        preview: ''
       }
     ];
 

@@ -16,10 +16,11 @@ export function getAboutPageDataV2(): Promise<Array<Page.IAboutPage>> {
                 log.warning('\x1b[31m', 'DELETED: about', pages.n, 'pages');
 
                 return Promise.all([
-                    uploadImage('./population/assets/photos/_DSC0011.jpg', 'photos'),
+                    uploadImage('./population/assets/photos/photo_2020-07-12_17-31-00.jpg', 'photos'),
+                    uploadImage('./population/assets/photos/photo_2020-07-12_17-28-29.jpg', 'photos'),
+                    uploadImage('./population/assets/photos/photo_2020-07-12_17-33-23.jpg', 'photos'),
                     uploadImage('./population/assets/photos/_DSC0032.jpg', 'photos'),
                     uploadImage('./population/assets/photos/_DSC0055.jpg', 'photos'),
-                    uploadImage('./population/assets/photos/_DSC0326.jpg', 'photos')
                 ]);
             })
             .then((images: any) => {
