@@ -20,7 +20,7 @@
     "db:diploma": "tsc --project population && node population/init -- diplomaItem",
     "build:local": "ng run front:server:local && npm run build && npm run build:ssr && ng build --configuration=local --aot --stats-json",
     "build:qa": "node .env.copy.development && ng run front:server:qa && npm run build && npm run build:ssr && ng build --configuration=qa --aot --stats-json",
-    "build:production": "node .env.copy.production && ng run front:server:production && npm run build && npm run build:ssr && ng build --configuration=production --aot --stats-json --prod && git add dist/. && git add front/.",
+    "build:production": "ng run front:server:production && npm run build && npm run build:ssr && ng build --configuration=production --aot --stats-json --prod && git add dist/. && git add front/.",
     "analyze": "webpack-bundle-analyzer front/stats.json",
     "build:local:n:analyze": "npm run build:local && npm run analyze",
     "build:qa:n:analyze": "npm run build:qa && npm run analyze",
