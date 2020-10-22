@@ -1,7 +1,7 @@
 <div class="contacts" id="contacts" #contacts [@fade]="animationState">
   <h3 class="contacts-header h1">{{header}}</h3>
   <div class="contact" *ngFor="let contact of contactItems">
-    <ng-container *ngIf="contact.key === 'skype' || contact.key === 'email' || contact.key === 'phone'">
+    <ng-container *ngIf="contact.key === 'skype' || contact.key === 'phone'">
       <h4 class="contact-name">{{contact.name}}</h4>
       <a [href]="contact.linkto | safeUrl" class="contact-account">{{contact.value}}</a>
       <div class="messengers-wrapper" *ngIf="contact.key === 'phone'">
