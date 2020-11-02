@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  recaptcha: '6LdLOY0UAAAAAPrMEPErFr4JKRqtOnQQ5tKDFTRk',
+  recaptcha: '6LerJd4ZAAAAAB5eOCuLUD5hjvd2oXoAgezaF3pf',
   apiLink: '/'
 };
