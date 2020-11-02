@@ -13,7 +13,7 @@ const routes: Routes = [
     outlet: 'primary'
   }, {
     path: '404',
-    loadChildren: './pages/_page404/page404.module#Page404Module',
+    loadChildren: () => import('./pages/_page404/page404.module').then(m => m.Page404Module),
     outlet: 'primary'
   },
   {path: '', component: IndexComponent, outlet: 'primary', data: {pageidv2: 'index'}, canActivate: [PageDataGuardService]},

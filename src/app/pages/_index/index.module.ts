@@ -32,31 +32,31 @@ import {ClickOutsideModule} from 'ng4-click-outside';
     RouterModule.forChild([
       {
         path: 'about',
-        loadChildren: './../about/about.module#AboutModule',
+        loadChildren: () => import('./../about/about.module').then(m => m.AboutModule),
         data: {pageid: 'about', pageidv2: 'about'},
         canActivate: [PageDataGuardService]
       },
       {
         path: 'articles',
-        loadChildren: './../articles/articles.module#ArticlesModule',
+        loadChildren: () => import('./../articles/articles.module').then(m => m.ArticlesModule),
         data: {pageid: 'article', pageidv2: 'article'},
         canActivate: [PageDataGuardService]
       },
       {
         path: 'services',
-        loadChildren: './../services/services.module#ServicesModule',
+        loadChildren: () => import('./../services/services.module').then(m => m.ServicesModule),
         data: {pageid: 'service', pageidv2: 'service'},
         canActivate: [PageDataGuardService]
       },
       {
         path: 'diplomas',
-        loadChildren: './../diplomas/diplomas.module#DiplomasModule',
+        loadChildren: () => import('./../diplomas/diplomas.module').then(m => m.DiplomasModule),
         data: {pageid: 'diploma', pageidv2: 'diploma'},
         canActivate: [PageDataGuardService]
       },
       {
         path: 'article/:id',
-        loadChildren: './../article/article.module#ArticleModule',
+        loadChildren: () => import('./../article/article.module').then(m => m.ArticleModule),
         data: {pageid: 'article-item', pageidv2: 'article-item'},
         canActivate: [PageDataGuardService]
       },
