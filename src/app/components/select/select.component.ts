@@ -50,7 +50,7 @@ export class SelectComponent implements ControlValueAccessor, OnInit {
       .filter((el: any) => el !== '_');
   }
   @ViewChild('selectEl', {static: true}) selectEl: ElementRef;
-  @ViewChild('clearSelectionEl', {static: false}) clearSelectionEl: ElementRef;
+  @ViewChild('clearSelectionEl') clearSelectionEl: ElementRef;
   @ViewChildren('listItemEl', {read: ElementRef}) listItemEl: QueryList<ElementRef>;
 
   public isDisabled: boolean;
