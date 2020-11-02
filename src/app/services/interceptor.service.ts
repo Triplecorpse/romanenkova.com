@@ -19,7 +19,7 @@ export class InterceptorService implements HttpInterceptor {
     const apiv2 = 'api/v2/';
 
     if (isPlatformServer(this.platformId)) {
-      host = 'http://localhost:4000/';
+      host = 'http://localhost:3000/';
     }
 
     if (!url.toLowerCase().startsWith('http')) {
