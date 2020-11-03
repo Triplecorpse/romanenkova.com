@@ -13,7 +13,7 @@ import {PageDataGuardService} from './page-data-guard.service';
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'romanenkova'}),
+    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     IndexModule,

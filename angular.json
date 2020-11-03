@@ -172,46 +172,17 @@
             ]
           }
         },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
           "options": {
-            "outputPath": "dist",
-            "main": "src/main.server.ts",
-            "tsConfig": "src/tsconfig.server.json"
+            "browserTarget": "front:build:production",
+            "serverTarget": "front:server:production",
+            "routes": [
+              "/"
+            ]
           },
           "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            },
-            "qa": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.qa.ts"
-                }
-              ]
-            },
-            "staging": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.staging.ts"
-                }
-              ]
-            },
-            "local": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.local.ts"
-                }
-              ]
-            }
+            "production": {}
           }
         }
       }
