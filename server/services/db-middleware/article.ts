@@ -5,7 +5,7 @@ import {IArticlePreview} from '../../../_interface/IArticlePreview';
 import IArticle = Database.IArticle;
 
 export function readArticlesPreviews(lang?: TLanguage, isAdmin?: boolean): Promise<Array<IArticlePreview>> {
-  const opts = {
+  const opts: any = {
     isPublished: true,
     lang
   };
@@ -38,7 +38,7 @@ export function readArticlesPreviews(lang?: TLanguage, isAdmin?: boolean): Promi
 }
 
 export function readArticle(url: string, isAdmin: boolean = false): Promise<Database.IArticle> {
-  const opts = {
+  const opts: any = {
     isPublished: true,
     url
   };

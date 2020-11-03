@@ -7,7 +7,7 @@ export function createReview(review: Database.IReview) {
 }
 
 export function readReview(language: TLanguage, isAdmin: boolean = false): Promise<Array<Database.IReview>> {
-  const opts = {
+  const opts: any = {
     isPublished: true,
     language
   };

@@ -51,7 +51,7 @@ router.get('/:lang?/:page?/:entity?', (req: Request, res: Response, next: NextFu
 
     const DIST_FOLDER = join(process.cwd(), 'front');
 
-    res.render(join(DIST_FOLDER, 'index.html'), {req});
+    res.sendFile(join(DIST_FOLDER, 'index.html'));
 });
 
 router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {

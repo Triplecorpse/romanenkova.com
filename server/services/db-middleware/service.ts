@@ -7,7 +7,7 @@ export function createService(service: Database.IService): Promise<any> {
 }
 
 export function readService(language: TLanguage, isAdmin: boolean = false): Promise<Array<Database.IService>> {
-  const opts = {
+  const opts: any = {
     isPublished: true,
     language
   };
