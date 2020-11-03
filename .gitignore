@@ -65,3 +65,4 @@ node_modules
 bitbucket-pipelines.yml
 front
 dist
+srv

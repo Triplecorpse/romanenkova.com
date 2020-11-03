@@ -35,24 +35,24 @@ router.use('*', (req: Request, res: Response, next: NextFunction) => {
     next();
 });
 
-router.get('/:lang?/:page?/:entity?', (req: Request, res: Response, next: NextFunction) => {
-    // continue routing if language is not acceptable
-    if (req.params.lang && languages.indexOf(req.params.lang as TLanguage) === -1 && req.params.lang !== '404') {
-        return next();
-    }
-
-    if (req.isQa && !req.cookies.allowQa) {
-      res.sendFile(path.join(__dirname + '../../../front/assets/run-staging.html'));
-
-      return;
-    }
-
-    req.language = req.params.lang as TLanguage || req.language;
-
-    const DIST_FOLDER = join(process.cwd(), 'front');
-
-    res.sendFile(join(DIST_FOLDER, 'index.html'));
-});
+// router.get('/:lang?/:page?/:entity?', (req: Request, res: Response, next: NextFunction) => {
+//     // continue routing if language is not acceptable
+//     if (req.params.lang && languages.indexOf(req.params.lang as TLanguage) === -1 && req.params.lang !== '404') {
+//         return next();
+//     }
+//
+//     if (req.isQa && !req.cookies.allowQa) {
+//       res.sendFile(path.join(__dirname + '../../../front/assets/run-staging.html'));
+//
+//       return;
+//     }
+//
+//     req.language = req.params.lang as TLanguage || req.language;
+//
+//     const DIST_FOLDER = join(process.cwd(), 'front');
+//
+//     res.sendFile(join(DIST_FOLDER, 'index.html'));
+// });
 
 router.get('/uptime', (req: Request, res: Response, next: NextFunction) => {
     res.send(builtOn.toString());

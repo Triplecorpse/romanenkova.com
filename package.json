@@ -5,25 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha test/index.spec.js",
-    "start": "npm run build && node server/app.js",
-    "serve": "ng serve --configuration=light",
-    "start:local": "npm run build:local && npm run build && npm run db:init && node server/app.js",
-    "update": "sudo systemctl stop varnish && git checkout . && git pull && npm i && npm run build && npm run build:production && pm2 restart app && sudo systemctl start varnish",
-    "update:qa": "git checkout . && git pull && npm i && npm run build && npm run build:qa && pm2 restart app-stage",
-    "build": "tsc --project server",
-    "db:init": "tsc --project population && node population/init -- schedule serviceItem diplomaItem users newcontact aboutpage articleItem",
-    "db:aboutpage": "tsc --project population && node population/init -- aboutpage",
-    "db:recreateadmin": "tsc --project population && node population/init -- users",
-    "db:service": "tsc --project population && node population/init -- serviceItem",
-    "db:article": "tsc --project population && node population/init -- articleItem",
-    "db:diploma": "tsc --project population && node population/init -- diplomaItem",
-    "build:local": "ng run front:server:local && npm run build && npm run build:ssr && ng build --configuration=local --aot --stats-json",
-    "build:qa": "node .env.copy.development && ng run front:server:qa && npm run build && npm run build:ssr && ng build --configuration=qa --aot --stats-json",
-    "build:production": "ng run front:server:production && npm run build && npm run build:ssr && ng build --configuration=production --aot --stats-json --prod && git add dist/. && git add front/.",
-    "analyze": "webpack-bundle-analyzer front/stats.json",
-    "build:local:n:analyze": "npm run build:local && npm run analyze",
-    "build:qa:n:analyze": "npm run build:qa && npm run analyze",
-    "build:production:n:analyze": "npm run build:production && npm run analyze"
+    "start": "node server/app.js",
+    "build": "tsc --project server && ng build",
+    "db:init": "tsc --project population && node population/init -- schedule serviceItem diplomaItem users newcontact aboutpage articleItem"
   },
   "repository": {
     "type": "git",
