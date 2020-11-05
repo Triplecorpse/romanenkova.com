@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha test/index.spec.js",
-    "start": "node server/app.js",
+    "start": "node back/server/app.js",
     "build": "tsc --project server && ng build",
     "db:init": "tsc --project population && node population/init -- schedule serviceItem diplomaItem users newcontact aboutpage articleItem"
   },
