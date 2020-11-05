@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "outDir": "../back",
+    "outDir": "../dist/back",
     "esModuleInterop": true
   },
   "exclude": [

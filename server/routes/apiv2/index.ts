@@ -1,4 +1,4 @@
-import express from 'express';
+import * as express from 'express';
 import getInterfaceHandler from './interface';
 import {NextFunction, Request, Response} from 'express-serve-static-core';
 import {validateToken} from '../../services/security-services/auth-service';

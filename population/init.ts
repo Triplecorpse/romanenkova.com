@@ -1,6 +1,6 @@
 import {Article} from '../server/models/article';
 import log from '../server/services/log-service';
-import mongoose from 'mongoose';
+import * as mongoose from 'mongoose';
 import {getSchedule} from './init_schedule';
 import {Schedule} from '../server/models/schedule';
 import {getServiceItemData} from './init_services_items';

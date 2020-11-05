@@ -1,4 +1,4 @@
-interface IModalOptions {
+export interface IModalOptions {
   closeWithBackdrop?: boolean;
   fullScreen?: boolean;
 }

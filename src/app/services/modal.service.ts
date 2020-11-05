@@ -2,6 +2,7 @@ import {Injectable, TemplateRef} from '@angular/core';
 import {Subject} from 'rxjs';
 import {IModalEvent} from '../interfaces/iModalEvent';
 import {filter, take} from 'rxjs/operators';
+import {IModalOptions} from '../interfaces/IModalOptions';
 
 @Injectable({
   providedIn: 'root'

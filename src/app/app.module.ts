@@ -13,7 +13,7 @@ import {PageDataGuardService} from './page-data-guard.service';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     IndexModule,
