@@ -21,6 +21,8 @@ require('dotenv').config();
 
 const port: string = process.env.PORT as string;
 
+log.info(`Port is ${port}`);
+
 mongoose.connect(process.env.MONGODB_URI as string, {useNewUrlParser: true, useUnifiedTopology: true})
   .then(startRegularBackups.bind(this, getMilliseconds(1, 'days')));
 
@@ -29,21 +31,21 @@ generateSiteMap();
 const numCPUs = require('os').cpus().length;
 
 if (cluster.isMaster) {
-  console.log(`Master ${process.pid} is running`);
+  log.info(`Master ${process.pid} is running`);
 
   for (let i = 0; i < numCPUs; i++) {
     cluster.fork();
   }
 
   cluster.on('exit', (worker: any, code: any, signal: any) => {
-    console.log(`worker ${worker.process.pid} died`);
+    log.info(`worker ${worker.process.pid} died`);
   });
 } else {
   app.listen(port, () => {
     log.info(`Server started on port ${port}. Go to http://localhost:${port} to open the app`);
   });
 
-  console.log(`Worker ${process.pid} started`);
+  log.info(`Worker ${process.pid} started`);
 }
 
 export const ps = passport;
