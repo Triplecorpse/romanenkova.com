@@ -1,8 +1,8 @@
 import {validateRecaptcha} from '../../services/security-services/recaptcha-validator';
 import {errorMessages, successMessages} from '../../const/const';
 import {IAppointmentModal} from '../../../_interface/IAppointmenntModal';
-import {getHtmlLetter, sendEmail} from '../../services/user-services/email-service';
-import {writeFile} from '../../services/file-service';
+// import {getHtmlLetter, sendEmail} from '../../services/user-services/email-service';
+// import {writeFile} from '../../services/file-service';
 import {Request, Response} from 'express';
 
 export default async function getAppointmentHandler(req: Request, res: Response) {
@@ -28,19 +28,19 @@ export default async function getAppointmentHandler(req: Request, res: Response)
     res.status(400).json(errorMessages.captcha[req.body.language]);
     throw e;
   });
-  const contactNameControl = appointment.contactNameControl ? appointment.contactNameControl.name : 'n/a';
-  const htmlLetter = await getHtmlLetter('appointment', {...appointment, contactNameControl});
-
-  if (!req.isLocalhost) {
-    await sendEmail({
-      to: `info@romanenkova.com, ${appointment.email}`,
-      from: `${appointment.name} <info@romanenkova.com>`,
-      subject: 'New Appointment From Site',
-      html: htmlLetter
-    });
-  } else {
-    await writeFile('./email-last-appointment.html', htmlLetter);
-  }
+  // const contactNameControl = appointment.contactNameControl ? appointment.contactNameControl.name : 'n/a';
+  // const htmlLetter = await getHtmlLetter('appointment', {...appointment, contactNameControl});
+  //
+  // if (!req.isLocalhost) {
+  //   await sendEmail({
+  //     to: `info@romanenkova.com, ${appointment.email}`,
+  //     from: `${appointment.name} <info@romanenkova.com>`,
+  //     subject: 'New Appointment From Site',
+  //     html: htmlLetter
+  //   });
+  // } else {
+  //   await writeFile('./email-last-appointment.html', htmlLetter);
+  // }
 
   const header = successMessages.appointment.header[req.body.language];
   const body = successMessages.appointment.body[req.body.language];
